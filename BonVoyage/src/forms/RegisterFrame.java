@@ -63,10 +63,10 @@ public class RegisterFrame extends JFrame {
 		btnRegister.setBounds(338, 532, 112, 21);
 		contentPane.add(btnRegister);
 		
-		JLabel lblSeiGi‡Registrato = new JLabel("Gi\u00E0 registrato?");
-		lblSeiGi‡Registrato.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSeiGi‡Registrato.setBounds(318, 496, 104, 26);
-		contentPane.add(lblSeiGi‡Registrato);
+		JLabel lblSeiGiaRegistrato = new JLabel("Gi\u00E0 registrato?");
+		lblSeiGiaRegistrato.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblSeiGiaRegistrato.setBounds(318, 496, 104, 26);
+		contentPane.add(lblSeiGiaRegistrato);
 		
 		JLabel lblAccess = new JLabel("Accedi");
 		lblAccess.setFont(new Font("Tahoma", Font.PLAIN, 16));
