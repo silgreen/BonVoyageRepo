@@ -63,6 +63,7 @@ public class LoginFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		textFieldUsername = new JTextField();
+		textFieldUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textFieldUsername.setBounds(258, 230, 264, 27);
 		contentPane.add(textFieldUsername);
 		textFieldUsername.setColumns(10);
