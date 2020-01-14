@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Driver_DB"/>
+	<classpathentry kind="lib" path="Driver_DB/postgresql-42.2.9_1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
