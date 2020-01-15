@@ -51,7 +51,7 @@ public class SearchFrame extends JFrame {
 		contentPane.add(lblLogo);
 		
 		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAFIWVTMNOXKW3BD5226FAPSA"));
+		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
 		    
 		    JRadioButton rdbtnHotel = new JRadioButton("Hotel");
