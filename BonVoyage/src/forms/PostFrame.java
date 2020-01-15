@@ -195,7 +195,7 @@ public class PostFrame extends JFrame {
 	    contentPane.add(scrollPane);
 	    
 	    JPanel panel = new JPanel();
-	    scrollPane.setViewportView(panel);
+	    scrollPane.setViewportView(panel); 
 	    panel.setPreferredSize(new Dimension (panel.getWidth(),200));
 	    
 	    JLabel lblNewLabel = new JLabel("New label");
