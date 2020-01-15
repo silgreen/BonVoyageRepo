@@ -204,7 +204,7 @@ public class PostFrame extends JFrame {
 	    
 	    textField = new JTextField();
 	    textField.setBounds(37, 83, 96, 143);
-	    panel.add(textField); 
+	    panel.add(textField);
 	    textField.setColumns(10);
 	    
 		    
