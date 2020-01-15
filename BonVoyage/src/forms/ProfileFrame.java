@@ -85,43 +85,46 @@ public class ProfileFrame extends JFrame {
 		lblRegion.setBounds(159, 136, 125, 17);
 		contentPane.add(lblRegion);
 		
+		JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
+	    lblemail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	    lblemail.setBounds(470, 221, 304, 35);
+	    contentPane.add(lblemail);
+	    
+	    JLabel lblBiografia = new JLabel("Biografia");
+	    lblBiografia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+	    lblBiografia.setBounds(42, 227, 77, 24);
+	    contentPane.add(lblBiografia);
+	    
+	    textFieldBio = new JTextField();
+	    textFieldBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	    textFieldBio.setText("tytyty");
+	    textFieldBio.setEnabled(false);
+	    textFieldBio.setBounds(21, 260, 374, 150);
+	    contentPane.add(textFieldBio);
+	    textFieldBio.setColumns(10);
+	    
+	    JButton btnModifyBio = new JButton("");
+	    btnModifyBio.setBounds(362, 231, 33, 23);
+	    contentPane.add(btnModifyBio);
+	    
+	    JButton btnIndietro = new JButton("Indietro");
+	    btnIndietro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    btnIndietro.setBounds(20, 510, 89, 29);
+	    contentPane.add(btnIndietro);
+	    
+	    JButton btnEsci = new JButton("Esci");
+	    btnEsci.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    btnEsci.setBounds(685, 510, 89, 29);
+	    contentPane.add(btnEsci);
+	    
+	    JButton btnEliminaAccount = new JButton("Elimina Account");
+	    btnEliminaAccount.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    btnEliminaAccount.setBounds(542, 510, 133, 29);
+	    contentPane.add(btnEliminaAccount);
+		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
-		    
-		    JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
-		    lblemail.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		    lblemail.setBounds(470, 221, 304, 35);
-		    contentPane.add(lblemail);
-		    
-		    JLabel lblBiografia = new JLabel("Biografia");
-		    lblBiografia.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		    lblBiografia.setBounds(42, 227, 77, 24);
-		    contentPane.add(lblBiografia);
-		    
-		    textFieldBio = new JTextField();
-		    textFieldBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		    textFieldBio.setText("tytyty");
-		    textFieldBio.setEnabled(false);
-		    textFieldBio.setBounds(21, 260, 374, 150);
-		    contentPane.add(textFieldBio);
-		    textFieldBio.setColumns(10);
-		    
-		    JButton btnModifyBio = new JButton("");
-		    btnModifyBio.setBounds(362, 231, 33, 23);
-		    contentPane.add(btnModifyBio);
-		    
-		    JButton btnIndietro = new JButton("Indietro");
-		    btnIndietro.setBounds(20, 510, 89, 29);
-		    contentPane.add(btnIndietro);
-		    
-		    JButton btnEsci = new JButton("Esci");
-		    btnEsci.setBounds(685, 510, 89, 29);
-		    contentPane.add(btnEsci);
-		    
-		    JButton btnEliminaAccount = new JButton("Elimina Account");
-		    btnEliminaAccount.setBounds(563, 510, 112, 29);
-		    contentPane.add(btnEliminaAccount);
 		}
 		catch(IOException ex) {
 		}
