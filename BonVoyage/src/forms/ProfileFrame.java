@@ -52,7 +52,7 @@ public class ProfileFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("New label");
-		lblLogo.setBounds(10, 10, 170, 55);
+		lblLogo.setBounds(20, 20, 170, 55);
 		contentPane.add(lblLogo);
 		
 		JLabel lblUsername = new JLabel("Gianluca Savonarola");
