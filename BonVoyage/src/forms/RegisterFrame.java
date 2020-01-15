@@ -1,6 +1,7 @@
 package forms;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,10 +9,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
+
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -34,33 +41,34 @@ public class RegisterFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255,250,240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textFieldEmail = new JTextField();
-		textFieldEmail.setBounds(318, 163, 167, 19);
+		textFieldEmail.setBounds(261, 163, 264, 21);
 		contentPane.add(textFieldEmail);
 		textFieldEmail.setColumns(10);
 		
 		textFieldUserName = new JTextField();
-		textFieldUserName.setBounds(318, 215, 167, 19);
+		textFieldUserName.setBounds(261, 215, 264, 21);
 		contentPane.add(textFieldUserName);
 		textFieldUserName.setColumns(10);
 		
 		textFieldCity = new JTextField();
-		textFieldCity.setBounds(318, 383, 167, 19);
+		textFieldCity.setBounds(261, 383, 264, 21);
 		contentPane.add(textFieldCity);
 		textFieldCity.setColumns(10);
 		
 		textFieldRegion = new JTextField();
-		textFieldRegion.setBounds(318, 443, 167, 19);
+		textFieldRegion.setBounds(261, 443, 264, 21);
 		contentPane.add(textFieldRegion);
 		textFieldRegion.setColumns(10);
 		
 		JButton btnRegister = new JButton("Registrati");
 		btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
-		btnRegister.setBounds(338, 532, 112, 21);
+		btnRegister.setBounds(337, 532, 112, 21);
 		contentPane.add(btnRegister);
 		
 		JLabel lblSeiGiaRegistrato = new JLabel("Gi\u00E0 registrato?");
@@ -74,41 +82,52 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblAccess);
 		
 		JLabel lblEmail = new JLabel("E-mail");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblEmail.setBounds(318, 140, 50, 13);
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblEmail.setBounds(261, 148, 50, 13);
 		contentPane.add(lblEmail);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblUsername.setBounds(318, 192, 89, 13);
+		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblUsername.setBounds(261, 203, 89, 13);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPassword.setBounds(318, 244, 76, 13);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPassword.setBounds(261, 255, 76, 13);
 		contentPane.add(lblPassword);
 		
 		passwordFieldRegister = new JPasswordField();
-		passwordFieldRegister.setBounds(318, 267, 167, 19);
+		passwordFieldRegister.setBounds(261, 267, 264, 21);
 		contentPane.add(passwordFieldRegister);
 		
 		JLabel lblConfermaPassword = new JLabel("Conferma password");
-		lblConfermaPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblConfermaPassword.setBounds(319, 296, 184, 19);
+		lblConfermaPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblConfermaPassword.setBounds(261, 308, 151, 19);
 		contentPane.add(lblConfermaPassword);
 		
 		passwordFieldConfirm = new JPasswordField();
-		passwordFieldConfirm.setBounds(318, 325, 167, 19);
+		passwordFieldConfirm.setBounds(261, 325, 264, 21);
 		contentPane.add(passwordFieldConfirm);
 		
 		JLabel lblCity = new JLabel("Citt\u00E0");
-		lblCity.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCity.setBounds(318, 354, 50, 19);
+		lblCity.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCity.setBounds(261, 367, 41, 19);
 		contentPane.add(lblCity);
 		
 		JLabel lblRegione = new JLabel("Regione");
-		lblRegione.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblRegione.setBounds(318, 412, 112, 21);
+		lblRegione.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblRegione.setBounds(261, 422, 63, 21);
 		contentPane.add(lblRegione);
+		
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setBounds(207, 10, 372, 109);
+		contentPane.add(lblLogo);
+		
+		try {
+		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
+		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		}
+		catch(IOException ex) {
+		}
 	}
 }
