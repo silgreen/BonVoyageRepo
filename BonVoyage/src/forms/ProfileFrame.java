@@ -63,7 +63,7 @@ public class ProfileFrame extends JFrame {
 		JLabel lblLivello = new JLabel("Livello:");
 		lblLivello.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblLivello.setBounds(358, 114, 48, 14);
-		contentPane.add(lblLivello);
+		contentPane.add(lblLivello); 
 		
 		JLabel lblLevel = new JLabel("1");
 		lblLevel.setFont(new Font("Tahoma", Font.BOLD, 14));
