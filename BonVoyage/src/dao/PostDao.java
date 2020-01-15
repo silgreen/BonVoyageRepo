@@ -1,5 +1,7 @@
 package dao;
 
-public class PostDao {
+import classi.Post;
+
+public class PostDao extends Post{
 
 }

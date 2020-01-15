@@ -17,6 +17,7 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
 
 public class ResultsFrame extends JFrame {
 

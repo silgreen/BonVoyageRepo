@@ -1,5 +1,7 @@
 package dao;
 
-public class UserDao {
+import classi.User;
+
+public class UserDao extends User {
 
 }

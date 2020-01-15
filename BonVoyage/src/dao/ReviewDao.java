@@ -1,5 +1,7 @@
 package dao;
 
-public class ReviewDao {
+import classi.Review;
+
+public class ReviewDao extends Review {
 
 }
