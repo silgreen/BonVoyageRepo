@@ -94,7 +94,7 @@ public class SearchFrame extends JFrame {
 		    lblSeparatore.setBounds(690, 18, 7, 27);
 		    contentPane.add(lblSeparatore);
 		}
-		catch(IOException ex) {
+		catch(IOException ex) { 
 		}
 	}
 }
