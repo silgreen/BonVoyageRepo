@@ -80,7 +80,7 @@ public class SearchFrame extends JFrame {
 		    JLabel lblLogin = new JLabel("Login");
 		    lblLogin.setForeground(new Color(0, 0, 205));
 		    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		    lblLogin.setBounds(651, 18, 46, 27);
+		    lblLogin.setBounds(652, 18, 46, 27);
 		    contentPane.add(lblLogin);
 		    
 		    JLabel lblRegistrati = new JLabel("Registrati");
