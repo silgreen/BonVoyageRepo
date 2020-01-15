@@ -23,6 +23,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class ReviewFrame extends JFrame {
 
