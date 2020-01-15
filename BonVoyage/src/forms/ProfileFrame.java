@@ -86,7 +86,7 @@ public class ProfileFrame extends JFrame {
 		contentPane.add(lblRegion);
 		
 		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPDXI435UMQK7VADI3K6FAPDS"));
+		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
 		    
 		    JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
