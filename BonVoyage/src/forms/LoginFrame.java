@@ -96,14 +96,15 @@ public class LoginFrame extends JFrame {
 		lblLogo.setBounds(221, 44, 338, 147);
 		contentPane.add(lblLogo);
 		
+	    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
+	    lblNonSeiRegistrato.setBounds(342, 369, 103, 14);
+	    contentPane.add(lblNonSeiRegistrato);
+	    //commento
+		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
 		    
-		    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
-		    lblNonSeiRegistrato.setBounds(342, 369, 103, 14);
-		    contentPane.add(lblNonSeiRegistrato);
-		    //commento
 		}
 		catch(IOException ex) {
 		}
