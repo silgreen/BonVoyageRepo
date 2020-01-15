@@ -20,7 +20,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class SearchFrame extends JFrame {
+public class SearchFrame extends JFrame { 
 
 	private JPanel contentPane;
 	private JTextField txtDoveVuoiAndare;
