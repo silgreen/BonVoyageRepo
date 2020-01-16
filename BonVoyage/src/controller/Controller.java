@@ -46,6 +46,11 @@ public class Controller {
 	    Search.setVisible(true);
 	}
 	
+	public void toShowRegisterFrame() {
+		Register.setVisible(true);
+		Search.setVisible(false);
+	}
+	
 	public void toShowLogin() {
 		Login.setVisible(true);
 		Search.setVisible(false);

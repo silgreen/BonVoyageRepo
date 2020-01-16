@@ -96,6 +96,12 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toShowRegisterFrame();
+	    	}
+	    });
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    lblRegistrati.setBounds(697, 21, 68, 20);
