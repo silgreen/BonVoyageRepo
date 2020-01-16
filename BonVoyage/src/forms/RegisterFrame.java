@@ -12,6 +12,7 @@ import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -19,15 +20,19 @@ import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
 
 import controller.Controller;
+import except.PasswordDismatchException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterFrame extends JFrame {
 
@@ -72,11 +77,6 @@ public class RegisterFrame extends JFrame {
 		textFieldRegion.setBounds(261, 443, 264, 21);
 		contentPane.add(textFieldRegion);
 		textFieldRegion.setColumns(10);
-		
-		JButton btnRegister = new JButton("Registrati");
-		btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
-		btnRegister.setBounds(337, 532, 112, 21);
-		contentPane.add(btnRegister);
 		
 		JLabel lblSeiGiaRegistrato = new JLabel("Gi\u00E0 registrato?");
 		lblSeiGiaRegistrato.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -137,9 +137,24 @@ public class RegisterFrame extends JFrame {
 		lblLogo.setBounds(207, 10, 372, 109);
 		contentPane.add(lblLogo);
 		
+	    JButton btnRegister = new JButton("Registrati");
+	    btnRegister.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		try {
+					control.RegisterUser(textFieldEmail.getText(), textFieldUserName.getText(), passwordFieldRegister.getText(), passwordFieldConfirm.getText(), textFieldRegion.getText(), textFieldCity.getText());
+				} catch (PasswordDismatchException e1) {
+					JOptionPane.showInternalMessageDialog(contentPane, "La Password non corrisponde", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+				}
+	    	}
+	    });
+	    btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
+	    btnRegister.setBounds(337, 532, 112, 21);
+	    contentPane.add(btnRegister);
+		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    
 		}
 		catch(IOException ex) {
 		}

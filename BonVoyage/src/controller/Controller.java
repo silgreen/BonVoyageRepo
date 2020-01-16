@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
+import dao.UserDao;
+import except.PasswordDismatchException;
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.RegisterFrame;
@@ -21,6 +23,7 @@ public class Controller {
 	PostFrame Post;
 	ResultsFrame Results;
 	ReviewFrame Review;
+	UserDao UDAO;
 	
 	public static void main(String[] args) {
 		
@@ -34,7 +37,7 @@ public class Controller {
 		try {
 			
 			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+			con = DriverManager.getConnection("jdbc:postgresql://vps-zap476015-1.zap-srv.com:5432/postgres", "postgres","Bruttapippa11");
 			
 			
 		} catch (SQLException | ClassNotFoundException e){e.printStackTrace();}
@@ -45,14 +48,23 @@ public class Controller {
 	    Post = new PostFrame(this);
 	    Results = new ResultsFrame(this);
 	    Review = new ReviewFrame(this);
+	    UDAO = new UserDao(con);
+	    
 	    Search.setVisible(true);
+	}
+	
+	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException {
+		
+		if(password.equals(confirmpassword))
+			UDAO.insertUserInDb(email, username, password, region, city);
+		
+		else throw new PasswordDismatchException();
 	}
 	
 	public void toShowRegister() {
 		Register.setVisible(true);
 		Search.setVisible(false);
 	}
-	
 	
 	public void toShowLogin() {
 		Login.setVisible(true);
