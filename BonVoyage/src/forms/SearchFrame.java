@@ -90,6 +90,16 @@ public class SearchFrame extends JFrame {
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toShowLogin();
 	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblLogin.setText("<HTML><U>Login</U></HTML>");
+	    		lblLogin.setForeground(new Color(30, 144, 255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblLogin.setText("Login");
+	    		lblLogin.setForeground(new Color(0, 0, 205));
+	    	}
 	    });
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
