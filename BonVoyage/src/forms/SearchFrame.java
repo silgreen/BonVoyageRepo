@@ -18,6 +18,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import java.awt.Font;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -59,24 +61,28 @@ public class SearchFrame extends JFrame {
 		lblLogo.setBounds(234, 47, 353, 116);
 		contentPane.add(lblLogo);
 		
+		ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
 	    JRadioButton rdbtnHotel = new JRadioButton("Hotel");
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
 	    rdbtnHotel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    rdbtnHotel.setBounds(285, 249, 63, 21);
 	    contentPane.add(rdbtnHotel);
+	    radioButtonGroup.add(rdbtnHotel);
 	    
 	    JRadioButton rdbtnRistoranti = new JRadioButton("Ristoranti");
 	    rdbtnRistoranti.setBackground(new Color(255, 250, 240));
 	    rdbtnRistoranti.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    rdbtnRistoranti.setBounds(350, 249, 93, 21);
 	    contentPane.add(rdbtnRistoranti);
+	    radioButtonGroup.add(rdbtnRistoranti);
 	    
 	    JRadioButton rdbtnAttivita = new JRadioButton("Attivit\u00E0");
 	    rdbtnAttivita.setBackground(new Color(255, 250, 240));
 	    rdbtnAttivita.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    rdbtnAttivita.setBounds(445, 249, 77, 21);
 	    contentPane.add(rdbtnAttivita);
+	    radioButtonGroup.add(rdbtnAttivita);
 	    
 	    JButton btnCerca = new JButton("Cerca");
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -101,6 +107,7 @@ public class SearchFrame extends JFrame {
 	    		lblLogin.setForeground(new Color(0, 0, 205));
 	    	}
 	    });
+	    
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    lblLogin.setBounds(652, 18, 46, 27);
