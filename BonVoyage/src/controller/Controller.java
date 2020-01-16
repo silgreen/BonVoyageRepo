@@ -51,6 +51,7 @@ public class Controller {
 		Search.setVisible(false);
 	}
 	
+	
 	public void toShowLogin() {
 		Login.setVisible(true);
 		Search.setVisible(false);
