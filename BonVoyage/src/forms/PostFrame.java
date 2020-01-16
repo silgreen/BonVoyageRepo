@@ -27,16 +27,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 import java.awt.Scrollbar;
 import javax.swing.border.LineBorder;
+
+import controller.Controller;
+
 import javax.swing.JSeparator;
 
 public class PostFrame extends JFrame {
 
 	private JPanel contentPane;
+	private Controller control;
 
 	/**
 	 * Create the frame.
 	 */
-	public PostFrame() {
+	public PostFrame(Controller ctrl) {
+		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

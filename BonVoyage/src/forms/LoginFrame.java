@@ -12,6 +12,9 @@ import javax.swing.JTextField;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import controller.Controller;
+
 import javax.swing.SpringLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -33,11 +36,13 @@ public class LoginFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldUsername;
 	private JTextField textFieldPassword;
+	private Controller control;
 
 	/**
 	 * Create the frame.
 	 */
-	public LoginFrame() {
+	public LoginFrame(Controller ctrl) {
+		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

@@ -18,6 +18,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import controller.Controller;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
@@ -30,11 +33,13 @@ public class ReviewFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldTitolo;
+	private Controller control;
 
 	/**
 	 * Create the frame.
 	 */
-	public ReviewFrame() {
+	public ReviewFrame(Controller ctrl) {
+		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

@@ -11,6 +11,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.border.LineBorder;
+
+import controller.Controller;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Panel;
@@ -24,11 +27,14 @@ import javax.swing.ScrollPaneConstants;
 public class ResultsFrame extends JFrame {
 
 	private JPanel contentPane;
+	private Controller control;
+
 
 	/**
 	 * Create the frame.
 	 */
-	public ResultsFrame() {
+	public ResultsFrame(Controller ctrl) {
+		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

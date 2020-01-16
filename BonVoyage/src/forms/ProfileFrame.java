@@ -7,6 +7,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.Controller;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -22,11 +25,13 @@ public class ProfileFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldBio;
+	private Controller control;
 
 	/**
 	 * Create the frame.
 	 */
-	public ProfileFrame() {
+	public ProfileFrame(Controller ctrl) {
+		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

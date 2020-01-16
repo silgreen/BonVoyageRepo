@@ -18,6 +18,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
 
+import controller.Controller;
+
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -33,11 +35,13 @@ public class RegisterFrame extends JFrame {
 	private JTextField textFieldRegion;
 	private JPasswordField passwordFieldRegister;
 	private JPasswordField passwordFieldConfirm;
+	private Controller control;
 
 	/**
 	 * Create the frame.
 	 */
-	public RegisterFrame() {
+	public RegisterFrame(Controller ctrl) {
+		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
