@@ -64,6 +64,7 @@ public class SearchFrame extends JFrame {
 		ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
 	    JRadioButton rdbtnHotel = new JRadioButton("Hotel");
+	    rdbtnHotel.setBorder(null);
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
 	    rdbtnHotel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    rdbtnHotel.setBounds(285, 249, 63, 21);
