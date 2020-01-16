@@ -158,5 +158,6 @@ public class SearchFrame extends JFrame {
 		}
 		catch(IOException ex) { 
 		}
+		
 	}
 }
