@@ -84,6 +84,7 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(btnCerca);
 	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogin.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -96,6 +97,7 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {

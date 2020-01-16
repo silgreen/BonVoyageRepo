@@ -63,6 +63,4 @@ public class Controller {
 		Login.setVisible(false);
 		Search.setVisible(true);
 	}
-
-	
 }
