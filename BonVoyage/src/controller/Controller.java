@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.swing.JFrame;
+
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.RegisterFrame;
@@ -49,6 +51,11 @@ public class Controller {
 	public void toShowLogin() {
 		Login.setVisible(true);
 		Search.setVisible(false);
+	}
+	
+	public void toShowSearchBylogin() {
+		Login.setVisible(false);
+		Search.setVisible(true);
 	}
 
 }
