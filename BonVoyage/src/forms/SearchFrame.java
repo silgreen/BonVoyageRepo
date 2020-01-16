@@ -23,6 +23,8 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SearchFrame extends JFrame { 
 	
@@ -82,6 +84,12 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(btnCerca);
 	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toShowLogin();
+	    	}
+	    });
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    lblLogin.setBounds(652, 18, 46, 27);

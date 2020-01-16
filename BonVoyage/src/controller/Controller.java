@@ -13,22 +13,22 @@ import forms.SearchFrame;
 
 public class Controller {
 
+	SearchFrame Search;
+	LoginFrame Login;
+	RegisterFrame Register;
+	PostFrame Post;
+	ResultsFrame Results;
+	ReviewFrame Review;
+	
 	public static void main(String[] args) {
 		
 		Controller control = new Controller();
-		SearchFrame Search = new SearchFrame(control);
-		LoginFrame Login = new LoginFrame(control);
-	    RegisterFrame Register = new RegisterFrame(control);
-	    PostFrame Post = new PostFrame(control);
-	    ResultsFrame Results = new ResultsFrame(control);
-	    ReviewFrame Review = new ReviewFrame(control);
-	    Search.setVisible(true);
 	}
 	
 	public Controller() {
 		
 		Connection con = null;
-		
+
 		try {
 			
 			Class.forName("org.postgresql.Driver");
@@ -37,6 +37,18 @@ public class Controller {
 			
 		} catch (SQLException | ClassNotFoundException e){e.printStackTrace();}
 		
+		Search = new SearchFrame(this);
+		Login = new LoginFrame(this);
+	    Register = new RegisterFrame(this);
+	    Post = new PostFrame(this);
+	    Results = new ResultsFrame(this);
+	    Review = new ReviewFrame(this);
+	    Search.setVisible(true);
+	}
+	
+	public void toShowLogin() {
+		Login.setVisible(true);
+		Search.setVisible(false);
 	}
 
 }
