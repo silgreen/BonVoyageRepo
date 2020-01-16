@@ -48,7 +48,7 @@ public class Controller {
 	    Search.setVisible(true);
 	}
 	
-	public void toShowRegisterFrame() {
+	public void toShowRegister() {
 		Register.setVisible(true);
 		Search.setVisible(false);
 	}
@@ -57,6 +57,11 @@ public class Controller {
 	public void toShowLogin() {
 		Login.setVisible(true);
 		Search.setVisible(false);
+	}
+	
+	public void toShowSearchByRegister() {
+		Register.setVisible(false);
+		Search.setVisible(true);
 	}
 	
 	public void toShowSearchBylogin() {

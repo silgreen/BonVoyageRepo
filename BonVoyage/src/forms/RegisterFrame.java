@@ -25,6 +25,9 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RegisterFrame extends JFrame {
 
@@ -124,6 +127,13 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblRegione);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.toShowSearchByRegister();
+			}
+		});
+		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.setBounds(207, 10, 372, 109);
 		contentPane.add(lblLogo);
 		
