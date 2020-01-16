@@ -167,8 +167,7 @@ public class SearchFrame extends JFrame {
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
 		}
 		catch(IOException ex) { 
-		}
-		
+		}	
 	}
 	
 }

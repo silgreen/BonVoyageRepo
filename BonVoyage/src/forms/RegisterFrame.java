@@ -144,5 +144,5 @@ public class RegisterFrame extends JFrame {
 		catch(IOException ex) {
 		}
 	}
-	
+
 }
