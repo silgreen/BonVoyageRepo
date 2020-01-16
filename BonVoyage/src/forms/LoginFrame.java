@@ -30,6 +30,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LoginFrame extends JFrame {
 
@@ -82,6 +84,12 @@ public class LoginFrame extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.toShowSearchBylogin();
+			}
+		});
 		lblLogo.setBounds(221, 44, 338, 147);
 		contentPane.add(lblLogo);
 		
