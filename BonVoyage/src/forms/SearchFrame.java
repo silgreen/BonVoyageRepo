@@ -106,6 +106,12 @@ public class SearchFrame extends JFrame {
 		    lblDoveVuoiAndare.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		    lblDoveVuoiAndare.setBounds(314, 179, 158, 27);
 		    contentPane.add(lblDoveVuoiAndare);
+		    
+		    JLabel lblUser = new JLabel("Ciao, name");
+		    lblUser.setVisible(false);
+		    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		    lblUser.setBounds(628, 20, 158, 22);
+		    contentPane.add(lblUser);
 		}
 		catch(IOException ex) { 
 		}
