@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
@@ -138,6 +140,7 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblLogo);
 		
 	    JButton btnRegister = new JButton("Registrati");
+	    btnRegister.setEnabled(false);
 	    btnRegister.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		try {
@@ -150,6 +153,34 @@ public class RegisterFrame extends JFrame {
 	    btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
 	    btnRegister.setBounds(337, 532, 112, 21);
 	    contentPane.add(btnRegister);
+	    
+	    DocumentListener doclistener = new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				changed();
+				
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				changed();
+				
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				changed();
+				
+			}
+			
+			public void changed() {
+				if(passwordFieldRegister.getText().length() < 8 || passwordFieldRegister.getText().length() > 16)
+					btnRegister.setEnabled(false);
+				else btnRegister.setEnabled(true);
+			}
+		};
+	    
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
