@@ -45,7 +45,7 @@ public class SearchFrame extends JFrame {
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255,250,240));
-		contentPane.setToolTipText("Hotel");
+		contentPane.setToolTipText("");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -58,12 +58,15 @@ public class SearchFrame extends JFrame {
 		textFieldSearch.setColumns(10);
 		
 		lblLogo = new JLabel();
+		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		lblLogo.setBounds(234, 47, 353, 116);
 		contentPane.add(lblLogo);
 		
 		ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
 	    JRadioButton rdbtnHotel = new JRadioButton("Hotel");
+	    rdbtnHotel.setFocusPainted(false);
+	    rdbtnHotel.setContentAreaFilled(false);
 	    rdbtnHotel.setBorder(null);
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
 	    rdbtnHotel.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -72,6 +75,9 @@ public class SearchFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnHotel);
 	    
 	    JRadioButton rdbtnRistoranti = new JRadioButton("Ristoranti");
+	    rdbtnRistoranti.setFocusPainted(false);
+	    rdbtnRistoranti.setBorder(null);
+	    rdbtnRistoranti.setContentAreaFilled(false);
 	    rdbtnRistoranti.setBackground(new Color(255, 250, 240));
 	    rdbtnRistoranti.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    rdbtnRistoranti.setBounds(350, 249, 93, 21);
@@ -79,6 +85,9 @@ public class SearchFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnRistoranti);
 	    
 	    JRadioButton rdbtnAttivita = new JRadioButton("Attivit\u00E0");
+	    rdbtnAttivita.setFocusPainted(false);
+	    rdbtnAttivita.setBorder(null);
+	    rdbtnAttivita.setContentAreaFilled(false);
 	    rdbtnAttivita.setBackground(new Color(255, 250, 240));
 	    rdbtnAttivita.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    rdbtnAttivita.setBounds(445, 249, 77, 21);
@@ -119,7 +128,7 @@ public class SearchFrame extends JFrame {
 	    lblRegistrati.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-	    		control.toShowRegisterFrame();
+	    		control.toShowRegister();
 	    	}
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
@@ -158,7 +167,7 @@ public class SearchFrame extends JFrame {
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
 		}
 		catch(IOException ex) { 
-		}
-		
+		}	
 	}
+	
 }
