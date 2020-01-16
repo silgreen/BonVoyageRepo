@@ -113,6 +113,16 @@ public class SearchFrame extends JFrame {
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toShowRegisterFrame();
 	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblRegistrati.setText("<HTML><U>Registrati</U></HTML>");
+	    		lblRegistrati.setForeground(new Color(30,144,255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblRegistrati.setText("Registrati");
+	    		lblRegistrati.setForeground(new Color(0,0,205));
+	    	}
 	    });
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
