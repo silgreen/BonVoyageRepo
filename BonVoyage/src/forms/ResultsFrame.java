@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.swing.JTextPane;
+import javax.swing.ScrollPaneConstants;
 
 public class ResultsFrame extends JFrame {
 
