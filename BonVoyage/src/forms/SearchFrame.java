@@ -97,21 +97,21 @@ public class SearchFrame extends JFrame {
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    lblSeparatore.setBounds(690, 18, 7, 27);
 	    contentPane.add(lblSeparatore);
+	    
+	    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
+	    lblDoveVuoiAndare.setFont(new Font("Tahoma", Font.PLAIN, 18));
+	    lblDoveVuoiAndare.setBounds(314, 179, 158, 27);
+	    contentPane.add(lblDoveVuoiAndare);
+	    
+	    JLabel lblUser = new JLabel("Ciao, name");
+	    lblUser.setVisible(false);
+	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblUser.setBounds(628, 20, 158, 22);
+	    contentPane.add(lblUser);
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
-		    
-		    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
-		    lblDoveVuoiAndare.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		    lblDoveVuoiAndare.setBounds(314, 179, 158, 27);
-		    contentPane.add(lblDoveVuoiAndare);
-		    
-		    JLabel lblUser = new JLabel("Ciao, name");
-		    lblUser.setVisible(false);
-		    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		    lblUser.setBounds(628, 20, 158, 22);
-		    contentPane.add(lblUser);
 		}
 		catch(IOException ex) { 
 		}

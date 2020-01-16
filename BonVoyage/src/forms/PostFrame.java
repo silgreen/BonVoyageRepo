@@ -34,22 +34,6 @@ public class PostFrame extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PostFrame frame = new PostFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public PostFrame() {
@@ -228,6 +212,8 @@ public class PostFrame extends JFrame {
 	    separator.setBackground(new Color(0, 0, 0));
 	    separator.setBounds(0, 11, 714, 1);
 	    bottomPanel.add(separator);
+	    
+	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
 
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
