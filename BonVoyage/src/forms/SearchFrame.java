@@ -170,4 +170,5 @@ public class SearchFrame extends JFrame {
 		}
 		
 	}
+	
 }
