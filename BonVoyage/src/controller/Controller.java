@@ -7,12 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-
+import javax.swing.JLabel;
 import classi.Position;
 import dao.PositionDao;
 import dao.PostDao;
+
+import classi.User;
 import dao.UserDao;
 import except.PasswordDismatchException;
+import except.UserNotFoundException;
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.RegisterFrame;
@@ -29,8 +32,11 @@ public class Controller {
 	ResultsFrame Results;
 	ReviewFrame Review;
 	UserDao UDAO;
+
 	PositionDao POSDAO;
 
+
+	User user = new User();
 	
 	public static void main(String[] args) {
 		
@@ -66,6 +72,15 @@ public class Controller {
 	public String MatchRegion(String city) {
 		String s = POSDAO.MatchRegionDao(city);
 		return s;
+	}
+	
+	public User Login_User(String username, String password) throws UserNotFoundException{
+			user = UDAO.select_User_Informations_From_DB(username, password);
+			if(user.getIduser() != null) {
+				user.setLogged(true);
+				return user;
+			}
+			else throw new UserNotFoundException();
 	}
 	
 	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException {
@@ -128,4 +143,17 @@ public class Controller {
 	public void setReview(ReviewFrame review) {
 		Review = review;
 	}
+	
+    public User getUser() {
+		return user;
+	}
+    
+    
+    public void Set_Login_and_Register_Visible_False() {
+    	Search.getContentPane().findComponentAt(646, 21).setVisible(false);
+    	Search.getContentPane().findComponentAt(706, 23).setVisible(false);
+    	Search.getContentPane().findComponentAt(692, 21).setVisible(false);
+    	Search.getContentPane().findComponentAt(603, 387).setVisible(true);
+
+    }
 }

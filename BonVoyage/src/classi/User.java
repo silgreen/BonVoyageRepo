@@ -10,7 +10,15 @@ public class User {
 	String date;
 	String region;
 	String city;
+	boolean Logged;
+
 	
+	public boolean isLogged() {
+		return Logged;
+	}
+	public void setLogged(boolean logged) {
+		Logged = logged;
+	}
 	
 	public String getIduser() {
 		return iduser;
