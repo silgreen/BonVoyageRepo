@@ -119,30 +119,6 @@ public class Controller {
 	public ReviewFrame getReview() {
 		return Review;
 	}
-
-	public void setSearch(SearchFrame search) {
-		Search = search;
-	}
-
-	public void setLogin(LoginFrame login) {
-		Login = login;
-	}
-
-	public void setRegister(RegisterFrame register) {
-		Register = register;
-	}
-
-	public void setPost(PostFrame post) {
-		Post = post;
-	}
-
-	public void setResults(ResultsFrame results) {
-		Results = results;
-	}
-
-	public void setReview(ReviewFrame review) {
-		Review = review;
-	}
 	
     public User getUser() {
 		return user;
