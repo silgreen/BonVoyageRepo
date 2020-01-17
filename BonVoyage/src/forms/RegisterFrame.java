@@ -58,7 +58,6 @@ public class RegisterFrame extends JFrame {
 	private JPasswordField passwordFieldRegister;
 	private JPasswordField passwordFieldConfirm;
 	private Controller control;
-	ArrayList<String> PositionList = new ArrayList<String>();
 
 	/**
 	 * Create the frame.
@@ -158,8 +157,8 @@ public class RegisterFrame extends JFrame {
 	   JComboBox comboBox = new JComboBox();
 	   comboBox.addMouseListener(new MouseAdapter() {
 	   	@Override
-	   	public void mousePressed(MouseEvent e) {
-	 	   textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
+	   	public void mouseClicked(MouseEvent e) {
+	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
 	   	}
 	   });
 	   
