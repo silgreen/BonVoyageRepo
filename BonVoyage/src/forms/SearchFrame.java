@@ -104,7 +104,7 @@ public class SearchFrame extends JFrame {
 	    lblLogin.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-	    		control.toShowLogin();
+	    		control.toOpenAndCloseFrame(control.getLogin(),control.getSearch());
 	    	}
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
@@ -128,7 +128,7 @@ public class SearchFrame extends JFrame {
 	    lblRegistrati.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-	    		control.toShowRegister();
+	    		control.toOpenAndCloseFrame(control.getRegister(),control.getSearch());
 	    	}
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {

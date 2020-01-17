@@ -32,6 +32,7 @@ import java.net.URL;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class LoginFrame extends JFrame {
 
@@ -87,16 +88,31 @@ public class LoginFrame extends JFrame {
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				control.toShowSearchBylogin();
+				control.toOpenAndCloseFrame(control.getSearch(), control.getLogin());
 			}
 		});
 		lblLogo.setBounds(221, 44, 338, 147);
 		contentPane.add(lblLogo);
 		
 	    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
-	    lblNonSeiRegistrato.setBounds(342, 369, 103, 14);
+	    lblNonSeiRegistrato.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getRegister(), control.getLogin());
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblNonSeiRegistrato.setText("<HTML><U>Non sei Registrato?</U></HTML>");
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblNonSeiRegistrato.setText("Non sei Registrato?");
+	    	}
+	    });
+	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblNonSeiRegistrato.setBounds(342, 369, 124, 27);
 	    contentPane.add(lblNonSeiRegistrato);
-	    //commento
+	
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
