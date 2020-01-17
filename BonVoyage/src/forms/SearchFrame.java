@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import controller.Controller;
 
@@ -27,6 +29,7 @@ import java.awt.SystemColor;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextPane;
 
 public class SearchFrame extends JFrame { 
 	
@@ -34,6 +37,8 @@ public class SearchFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldSearch;
 	private JLabel lblLogo;
+	private JPanel panel;
+	private JLabel lblRegistrati;
 
 	/**
 	 * Create the frame.
@@ -99,7 +104,14 @@ public class SearchFrame extends JFrame {
 	    btnCerca.setBounds(350, 340, 103, 27);
 	    contentPane.add(btnCerca);
 	    
+	    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
+	    lblDoveVuoiAndare.setFont(new Font("Tahoma", Font.PLAIN, 18));
+	    lblDoveVuoiAndare.setBounds(314, 179, 158, 27);
+	    contentPane.add(lblDoveVuoiAndare);
+	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.setBounds(646, 21, 46, 27);
+	    contentPane.add(lblLogin);
 	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogin.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -120,54 +132,48 @@ public class SearchFrame extends JFrame {
 	    
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblLogin.setBounds(652, 18, 46, 27);
-	    contentPane.add(lblLogin);
 	    
-	    JLabel lblRegistrati = new JLabel("Registrati");
-	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblRegistrati.addMouseListener(new MouseAdapter() {
+	    JLabel lblRegistrati_1 = new JLabel("Registrati");
+	    lblRegistrati_1.setBounds(706, 23, 68, 20);
+	    contentPane.add(lblRegistrati_1);
+	    lblRegistrati_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblRegistrati_1.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toShowRegister();
 	    	}
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
-	    		lblRegistrati.setText("<HTML><U>Registrati</U></HTML>");
-	    		lblRegistrati.setForeground(new Color(30,144,255));
+	    		lblRegistrati_1.setText("<HTML><U>Registrati</U></HTML>");
+	    		lblRegistrati_1.setForeground(new Color(30,144,255));
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
-	    		lblRegistrati.setText("Registrati");
-	    		lblRegistrati.setForeground(new Color(0,0,205));
+	    		lblRegistrati_1.setText("Registrati");
+	    		lblRegistrati_1.setForeground(new Color(0,0,205));
 	    	}
 	    });
-	    lblRegistrati.setForeground(new Color(0, 0, 205));
-	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblRegistrati.setBounds(697, 21, 68, 20);
-	    contentPane.add(lblRegistrati);
+	    lblRegistrati_1.setForeground(new Color(0, 0, 205));
+	    lblRegistrati_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
 	    JLabel lblSeparatore = new JLabel("/");
-	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblSeparatore.setBounds(690, 18, 7, 27);
+	    lblSeparatore.setBounds(692, 21, 7, 27);
 	    contentPane.add(lblSeparatore);
+	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
-	    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
-	    lblDoveVuoiAndare.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    lblDoveVuoiAndare.setBounds(314, 179, 158, 27);
-	    contentPane.add(lblDoveVuoiAndare);
+	    JTextPane txtpnCiaoGiggi = new JTextPane();
+	    txtpnCiaoGiggi.setVisible(false);
+	    txtpnCiaoGiggi.setText("ciao, giggi");
+	    txtpnCiaoGiggi.setBounds(603, 387, 96, 20);
+	    contentPane.add(txtpnCiaoGiggi);
 	    
-	    JLabel lblUser = new JLabel("Ciao, name");
-	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblUser.setBounds(628, 20, 158, 22);
-	    contentPane.add(lblUser);
-		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
 		}
 		catch(IOException ex) { 
 		}	
+		
+		
 	}
-	
 }

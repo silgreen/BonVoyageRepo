@@ -82,8 +82,12 @@ public class LoginFrame extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if(control.LoginUser(textFieldUsername.getText(), textFieldPassword.getText()))
+					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
+					if(control.getUser().isLogged()) {
 						control.toShowSearchBylogin();
+						control.Set_Login_and_Register_Visible_False();					
+						System.out.println(control.getUser().getIduser());
+					}
 				} catch (UserNotFoundException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "Utente non trovato", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}

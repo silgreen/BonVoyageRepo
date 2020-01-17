@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import classi.User;
 import dao.UserDao;
@@ -26,6 +27,7 @@ public class Controller {
 	ResultsFrame Results;
 	ReviewFrame Review;
 	UserDao UDAO;
+	User user = new User();
 	
 	public static void main(String[] args) {
 		
@@ -55,11 +57,11 @@ public class Controller {
 	    Search.setVisible(true);
 	}
 	
-	public boolean LoginUser(String username, String password) throws UserNotFoundException{
-			User user = UDAO.select_User_Informations_From_DB(username, password);
+	public User Login_User(String username, String password) throws UserNotFoundException{
+			user = UDAO.select_User_Informations_From_DB(username, password);
 			if(user.getIduser() != null) {
 				user.setLogged(true);
-				return true;
+				return user;
 			}
 			else throw new UserNotFoundException();
 	}
@@ -91,4 +93,16 @@ public class Controller {
 		Login.setVisible(false);
 		Search.setVisible(true);
 	}
+	
+    public User getUser() {
+		return user;
+	}
+    
+    public void Set_Login_and_Register_Visible_False() {
+    	Search.getContentPane().findComponentAt(646, 21).setVisible(false);
+    	Search.getContentPane().findComponentAt(706, 23).setVisible(false);
+    	Search.getContentPane().findComponentAt(692, 21).setVisible(false);
+    	Search.getContentPane().findComponentAt(603, 387).setVisible(true);
+
+    }
 }
