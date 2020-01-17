@@ -14,12 +14,15 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import controller.Controller;
+import except.UserNotFoundException;
 
 import javax.swing.SpringLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 
 import javax.imageio.ImageIO;
@@ -78,6 +81,12 @@ public class LoginFrame extends JFrame {
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					if(control.LoginUser(textFieldUsername.getText(), textFieldPassword.getText()))
+						control.toShowSearchBylogin();
+				} catch (UserNotFoundException e1) {
+					JOptionPane.showInternalMessageDialog(contentPane, "Utente non trovato", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnLogin.setBounds(337, 427, 108, 43);

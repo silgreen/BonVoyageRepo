@@ -6,8 +6,10 @@ import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
+import classi.User;
 import dao.UserDao;
 import except.PasswordDismatchException;
+import except.UserNotFoundException;
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.RegisterFrame;
@@ -51,6 +53,15 @@ public class Controller {
 	    UDAO = new UserDao(con);
 	    
 	    Search.setVisible(true);
+	}
+	
+	public boolean LoginUser(String username, String password) throws UserNotFoundException{
+			User user = UDAO.select_User_Informations_From_DB(username, password);
+			if(user.getIduser() != null) {
+				user.setLogged(true);
+				return true;
+			}
+			else throw new UserNotFoundException();
 	}
 	
 	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException {
