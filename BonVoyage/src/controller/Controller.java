@@ -18,6 +18,7 @@ import except.PasswordDismatchException;
 import except.UserNotFoundException;
 import forms.LoginFrame;
 import forms.PostFrame;
+import forms.ProfileFrame;
 import forms.RegisterFrame;
 import forms.ResultsFrame;
 import forms.ReviewFrame;
@@ -31,6 +32,7 @@ public class Controller {
 	PostFrame Post;
 	ResultsFrame Results;
 	ReviewFrame Review;
+	ProfileFrame Profile;
 	UserDao UDAO;
 
 	PositionDao POSDAO;
@@ -62,6 +64,7 @@ public class Controller {
 	    Post = new PostFrame(this);
 	    Results = new ResultsFrame(this);
 	    Review = new ReviewFrame(this);
+	    Profile = new ProfileFrame(this);
 	    UDAO = new UserDao(con);
 	    POSDAO = new PositionDao(con);
 		
@@ -120,16 +123,20 @@ public class Controller {
 		return Review;
 	}
 	
+	public ProfileFrame getProfile() {
+		return Profile;
+	}
+	
     public User getUser() {
 		return user;
 	}
     
     
     public void Set_Login_and_Register_Visible_False() {
-    	Search.getContentPane().findComponentAt(646, 21).setVisible(false);
-    	Search.getContentPane().findComponentAt(706, 23).setVisible(false);
-    	Search.getContentPane().findComponentAt(692, 21).setVisible(false);
-    	Search.getContentPane().findComponentAt(603, 387).setVisible(true);
-
+    	Search.getContentPane().getComponent(7).setVisible(false);
+    	Search.getContentPane().getComponent(8).setVisible(false);
+    	Search.getContentPane().getComponent(9).setVisible(false);
+    	Search.getContentPane().getComponent(10).setVisible(true);
+    	Search.getContentPane().getComponent(11).setVisible(true);
     }
 }

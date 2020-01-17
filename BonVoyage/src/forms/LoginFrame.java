@@ -36,12 +36,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
+import javax.swing.JPasswordField;
 
 public class LoginFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldUsername;
-	private JTextField textFieldPassword;
+	private JPasswordField textFieldPassword;
 	private Controller control;
 
 	/**
@@ -63,7 +64,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(textFieldUsername);
 		textFieldUsername.setColumns(10);
 		
-		textFieldPassword = new JTextField();
+		textFieldPassword = new JPasswordField();
 		textFieldPassword.setColumns(10);
 		textFieldPassword.setBounds(258, 331, 264, 27);
 		contentPane.add(textFieldPassword);
@@ -86,7 +87,7 @@ public class LoginFrame extends JFrame {
 					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
 					if(control.getUser().isLogged()) {
 						control.toOpenAndCloseFrame(control.getSearch(),control.getLogin());
-						control.Set_Login_and_Register_Visible_False();					
+						control.Set_Login_and_Register_Visible_False();
 						System.out.println(control.getUser().getIduser());
 					}
 				} catch (UserNotFoundException e1) {
@@ -123,7 +124,7 @@ public class LoginFrame extends JFrame {
 	    	}
 	    });
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblNonSeiRegistrato.setBounds(342, 369, 124, 27);
+	    lblNonSeiRegistrato.setBounds(337, 369, 124, 27);
 	    contentPane.add(lblNonSeiRegistrato);
 	
 		
