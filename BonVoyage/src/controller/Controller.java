@@ -98,6 +98,7 @@ public class Controller {
 		return user;
 	}
     
+    
     public void Set_Login_and_Register_Visible_False() {
     	Search.getContentPane().findComponentAt(646, 21).setVisible(false);
     	Search.getContentPane().findComponentAt(706, 23).setVisible(false);
