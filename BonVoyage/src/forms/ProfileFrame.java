@@ -147,6 +147,7 @@ public class ProfileFrame extends JFrame {
 				lblemail.setText(control.getUser().getEmail());
 				lblLevel.setText(control.getUser().getRank());
 				lblNreviews.setText(control.getUser().getNreviews());
+				
 			}
 		});
 		

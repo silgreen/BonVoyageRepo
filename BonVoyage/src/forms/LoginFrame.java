@@ -65,6 +65,7 @@ public class LoginFrame extends JFrame {
 		textFieldUsername.setColumns(10);
 		
 		textFieldPassword = new JPasswordField();
+		textFieldPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textFieldPassword.setColumns(10);
 		textFieldPassword.setBounds(258, 331, 264, 27);
 		contentPane.add(textFieldPassword);
@@ -87,8 +88,7 @@ public class LoginFrame extends JFrame {
 					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
 					if(control.getUser().isLogged()) {
 						control.toOpenAndCloseFrame(control.getSearch(),control.getLogin());
-						control.Set_Login_and_Register_Visible_False(false, true);
-						System.out.println(control.getUser().getIduser());
+						control.SetLoginAndRegisterLabelVisible(false, true);
 					}
 				} catch (LoginException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "Utente non trovato", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
