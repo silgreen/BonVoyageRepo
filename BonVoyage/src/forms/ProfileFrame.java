@@ -22,11 +22,16 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextPane;
+import java.awt.SystemColor;
+import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ProfileFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldBio;
+	private JTextPane textPaneBio;
 	private Controller control;
 
 	/**
@@ -38,7 +43,7 @@ public class ProfileFrame extends JFrame {
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 250, 240));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -92,15 +97,21 @@ public class ProfileFrame extends JFrame {
 	    lblBiografia.setBounds(42, 227, 77, 24);
 	    contentPane.add(lblBiografia);
 	    
-	    textFieldBio = new JTextField();
-	    textFieldBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	    textFieldBio.setText("tytyty");
-	    textFieldBio.setEnabled(false);
-	    textFieldBio.setBounds(21, 260, 374, 150);
-	    contentPane.add(textFieldBio);
-	    textFieldBio.setColumns(10);
+	    textPaneBio = new JTextPane();
+	    textPaneBio.setBorder(new LineBorder(new Color(0, 0, 0)));
+	    textPaneBio.setBackground(new Color(255, 250, 240));
+	    textPaneBio.setEditable(false);
+	    textPaneBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	    textPaneBio.setText("tytyty");
+	    textPaneBio.setBounds(21, 260, 374, 150);
+	    contentPane.add(textPaneBio);
 	    
-	    JButton btnModifyBio = new JButton("");
+	    JButton btnModifyBio = new JButton("...");
+	    btnModifyBio.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
 	    btnModifyBio.setBounds(362, 231, 33, 23);
 	    contentPane.add(btnModifyBio);
 	    

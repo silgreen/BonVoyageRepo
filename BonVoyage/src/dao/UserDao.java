@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import classi.User;
-import except.UserNotFoundException;
 
 public class UserDao extends User {
 	private Connection con;
@@ -17,7 +16,7 @@ public class UserDao extends User {
 	
 	public void insertUserInDb(String email, String username, String password, String region, String city) {
 		ResultSet result;
-		String query = "insert into utente(email,username,password,regione,cittï¿½) values(?,?,?,?,?)";
+		String query = "insert into utente(email,username,password,regione,città) values(?,?,?,?,?)";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);

@@ -47,6 +47,8 @@ import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class RegisterFrame extends JFrame {
 	
@@ -155,12 +157,6 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblLogo);
 	    
 	   JComboBox comboBox = new JComboBox();
-	   comboBox.addMouseListener(new MouseAdapter() {
-	   	@Override
-	   	public void mouseClicked(MouseEvent e) {
-	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
-	   	}
-	   });
 	   
 	   
 	   
