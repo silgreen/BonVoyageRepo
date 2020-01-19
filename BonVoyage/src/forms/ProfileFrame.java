@@ -12,6 +12,8 @@ import controller.Controller;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -125,6 +127,19 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnEsci);
 	    
 	    JButton btnEliminaAccount = new JButton("Elimina Account");
+	    btnEliminaAccount.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		int input = JOptionPane.showConfirmDialog(null, "Sei sicuro di voler elimnare l'Account?", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+	    		
+	    		if (input == 0) {
+	    			control.toDeleteUser(control.getUser().getIduser());
+	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+	    			control.SetLoginAndRegisterLabelVisible(true, false);
+	    			JOptionPane.showConfirmDialog(null, "L'Account è stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+	    			
+	    		}
+	    	}
+	    });
 	    btnEliminaAccount.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnEliminaAccount.setBounds(542, 510, 133, 29);
 	    contentPane.add(btnEliminaAccount);

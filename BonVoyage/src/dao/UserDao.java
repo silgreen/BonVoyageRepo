@@ -14,9 +14,23 @@ public class UserDao extends User {
 		con = c;
 	}
 	
+	public void toDeleteUserFromDb(String userid) {
+		ResultSet result;
+		String query = "delete from utente where idutente = ?";
+		int i = Integer.parseInt(userid);
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1,i);
+			result = pst.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void insertUserInDb(String email, String username, String password, String region, String city) {
 		ResultSet result;
-		String query = "insert into utente(email,username,password,regione,cittï¿½) values(?,?,?,?,?)";
+		String query = "insert into utente(email,username,password,regione,città) values(?,?,?,?,?)";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);

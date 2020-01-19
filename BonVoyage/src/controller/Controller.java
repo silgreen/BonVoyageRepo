@@ -74,6 +74,10 @@ public class Controller {
 	    
 	}
 	
+	public void toDeleteUser(String iduser) {
+		UDAO.toDeleteUserFromDb(iduser);
+	}
+	
 	public String MatchRegion(String city) {
 		String s = POSDAO.MatchRegionDao(city);
 		return s;
