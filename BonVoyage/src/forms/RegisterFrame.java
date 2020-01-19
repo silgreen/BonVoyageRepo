@@ -162,6 +162,7 @@ public class RegisterFrame extends JFrame {
 	   	public void mouseClicked(MouseEvent e) {
 	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
 	   	}
+
 	   	@Override
 	   	public void mouseEntered(MouseEvent e) {
 	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
@@ -202,6 +203,7 @@ public class RegisterFrame extends JFrame {
 	   contentPane.add(comboBox);
 	    
 		textFieldRegion = new JTextField();
+
 		textFieldRegion.setEditable(false);
 		textFieldRegion.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textFieldRegion.setBounds(261, 443, 264, 21);
@@ -209,6 +211,7 @@ public class RegisterFrame extends JFrame {
 		textFieldRegion.setColumns(10);
 		
 	    JButton btnRegister = new JButton("Registrati");
+	    btnRegister.setEnabled(false);
 	    btnRegister.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		try {
@@ -248,6 +251,8 @@ public class RegisterFrame extends JFrame {
 				else btnRegister.setEnabled(true);
 			}
 		};
+		
+		passwordFieldRegister.getDocument().addDocumentListener(doclistener);
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
