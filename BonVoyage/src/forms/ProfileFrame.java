@@ -22,6 +22,8 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ProfileFrame extends JFrame {
 
@@ -33,10 +35,12 @@ public class ProfileFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ProfileFrame(Controller ctrl) {
+
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
+
 		contentPane.setBackground(new Color(255, 250, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,7 +68,7 @@ public class ProfileFrame extends JFrame {
 		
 		JLabel lblLevel = new JLabel("1");
 		lblLevel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblLevel.setBounds(408, 114, 66, 14);
+		lblLevel.setBounds(408, 114, 33, 14);
 		contentPane.add(lblLevel);
 		
 		JLabel lblDi = new JLabel("di");
@@ -72,15 +76,10 @@ public class ProfileFrame extends JFrame {
 		lblDi.setBounds(40, 137, 48, 17);
 		contentPane.add(lblDi);
 		
-		JLabel lblCity = new JLabel("Napoli");
-		lblCity.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblCity.setBounds(61, 136, 88, 17);
-		contentPane.add(lblCity);
-		
-		JLabel lblRegion = new JLabel("Campania");
-		lblRegion.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblRegion.setBounds(159, 136, 125, 17);
-		contentPane.add(lblRegion);
+		JLabel lblPosition = new JLabel("Napoli");
+		lblPosition.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblPosition.setBounds(61, 136, 271, 17);
+		contentPane.add(lblPosition);
 		
 		JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
 	    lblemail.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -118,10 +117,32 @@ public class ProfileFrame extends JFrame {
 	    btnEliminaAccount.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnEliminaAccount.setBounds(542, 510, 133, 29);
 	    contentPane.add(btnEliminaAccount);
+	        
+	    JLabel lblRecensioniScritte = new JLabel("Recensioni scritte:");
+	    lblRecensioniScritte.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    lblRecensioniScritte.setBounds(457, 107, 111, 31);
+	    contentPane.add(lblRecensioniScritte);
+	    
+	    JLabel lblNreviews = new JLabel("1");
+	    lblNreviews.setFont(new Font("Tahoma", Font.BOLD, 14));
+	    lblNreviews.setBounds(578, 115, 48, 14);
+	    contentPane.add(lblNreviews);
+	   
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				lblUsername.setText(control.getUser().getUsername());
+				lblPosition.setText(control.getUser().getCity()+", "+control.getUser().getRegion());
+				lblemail.setText(control.getUser().getEmail());
+				lblLevel.setText(control.getUser().getRank());
+				lblNreviews.setText(control.getUser().getNreviews());
+			}
+		});
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
+
 		}
 		catch(IOException ex) {
 		}

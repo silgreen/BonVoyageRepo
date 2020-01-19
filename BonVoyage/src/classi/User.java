@@ -4,8 +4,8 @@ public class User {
 	String email;
 	String username;
 	String password;
-	int nreviews;
-	int rank;
+	String nreviews;
+	String rank;
 	String bio;
 	String date;
 	String region;
@@ -44,16 +44,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getNreviews() {
+	public String getNreviews() {
 		return nreviews;
 	}
-	public void setNreviews(int nreviews) {
+	public void setNreviews(String nreviews) {
 		this.nreviews = nreviews;
 	}
-	public int getRank() {
+	public String getRank() {
 		return rank;
 	}
-	public void setRank(int rank) {
+	public void setRank(String rank) {
 		this.rank = rank;
 	}
 	public String getBio() {
