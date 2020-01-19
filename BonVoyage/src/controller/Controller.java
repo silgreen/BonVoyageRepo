@@ -74,6 +74,10 @@ public class Controller {
 	    
 	}
 	
+	public void ModifyBio (String biografia, String username) {
+		UDAO.modify_Bio_From_DB(biografia, username);
+	}
+	
 	public String MatchRegion(String city) {
 		String s = POSDAO.MatchRegionDao(city);
 		return s;

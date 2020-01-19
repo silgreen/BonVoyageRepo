@@ -63,4 +63,21 @@ public class UserDao extends User {
 			return null;
 		}
 	}
+	
+	public void modify_Bio_From_DB (String biografia, String username) {
+		ResultSet result;
+		String newBio;
+		String query = "update utente set biografia = ? where username = ?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, biografia);
+			pst.setString(2, username);
+			
+			result = pst.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
