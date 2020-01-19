@@ -188,6 +188,16 @@ public class RegisterFrame extends JFrame {
 	   contentPane.add(comboBox);
 	    
 		textFieldRegion = new JTextField();
+		textFieldRegion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				control.MatchRegion(comboBox.getSelectedItem().toString());
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				control.MatchRegion(comboBox.getSelectedItem().toString());
+			}
+		});
 		textFieldRegion.setEditable(false);
 		textFieldRegion.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textFieldRegion.setBounds(261, 443, 264, 21);
