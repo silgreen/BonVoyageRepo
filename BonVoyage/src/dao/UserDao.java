@@ -30,7 +30,7 @@ public class UserDao extends User {
 	
 	public void insertUserInDb(String email, String username, String password, String region, String city) {
 		ResultSet result;
-		String query = "insert into utente(email,username,password,regione,citt‡) values(?,?,?,?,?)";
+		String query = "insert into utente(email,username,password,regione,citt√†) values(?,?,?,?,?)";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
