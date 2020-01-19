@@ -170,7 +170,7 @@ public class RegisterFrame extends JFrame {
 	   	public void mouseExited(MouseEvent e) {
 	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
 	   	}
-	   });
+	   }); 
 	   
 	   
 	   
