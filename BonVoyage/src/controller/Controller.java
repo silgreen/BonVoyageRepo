@@ -8,14 +8,16 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import classi.Position;
 import dao.PositionDao;
 import dao.PostDao;
 
 import classi.User;
 import dao.UserDao;
+import except.LoginException;
 import except.PasswordDismatchException;
-import except.UserNotFoundException;
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.ProfileFrame;
@@ -77,13 +79,13 @@ public class Controller {
 		return s;
 	}
 	
-	public User Login_User(String username, String password) throws UserNotFoundException{
+	public User Login_User(String username, String password) throws LoginException{
 			user = UDAO.select_User_Informations_From_DB(username, password);
 			if(user.getIduser() != null) {
 				user.setLogged(true);
 				return user;
 			}
-			else throw new UserNotFoundException();
+			else throw new LoginException();
 	}
 	
 	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException {
@@ -132,11 +134,12 @@ public class Controller {
 	}
     
     
-    public void Set_Login_and_Register_Visible_False() {
-    	Search.getContentPane().getComponent(7).setVisible(false);
-    	Search.getContentPane().getComponent(8).setVisible(false);
-    	Search.getContentPane().getComponent(9).setVisible(false);
-    	Search.getContentPane().getComponent(10).setVisible(true);
-    	Search.getContentPane().getComponent(11).setVisible(true);
+    public void Set_Login_and_Register_Visible_False(boolean loginAndRegister, boolean User) {
+    	Search.getContentPane().getComponent(7).setVisible(loginAndRegister);
+    	Search.getContentPane().getComponent(8).setVisible(loginAndRegister);
+    	Search.getContentPane().getComponent(9).setVisible(loginAndRegister);
+    	Search.getContentPane().getComponent(10).setVisible(User);
+    	Search.getContentPane().getComponent(11).setVisible(User);
+
     }
 }

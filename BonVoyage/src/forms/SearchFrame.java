@@ -18,6 +18,7 @@ import controller.Controller;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import java.awt.Font;
 
@@ -178,15 +179,20 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblCiao);
 	    
 	    JLabel lblUser = new JLabel("");
+	    lblUser.setForeground(Color.BLACK);
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblUser.setVisible(false);
+	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
+	    lblUser.setBounds(49, 21, 119, 27);
+	    contentPane.add(lblUser);
 	    lblUser.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-	    		control.toOpenAndCloseFrame(control.getSearch(),control.getProfile());
+	    		control.toOpenAndCloseFrame(control.getProfile(),control.getSearch());
 	    	}
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
-	    		lblUser.setForeground(new Color(10, 16, 16));
+	    		lblUser.setForeground(new Color(80, 80, 80));
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
@@ -197,12 +203,9 @@ public class SearchFrame extends JFrame {
 	    	@Override
 	    	public void componentShown(ComponentEvent e) {
 	    		lblUser.setText(control.getUser().getUsername());
+	        	JOptionPane.showInternalMessageDialog(contentPane, "Accesso Effettuato", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
 	    	}
 	    });
-	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    lblUser.setBounds(47, 21, 119, 27);
-	    contentPane.add(lblUser);
 	    
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));

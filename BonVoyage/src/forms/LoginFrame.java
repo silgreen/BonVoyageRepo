@@ -14,7 +14,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import controller.Controller;
-import except.UserNotFoundException;
+import except.LoginException;
 
 import javax.swing.SpringLayout;
 import java.awt.GridBagLayout;
@@ -87,10 +87,10 @@ public class LoginFrame extends JFrame {
 					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
 					if(control.getUser().isLogged()) {
 						control.toOpenAndCloseFrame(control.getSearch(),control.getLogin());
-						control.Set_Login_and_Register_Visible_False();
+						control.Set_Login_and_Register_Visible_False(false, true);
 						System.out.println(control.getUser().getIduser());
 					}
-				} catch (UserNotFoundException e1) {
+				} catch (LoginException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "Utente non trovato", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
