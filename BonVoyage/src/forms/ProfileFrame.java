@@ -103,16 +103,11 @@ public class ProfileFrame extends JFrame {
 	    textPaneBio.setBackground(new Color(255, 250, 240));
 	    textPaneBio.setEditable(false);
 	    textPaneBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	    textPaneBio.setText("tytyty");
 	    textPaneBio.setBounds(21, 260, 374, 150);
 	    contentPane.add(textPaneBio);
 	    
 	    JButton btnModifyBio = new JButton("...");
-	    btnModifyBio.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		
-	    	}
-	    });
+
 	    btnModifyBio.setBounds(362, 231, 33, 23);
 	    contentPane.add(btnModifyBio);
 	    
@@ -153,6 +148,12 @@ public class ProfileFrame extends JFrame {
 	    lblNreviews.setFont(new Font("Tahoma", Font.BOLD, 14));
 	    lblNreviews.setBounds(578, 115, 48, 14);
 	    contentPane.add(lblNreviews);
+	    
+	    JButton btnSaveChanges = new JButton("Salva modifiche");
+	    btnSaveChanges.setVisible(false);
+	    btnSaveChanges.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    btnSaveChanges.setBounds(262, 429, 133, 23);
+	    contentPane.add(btnSaveChanges);
 	   
 		addComponentListener(new ComponentAdapter() {
 			@Override
@@ -162,13 +163,32 @@ public class ProfileFrame extends JFrame {
 				lblemail.setText(control.getUser().getEmail());
 				lblLevel.setText(control.getUser().getRank());
 				lblNreviews.setText(control.getUser().getNreviews());
+				textPaneBio.setText(control.getUser().getBio());
 				
 			}
 		});
 		
+	    btnModifyBio.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		btnModifyBio.setVisible(false);
+	    		btnSaveChanges.setVisible(true);
+	    		textPaneBio.setEditable(true);
+	    	}
+	    });
+	    
+	    btnSaveChanges.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		btnModifyBio.setVisible(true);
+	    		btnSaveChanges.setVisible(false);
+	    		control.ModifyBio(textPaneBio.getText(), control.getUser().getUsername());
+	    		textPaneBio.setEditable(false);
+	    	}
+	    });
+		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
+
 
 		}
 		catch(IOException ex) {
