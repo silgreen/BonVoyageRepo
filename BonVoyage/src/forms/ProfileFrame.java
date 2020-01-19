@@ -20,6 +20,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ProfileFrame extends JFrame {
 
@@ -41,6 +43,12 @@ public class ProfileFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("New label");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+			}
+		});
 		lblLogo.setBounds(20, 20, 170, 55);
 		contentPane.add(lblLogo);
 		

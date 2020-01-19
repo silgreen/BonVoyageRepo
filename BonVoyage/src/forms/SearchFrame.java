@@ -18,6 +18,7 @@ import controller.Controller;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import java.awt.Font;
 
@@ -30,6 +31,12 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class SearchFrame extends JFrame { 
 	
@@ -100,13 +107,17 @@ public class SearchFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnAttivita);
 	    
 	    JButton btnCerca = new JButton("Cerca");
+	    btnCerca.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	}
+	    });
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    btnCerca.setBounds(350, 340, 103, 27);
 	    contentPane.add(btnCerca);
 	    
 	    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
 	    lblDoveVuoiAndare.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    lblDoveVuoiAndare.setBounds(314, 179, 158, 27);
+	    lblDoveVuoiAndare.setBounds(326, 178, 147, 27);
 	    contentPane.add(lblDoveVuoiAndare);
 	    
 	    JLabel lblLogin = new JLabel("Login");
@@ -134,7 +145,7 @@ public class SearchFrame extends JFrame {
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
 	    JLabel lblRegistrati_1 = new JLabel("Registrati");
-	    lblRegistrati_1.setBounds(706, 23, 68, 20);
+	    lblRegistrati_1.setBounds(706, 24, 68, 20);
 	    contentPane.add(lblRegistrati_1);
 	    lblRegistrati_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati_1.addMouseListener(new MouseAdapter() {
@@ -161,15 +172,45 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblSeparatore);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
-	    JTextPane txtpnCiaoGiggi = new JTextPane();
-	    txtpnCiaoGiggi.setVisible(false);
-	    txtpnCiaoGiggi.setText("ciao, giggi");
-	    txtpnCiaoGiggi.setBounds(603, 387, 96, 20);
-	    contentPane.add(txtpnCiaoGiggi);
+	    JLabel lblCiao = new JLabel("Ciao,");
+	    lblCiao.setVisible(false);
+	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblCiao.setBounds(10, 23, 52, 22);
+	    contentPane.add(lblCiao);
+	    
+	    JLabel lblUser = new JLabel("");
+	    lblUser.setForeground(Color.BLACK);
+	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblUser.setVisible(false);
+	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
+	    lblUser.setBounds(49, 21, 119, 27);
+	    contentPane.add(lblUser);
+	    lblUser.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getProfile(),control.getSearch());
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblUser.setForeground(new Color(80, 80, 80));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblUser.setForeground(new Color(0, 0, 0));
+	    	}
+	    });
+	    lblUser.addComponentListener(new ComponentAdapter() {
+	    	@Override
+	    	public void componentShown(ComponentEvent e) {
+	    		lblUser.setText(control.getUser().getUsername());
+	        	JOptionPane.showInternalMessageDialog(contentPane, "Accesso Effettuato", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+	    	}
+	    });
 	    
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+
 		}
 		catch(IOException ex) { 
 		}	
