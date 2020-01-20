@@ -91,7 +91,7 @@ public class LoginFrame extends JFrame {
 						control.SetLoginAndRegisterLabelVisible(false, true);
 					}
 				} catch (LoginException e1) {
-					JOptionPane.showInternalMessageDialog(contentPane, "Utente non trovato", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "Nome utente o password errati", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

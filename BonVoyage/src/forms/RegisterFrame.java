@@ -233,6 +233,8 @@ public class RegisterFrame extends JFrame {
 			}
 		};
 		
+		passwordFieldRegister.getDocument().addDocumentListener(doclistener);
+		
 		comboBox.addItemListener(new ItemListener() {
 			
 			@Override
@@ -241,8 +243,6 @@ public class RegisterFrame extends JFrame {
 				
 			}
 		});
-		
-		passwordFieldRegister.getDocument().addDocumentListener(doclistener);
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
