@@ -20,14 +20,24 @@ import java.awt.Panel;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.SpringLayout;
 
 public class ResultsFrame extends JFrame {
 
 	private JPanel contentPane;
 	private Controller control;
+	private ResultPanel res;
 
 
 	/**
@@ -46,85 +56,91 @@ public class ResultsFrame extends JFrame {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
 		JPanel panelFilter = new JPanel();
-		panelFilter.setBackground(new Color(255, 250, 240));
-		scrollPane.setViewportView(panelFilter);
-		panelFilter.setLayout(null);
+		panelFilter.setBackground(new Color(240,240,240));
 
 		
-		JPanel panelResult = new JPanel();
-		panelResult.setLayout(null);
-		panelResult.setPreferredSize(new Dimension(0, 600));
-		panelResult.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelResult.setBackground(new Color(255, 250, 240));
-		panelResult.setBounds(0, 94, 757, 173);
-		panelFilter.add(panelResult);
-		
-		panelFilter.setPreferredSize(new Dimension(0, 0));
-		
-		JLabel lblFoto = new JLabel("Foto");
-		lblFoto.setBounds(10, 29, 151, 141);
-		panelResult.add(lblFoto);
-		
-		JLabel lblNomestruttura = new JLabel("NomeStruttura");
-		lblNomestruttura.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNomestruttura.setBounds(171, 10, 119, 22);
-		panelResult.add(lblNomestruttura);
-		
-		JLabel lblStars = new JLabel("Stars");
-		lblStars.setBounds(300, 10, 151, 21);
-		panelResult.add(lblStars);
-		
-		JLabel lblNumeroRecensioni = new JLabel("NumeroRecensioni");
-		lblNumeroRecensioni.setBounds(461, 11, 95, 21);
-		panelResult.add(lblNumeroRecensioni);
-		
-		JLabel lblPosizione = new JLabel("Posizione");
-		lblPosizione.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblPosizione.setBounds(181, 29, 151, 13);
-		panelResult.add(lblPosizione);
-		
-		JLabel lblTipologiaCategoria = new JLabel("tipologia,categoria");
-		lblTipologiaCategoria.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipologiaCategoria.setBounds(181, 151, 122, 19);
-		panelResult.add(lblTipologiaCategoria);
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setEditable(false);
-		textPane.setBackground(new Color(255, 250, 240));
-		textPane.setBounds(180, 58, 520, 83);
-		panelResult.add(textPane);
-		
-		JLabel lblLogo = new JLabel("");
-		panelFilter.add(lblLogo);
-		lblLogo.setBounds(20, 20, 175, 52);  
-		
+
+		scrollPane.setViewportView(panelFilter);
+	    panelFilter.setLayout(null);
+	    
+	    JLabel lblLogo = new JLabel("");
+	    lblLogo.setBounds(143, 5, 170, 65);
+	    panelFilter.add(lblLogo);
+
+	    
+	    JLabel lblUser = new JLabel("Ciao, name");
+	    lblUser.setBounds(444, 27, 79, 20);
+	    lblUser.setVisible(false);
+	    
 	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.setBounds(318, 27, 39, 20);
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblLogin.setBounds(652, 20, 46, 27);
 	    panelFilter.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.setBounds(362, 27, 66, 20);
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblRegistrati.setBounds(697, 23, 68, 20);
 	    panelFilter.add(lblRegistrati);
 	    
 	    JLabel lblSeparatore = new JLabel("/");
+	    lblSeparatore.setBounds(433, 27, 6, 20);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblSeparatore.setBounds(691, 20, 7, 27);
 	    panelFilter.add(lblSeparatore);
-	    
-	    JLabel lblUser = new JLabel("Ciao, name");
-	    lblUser.setVisible(false);
 	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    lblUser.setBounds(626, 20, 158, 22);
 	    panelFilter.add(lblUser);
-		
+	    
+		JButton btnTest = new JButton("New button");
+		btnTest.setBounds(528, 26, 89, 23);
+		btnTest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
+				ResultPanel r1 = new ResultPanel();
+				ResultPanel r2 = new ResultPanel();
+				ResultPanel r3 = new ResultPanel();
+				ResultPanel r4 = new ResultPanel();
+				ResultPanel r5 = new ResultPanel();
+				ResultPanel r6 = new ResultPanel();
+				ResultPanel r7 = new ResultPanel();
+				ResultPanel r8 = new ResultPanel();
+				
+				a1.add(r1);
+				a1.add(r2);
+				a1.add(r3);
+				a1.add(r4);
+				a1.add(r5);
+				a1.add(r6);
+				a1.add(r7);
+				a1.add(r8);
+				
+				for(int i = 0; i<a1.size(); i++) {
+					if(i==0) {
+						(a1.get(i)).setBounds(0, 80, 757, 173);
+						panelFilter.add(a1.get(i));
+						panelFilter.setPreferredSize(new Dimension(0, 0));
+					}
+					else if (i>0) {
+						(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
+						panelFilter.add(a1.get(i));
+						panelFilter.setPreferredSize(new Dimension(0, 173+177*a1.size()));
+					}
+				}
+				
+				setVisible(false);
+				setVisible(true);
+				
+
+			}
+		});
+		panelFilter.add(btnTest);
+	
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    
 
 		}
 		catch(IOException ex) {

@@ -109,6 +109,7 @@ public class SearchFrame extends JFrame {
 	    JButton btnCerca = new JButton("Cerca");
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 	    	}
 	    });
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));

@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import forms.ResultPanel;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
@@ -60,7 +63,7 @@ public class test extends JFrame {
 		textField.setColumns(10);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 103, 379, 66);
+		panel_2.setBounds(10, 88, 379, 66);
 		panel.add(panel_2);
 		
 		textField_1 = new JTextField();
@@ -68,12 +71,15 @@ public class test extends JFrame {
 		textField_1.setColumns(10);
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(10, 183, 379, 66);
+		panel_3.setBounds(10, 165, 379, 66);
 		panel.add(panel_3);
 		
 		textField_2 = new JTextField();
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
+		
+		ResultPanel res = new ResultPanel();
+		panel.add(res);
 		
 	    scrollPane.setViewportView(panel); 
 	    panel.setPreferredSize(new Dimension (panel.getWidth(),1000));
