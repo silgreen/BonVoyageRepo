@@ -152,6 +152,12 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblRegione);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.toOpenAndCloseFrame(control.getSearch(), control.getRegister());
+			}
+		});
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.setBounds(207, 10, 372, 109);
 		contentPane.add(lblLogo);
