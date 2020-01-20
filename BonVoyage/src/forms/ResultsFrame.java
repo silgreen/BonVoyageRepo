@@ -95,10 +95,6 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.add(lblSeparatore);
 	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblUser);
-	    
-		JButton btnTest = new JButton("New button");
-		btnTest.setBounds(528, 26, 89, 23);
-		panelFilter.add(btnTest);
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
