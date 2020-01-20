@@ -78,9 +78,6 @@ public class test extends JFrame {
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
 		
-		ResultPanel res = new ResultPanel();
-		panel.add(res);
-		
 	    scrollPane.setViewportView(panel); 
 	    panel.setPreferredSize(new Dimension (panel.getWidth(),1000));
 	}

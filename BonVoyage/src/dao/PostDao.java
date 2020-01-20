@@ -19,7 +19,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where citt� =? "
+		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where città =? "
 						+ "and categoria =?";
 		
 		try {
@@ -33,7 +33,123 @@ public class PostDao extends Post{
 				p = new Post();
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
-				p.setCity(result.getString("citt�"));
+				p.setCity(result.getString("città"));
+				p.setIdpost(result.getString("idpost"));
+				p.setInfo(result.getString("info"));
+				p.setName(result.getString("nome"));
+				p.setNreviews(result.getString("nrecensioni"));
+				p.setRating_avg(result.getString("rating_avg"));
+				p.setRegion(result.getString("regione"));
+				p.setStars(result.getString("stelle"));
+				p.setSub_category(result.getString("tipologia"));
+				p.setTel(result.getString("telefono"));
+				p.setWebsite(result.getString("sito_web"));
+				
+				ap.add(p);
+			}
+			return ap;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	public ArrayList<Post> toFetchPostFromDb(){
+		ResultSet result;
+		Post p;
+		ArrayList<Post> ap = new ArrayList<Post>();
+		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			
+			result = pst.executeQuery();
+			
+			while(result.next()) {
+				p = new Post();
+				p.setAddress(result.getString("indirizzo"));
+				p.setCategory(result.getString("categoria"));
+				p.setCity(result.getString("città"));
+				p.setIdpost(result.getString("idpost"));
+				p.setInfo(result.getString("info"));
+				p.setName(result.getString("nome"));
+				p.setNreviews(result.getString("nrecensioni"));
+				p.setRating_avg(result.getString("rating_avg"));
+				p.setRegion(result.getString("regione"));
+				p.setStars(result.getString("stelle"));
+				p.setSub_category(result.getString("tipologia"));
+				p.setTel(result.getString("telefono"));
+				p.setWebsite(result.getString("sito_web"));
+				
+				ap.add(p);
+			}
+			return ap;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	public ArrayList<Post> toFetchPostFromDb(String city){
+		ResultSet result;
+		Post p;
+		ArrayList<Post> ap = new ArrayList<Post>();
+		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where città =?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, city);
+			
+			result = pst.executeQuery();
+			
+			while(result.next()) {
+				p = new Post();
+				p.setAddress(result.getString("indirizzo"));
+				p.setCategory(result.getString("categoria"));
+				p.setCity(result.getString("città"));
+				p.setIdpost(result.getString("idpost"));
+				p.setInfo(result.getString("info"));
+				p.setName(result.getString("nome"));
+				p.setNreviews(result.getString("nrecensioni"));
+				p.setRating_avg(result.getString("rating_avg"));
+				p.setRegion(result.getString("regione"));
+				p.setStars(result.getString("stelle"));
+				p.setSub_category(result.getString("tipologia"));
+				p.setTel(result.getString("telefono"));
+				p.setWebsite(result.getString("sito_web"));
+				
+				ap.add(p);
+			}
+			return ap;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	public ArrayList<Post> toFetchPostFromDbByCategory(String category){
+		ResultSet result;
+		Post p;
+		ArrayList<Post> ap = new ArrayList<Post>();
+		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where categoria =?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, category);
+			
+			result = pst.executeQuery();
+			
+			while(result.next()) {
+				p = new Post();
+				p.setAddress(result.getString("indirizzo"));
+				p.setCategory(result.getString("categoria"));
+				p.setCity(result.getString("città"));
 				p.setIdpost(result.getString("idpost"));
 				p.setInfo(result.getString("info"));
 				p.setName(result.getString("nome"));

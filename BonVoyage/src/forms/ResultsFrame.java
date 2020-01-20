@@ -33,6 +33,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.SpringLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ResultsFrame extends JFrame {
 
@@ -45,6 +47,7 @@ public class ResultsFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ResultsFrame(Controller ctrl) {
+
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -95,35 +98,20 @@ public class ResultsFrame extends JFrame {
 	    
 		JButton btnTest = new JButton("New button");
 		btnTest.setBounds(528, 26, 89, 23);
-		btnTest.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		panelFilter.add(btnTest);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+				ArrayList<Post> a = control.getPosts();
 				ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
-				Post p = new Post();
-				p.setCategory("vafancul");
-				p.setCity("Pollenatrocchia");
-				p.setInfo("vai a fare le pompe");
-				p.setNreviews("12");
-				p.setRegion("Calabria");
-				p.setName("la taverna del Recchiolone");
-				p.setSub_category("peni piccoli");
-				ResultPanel r1 = new ResultPanel(p);
-//				ResultPanel r2 = new ResultPanel();
-//				ResultPanel r3 = new ResultPanel();
-//				ResultPanel r4 = new ResultPanel();
-//				ResultPanel r5 = new ResultPanel();
-//				ResultPanel r6 = new ResultPanel();
-//				ResultPanel r7 = new ResultPanel();
-//				ResultPanel r8 = new ResultPanel();
-//				
-			a1.add(r1);
-//				a1.add(r2);
-//				a1.add(r3);
-//				a1.add(r4);
-//				a1.add(r5);
-//				a1.add(r6);
-//				a1.add(r7);
-//				a1.add(r8);
+				
+				for(int i=0; i<a.size(); i++) {
+					Post p = new Post();
+					p = a.get(i);
+					ResultPanel rp = new ResultPanel(p);
+					a1.add(rp);
+				}
 				
 				for(int i = 0; i<a1.size(); i++) {
 					if(i==0) {
@@ -140,11 +128,8 @@ public class ResultsFrame extends JFrame {
 				
 				setVisible(false);
 				setVisible(true);
-				
-
 			}
 		});
-		panelFilter.add(btnTest);
 	
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));

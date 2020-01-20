@@ -39,8 +39,8 @@ public class Controller {
 	UserDao UDAO;
 	PostDao PDAO;
 	PositionDao POSDAO;
-	ArrayList<Post> ap;
-
+	
+	ArrayList<Post> ap = new ArrayList<Post>();
 	User user = new User();
 	
 	public static void main(String[] args) {
@@ -75,12 +75,25 @@ public class Controller {
 	    Search.setVisible(true);
 	    
 	}
+	public ArrayList<Post> toShowResultsByCategory(String category){
+		ap = PDAO.toFetchPostFromDb(category);
+		return ap;
+	}
 	
-	public ArrayList<Post> toShowResultsByPosition(String city, String category){
-		ap = new ArrayList<Post>();
+	public ArrayList<Post> toShowAllResults(){
+		ap = PDAO.toFetchPostFromDb();
+		return ap;
+	}
+	
+	public ArrayList<Post> toShowResultsByPositionAndCategory(String city, String category){
 		ap = PDAO.toFetchPostFromDb(city, category);
 		return ap;
 		
+	}
+	
+	public ArrayList<Post> toShowAllResultsByPosition(String city){
+		ap = PDAO.toFetchPostFromDb(city);
+		return ap;
 	}
 	
 	public void toDeleteUser(String iduser) {
@@ -149,6 +162,10 @@ public class Controller {
     public User getUser() {
 		return user;
 	}
+    
+    public ArrayList<Post> getPosts() {
+    	return ap;
+    }
     
     
     public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {

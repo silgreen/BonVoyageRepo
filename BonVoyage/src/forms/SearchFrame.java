@@ -82,7 +82,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnHotel.setBorder(null);
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
 	    rdbtnHotel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    rdbtnHotel.setBounds(285, 249, 63, 21);
+	    rdbtnHotel.setBounds(350, 248, 63, 21);
 	    contentPane.add(rdbtnHotel);
 	    radioButtonGroup.add(rdbtnHotel);
 	    
@@ -92,7 +92,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnRistoranti.setContentAreaFilled(false);
 	    rdbtnRistoranti.setBackground(new Color(255, 250, 240));
 	    rdbtnRistoranti.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    rdbtnRistoranti.setBounds(350, 249, 93, 21);
+	    rdbtnRistoranti.setBounds(415, 248, 93, 21);
 	    contentPane.add(rdbtnRistoranti);
 	    radioButtonGroup.add(rdbtnRistoranti);
 	    
@@ -102,13 +102,44 @@ public class SearchFrame extends JFrame {
 	    rdbtnAttivita.setContentAreaFilled(false);
 	    rdbtnAttivita.setBackground(new Color(255, 250, 240));
 	    rdbtnAttivita.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    rdbtnAttivita.setBounds(445, 249, 77, 21);
+	    rdbtnAttivita.setBounds(510, 248, 77, 21);
 	    contentPane.add(rdbtnAttivita);
 	    radioButtonGroup.add(rdbtnAttivita);
+	    
+	    JRadioButton rdbtnAll = new JRadioButton("Tutto");
+	    rdbtnAll.setSelected(true);
+	    rdbtnAll.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    rdbtnAll.setFocusPainted(false);
+	    rdbtnAll.setContentAreaFilled(false);
+	    rdbtnAll.setBorder(null);
+	    rdbtnAll.setBackground(new Color(255, 250, 240));
+	    rdbtnAll.setBounds(216, 249, 63, 21);
+	    contentPane.add(rdbtnAll);
+	    radioButtonGroup.add(rdbtnAll);
+	    rdbtnAll.setSelected(true);
 	    
 	    JButton btnCerca = new JButton("Cerca");
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		if(!textFieldSearch.getText().isEmpty()) {
+		    		if(rdbtnRistoranti.isSelected())
+		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
+		    		else if(rdbtnHotel.isSelected())
+		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
+		    		else if(rdbtnAttivita.isSelected()) 
+		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
+	    		}
+	    		else if(textFieldSearch.getText().isEmpty()) {
+		    		if(rdbtnAttivita.isSelected())
+		    			control.toShowResultsByCategory("Attrazione Turistica");
+		    		else if(rdbtnHotel.isSelected())
+		    			control.toShowResultsByCategory("Struttura Ricettiva");
+		    		else if(rdbtnRistoranti.isSelected())
+		    			control.toShowResultsByCategory("Ristorante");
+		    		else if(rdbtnAll.isSelected())
+		    			control.toShowAllResults();
+	    		}
+	    			
 	    		control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 	    	}
 	    });
@@ -211,6 +242,8 @@ public class SearchFrame extends JFrame {
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    
+
 
 		}
 		catch(IOException ex) { 
