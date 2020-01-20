@@ -128,6 +128,8 @@ public class SearchFrame extends JFrame {
 		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
 		    		else if(rdbtnAttivita.isSelected()) 
 		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
+		    		else if(rdbtnAll.isSelected())
+		    			control.toShowAllResultsByPosition(textFieldSearch.getText());
 	    		}
 	    		else if(textFieldSearch.getText().isEmpty()) {
 		    		if(rdbtnAttivita.isSelected())
