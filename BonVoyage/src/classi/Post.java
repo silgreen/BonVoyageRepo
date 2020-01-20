@@ -1,10 +1,9 @@
 package classi;
 
 public class Post {
-	String idstruttura;
 	String idpost;
-	float rating_avg;
-	int nreviews;
+	String rating_avg;
+	String nreviews;
 	String info;
 	String name;
 	String tel;
@@ -14,30 +13,25 @@ public class Post {
 	String address;
 	String category;
 	String sub_category;
-	int stars;
+	String stars;
 	
-	public String getIdstruttura() {
-		return idstruttura;
-	}
-	public void setIdstruttura(String idstruttura) {
-		this.idstruttura = idstruttura;
-	}
+	
 	public String getIdpost() {
 		return idpost;
 	}
 	public void setIdpost(String idpost) {
 		this.idpost = idpost;
 	}
-	public float getRating_avg() {
+	public String getRating_avg() {
 		return rating_avg;
 	}
-	public void setRating_avg(float rating_avg) {
+	public void setRating_avg(String rating_avg) {
 		this.rating_avg = rating_avg;
 	}
-	public int getNreviews() {
+	public String getNreviews() {
 		return nreviews;
 	}
-	public void setNreviews(int nreviews) {
+	public void setNreviews(String nreviews) {
 		this.nreviews = nreviews;
 	}
 	public String getInfo() {
@@ -94,10 +88,10 @@ public class Post {
 	public void setSub_category(String sub_category) {
 		this.sub_category = sub_category;
 	}
-	public int getStars() {
+	public String getStars() {
 		return stars;
 	}
-	public void setStars(int stars) {
+	public void setStars(String stars) {
 		this.stars = stars;
 	}
 }

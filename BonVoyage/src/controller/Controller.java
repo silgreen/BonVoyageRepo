@@ -25,9 +25,10 @@ import forms.RegisterFrame;
 import forms.ResultsFrame;
 import forms.ReviewFrame;
 import forms.SearchFrame;
-
+import classi.Post;
 public class Controller {
 
+	
 	SearchFrame Search;
 	LoginFrame Login;
 	RegisterFrame Register;
@@ -36,9 +37,9 @@ public class Controller {
 	ReviewFrame Review;
 	ProfileFrame Profile;
 	UserDao UDAO;
-
+	PostDao PDAO;
 	PositionDao POSDAO;
-
+	ArrayList<Post> ap;
 
 	User user = new User();
 	
@@ -69,9 +70,17 @@ public class Controller {
 	    Profile = new ProfileFrame(this);
 	    UDAO = new UserDao(con);
 	    POSDAO = new PositionDao(con);
+	    PDAO = new PostDao(con);
 		
 	    Search.setVisible(true);
 	    
+	}
+	
+	public ArrayList<Post> toShowResultsByPosition(String city, String category){
+		ap = new ArrayList<Post>();
+		ap = PDAO.toFetchPostFromDb(city, category);
+		return ap;
+		
 	}
 	
 	public void toDeleteUser(String iduser) {

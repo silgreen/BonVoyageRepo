@@ -12,6 +12,7 @@ import java.awt.Dimension;
 
 import javax.swing.border.LineBorder;
 
+import classi.Post;
 import controller.Controller;
 
 import javax.swing.JLabel;
@@ -98,23 +99,31 @@ public class ResultsFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
-				ResultPanel r1 = new ResultPanel();
-				ResultPanel r2 = new ResultPanel();
-				ResultPanel r3 = new ResultPanel();
-				ResultPanel r4 = new ResultPanel();
-				ResultPanel r5 = new ResultPanel();
-				ResultPanel r6 = new ResultPanel();
-				ResultPanel r7 = new ResultPanel();
-				ResultPanel r8 = new ResultPanel();
-				
-				a1.add(r1);
-				a1.add(r2);
-				a1.add(r3);
-				a1.add(r4);
-				a1.add(r5);
-				a1.add(r6);
-				a1.add(r7);
-				a1.add(r8);
+				Post p = new Post();
+				p.setCategory("vafancul");
+				p.setCity("Pollenatrocchia");
+				p.setInfo("vai a fare le pompe");
+				p.setNreviews("12");
+				p.setRegion("Calabria");
+				p.setName("la taverna del Recchiolone");
+				p.setSub_category("peni piccoli");
+				ResultPanel r1 = new ResultPanel(p);
+//				ResultPanel r2 = new ResultPanel();
+//				ResultPanel r3 = new ResultPanel();
+//				ResultPanel r4 = new ResultPanel();
+//				ResultPanel r5 = new ResultPanel();
+//				ResultPanel r6 = new ResultPanel();
+//				ResultPanel r7 = new ResultPanel();
+//				ResultPanel r8 = new ResultPanel();
+//				
+			a1.add(r1);
+//				a1.add(r2);
+//				a1.add(r3);
+//				a1.add(r4);
+//				a1.add(r5);
+//				a1.add(r6);
+//				a1.add(r7);
+//				a1.add(r8);
 				
 				for(int i = 0; i<a1.size(); i++) {
 					if(i==0) {

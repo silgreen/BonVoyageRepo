@@ -3,6 +3,9 @@ package forms;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import classi.Post;
+
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -10,45 +13,43 @@ import javax.swing.JTextPane;
 
 public class ResultPanel extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	public ResultPanel() {
+	public ResultPanel(Post p) {
 		setLayout(null);
 		setBounds(0,0,757,173);
 		
-		JLabel label = new JLabel("Foto");
-		label.setBounds(10, 30, 151, 141);
-		add(label);
+		JLabel lblFoto = new JLabel("Foto");
+		lblFoto.setBounds(10, 30, 151, 141);
+		add(lblFoto);
 		
-		JLabel label_1 = new JLabel("NomeStruttura");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label_1.setBounds(171, 11, 119, 22);
-		add(label_1);
+		JLabel lblNomeStrut = new JLabel(p.getName());
+		lblNomeStrut.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNomeStrut.setBounds(171, 11, 119, 22);
+		add(lblNomeStrut);
 		
-		JLabel label_2 = new JLabel("Stars");
-		label_2.setBounds(300, 11, 151, 21);
-		add(label_2);
+		JLabel lblStelle = new JLabel(p.getStars());
+		lblStelle.setBounds(300, 11, 151, 21);
+		add(lblStelle);
 		
-		JLabel label_3 = new JLabel("NumeroRecensioni");
-		label_3.setBounds(461, 12, 95, 21);
-		add(label_3);
+		JLabel lblNrecensioni = new JLabel(p.getNreviews());
+		lblNrecensioni.setBounds(461, 12, 95, 21);
+		add(lblNrecensioni);
 		
-		JLabel label_4 = new JLabel("Posizione");
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_4.setBounds(181, 30, 151, 13);
-		add(label_4);
+		JLabel lblPosizione = new JLabel(p.getCity() + "," + p.getRegion());
+		lblPosizione.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblPosizione.setBounds(181, 30, 151, 13);
+		add(lblPosizione);
 		
-		JLabel label_5 = new JLabel("tipologia,categoria");
-		label_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_5.setBounds(181, 152, 122, 19);
-		add(label_5);
+		JLabel lblTipoCate = new JLabel(p.getCategory() + "," + p.getSub_category());
+		lblTipoCate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTipoCate.setBounds(181, 152, 122, 19);
+		add(lblTipoCate);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setEditable(false);
-		textPane.setBackground(new Color(255, 250, 240));
-		textPane.setBounds(180, 59, 520, 83);
-		add(textPane);
+		JTextPane textPaneInfo = new JTextPane();
+		textPaneInfo.setText(p.getInfo());
+		textPaneInfo.setEditable(false);
+		textPaneInfo.setBackground(new Color(255, 250, 240));
+		textPaneInfo.setBounds(180, 59, 520, 83);
+		add(textPaneInfo);
 
 	}
 }
