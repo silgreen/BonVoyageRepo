@@ -157,29 +157,10 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblLogo);
 	    
 	   JComboBox comboBox = new JComboBox();
-	   comboBox.addMouseListener(new MouseAdapter() {
-	   	@Override
-	   	public void mouseClicked(MouseEvent e) {
-	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
-	   	}
 
-	   	@Override
-	   	public void mouseEntered(MouseEvent e) {
-	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
-	   	}
-	   	@Override
-	   	public void mouseExited(MouseEvent e) {
-	   		textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
-	   	}
-	   }); 
-	   
-	   
-	   
-	   
-	   
 	   comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	   comboBox.addItem("Aosta");
-	   comboBox.addItem("L'Aquila");
+	   comboBox.addItem("L’Aquila");
 	   comboBox.addItem("Potenza");
 	   comboBox.addItem("Catanzaro");
 	   comboBox.addItem("Napoli");
@@ -251,6 +232,15 @@ public class RegisterFrame extends JFrame {
 				else btnRegister.setEnabled(true);
 			}
 		};
+		
+		comboBox.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
+				
+			}
+		});
 		
 		passwordFieldRegister.getDocument().addDocumentListener(doclistener);
 		
