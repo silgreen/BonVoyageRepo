@@ -253,7 +253,6 @@ public class RegisterFrame extends JFrame {
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
-		    //commento
 		}
 		catch(IOException ex) {
 		}
