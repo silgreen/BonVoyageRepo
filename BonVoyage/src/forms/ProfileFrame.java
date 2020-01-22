@@ -40,7 +40,7 @@ public class ProfileFrame extends JFrame {
 	private Controller control;
 
 	/**
-	 * Create the frame.
+	 * Create the frame. 
 	 */
 	public ProfileFrame(Controller ctrl) {
 
@@ -132,7 +132,7 @@ public class ProfileFrame extends JFrame {
 	    			control.toDeleteUser(control.getUser().getIduser());
 	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
 	    			control.SetLoginAndRegisterLabelVisible(true, false);
-	    			JOptionPane.showConfirmDialog(null, "L'Account è stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+	    			JOptionPane.showConfirmDialog(null, "L'Account ï¿½ stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
 	    			
 	    		}
 	    	}

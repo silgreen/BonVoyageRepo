@@ -69,7 +69,7 @@ public class RegisterFrame extends JFrame {
 	private Controller control;
 
 	/**
-	 * Create the frame.
+	 * Create the frame. 
 	 */
 	public RegisterFrame(Controller ctrl) {
 		control = ctrl;
@@ -93,7 +93,7 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(textFieldUserName);
 		textFieldUserName.setColumns(10);
 		
-		JLabel lblSeiGiaRegistrato = new JLabel("Già registrato?");
+		JLabel lblSeiGiaRegistrato = new JLabel("Giï¿½ registrato?");
 		lblSeiGiaRegistrato.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSeiGiaRegistrato.setBounds(318, 496, 104, 26);
 		contentPane.add(lblSeiGiaRegistrato);
@@ -148,7 +148,7 @@ public class RegisterFrame extends JFrame {
 		passwordFieldConfirm.setBounds(261, 331, 264, 26);
 		contentPane.add(passwordFieldConfirm);
 		
-		JLabel lblCity = new JLabel("Città");
+		JLabel lblCity = new JLabel("Cittï¿½");
 		lblCity.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblCity.setBounds(261, 367, 41, 19);
 		contentPane.add(lblCity);
@@ -175,7 +175,7 @@ public class RegisterFrame extends JFrame {
 
 	   comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	   comboBox.addItem("Aosta");
-	   comboBox.addItem("L’Aquila");
+	   comboBox.addItem("Lï¿½Aquila");
 	   comboBox.addItem("Potenza");
 	   comboBox.addItem("Catanzaro");
 	   comboBox.addItem("Napoli");
@@ -215,9 +215,9 @@ public class RegisterFrame extends JFrame {
 				} catch (PasswordDismatchException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "La Password non corrisponde!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (UserAlreadyExistException e2) {
-					JOptionPane.showInternalMessageDialog(contentPane, "L'Username non è disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "L'Username non ï¿½ disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (EmailAlreadyExistException e3) {
-					JOptionPane.showInternalMessageDialog(contentPane, "l'Email è già stata utilizzata!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "l'Email ï¿½ giï¿½ stata utilizzata!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
 	    		
 	    		JOptionPane.showInternalMessageDialog(contentPane, "Registrazione Effettuata!", "BonVoyage!",JOptionPane.INFORMATION_MESSAGE);
