@@ -69,7 +69,7 @@ public class RegisterFrame extends JFrame {
 	private Controller control;
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public RegisterFrame(Controller ctrl) {
 		control = ctrl;

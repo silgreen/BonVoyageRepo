@@ -46,7 +46,7 @@ public class LoginFrame extends JFrame {
 	private Controller control;
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public LoginFrame(Controller ctrl) {
 		control = ctrl;

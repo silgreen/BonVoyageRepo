@@ -37,7 +37,7 @@ public class ReviewFrame extends JFrame {
 	private Controller control;
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public ReviewFrame(Controller ctrl) {
 		control = ctrl;

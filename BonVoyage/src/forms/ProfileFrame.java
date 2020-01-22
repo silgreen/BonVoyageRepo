@@ -40,7 +40,7 @@ public class ProfileFrame extends JFrame {
 	private Controller control;
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public ProfileFrame(Controller ctrl) {
 

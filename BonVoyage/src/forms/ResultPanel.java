@@ -21,7 +21,7 @@ public class ResultPanel extends JPanel {
 		control = ctrl;
 		addMouseListener(new MouseAdapter() {
 
-			@Override 
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				control.lle(p);
 				control.getPost().setVisible(true);

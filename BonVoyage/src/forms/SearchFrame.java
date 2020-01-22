@@ -50,7 +50,7 @@ public class SearchFrame extends JFrame {
 	private JLabel lblRegistrati;
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public SearchFrame(Controller ctrl) {
 

@@ -51,7 +51,7 @@ public class ResultsFrame extends JFrame {
 
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public ResultsFrame(Controller ctrl) {
 

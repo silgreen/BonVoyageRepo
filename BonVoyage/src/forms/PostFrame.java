@@ -42,7 +42,7 @@ public class PostFrame extends JFrame {
 	private Post p;
 
 	/**
-	 * Create the frame. 
+	 * Create the frame.
 	 */
 	public PostFrame(Controller ctrl) {
 
