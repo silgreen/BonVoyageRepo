@@ -28,19 +28,24 @@ import javax.swing.JTextPane;
 import java.awt.Scrollbar;
 import javax.swing.border.LineBorder;
 
+import classi.Post;
 import controller.Controller;
 
 import javax.swing.JSeparator;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class PostFrame extends JFrame {
 
 	private JPanel contentPane;
 	private Controller control;
+	private Post p;
 
 	/**
 	 * Create the frame.
 	 */
 	public PostFrame(Controller ctrl) {
+
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -167,6 +172,7 @@ public class PostFrame extends JFrame {
 	    btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnNewButton.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+
 	    	}
 	    });
 	    btnNewButton.setBounds(538, 319, 175, 23);
@@ -220,5 +226,13 @@ public class PostFrame extends JFrame {
 	    bottomPanel.add(separator);
 	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
+	    
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+	    		p = control.getPostPost();
+	    		textPanePostName.setText(p.getName());
+			}
+		});
 	}
 }

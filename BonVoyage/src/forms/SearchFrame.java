@@ -14,6 +14,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import controller.Controller;
+import except.NoResultsException;
 
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
@@ -72,6 +73,7 @@ public class SearchFrame extends JFrame {
 		textFieldSearch.setColumns(10);
 		
 		lblLogo = new JLabel();
+		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		lblLogo.setBounds(234, 47, 353, 116);
 		contentPane.add(lblLogo);
@@ -124,29 +126,50 @@ public class SearchFrame extends JFrame {
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 
-	    		if(!textFieldSearch.getText().isEmpty()) {
-		    		if(rdbtnRistoranti.isSelected())
-		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
-		    		else if(rdbtnHotel.isSelected())
-		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
-		    		else if(rdbtnAttivita.isSelected()) 
-		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
-		    		else if(rdbtnAll.isSelected())
-		    			control.toShowAllResultsByPosition(textFieldSearch.getText());
-	    		}
-	    		else if(textFieldSearch.getText().isEmpty()) {
-		    		if(rdbtnAttivita.isSelected())
-		    			control.toShowResultsByCategory("Attrazione Turistica");
-		    		else if(rdbtnHotel.isSelected())
-		    			control.toShowResultsByCategory("Struttura Ricettiva");
-		    		else if(rdbtnRistoranti.isSelected())
-		    			control.toShowResultsByCategory("Ristorante");
-		    		else if(rdbtnAll.isSelected())
-		    			control.toShowAllResults();
+	    		try {
+		    		if(!textFieldSearch.getText().isEmpty()) {
+			    		if(rdbtnRistoranti.isSelected()) {
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
+			    		}
+			    		else if(rdbtnHotel.isSelected()) {
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
+			    		}
+			    		else if(rdbtnAttivita.isSelected()) {
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
+			    		}
+			    		else if(rdbtnAll.isSelected()) {
+			    			control.toShowAllResultsByPosition(textFieldSearch.getText());
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    		}
+		    		}
+		    		else if(textFieldSearch.getText().isEmpty()) {
+			    		if(rdbtnAttivita.isSelected()) {
+			    			control.toShowResultsByCategory("Attrazione Turistica");
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    		}
+			    		else if(rdbtnHotel.isSelected()) {
+			    			control.toShowResultsByCategory("Struttura Ricettiva");
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    		}
+			    		else if(rdbtnRistoranti.isSelected()) {
+			    			control.toShowResultsByCategory("Ristorante");
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    		}
+			    		else if(rdbtnAll.isSelected()) {
+			    			control.toShowAllResults();
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    		}
+		    		}
+		    		
+	    		}catch(NoResultsException f) {
+		        	JOptionPane.showInternalMessageDialog(contentPane, "La ricerca non ha prodotto risultati", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 	    		}
 
 	    			
-	    		control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+	    		
 	    	}
 	    });
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -236,21 +259,6 @@ public class SearchFrame extends JFrame {
 				textFieldSearch.setText("");
 				rdbtnAll.setSelected(true);
 			}
-		});
-	    
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
-		    lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
-		    
-
-
-		    
-
-
-		}
-		catch(IOException ex) { 
-		}	
-		
-		
+		});		
 	}
 }

@@ -137,7 +137,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where categoria =?";
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where categoria=?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);

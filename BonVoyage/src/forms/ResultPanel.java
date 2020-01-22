@@ -5,15 +5,28 @@ import java.awt.Color;
 import javax.swing.border.LineBorder;
 
 import classi.Post;
+import controller.Controller;
 
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ResultPanel extends JPanel {
 
-	public ResultPanel(Post p) {
+	Controller control;
+	public ResultPanel(Post p, Controller ctrl) {
+		control = ctrl;
+		addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.lle(p);
+				control.getPost().setVisible(true);
+			}
+		});
 		setBackground(new Color(255, 250, 240));
 		setLayout(null);
 		setBounds(0,0,757,173);
@@ -55,6 +68,7 @@ public class ResultPanel extends JPanel {
 		textPaneNomeStruttura.setBackground(new Color(255,250,240));
 		textPaneNomeStruttura.setBounds(181, 0, 245, 40);
 		add(textPaneNomeStruttura);
-
+		
+		
 	}
 }

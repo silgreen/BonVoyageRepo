@@ -18,12 +18,14 @@ import classi.User;
 import dao.UserDao;
 import except.EmailAlreadyExistException;
 import except.LoginException;
+import except.NoResultsException;
 import except.PasswordDismatchException;
 import except.UserAlreadyExistException;
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.ProfileFrame;
 import forms.RegisterFrame;
+import forms.ResultPanel;
 import forms.ResultsFrame;
 import forms.ReviewFrame;
 import forms.SearchFrame;
@@ -44,6 +46,7 @@ public class Controller {
 	
 	ArrayList<Post> ap;
 	User user = new User();
+	Post post = new Post();
 	
 	public static void main(String[] args) {
 		
@@ -77,25 +80,29 @@ public class Controller {
 	    Search.setVisible(true);
 	    
 	}
-	public ArrayList<Post> toShowResultsByCategory(String category){
-		ap = PDAO.toFetchPostFromDb(category);
-		return ap;
+	
+	public void toShowResultsByCategory(String category) throws NoResultsException{
+		ap = PDAO.toFetchPostFromDbByCategory(category);
+		if(ap.isEmpty())
+			throw new NoResultsException();
 	}
 	
-	public ArrayList<Post> toShowAllResults(){
+	public void toShowAllResults() throws NoResultsException{
 		ap = PDAO.toFetchPostFromDb();
-		return ap;
+		if(ap.isEmpty())
+			throw new NoResultsException();
 	}
 	
-	public ArrayList<Post> toShowResultsByPositionAndCategory(String city, String category){
+	public void toShowResultsByPositionAndCategory(String city, String category) throws NoResultsException{
 		ap = PDAO.toFetchPostFromDb(city, category);
-		return ap;
-		
+		if(ap.isEmpty())
+			throw new NoResultsException();
 	}
 	
-	public ArrayList<Post> toShowAllResultsByPosition(String city){
+	public void toShowAllResultsByPosition(String city) throws NoResultsException{
 		ap = PDAO.toFetchPostFromDb(city);
-		return ap;
+		if(ap.isEmpty())
+			throw new NoResultsException();
 	}
 	
 	public void toDeleteUser(String iduser) {
@@ -174,8 +181,14 @@ public class Controller {
     	ap.clear();
     	return ap;
     }
+
+    public void lle(Post p) {
+    	post = p;
+    }
     
-    
+    public Post getPostPost(){
+    	return post;
+    }
     public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
     	Search.getContentPane().getComponent(8).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(9).setVisible(loginAndRegister);

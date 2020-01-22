@@ -82,9 +82,8 @@ public class ResultsFrame extends JFrame {
 	    lblLogo.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-				control.emptyPosts();	
+
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getResults());
-	    		control.getSearch().setVisible(true);
 	    		
 				for(int i = 0; i<a1.size(); i++) {
 					if(!a1.isEmpty()) {
@@ -92,6 +91,7 @@ public class ResultsFrame extends JFrame {
 						panelFilter.setPreferredSize(new Dimension(0, 0));
 					}
 				}
+				control.emptyPosts();	
 				a1.clear();
 	    	}
 	    });
@@ -133,7 +133,7 @@ public class ResultsFrame extends JFrame {
 				for(int i=0; i<a.size(); i++) {
 					Post p = new Post();
 					p = a.get(i);
-					ResultPanel rp = new ResultPanel(p);
+					ResultPanel rp = new ResultPanel(p,control);
 					a1.add(rp);
 				}
 				
