@@ -23,11 +23,11 @@ public class ResultPanel extends JPanel {
 		add(lblFoto);
 		
 		JLabel lblStelle = new JLabel(p.getRating_avg());
-		lblStelle.setBounds(369, 12, 74, 21);
+		lblStelle.setBounds(436, 12, 74, 21);
 		add(lblStelle);
 		
 		JLabel lblNrecensioni = new JLabel(p.getNreviews());
-		lblNrecensioni.setBounds(461, 12, 95, 21);
+		lblNrecensioni.setBounds(520, 12, 95, 21);
 		add(lblNrecensioni);
 		
 		JLabel lblPosizione = new JLabel(p.getCity() + "," + p.getRegion());
@@ -36,11 +36,12 @@ public class ResultPanel extends JPanel {
 		add(lblPosizione);
 		
 		JLabel lblTipoCate = new JLabel(p.getCategory() + "," + p.getSub_category());
-		lblTipoCate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTipoCate.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTipoCate.setBounds(181, 152, 206, 19);
 		add(lblTipoCate);
 		
 		JTextPane textPaneInfo = new JTextPane();
+		textPaneInfo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		textPaneInfo.setText(p.getInfo());
 		textPaneInfo.setEditable(false);
 		textPaneInfo.setBackground(new Color(255, 250, 240));
@@ -48,10 +49,11 @@ public class ResultPanel extends JPanel {
 		add(textPaneInfo);
 		
 		JTextPane textPaneNomeStruttura = new JTextPane();
+		textPaneNomeStruttura.setFont(new Font("Tahoma", Font.BOLD, 16));
 		textPaneNomeStruttura.setText(p.getName());
 		textPaneNomeStruttura.setEditable(false);
 		textPaneNomeStruttura.setBackground(new Color(255,250,240));
-		textPaneNomeStruttura.setBounds(181, 0, 180, 40);
+		textPaneNomeStruttura.setBounds(181, 0, 245, 40);
 		add(textPaneNomeStruttura);
 
 	}

@@ -77,6 +77,7 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.setLayout(null);
 	    
 	    JLabel lblLogo = new JLabel("");
+	    lblLogo.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/logoXSBon.png")));
 	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogo.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -140,30 +141,16 @@ public class ResultsFrame extends JFrame {
 					if(i==0) {
 						(a1.get(i)).setBounds(0, 80, 757, 173);
 						panelFilter.add(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0, 0));
 					}
 					else if (i>0) {
 						(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
 						panelFilter.add(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0, 173+(177*a1.size())+40));
+						panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
 					}
 				}
-				
-				System.out.println("Opened");
 			}
 		});
-
 		
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
-		    lblLogo.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/logoXSBon.png")));
-		    
-
-		    
-
-		}
-		catch(IOException ex) {
-		}
 	}
 }
