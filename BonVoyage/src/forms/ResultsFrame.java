@@ -105,12 +105,46 @@ public class ResultsFrame extends JFrame {
 	    
 	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblLogin.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblLogin.setText("<HTML><U>Login</U></HTML>");
+	    		lblLogin.setForeground(new Color(30, 144, 255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblLogin.setText("Login");
+	    		lblLogin.setForeground(new Color(0, 0, 205));
+	    	}
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getLogin(),control.getResults());
+	    	}
+	    });
 	    lblLogin.setBounds(629, 26, 39, 20);
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblRegistrati.setText("<HTML><U>Registrati</U></HTML>");
+	    		lblRegistrati.setForeground(new Color(30,144,255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblRegistrati.setText("Registrati");
+	    		lblRegistrati.setForeground(new Color(0,0,205));	
+	    	}
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getRegister(),control.getResults());
+	    	}
+	    });
+	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati.setBounds(683, 26, 81, 20);
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
