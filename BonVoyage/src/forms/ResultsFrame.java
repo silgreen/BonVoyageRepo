@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 import javax.swing.border.LineBorder;
@@ -35,6 +36,8 @@ import java.awt.Insets;
 import javax.swing.SpringLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ResultsFrame extends JFrame {
 
@@ -68,29 +71,36 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.setLayout(null);
 	    
 	    JLabel lblLogo = new JLabel("");
-	    lblLogo.setBounds(143, 5, 170, 65);
+	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblLogo.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getSearch(), control.getResults());
+	    	}
+	    });
+	    lblLogo.setBounds(10, 11, 170, 65);
 	    panelFilter.add(lblLogo);
 
 	    
 	    JLabel lblUser = new JLabel("Ciao, name");
-	    lblUser.setBounds(444, 27, 79, 20);
+	    lblUser.setBounds(629, 26, 79, 20);
 	    lblUser.setVisible(false);
 	    
 	    
 	    JLabel lblLogin = new JLabel("Login");
-	    lblLogin.setBounds(318, 27, 39, 20);
+	    lblLogin.setBounds(629, 26, 39, 20);
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
-	    lblRegistrati.setBounds(362, 27, 66, 20);
+	    lblRegistrati.setBounds(683, 26, 66, 20);
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblRegistrati);
 	    
 	    JLabel lblSeparatore = new JLabel("/");
-	    lblSeparatore.setBounds(433, 27, 6, 20);
+	    lblSeparatore.setBounds(673, 26, 6, 20);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblSeparatore);
 	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));

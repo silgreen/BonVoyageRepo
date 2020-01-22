@@ -126,7 +126,9 @@ public class LoginFrame extends JFrame {
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblNonSeiRegistrato.setBounds(337, 369, 124, 27);
 	    contentPane.add(lblNonSeiRegistrato);
-	
+	    
+	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));

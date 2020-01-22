@@ -128,6 +128,7 @@ public class Controller {
 	
 	public void toOpenAndCloseFrame(JFrame open, JFrame close) {
 		open.setVisible(true);
+		open.setBounds(close.getX(), close.getY(), close.getWidth(), close.getHeight());
 		close.setVisible(false);
 	}
 	
