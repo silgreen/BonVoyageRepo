@@ -111,7 +111,7 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
-	    lblRegistrati.setBounds(683, 26, 66, 20);
+	    lblRegistrati.setBounds(683, 26, 81, 20);
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblRegistrati);
