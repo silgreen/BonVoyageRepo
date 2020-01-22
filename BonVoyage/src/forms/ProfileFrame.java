@@ -31,6 +31,7 @@ import java.awt.SystemColor;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class ProfileFrame extends JFrame {
 
@@ -54,6 +55,7 @@ public class ProfileFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("New label");
+		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logoXSBon.png")));
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -184,14 +186,5 @@ public class ProfileFrame extends JFrame {
 	    		textPaneBio.setEditable(false);
 	    	}
 	    });
-		
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
-
-
-		}
-		catch(IOException ex) {
-		}
 	}
 }

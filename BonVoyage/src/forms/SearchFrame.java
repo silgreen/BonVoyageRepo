@@ -37,6 +37,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.ImageIcon;
 
 public class SearchFrame extends JFrame { 
 	
@@ -239,7 +240,7 @@ public class SearchFrame extends JFrame {
 	    
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
 		    
 
 

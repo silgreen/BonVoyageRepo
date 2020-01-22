@@ -2,6 +2,7 @@ package forms;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -27,12 +28,18 @@ import com.jgoodies.forms.layout.RowSpec;
 import classi.Position;
 import controller.Controller;
 import dao.PositionDao;
+import except.EmailAlreadyExistException;
 import except.PasswordDismatchException;
+import except.UserAlreadyExistException;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Graphics;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -76,17 +83,17 @@ public class RegisterFrame extends JFrame {
 		
 		textFieldEmail = new JTextField();
 		textFieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldEmail.setBounds(261, 163, 264, 21);
+		textFieldEmail.setBounds(261, 163, 264, 26);
 		contentPane.add(textFieldEmail);
 		textFieldEmail.setColumns(10);
 		
 		textFieldUserName = new JTextField();
 		textFieldUserName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldUserName.setBounds(261, 215, 264, 21);
+		textFieldUserName.setBounds(261, 218, 264, 26);
 		contentPane.add(textFieldUserName);
 		textFieldUserName.setColumns(10);
 		
-		JLabel lblSeiGiaRegistrato = new JLabel("Gi\u00E0 registrato?");
+		JLabel lblSeiGiaRegistrato = new JLabel("Già registrato?");
 		lblSeiGiaRegistrato.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSeiGiaRegistrato.setBounds(318, 496, 104, 26);
 		contentPane.add(lblSeiGiaRegistrato);
@@ -128,7 +135,7 @@ public class RegisterFrame extends JFrame {
 		
 		passwordFieldRegister = new JPasswordField();
 		passwordFieldRegister.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		passwordFieldRegister.setBounds(261, 267, 264, 21);
+		passwordFieldRegister.setBounds(261, 272, 264, 26);
 		contentPane.add(passwordFieldRegister);
 		
 		JLabel lblConfermaPassword = new JLabel("Conferma password");
@@ -138,10 +145,10 @@ public class RegisterFrame extends JFrame {
 		
 		passwordFieldConfirm = new JPasswordField();
 		passwordFieldConfirm.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		passwordFieldConfirm.setBounds(261, 325, 264, 21);
+		passwordFieldConfirm.setBounds(261, 331, 264, 26);
 		contentPane.add(passwordFieldConfirm);
 		
-		JLabel lblCity = new JLabel("Citt\u00E0");
+		JLabel lblCity = new JLabel("Città");
 		lblCity.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblCity.setBounds(261, 367, 41, 19);
 		contentPane.add(lblCity);
@@ -151,7 +158,9 @@ public class RegisterFrame extends JFrame {
 		lblRegione.setBounds(261, 422, 63, 21);
 		contentPane.add(lblRegione);
 		
-		JLabel lblLogo = new JLabel("");
+		Icon Logo = new ImageIcon("/BonVoyage/Images/LogoBonvoyagesmall.png");
+		JLabel lblLogo = new JLabel();
+		lblLogo.setIcon(new ImageIcon(RegisterFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -166,7 +175,7 @@ public class RegisterFrame extends JFrame {
 
 	   comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	   comboBox.addItem("Aosta");
-	   comboBox.addItem("Lâ€™Aquila");
+	   comboBox.addItem("L’Aquila");
 	   comboBox.addItem("Potenza");
 	   comboBox.addItem("Catanzaro");
 	   comboBox.addItem("Napoli");
@@ -193,7 +202,7 @@ public class RegisterFrame extends JFrame {
 
 		textFieldRegion.setEditable(false);
 		textFieldRegion.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldRegion.setBounds(261, 443, 264, 21);
+		textFieldRegion.setBounds(261, 443, 264, 26);
 		contentPane.add(textFieldRegion);
 		textFieldRegion.setColumns(10);
 		
@@ -204,8 +213,15 @@ public class RegisterFrame extends JFrame {
 	    		try {
 					control.RegisterUser(textFieldEmail.getText(), textFieldUserName.getText(), passwordFieldRegister.getText(), passwordFieldConfirm.getText(), textFieldRegion.getText(), comboBox.getSelectedItem().toString());
 				} catch (PasswordDismatchException e1) {
-					JOptionPane.showInternalMessageDialog(contentPane, "La Password non corrisponde", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "La Password non corrisponde!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+				} catch (UserAlreadyExistException e2) {
+					JOptionPane.showInternalMessageDialog(contentPane, "L'Username non è disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+				} catch (EmailAlreadyExistException e3) {
+					JOptionPane.showInternalMessageDialog(contentPane, "l'Email è già stata utilizzata!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
+	    		
+	    		JOptionPane.showInternalMessageDialog(contentPane, "Registrazione Effettuata!", "BonVoyage!",JOptionPane.INFORMATION_MESSAGE);
+	    		control.toOpenAndCloseFrame(control.getLogin(), control.getRegister());
 	    	}
 	    });
 	    btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -249,12 +265,5 @@ public class RegisterFrame extends JFrame {
 				
 			}
 		});
-		
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
-		}
-		catch(IOException ex) {
-		}
 	}
 }

@@ -66,6 +66,7 @@ public class PostFrame extends JFrame {
 		topPanel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("New label");
+		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logoXSBon.png")));
 		lblLogo.setBounds(20, 20, 164, 43);
 		topPanel.add(lblLogo);
 		
@@ -219,13 +220,5 @@ public class PostFrame extends JFrame {
 	    bottomPanel.add(separator);
 	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
-
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
-
-		}
-		catch(IOException ex) {
-		}
 	}
 }

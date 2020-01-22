@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import javax.swing.ImageIcon;
 
 public class ReviewFrame extends JFrame {
 
@@ -49,6 +50,7 @@ public class ReviewFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/logoXSBon.png")));
 		lblLogo.setBounds(20, 20, 170, 55);
 		contentPane.add(lblLogo);
 		
@@ -103,12 +105,5 @@ public class ReviewFrame extends JFrame {
 	    JButton btn5Star = new JButton("5");
 	    btn5Star.setBounds(700, 134, 25, 25);
 	    contentPane.add(btn5Star);
-		
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));  
-		}
-		catch(IOException ex) {
-		}
 	}
 }

@@ -16,8 +16,10 @@ import dao.PostDao;
 
 import classi.User;
 import dao.UserDao;
+import except.EmailAlreadyExistException;
 import except.LoginException;
 import except.PasswordDismatchException;
+import except.UserAlreadyExistException;
 import forms.LoginFrame;
 import forms.PostFrame;
 import forms.ProfileFrame;
@@ -118,7 +120,7 @@ public class Controller {
 			else throw new LoginException();
 	}
 	
-	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException {
+	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException,EmailAlreadyExistException,UserAlreadyExistException {
 		
 		if(password.equals(confirmpassword))
 			UDAO.insertUserInDb(email, username, password, region, city);

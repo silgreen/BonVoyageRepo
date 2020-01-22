@@ -99,13 +99,14 @@ public class LoginFrame extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(LoginFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getLogin());
 			}
 		});
-		lblLogo.setBounds(221, 44, 338, 147);
+		lblLogo.setBounds(221, 44, 346, 147);
 		contentPane.add(lblLogo);
 		
 	    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
@@ -128,14 +129,5 @@ public class LoginFrame extends JFrame {
 	    contentPane.add(lblNonSeiRegistrato);
 	    
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-		
-		try {
-		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoBonvoyagesmall.png?token=AMCLLPHEJIAKCCXSBQ3YGZ26E47ZG"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
-		    
-		}
-		catch(IOException ex) {
-		}
 	}
 }

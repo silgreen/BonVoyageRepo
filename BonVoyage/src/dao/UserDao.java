@@ -14,6 +14,40 @@ public class UserDao extends User {
 		con = c;
 	}
 	
+	public boolean ExistEmailInDB (String email){
+		ResultSet result;
+		String query = "select email from utente where email = ?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, email);
+			result = pst.executeQuery();
+			
+			if(result.equals(email)) {
+				return true;
+			}
+		} catch (SQLException e) {
+		}
+		return false;
+	}
+	
+	public boolean ExistUserInDB (String username){
+		ResultSet result;
+		String query = "select username from utente where username = ?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, username);
+			result = pst.executeQuery();
+			
+			if(result.equals(username))
+				return true;
+			
+		} catch (SQLException e) {
+		}
+		return false;
+	}
+	
 	public void toDeleteUserFromDb(String userid) {
 		ResultSet result;
 		String query = "delete from utente where idutente = ?";
@@ -30,7 +64,7 @@ public class UserDao extends User {
 	
 	public void insertUserInDb(String email, String username, String password, String region, String city) {
 		ResultSet result;
-		String query = "insert into utente(email,username,password,regione,città) values(?,?,?,?,?)";
+		String query = "insert into utente(email,username,password,regione,citta) values(?,?,?,?,?)";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);

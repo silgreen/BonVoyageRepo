@@ -40,6 +40,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.ImageIcon;
 
 public class ResultsFrame extends JFrame {
 
@@ -156,7 +157,7 @@ public class ResultsFrame extends JFrame {
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
-		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    lblLogo.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/logoXSBon.png")));
 		    
 
 		    

@@ -18,7 +18,7 @@ public class PositionDao extends Position{
 
 	public String MatchRegionDao(String city) {
 		ResultSet result;
-		String query = "select regione from luogo where città =?";
+		String query = "select regione from luogo where citta= ?";
 		String str;
 		try {
 			str = new String();
