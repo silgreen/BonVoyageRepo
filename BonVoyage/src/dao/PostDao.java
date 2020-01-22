@@ -19,7 +19,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where città =? "
+		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where citta=? "
 						+ "and categoria =?";
 		
 		try {
@@ -33,7 +33,7 @@ public class PostDao extends Post{
 				p = new Post();
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
-				p.setCity(result.getString("città"));
+				p.setCity(result.getString("citta"));
 				p.setIdpost(result.getString("idpost"));
 				p.setInfo(result.getString("info"));
 				p.setName(result.getString("nome"));
@@ -71,7 +71,7 @@ public class PostDao extends Post{
 				p = new Post();
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
-				p.setCity(result.getString("città"));
+				p.setCity(result.getString("citta"));
 				p.setIdpost(result.getString("idpost"));
 				p.setInfo(result.getString("info"));
 				p.setName(result.getString("nome"));
@@ -98,7 +98,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where città =?";
+		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where citta=?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
@@ -110,7 +110,7 @@ public class PostDao extends Post{
 				p = new Post();
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
-				p.setCity(result.getString("città"));
+				p.setCity(result.getString("citta"));
 				p.setIdpost(result.getString("idpost"));
 				p.setInfo(result.getString("info"));
 				p.setName(result.getString("nome"));
@@ -149,7 +149,7 @@ public class PostDao extends Post{
 				p = new Post();
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
-				p.setCity(result.getString("città"));
+				p.setCity(result.getString("citta"));
 				p.setIdpost(result.getString("idpost"));
 				p.setInfo(result.getString("info"));
 				p.setName(result.getString("nome"));
