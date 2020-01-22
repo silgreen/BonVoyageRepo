@@ -170,11 +170,11 @@ public class Controller {
     
     
     public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
-    	Search.getContentPane().getComponent(7).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(8).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(9).setVisible(loginAndRegister);
-    	Search.getContentPane().getComponent(10).setVisible(User);
+    	Search.getContentPane().getComponent(10).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(11).setVisible(User);
+    	Search.getContentPane().getComponent(12).setVisible(User);
 
     }
 }

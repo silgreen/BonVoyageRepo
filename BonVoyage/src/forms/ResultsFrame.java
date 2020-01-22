@@ -128,7 +128,7 @@ public class ResultsFrame extends JFrame {
 					else if (i>0) {
 						(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
 						panelFilter.add(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0, 173+177*a1.size()));
+						panelFilter.setPreferredSize(new Dimension(0, 173+(177*a1.size())+40));
 					}
 				}
 				
@@ -136,7 +136,7 @@ public class ResultsFrame extends JFrame {
 				setVisible(true);
 			}
 		});
-	
+		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));

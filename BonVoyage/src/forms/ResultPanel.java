@@ -22,7 +22,7 @@ public class ResultPanel extends JPanel {
 		lblFoto.setBounds(10, 30, 151, 141);
 		add(lblFoto);
 		
-		JLabel lblStelle = new JLabel(p.getStars());
+		JLabel lblStelle = new JLabel(p.getRating_avg());
 		lblStelle.setBounds(369, 12, 74, 21);
 		add(lblStelle);
 		

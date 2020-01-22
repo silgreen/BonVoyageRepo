@@ -213,26 +213,10 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblCiao);
 	    
 	    JLabel lblUser = new JLabel("");
-	    lblUser.setForeground(Color.BLACK);
-	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setVisible(false);
 	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    lblUser.setBounds(49, 21, 119, 27);
+	    lblUser.setBounds(49, 23, 103, 22);
 	    contentPane.add(lblUser);
-	    lblUser.addMouseListener(new MouseAdapter() {
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		control.toOpenAndCloseFrame(control.getProfile(),control.getSearch());
-	    	}
-	    	@Override
-	    	public void mouseEntered(MouseEvent e) {
-	    		lblUser.setForeground(new Color(80, 80, 80));
-	    	}
-	    	@Override
-	    	public void mouseExited(MouseEvent e) {
-	    		lblUser.setForeground(new Color(0, 0, 0));
-	    	}
-	    });
 	    lblUser.addComponentListener(new ComponentAdapter() {
 	    	@Override
 	    	public void componentShown(ComponentEvent e) {
@@ -241,9 +225,13 @@ public class SearchFrame extends JFrame {
 	    	}
 	    });
 	    
+	    
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    
+
+
 		    
 
 
