@@ -19,7 +19,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where citta=? "
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta=? "
 						+ "and categoria =?";
 		
 		try {
@@ -60,7 +60,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura";
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
@@ -98,7 +98,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where citta=?";
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta=?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
@@ -137,7 +137,7 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.idpost = struttura.idstruttura where categoria =?";
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where categoria =?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);

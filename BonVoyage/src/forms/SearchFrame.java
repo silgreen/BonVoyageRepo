@@ -51,6 +51,7 @@ public class SearchFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchFrame(Controller ctrl) {
+
 		setTitle("BonVoyage!");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -121,6 +122,7 @@ public class SearchFrame extends JFrame {
 	    JButton btnCerca = new JButton("Cerca");
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+
 	    		if(!textFieldSearch.getText().isEmpty()) {
 		    		if(rdbtnRistoranti.isSelected())
 		    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
@@ -141,6 +143,7 @@ public class SearchFrame extends JFrame {
 		    		else if(rdbtnAll.isSelected())
 		    			control.toShowAllResults();
 	    		}
+
 	    			
 	    		control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 	    	}
@@ -217,6 +220,7 @@ public class SearchFrame extends JFrame {
 	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
 	    lblUser.setBounds(49, 23, 103, 22);
 	    contentPane.add(lblUser);
+	    
 	    lblUser.addComponentListener(new ComponentAdapter() {
 	    	@Override
 	    	public void componentShown(ComponentEvent e) {
@@ -225,6 +229,13 @@ public class SearchFrame extends JFrame {
 	    	}
 	    });
 	    
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				textFieldSearch.setText("");
+				rdbtnAll.setSelected(true);
+			}
+		});
 	    
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/LogoMBon.png?token=AL7WGAEA2DVRUH6DMH3VKVK6FAVWO"));

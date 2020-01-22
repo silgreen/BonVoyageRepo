@@ -40,7 +40,7 @@ public class Controller {
 	PostDao PDAO;
 	PositionDao POSDAO;
 	
-	ArrayList<Post> ap = new ArrayList<Post>();
+	ArrayList<Post> ap;
 	User user = new User();
 	
 	public static void main(String[] args) {
@@ -165,6 +165,11 @@ public class Controller {
 	}
     
     public ArrayList<Post> getPosts() {
+    	return ap;
+    }
+    
+    public ArrayList<Post> emptyPosts(){
+    	ap.clear();
     	return ap;
     }
     

@@ -38,18 +38,22 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ResultsFrame extends JFrame {
 
 	private JPanel contentPane;
 	private Controller control;
 	private ResultPanel res;
+	ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
 
 
 	/**
 	 * Create the frame.
 	 */
 	public ResultsFrame(Controller ctrl) {
+
 
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,6 +64,7 @@ public class ResultsFrame extends JFrame {
 		setContentPane(contentPane);
 		
 		JScrollPane scrollPane = new JScrollPane();
+
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
 		JPanel panelFilter = new JPanel();
@@ -75,7 +80,17 @@ public class ResultsFrame extends JFrame {
 	    lblLogo.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
+				control.emptyPosts();	
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getResults());
+	    		control.getSearch().setVisible(true);
+	    		
+				for(int i = 0; i<a1.size(); i++) {
+					if(!a1.isEmpty()) {
+						panelFilter.remove(a1.get(i));
+						panelFilter.setPreferredSize(new Dimension(0, 0));
+					}
+				}
+				a1.clear();
 	    	}
 	    });
 	    lblLogo.setBounds(10, 11, 170, 65);
@@ -106,11 +121,12 @@ public class ResultsFrame extends JFrame {
 	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblUser);
 		
-		addWindowListener(new WindowAdapter() {
+		addComponentListener(new ComponentAdapter() {
 			@Override
-			public void windowOpened(WindowEvent e) {
+			public void componentShown(ComponentEvent e) {
+				Thread t1 = new Thread();
 				ArrayList<Post> a = control.getPosts();
-				ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
+
 				
 				for(int i=0; i<a.size(); i++) {
 					Post p = new Post();
@@ -132,14 +148,17 @@ public class ResultsFrame extends JFrame {
 					}
 				}
 				
-				setVisible(false);
-				setVisible(true);
+				System.out.println("Opened");
 			}
 		});
+
+		
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 		try {
 		    BufferedImage logo = ImageIO.read(new URL("https://raw.githubusercontent.com/silgreen/BonVoyageRepo/master/BonVoyage/Images/logoXSBon.png?token=AMCLLPEJ5YPJL2HJ6TUUJBK6FAVUM"));
 		    lblLogo.setIcon(new javax.swing.ImageIcon(logo));
+		    
+
 		    
 
 		}
