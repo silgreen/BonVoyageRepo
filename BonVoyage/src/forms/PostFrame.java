@@ -116,54 +116,53 @@ public class PostFrame extends JFrame {
 	    lblImmagine.setBounds(22, 26, 200, 200);
 	    midPanel.add(lblImmagine);
 	    
-	    JLabel lblCategory = new JLabel("Category, Subcategory");
+	    JLabel lblCategory = new JLabel();
 	    lblCategory.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    lblCategory.setBounds(10, 0, 175, 33);
 	    midPanel.add(lblCategory);
 	    
 	    JLabel lblSiTrovaA = new JLabel("Si trova a");
 	    lblSiTrovaA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	    lblSiTrovaA.setBounds(249, 38, 70, 14);
+	    lblSiTrovaA.setBounds(248, 26, 70, 14);
 	    midPanel.add(lblSiTrovaA);
 	    
-	    JLabel lblPosition = new JLabel("Roma, Lazio");
+	    JLabel lblPosition = new JLabel();
 	    lblPosition.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    lblPosition.setBounds(318, 37, 124, 16);
+	    lblPosition.setBounds(318, 26, 155, 33);
 	    midPanel.add(lblPosition);
 	    
 	    JTextPane textPanePostName = new JTextPane();
+	    textPanePostName.setEditable(false);
 	    textPanePostName.setBackground(new Color(255, 250, 240));
 	    textPanePostName.setFont(new Font("Tahoma", Font.BOLD, 20));
-	    textPanePostName.setText("Name");
-	    textPanePostName.setBounds(259, 48, 224, 56);
+	    textPanePostName.setBounds(259, 58, 224, 46);
 	    midPanel.add(textPanePostName);
 	    
-	    JLabel lblStars = new JLabel("* * * * * ");
+	    JLabel lblStars = new JLabel();
 	    lblStars.setFont(new Font("Tahoma", Font.BOLD, 27));
 	    lblStars.setBounds(483, 48, 140, 40);
 	    midPanel.add(lblStars);
 	    
-	    JLabel lblnReviews = new JLabel("12.345");
+	    JLabel lblnReviews = new JLabel();
 	    lblnReviews.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	    lblnReviews.setBounds(610, 42, 48, 46);
+	    lblnReviews.setBounds(634, 42, 48, 46);
 	    midPanel.add(lblnReviews);
 	    
 	    JTextPane textPaneDescription = new JTextPane();
 	    textPaneDescription.setBackground(new Color(255, 250, 240));
 	    textPaneDescription.setEditable(false);
 	    textPaneDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    textPaneDescription.setText("Il Colosseo, originariamente conosciuto come Amphitheatrum Flavium (in italiano: Anfiteatro Flavio) o semplicemente come Amphitheatrum, è il più grande anfiteatro del mondo[1], situato nel centro della città di Roma. In grado di contenere un numero di spettatori stimato tra 50.000 e 87.000 unità, è il più importante anfiteatro romano, nonché il più imponente monumento dell'antica Roma che sia giunto fino a noi[2], conosciuto in tutto il mondo come simbolo della città di Roma e uno dei simboli d'Italia.");
 	    textPaneDescription.setBounds(269, 104, 456, 122);
 	    midPanel.add(textPaneDescription);
 	    
-	    JLabel lblUlterioriInfo = new JLabel("Ulteriori Info");
+	    JLabel lblUlterioriInfo = new JLabel("Ulteriori Info:");
 	    lblUlterioriInfo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	    lblUlterioriInfo.setBounds(22, 230, 91, 14);
 	    midPanel.add(lblUlterioriInfo);
 	    
 	    JTextPane textPaneInfo = new JTextPane();
 	    textPaneInfo.setFont(new Font("Tahoma", Font.PLAIN, 12));
-	    textPaneInfo.setText("Orari: \nDal lunedì alla domenica\ndalle 8:30 alle 19:00");
+	    textPaneInfo.setText("Orari: \nDal lun alla dom\ndalle 8:30 alle 19:00");
 	    textPaneInfo.setBackground(new Color(255, 250, 240));
 	    textPaneInfo.setBounds(22, 247, 200, 106);
 	    midPanel.add(textPaneInfo);
@@ -230,8 +229,13 @@ public class PostFrame extends JFrame {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
-	    		p = control.getPostPost();
+	    		p = control.getPost();
 	    		textPanePostName.setText(p.getName());
+	    		lblPosition.setText(p.getCity() + ","+ p.getRegion());
+	    	    textPaneDescription.setText(p.getInfo());
+	    	    lblnReviews.setText(p.getNreviews());
+	    	    lblStars.setText(p.getRating_avg());
+	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
 			}
 		});
 	}

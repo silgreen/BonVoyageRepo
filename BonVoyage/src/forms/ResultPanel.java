@@ -23,8 +23,8 @@ public class ResultPanel extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				control.lle(p);
-				control.getPost().setVisible(true);
+				control.LinkPost(p);
+				control.toOpenAndCloseFrame(control.getPostFrame(),control.getResults());
 			}
 		});
 		setBackground(new Color(255, 250, 240));

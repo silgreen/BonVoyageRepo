@@ -161,7 +161,7 @@ public class ResultsFrame extends JFrame {
 			@Override
 			public void componentShown(ComponentEvent e) {
 				Thread t1 = new Thread();
-				ArrayList<Post> a = control.getPosts();
+				ArrayList<Post> a = control.getPostsArrayList();
 
 				
 				for(int i=0; i<a.size(); i++) {

@@ -153,7 +153,7 @@ public class Controller {
 		return Register;
 	}
 
-	public PostFrame getPost() {
+	public PostFrame getPostFrame() {
 		return Post;
 	}
 
@@ -173,7 +173,7 @@ public class Controller {
 		return user;
 	}
     
-    public ArrayList<Post> getPosts() {
+    public ArrayList<Post> getPostsArrayList() {
     	return ap;
     }
     
@@ -182,11 +182,11 @@ public class Controller {
     	return ap;
     }
 
-    public void lle(Post p) {
+    public void LinkPost(Post p) {
     	post = p;
     }
     
-    public Post getPostPost(){
+    public Post getPost(){
     	return post;
     }
     public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
