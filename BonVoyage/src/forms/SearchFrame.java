@@ -245,6 +245,9 @@ public class SearchFrame extends JFrame {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getSearch());
+	    		control.setStory(control.StoryFrame(control.getSearch()));
+	    		
+
 	    	}
 	    });
 	    lblUser.setVisible(false);

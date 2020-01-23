@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JEditorPane;
 import java.awt.Font;
@@ -85,6 +86,13 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(btnNewPubblicaReview);
 	    
 	    JButton btnNewBack = new JButton("Indietro");
+	    btnNewBack.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		int input = JOptionPane.showConfirmDialog(null, "sei sicuro di voler tornare indietro? le tue modifiche andranno perdute", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+	    		if (input == 0)
+	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
+	    	}
+	    });
 	    btnNewBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnNewBack.setBounds(46, 526, 85, 27);
 	    contentPane.add(btnNewBack);

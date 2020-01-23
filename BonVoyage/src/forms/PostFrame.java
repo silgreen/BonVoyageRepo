@@ -34,6 +34,8 @@ import controller.Controller;
 import javax.swing.JSeparator;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PostFrame extends JFrame {
 
@@ -71,6 +73,12 @@ public class PostFrame extends JFrame {
 		topPanel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("New label");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.toOpenAndCloseFrame(control.getSearch(), control.getPostFrame());
+			}
+		});
 		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logoXSBon.png")));
 		lblLogo.setBounds(20, 20, 164, 43);
 		topPanel.add(lblLogo);
@@ -81,28 +89,39 @@ public class PostFrame extends JFrame {
 	    topPanel.add(panelLogin);
 	    panelLogin.setLayout(null);
 	    
+	    JLabel lblCiao = new JLabel("Ciao,");
+	    lblCiao.setBounds(0, 0, 46, 17);
+	    panelLogin.add(lblCiao);
+	    lblCiao.setVisible(false);
+	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    
 	    JLabel lblLogin = new JLabel("Login");
-	    lblLogin.setBounds(0, 0, 46, 27);
+	    lblLogin.setBounds(-1, 0, 46, 27);
 	    panelLogin.add(lblLogin);
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
-	    JLabel lblRegister = new JLabel("Registrati");
-	    lblRegister.setBounds(45, 3, 68, 20);
-	    panelLogin.add(lblRegister);
-	    lblRegister.setForeground(new Color(0, 0, 205));
-	    lblRegister.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.setBounds(45, 3, 68, 20);
+	    panelLogin.add(lblRegistrati);
+	    lblRegistrati.setForeground(new Color(0, 0, 205));
+	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
-	    JLabel label_2 = new JLabel("/");
-	    label_2.setBounds(38, 0, 7, 27);
-	    panelLogin.add(label_2);
-	    label_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    JLabel lblUser = new JLabel("");
+	    lblUser.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getProfile(), control.getPostFrame());
+	    	}
+	    });
+	    lblUser.setBounds(40, -3, 77, 29);
+	    panelLogin.add(lblUser);
+	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
 	    
-	    JLabel lblRegistedUser = new JLabel("Ciao, Name");
-	    lblRegistedUser.setVisible(false);
-	    lblRegistedUser.setBounds(20, 13, 113, 14);
-	    panelLogin.add(lblRegistedUser);
-	    lblRegistedUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    JLabel lblSeparatore = new JLabel("/");
+	    lblSeparatore.setBounds(38, 0, 7, 27);
+	    panelLogin.add(lblSeparatore);
+	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
 	    
 	    JPanel midPanel = new JPanel();
@@ -236,6 +255,15 @@ public class PostFrame extends JFrame {
 	    	    lblnReviews.setText(p.getNreviews());
 	    	    lblStars.setText(p.getRating_avg());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
+				
+	    	    if(control.getUser().isLogged()) {
+					lblRegistrati.setVisible(false);
+					lblLogin.setVisible(false);
+					lblSeparatore.setVisible(false);
+					lblCiao.setVisible(true);
+					lblUser.setText(control.getUser().getUsername());
+					lblUser.setVisible(true);
+				}
 			}
 		});
 	}

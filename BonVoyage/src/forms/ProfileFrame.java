@@ -116,6 +116,13 @@ public class ProfileFrame extends JFrame {
 	    JButton btnIndietro = new JButton("Indietro");
 	    btnIndietro.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		if(control.getStory() == 1)
+	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+	    		if(control.getStory() == 2)
+	    			control.toOpenAndCloseFrame(control.getResults(), control.getProfile());
+	    		if(control.getStory() == 3)
+	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getProfile());
+	    		
 	    	}
 	    });
 	    btnIndietro.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -123,6 +130,11 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnIndietro);
 	    
 	    JButton btnEsci = new JButton("Esci");
+	    btnEsci.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+	    	}
+	    });
 	    btnEsci.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnEsci.setBounds(685, 510, 89, 29);
 	    contentPane.add(btnEsci);
@@ -136,7 +148,7 @@ public class ProfileFrame extends JFrame {
 	    			control.toDeleteUser(control.getUser().getIduser());
 	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
 	    			control.SetLoginAndRegisterLabelVisible(true, false);
-	    			JOptionPane.showConfirmDialog(null, "L'Account ï¿½ stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+	    			JOptionPane.showConfirmDialog(null, "L'Account è stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
 	    			
 	    		}
 	    	}

@@ -157,7 +157,16 @@ public class ResultsFrame extends JFrame {
 	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblCiao);
 	    
-	    JLabel lblUser = new JLabel("name");
+	    JLabel lblUser = new JLabel();
+	    lblUser.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getProfile(), control.getResults());
+	    		control.setStory(control.StoryFrame(control.getResults()));
+	    		
+	    	}
+	    });
+	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setVisible(false);
 	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
 	    lblUser.setBounds(653, 33, 109, 14);

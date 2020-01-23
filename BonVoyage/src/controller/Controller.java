@@ -32,7 +32,7 @@ import forms.SearchFrame;
 import classi.Post;
 public class Controller {
 
-	
+	int story;
 	SearchFrame Search;
 	LoginFrame Login;
 	RegisterFrame Register;
@@ -82,6 +82,22 @@ public class Controller {
 	    Search.setVisible(true);
 	    
 	}
+	
+	public int StoryFrame(JFrame p) {
+		int search = 1;
+		int results= 2;
+		int post = 3;
+		
+		if (p.equals(Search)) {
+			return search;
+		} else if (p.equals(Results)) {
+			return results;
+		} else if (p.equals(Post)) {
+			return post;
+		} 
+		return search;
+	}
+	
 	public void createReview(String iduser,String idpost, String title, String review, int rating) {
 		REVDAO.InsertReviewIntoDb(iduser, idpost, title, review, rating);
 	}
@@ -190,6 +206,14 @@ public class Controller {
     public void LinkPost(Post p) {
     	post = p;
     }
+    
+	public int getStory() {
+		return story;
+	}
+
+	public void setStory(int story) {
+		this.story = story;
+	}
     
     public Post getPost(){
     	return post;
