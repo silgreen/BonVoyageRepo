@@ -171,7 +171,7 @@ public class PostFrame extends JFrame {
 	    btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnNewButton.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-
+	    		control.getReview().setVisible(true);
 	    	}
 	    });
 	    btnNewButton.setBounds(538, 319, 175, 23);

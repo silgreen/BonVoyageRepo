@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import classi.Position;
 import dao.PositionDao;
 import dao.PostDao;
-
+import dao.ReviewDao;
 import classi.User;
 import dao.UserDao;
 import except.EmailAlreadyExistException;
@@ -43,6 +43,7 @@ public class Controller {
 	UserDao UDAO;
 	PostDao PDAO;
 	PositionDao POSDAO;
+	ReviewDao REVDAO;
 	
 	ArrayList<Post> ap;
 	User user = new User();
@@ -76,9 +77,13 @@ public class Controller {
 	    UDAO = new UserDao(con);
 	    POSDAO = new PositionDao(con);
 	    PDAO = new PostDao(con);
+	    REVDAO = new ReviewDao(con);
 		
 	    Search.setVisible(true);
 	    
+	}
+	public void createReview(String iduser,String idpost, String title, String review, int rating) {
+		REVDAO.InsertReviewIntoDb(iduser, idpost, title, review, rating);
 	}
 	
 	public void toShowResultsByCategory(String category) throws NoResultsException{
