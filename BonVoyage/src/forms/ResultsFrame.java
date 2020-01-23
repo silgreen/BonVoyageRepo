@@ -99,9 +99,9 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.add(lblLogo);
 
 	    
-	    JLabel lblUser = new JLabel("Ciao, name");
-	    lblUser.setBounds(629, 26, 79, 20);
-	    lblUser.setVisible(false);
+	    JLabel lblCiao = new JLabel("Ciao,");
+	    lblCiao.setVisible(false);
+	    lblCiao.setBounds(613, 30, 79, 20);
 	    
 	    
 	    JLabel lblLogin = new JLabel("Login");
@@ -154,16 +154,29 @@ public class ResultsFrame extends JFrame {
 	    lblSeparatore.setBounds(673, 26, 6, 20);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    panelFilter.add(lblSeparatore);
-	    lblUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    panelFilter.add(lblCiao);
+	    
+	    JLabel lblUser = new JLabel("name");
+	    lblUser.setVisible(false);
+	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
+	    lblUser.setBounds(653, 33, 109, 14);
 	    panelFilter.add(lblUser);
 		
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
-				Thread t1 = new Thread();
+				if(control.getUser().isLogged()) {
+					lblRegistrati.setVisible(false);
+					lblLogin.setVisible(false);
+					lblSeparatore.setVisible(false);
+					lblCiao.setVisible(true);
+					lblUser.setText(control.getUser().getUsername());
+					lblUser.setVisible(true);
+				}
+				
 				ArrayList<Post> a = control.getPostsArrayList();
 
-				
 				for(int i=0; i<a.size(); i++) {
 					Post p = new Post();
 					p = a.get(i);

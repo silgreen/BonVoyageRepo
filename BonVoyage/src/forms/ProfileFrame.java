@@ -114,6 +114,10 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnModifyBio);
 	    
 	    JButton btnIndietro = new JButton("Indietro");
+	    btnIndietro.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	}
+	    });
 	    btnIndietro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnIndietro.setBounds(20, 510, 89, 29);
 	    contentPane.add(btnIndietro);

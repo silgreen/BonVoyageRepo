@@ -240,6 +240,13 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblCiao);
 	    
 	    JLabel lblUser = new JLabel("");
+	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblUser.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getProfile(), control.getSearch());
+	    	}
+	    });
 	    lblUser.setVisible(false);
 	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
 	    lblUser.setBounds(49, 23, 103, 22);

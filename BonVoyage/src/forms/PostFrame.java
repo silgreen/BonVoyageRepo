@@ -118,7 +118,7 @@ public class PostFrame extends JFrame {
 	    
 	    JLabel lblCategory = new JLabel();
 	    lblCategory.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    lblCategory.setBounds(10, 0, 175, 33);
+	    lblCategory.setBounds(22, 0, 175, 33);
 	    midPanel.add(lblCategory);
 	    
 	    JLabel lblSiTrovaA = new JLabel("Si trova a");
@@ -128,7 +128,7 @@ public class PostFrame extends JFrame {
 	    
 	    JLabel lblPosition = new JLabel();
 	    lblPosition.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    lblPosition.setBounds(318, 26, 155, 33);
+	    lblPosition.setBounds(316, 18, 155, 30);
 	    midPanel.add(lblPosition);
 	    
 	    JTextPane textPanePostName = new JTextPane();
