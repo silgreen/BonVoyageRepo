@@ -268,6 +268,20 @@ public class SearchFrame extends JFrame {
 			public void componentShown(ComponentEvent e) {
 				textFieldSearch.setText("");
 				rdbtnAll.setSelected(true);
+	    	    if(control.getUser().isLogged()) {
+					lblRegistrati_1.setVisible(false);
+					lblLogin.setVisible(false);
+					lblSeparatore.setVisible(false);
+					lblCiao.setVisible(true);
+					lblUser.setText(control.getUser().getUsername());
+					lblUser.setVisible(true);
+				} else {
+						lblRegistrati_1.setVisible(true);
+						lblLogin.setVisible(true);
+						lblSeparatore.setVisible(true);
+						lblCiao.setVisible(false);
+						lblUser.setVisible(false);
+					}
 			}
 		});		
 	}

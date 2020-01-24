@@ -39,6 +39,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class PostFrame extends JFrame {
 
@@ -69,7 +70,6 @@ public class PostFrame extends JFrame {
 		panelFilter.setBackground(new Color(255, 250, 240));
 		scrollPane.setViewportView(panelFilter);
 		panelFilter.setLayout(null);
-		//panelFilter.setPreferredSize(new Dimension(panelFilter.getWidth(),600));
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(new Color(255, 250, 240));
@@ -95,28 +95,65 @@ public class PostFrame extends JFrame {
 	    panelLogin.setLayout(null);
 	    
 	    JLabel lblCiao = new JLabel("Ciao,");
+	    lblCiao.setVisible(false);
 	    lblCiao.setBounds(0, 0, 46, 17);
 	    panelLogin.add(lblCiao);
-	    lblCiao.setVisible(false);
 	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getLogin(),control.getSearch());
+
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblLogin.setText("<HTML><U>Login</U></HTML>");
+	    		lblLogin.setForeground(new Color(30, 144, 255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblLogin.setText("Login");
+	    		lblLogin.setForeground(new Color(0, 0, 205));
+	    	}
+	    });
 	    lblLogin.setBounds(-1, 0, 46, 27);
 	    panelLogin.add(lblLogin);
 	    lblLogin.setForeground(new Color(0, 0, 205));
 	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblRegistrati.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getRegister(),control.getSearch());
+
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblRegistrati.setText("<HTML><U>Registrati</U></HTML>");
+	    		lblRegistrati.setForeground(new Color(30,144,255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblRegistrati.setText("Registrati");
+	    		lblRegistrati.setForeground(new Color(0,0,205));
+	    	}
+	    });
 	    lblRegistrati.setBounds(45, 3, 68, 20);
 	    panelLogin.add(lblRegistrati);
 	    lblRegistrati.setForeground(new Color(0, 0, 205));
 	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
 	    JLabel lblUser = new JLabel("");
+	    lblUser.setVisible(false);
 	    lblUser.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getPostFrame());
+	    		control.setStory(control.StoryFrame(control.getPostFrame()));
 	    	}
 	    });
 	    lblUser.setBounds(40, -3, 77, 29);
@@ -208,15 +245,15 @@ public class PostFrame extends JFrame {
 	    textPaneInfo.setBounds(22, 247, 200, 106);
 	    midPanel.add(textPaneInfo);
 	    
-	    JButton btnNewButton = new JButton("Scrivi una recensione...");
-	    btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnNewButton.addActionListener(new ActionListener() {
+	    JButton btnScriviRecensione = new JButton("Scrivi una recensione...");
+	    btnScriviRecensione.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    btnScriviRecensione.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.getReview().setVisible(true);
 	    	}
 	    });
-	    btnNewButton.setBounds(538, 319, 175, 23);
-	    midPanel.add(btnNewButton);
+	    btnScriviRecensione.setBounds(538, 319, 175, 23);
+	    midPanel.add(btnScriviRecensione);
 	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
 	    
@@ -230,6 +267,10 @@ public class PostFrame extends JFrame {
 	    	    lblnReviews.setText(p.getNreviews());
 	    	    lblStars.setText(p.getRating_avg());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
+	    	    
+	    	    if(!control.getUser().isLogged()) {
+	    	    	btnScriviRecensione.setVisible(false);
+	    	    }
 				
 	    	    if(control.getUser().isLogged()) {
 					lblRegistrati.setVisible(false);

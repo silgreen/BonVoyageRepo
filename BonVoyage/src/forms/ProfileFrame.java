@@ -133,6 +133,7 @@ public class ProfileFrame extends JFrame {
 	    btnEsci.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+	    		control.getUser().setLogged(false);
 	    	}
 	    });
 	    btnEsci.setFont(new Font("Tahoma", Font.PLAIN, 14));
