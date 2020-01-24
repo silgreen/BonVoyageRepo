@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 
 import classi.Post;
 import controller.Controller;
+import panel.ResultPanel;
 
 import javax.swing.JLabel;
 import java.awt.Font;

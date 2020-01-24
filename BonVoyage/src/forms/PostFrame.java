@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -29,7 +30,9 @@ import java.awt.Scrollbar;
 import javax.swing.border.LineBorder;
 
 import classi.Post;
+import classi.Review;
 import controller.Controller;
+import panel.ReviewPanel;
 
 import javax.swing.JSeparator;
 import java.awt.event.ComponentAdapter;
@@ -39,9 +42,11 @@ import java.awt.event.MouseEvent;
 
 public class PostFrame extends JFrame {
 
+	ArrayList<ReviewPanel> reviewsPanels = new ArrayList<ReviewPanel>();
 	private JPanel contentPane;
 	private Controller control;
 	private Post p;
+
 
 	/**
 	 * Create the frame.
@@ -64,7 +69,7 @@ public class PostFrame extends JFrame {
 		panelFilter.setBackground(new Color(255, 250, 240));
 		scrollPane.setViewportView(panelFilter);
 		panelFilter.setLayout(null);
-		panelFilter.setPreferredSize(new Dimension(panelFilter.getWidth(),600));
+		//panelFilter.setPreferredSize(new Dimension(panelFilter.getWidth(),600));
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(new Color(255, 250, 240));
@@ -127,6 +132,14 @@ public class PostFrame extends JFrame {
 	    btnback.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.toOpenAndCloseFrame(control.getResults(), control.getPostFrame());
+				for(int i = 0; i<reviewsPanels.size(); i++) {
+					if(!reviewsPanels.isEmpty()) {
+						panelFilter.remove(reviewsPanels.get(i));
+						panelFilter.setPreferredSize(new Dimension(0, 0));
+					}
+				}
+				control.emptyReviewsList();;	
+				reviewsPanels.clear();
 	    	}
 	    });
 	    btnback.setBounds(194, 30, 89, 23);
@@ -205,53 +218,6 @@ public class PostFrame extends JFrame {
 	    btnNewButton.setBounds(538, 319, 175, 23);
 	    midPanel.add(btnNewButton);
 	    
-	    
-	    JPanel bottomPanel = new JPanel();
-	    bottomPanel.setBorder(null);
-	    bottomPanel.setBackground(new Color(255, 250, 240));
-	    bottomPanel.setBounds(20, 432, 714, 200);
-	    panelFilter.add(bottomPanel);
-	    bottomPanel.setLayout(null);
-	    
-	    JScrollPane scrollPaneReview = new JScrollPane();
-	    scrollPaneReview.setBorder(new LineBorder(new Color(0, 0, 0)));
-	    scrollPaneReview.setBackground(new Color(255, 250, 240));
-	    scrollPaneReview.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-	    scrollPaneReview.setMaximumSize(new Dimension(23, 23));
-	    scrollPaneReview.setMinimumSize(new Dimension(32767, 32767));
-	    scrollPaneReview.setBounds(0, 70, 714, 130);
-	    bottomPanel.add(scrollPaneReview);
-	    
-	    JTextPane txtpnIlColosseoOriginariamente = new JTextPane();
-	    txtpnIlColosseoOriginariamente.setBackground(new Color(255, 250, 250));
-	    txtpnIlColosseoOriginariamente.setText("Il Colosseo, originariamente conosciuto come Amphitheatrum Flavium (in italiano: Anfiteatro Flavio) o semplicemente come Amphitheatrum, è il più grande anfiteatro del mondo[1], situato nel centro della città di Roma. In grado di contenere un numero di spettatori stimato tra 50.000 e 87.000 unità, è il più importante anfiteatro romano, nonché il più imponente monumento dell'antica Roma che sia giunto fino a noi[2], conosciuto in tutto il mondo come simbolo della città di Roma e uno dei simboli d'Italia.\r\n\r\nInserito nel 1980 nella lista dei Patrimoni dell'umanità dall'UNESCO, assieme a tutto il Centro storico di Roma, le Zone extraterritoriali della Santa Sede in Italia e la Basilica di San Paolo fuori le mura, nel 2007 il complesso, unico monumento europeo, è stato anche inserito fra le Nuove sette meraviglie del mondo, a seguito di un concorso organizzato da New Open World Corporation (NOWC).\r\n\r\nL'anfiteatro è stato edificato in epoca Flavia su un'area al limite orientale del Foro Romano. La sua costruzione fu iniziata da Vespasiano nel 71 d.C. ed inaugurato da Tito nell'80, con ulteriori modifiche apportate durante l'impero di Domiziano nel 90. L'edificio forma una ellisse di 527 m di perimetro, con assi che misurano 187,5 e 156,5 m. L'arena all'interno misura 86 × 54 m, con una superficie di 3.357 m². L'altezza attuale raggiunge 48,5 m, ma originariamente arrivava a 52 m. La struttura esprime con chiarezza le concezioni architettoniche e costruttive romane della prima Età imperiale, basate rispettivamente sulla linea curva e avvolgente offerta dalla pianta ellittica e sulla complessità dei sistemi costruttivi. Archi e volte sono concatenati tra loro in un serrato rapporto strutturale.\r\n\r\nIl nome \"Colosseo\" si diffuse solo nel Medioevo e deriva dalla deformazione popolare dell'aggettivo latino \"colosseum\" (traducibile in \"colossale\", come appariva nell'Alto Medioevo tra le casette a uno o due piani)[3] o, più probabilmente, dalla vicinanza della colossale statua bronzea di Nerone che sorgeva nei pressi.[4] Presto l'edificio divenne simbolo della città imperiale, espressione di un'ideologia in cui la volontà celebrativa giunge a definire modelli per lo svago e il divertimento del popolo.\r\n\r\nAnticamente era usato per gli spettacoli di gladiatori e altre manifestazioni pubbliche (spettacoli di caccia, rievocazioni di battaglie famose, e drammi basati sulla mitologia classica). La tradizione che lo vuole luogo di martirio di cristiani è destituita di fondamento[5]. Non più in uso dopo il VI secolo, l'enorme struttura venne variamente riutilizzata nei secoli, anche come cava di materiale. Oggi è un simbolo della città di Roma e una delle sue maggiori attrazioni turistiche sotto forma di monumento archeologico regolarmente visitabile.\r\n\r\nOggi le sue condizioni di salute destano preoccupazione, visto che studi sulla sua struttura hanno evidenziato oltre 3.000 lesioni e un esteso stato fessurativo[6]. Inoltre, nel 2012 è avvenuta la scoperta di un'inclinazione di 40 cm della struttura, probabilmente a causa di un cedimento della platea di fondazione su cui poggia[7].\r\n\r\nNel 2018 il circuito archeologico Colosseo, Foro Romano e Palatino ha ottenuto 7 650 519 visitatori, risultando il secondo sito museale statale italiano più visitato (il primo tra quelli a pagamento), alle spalle del Pantheon[8].");
-	    txtpnIlColosseoOriginariamente.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    scrollPaneReview.setViewportView(txtpnIlColosseoOriginariamente);
-	    
-	    JTextPane txtpnTitoloReview = new JTextPane();
-	    txtpnTitoloReview.setBackground(new Color(255, 250, 240));
-	    txtpnTitoloReview.setText("Stupendo");
-	    txtpnTitoloReview.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    txtpnTitoloReview.setBounds(0, 39, 388, 20);
-	    bottomPanel.add(txtpnTitoloReview);
-	    
-	    JLabel lblUserName = new JLabel("Nome Utente");
-	    lblUserName.setBackground(new Color(255, 250, 240));
-	    lblUserName.setFont(new Font("Tahoma", Font.BOLD, 14));
-	    lblUserName.setBounds(0, 14, 109, 26);
-	    bottomPanel.add(lblUserName);
-	    
-	    JLabel label = new JLabel("* * * * * ");
-	    label.setFont(new Font("Tahoma", Font.BOLD, 27));
-	    label.setBounds(574, 14, 140, 40);
-	    bottomPanel.add(label);
-	    
-	    JSeparator separator = new JSeparator();
-	    separator.setForeground(new Color(128, 128, 128));
-	    separator.setBackground(new Color(0, 0, 0));
-	    separator.setBounds(0, 11, 714, 1);
-	    bottomPanel.add(separator);
-	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
 	    
 		addComponentListener(new ComponentAdapter() {
@@ -273,6 +239,30 @@ public class PostFrame extends JFrame {
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
 				}
+	    	    
+	    	    control.toShowReview(control.getPost().getIdpost());
+	    	    reviewsPanels.clear();
+	    	    ArrayList<Review> ar = control.getReviewList();
+	    	    
+	    	    for(int i = 0; i < ar.size(); i++) {
+	    	    	Review r = new Review();
+	    	    	r = ar.get(i);
+	    	    	ReviewPanel rp = new ReviewPanel(control, r);
+	    	    	reviewsPanels.add(rp);
+	    	    }
+	    	    
+	    	    for (int i = 0; i < reviewsPanels.size(); i++) {
+	    	    	if(i == 0) {
+	    	    		reviewsPanels.get(i).setBounds(20,432,714,200);
+	    	    		panelFilter.add(reviewsPanels.get(i));
+	    	    		panelFilter.setPreferredSize(new Dimension(0,435+200));
+	    	    	} else if (i > 0) {
+	    	    		reviewsPanels.get(i).setBounds(20,reviewsPanels.get(i-1).getY() + 200, 714, 200);
+	    	    		panelFilter.add(reviewsPanels.get(i));
+	    	    		panelFilter.setPreferredSize(new Dimension(0,435+(200*reviewsPanels.size())));
+	    	    	}
+	    	    }
+	    	    control.emptyReviewsList();
 			}
 		});
 	}

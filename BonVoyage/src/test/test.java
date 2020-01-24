@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import forms.ResultPanel;
+import panel.ResultPanel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;

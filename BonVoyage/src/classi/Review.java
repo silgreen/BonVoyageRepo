@@ -5,7 +5,7 @@ public class Review {
 	String idpost;
 	String title;
 	String text;
-	float rating;
+	int rating;
 	
 	
 	public String getIduser() {
@@ -32,10 +32,10 @@ public class Review {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public float getRating() {
+	public int getRating() {
 		return rating;
 	}
-	public void setRating(float rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 }

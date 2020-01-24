@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import classi.Review;
 import classi.Position;
 import dao.PositionDao;
 import dao.PostDao;
@@ -25,10 +26,10 @@ import forms.LoginFrame;
 import forms.PostFrame;
 import forms.ProfileFrame;
 import forms.RegisterFrame;
-import forms.ResultPanel;
 import forms.ResultsFrame;
 import forms.ReviewFrame;
 import forms.SearchFrame;
+import panel.ResultPanel;
 import classi.Post;
 public class Controller {
 
@@ -44,8 +45,8 @@ public class Controller {
 	PostDao PDAO;
 	PositionDao POSDAO;
 	ReviewDao REVDAO;
-	
 	ArrayList<Post> ap;
+	ArrayList<Review> ar;
 	User user = new User();
 	Post post = new Post();
 	
@@ -83,6 +84,11 @@ public class Controller {
 	    
 	}
 	
+	public  void toShowReview(String idpost) {
+		ar = REVDAO.toFetchReviewsFromDb(idpost);
+	}
+
+
 	public int StoryFrame(JFrame p) {
 		int search = 1;
 		int results= 2;
@@ -194,6 +200,15 @@ public class Controller {
 		return user;
 	}
     
+	
+	public ArrayList<Review> getReviewList() {
+		return ar;
+	}
+    
+	public void emptyReviewsList() {
+		ar.clear();
+	}
+	
     public ArrayList<Post> getPostsArrayList() {
     	return ap;
     }
