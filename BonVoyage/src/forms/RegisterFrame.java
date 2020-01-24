@@ -56,6 +56,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class RegisterFrame extends JFrame {
 	
@@ -251,7 +253,7 @@ public class RegisterFrame extends JFrame {
 			public void changed() {
 				if(passwordFieldRegister.getText().length() < 8 || passwordFieldRegister.getText().length() > 16)
 					btnRegister.setEnabled(false);
-				else btnRegister.setEnabled(true);
+							else btnRegister.setEnabled(true);
 			}
 		};
 		
@@ -263,6 +265,18 @@ public class RegisterFrame extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
 				
+			}
+		});
+		
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				comboBox.setSelectedIndex(-1);
+				textFieldRegion.setText(null); //munnezza
+				textFieldEmail.setText(null);
+				textFieldUserName.setText(null);
+				passwordFieldRegister.setText(null);
+				passwordFieldConfirm.setText(null);
 			}
 		});
 	}
