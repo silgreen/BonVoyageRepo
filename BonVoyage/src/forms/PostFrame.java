@@ -122,6 +122,15 @@ public class PostFrame extends JFrame {
 	    lblSeparatore.setBounds(38, 0, 7, 27);
 	    panelLogin.add(lblSeparatore);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    
+	    JButton btnback = new JButton("Indietro");
+	    btnback.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		control.toOpenAndCloseFrame(control.getResults(), control.getPostFrame());
+	    	}
+	    });
+	    btnback.setBounds(194, 30, 89, 23);
+	    topPanel.add(btnback);
 		
 	    
 	    JPanel midPanel = new JPanel();

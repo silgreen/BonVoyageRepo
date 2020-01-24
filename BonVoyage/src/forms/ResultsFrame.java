@@ -120,6 +120,14 @@ public class ResultsFrame extends JFrame {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getLogin(),control.getResults());
+				for(int i = 0; i<a1.size(); i++) {
+					if(!a1.isEmpty()) {
+						panelFilter.remove(a1.get(i));
+						panelFilter.setPreferredSize(new Dimension(0, 0));
+					}
+				}
+				control.emptyPosts();	
+				a1.clear();
 	    	}
 	    });
 	    lblLogin.setBounds(629, 26, 39, 20);
@@ -142,6 +150,7 @@ public class ResultsFrame extends JFrame {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getRegister(),control.getResults());
+	    		control.emptyPosts();
 	    	}
 	    });
 	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -184,6 +193,8 @@ public class ResultsFrame extends JFrame {
 					lblUser.setVisible(true);
 				}
 				
+				a1.clear();
+				
 				ArrayList<Post> a = control.getPostsArrayList();
 
 				for(int i=0; i<a.size(); i++) {
@@ -204,6 +215,7 @@ public class ResultsFrame extends JFrame {
 						panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
 					}
 				}
+				control.emptyPosts();	
 			}
 		});
 		
