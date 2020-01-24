@@ -37,6 +37,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 import javax.swing.JPasswordField;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class LoginFrame extends JFrame {
 
@@ -49,6 +51,7 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame(Controller ctrl) {
+
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -124,6 +127,15 @@ public class LoginFrame extends JFrame {
 	    		lblNonSeiRegistrato.setText("Non sei Registrato?");
 	    	}
 	    });
+	    
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				textFieldUsername.setText(null);
+				textFieldPassword.setText(null);
+			}
+		});
+	    
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblNonSeiRegistrato.setBounds(337, 369, 124, 27);
 	    contentPane.add(lblNonSeiRegistrato);
