@@ -1,6 +1,7 @@
 package classi;
 
 public class Review {
+	String username;
 	String iduser;
 	String idpost;
 	String title;
@@ -38,4 +39,11 @@ public class Review {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 }

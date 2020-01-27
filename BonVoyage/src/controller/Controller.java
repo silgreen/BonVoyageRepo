@@ -104,6 +104,13 @@ public class Controller {
 		return search;
 	}
 	
+	public boolean controlIfExistsReviewInPostWithLoggedIduser() {
+	    for(int i=0; i<ar.size(); i++) {
+	    	if(ar.get(i).getIduser().equals(user.getIduser()))
+	    		return true;
+	    }
+		return false;
+	}
 	public void createReview(String iduser,String idpost, String title, String review, int rating) {
 		REVDAO.InsertReviewIntoDb(iduser, idpost, title, review, rating);
 	}

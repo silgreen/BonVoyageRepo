@@ -22,7 +22,7 @@ public class ReviewDao extends Review {
 		Review r;
 		int pid = Integer.parseInt(postid);
 		ResultSet result;
-		String query = "select * from recensione where idpost = ?";
+		String query = "select * from recensione inner join utente on utente.idutente = recensione.idutente where idpost = ?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
@@ -33,6 +33,7 @@ public class ReviewDao extends Review {
 			
 			while(result.next()) {
 				r = new Review();
+				r.setUsername(result.getString("username"));
 				r.setIdpost(result.getString("idpost"));
 				r.setIduser(result.getString("idutente"));
 				r.setTitle(result.getString("titolo"));

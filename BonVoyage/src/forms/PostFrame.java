@@ -303,6 +303,12 @@ public class PostFrame extends JFrame {
 	    	    		panelFilter.setPreferredSize(new Dimension(0,435+(200*reviewsPanels.size())));
 	    	    	}
 	    	    }
+	    	    
+	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser()) {
+	    	    	System.out.println("trovato");
+	    	    }
+	    	    
+	    	    
 	    	    control.emptyReviewsList();
 			}
 		});

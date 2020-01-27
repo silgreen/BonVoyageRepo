@@ -219,7 +219,7 @@ public class RegisterFrame extends JFrame {
 				} catch (UserAlreadyExistException e2) {
 					JOptionPane.showInternalMessageDialog(contentPane, "L'Username non � disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (EmailAlreadyExistException e3) {
-					JOptionPane.showInternalMessageDialog(contentPane, "l'Email � gi� stata utilizzata!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "l'Email è già stata utilizzata!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
 	    		
 	    		JOptionPane.showInternalMessageDialog(contentPane, "Registrazione Effettuata!", "BonVoyage!",JOptionPane.INFORMATION_MESSAGE);

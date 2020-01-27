@@ -14,6 +14,7 @@ public class Post {
 	String category;
 	String sub_category;
 	String stars;
+	String URLMedia;
 	
 	
 	public String getIdpost() {
@@ -94,4 +95,11 @@ public class Post {
 	public void setStars(String stars) {
 		this.stars = stars;
 	}
+	public String getURLMedia() {
+		return URLMedia;
+	}
+	public void setURLMedia(String uRLMedia) {
+		URLMedia = uRLMedia;
+	}
+	
 }

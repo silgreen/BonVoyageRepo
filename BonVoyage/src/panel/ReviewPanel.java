@@ -52,6 +52,7 @@ public class ReviewPanel extends JPanel {
 		panel.add(textPaneTitle);
 		
 		JLabel lblUsername = new JLabel();
+		lblUsername.setText(r.getUsername());
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblUsername.setBackground(new Color(255, 250, 240));
 		lblUsername.setBounds(0, 14, 109, 26);

@@ -8,11 +8,19 @@ import classi.Post;
 import controller.Controller;
 
 import java.awt.Dimension;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.awt.Rectangle;
 
 public class ResultPanel extends JPanel {
 
@@ -25,15 +33,25 @@ public class ResultPanel extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				control.LinkPost(p);
 				control.toOpenAndCloseFrame(control.getPostFrame(),control.getResults());
+				System.out.println(p.getURLMedia());
 			}
 		});
 		setBackground(new Color(255, 250, 240));
 		setLayout(null);
 		setBounds(0,0,757,173);
 		
-		JLabel lblFoto = new JLabel("Foto");
-		lblFoto.setBounds(10, 30, 151, 141);
-		add(lblFoto);
+
+		try {
+			URL url = new URL(p.getURLMedia());
+			BufferedImage image = ImageIO.read(url);
+			
+			JLabel lblFoto = new JLabel(new ImageIcon(image));
+			lblFoto.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+			lblFoto.setBounds(10, 12, 150, 150);
+			add(lblFoto);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		JLabel lblStelle = new JLabel(p.getRating_avg());
 		lblStelle.setBounds(436, 12, 74, 21);

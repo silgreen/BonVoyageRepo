@@ -31,6 +31,7 @@ public class PostDao extends Post{
 			
 			while(result.next()) {
 				p = new Post();
+				p.setURLMedia(result.getString("media"));
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
 				p.setCity(result.getString("citta"));
@@ -69,6 +70,7 @@ public class PostDao extends Post{
 			
 			while(result.next()) {
 				p = new Post();
+				p.setURLMedia(result.getString("media"));
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
 				p.setCity(result.getString("citta"));
@@ -108,6 +110,7 @@ public class PostDao extends Post{
 			
 			while(result.next()) {
 				p = new Post();
+				p.setURLMedia(result.getString("media"));
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
 				p.setCity(result.getString("citta"));
@@ -147,6 +150,7 @@ public class PostDao extends Post{
 			
 			while(result.next()) {
 				p = new Post();
+				p.setURLMedia(result.getString("media"));
 				p.setAddress(result.getString("indirizzo"));
 				p.setCategory(result.getString("categoria"));
 				p.setCity(result.getString("citta"));
