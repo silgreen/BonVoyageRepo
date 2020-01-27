@@ -20,6 +20,7 @@ import dao.UserDao;
 import except.EmailAlreadyExistException;
 import except.LoginException;
 import except.NoResultsException;
+import except.NoUserReviewException;
 import except.PasswordDismatchException;
 import except.UserAlreadyExistException;
 import forms.LoginFrame;
@@ -111,6 +112,13 @@ public class Controller {
 	    }
 		return false;
 	}
+	
+	public void toShowUserReview(String iduser) throws NoUserReviewException{
+		user.setWritedReviews(REVDAO.toFetchReviewOfUserFromDb(iduser));
+		if(REVDAO.toFetchReviewOfUserFromDb(iduser).isEmpty())
+			throw new NoUserReviewException();
+	}
+	
 	public void createReview(String iduser,String idpost, String title, String review, int rating) {
 		REVDAO.InsertReviewIntoDb(iduser, idpost, title, review, rating);
 	}

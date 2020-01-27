@@ -1,4 +1,8 @@
 package classi;
+
+import java.util.ArrayList;
+
+
 public class User {
 	String iduser;
 	String email;
@@ -11,6 +15,7 @@ public class User {
 	String region;
 	String city;
 	boolean Logged;
+	ArrayList<Review> WritedReviews;
 
 	
 	public boolean isLogged() {
@@ -80,5 +85,12 @@ public class User {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	public ArrayList<Review> getWritedReviews() {
+		return WritedReviews;
+	}
+	public void setWritedReviews(ArrayList<Review> writedReviews) {
+		WritedReviews = writedReviews;
+	}
+	
 	
 }

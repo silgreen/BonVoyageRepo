@@ -17,6 +17,39 @@ public class ReviewDao extends Review {
 		con = c;
 	}
 	
+	public ArrayList<Review> toFetchReviewOfUserFromDb(String iduser){
+		ArrayList<Review> aReview = new ArrayList<Review>();
+		Review r;
+		int pid = Integer.parseInt(iduser);
+		ResultSet result;
+		String query = "select * from recensione inner join utente on utente.idutente = recensione.idutente where recensione.idutente = ?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, pid);
+			result = pst.executeQuery();
+			
+			
+			
+			while(result.next()) {
+				r = new Review();
+				r.setUsername(result.getString("username"));
+				r.setIdpost(result.getString("idpost"));
+				r.setIduser(result.getString("idutente"));
+				r.setTitle(result.getString("titolo"));
+				r.setText(result.getString("testo"));
+				r.setRating(result.getInt("rating_utente"));
+				aReview.add(r);
+			}
+			
+			return aReview;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public ArrayList<Review> toFetchReviewsFromDb(String postid){
 		ArrayList<Review> aReview  = new ArrayList<Review>();
 		Review r;
