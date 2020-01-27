@@ -83,6 +83,23 @@ public class ReviewDao extends Review {
 		}
 	}
 	
+	public void toDeleteReviewFromDb(String idpost, String iduser) {
+		ResultSet result;
+		String query = "delete from recensione where idpost = ? and idutente = ?";
+		int Iduser = Integer.parseInt(iduser);
+		int Idpost = Integer.parseInt(idpost);
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, Idpost);
+			pst.setInt(2, Iduser);
+			result = pst.executeQuery();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void InsertReviewIntoDb(String iduser, String idpost, String title, String review, int rating) {
 		ResultSet result;
 		String query = "insert into recensione values (?, ? ,? ,? ,?)";

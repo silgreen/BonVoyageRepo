@@ -30,11 +30,13 @@ import forms.RegisterFrame;
 import forms.ResultsFrame;
 import forms.ReviewFrame;
 import forms.SearchFrame;
+import forms.UserReviewsFrame;
 import panel.ResultPanel;
 import classi.Post;
 public class Controller {
 
 	int story;
+	UserReviewsFrame UserReview;
 	SearchFrame Search;
 	LoginFrame Login;
 	RegisterFrame Register;
@@ -68,7 +70,7 @@ public class Controller {
 			
 		} catch (SQLException | ClassNotFoundException e){e.printStackTrace();}
 
-		
+		UserReview = new UserReviewsFrame(this);
 		Search = new SearchFrame(this);
 		Login = new LoginFrame(this);
 	    Register = new RegisterFrame(this);
@@ -83,6 +85,10 @@ public class Controller {
 		
 	    Search.setVisible(true);
 	    
+	}
+	
+	public void toDeleteReview(String idpost,String iduser) {
+		REVDAO.toDeleteReviewFromDb(idpost, iduser);
 	}
 	
 	public  void toShowReview(String idpost) {
@@ -216,6 +222,10 @@ public class Controller {
 	}
     
 	
+	public UserReviewsFrame getUserReview() {
+		return UserReview;
+	}
+
 	public ArrayList<Review> getReviewList() {
 		return ar;
 	}

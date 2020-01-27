@@ -159,6 +159,12 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnEliminaAccount);
 	        
 	    JLabel lblRecensioniScritte = new JLabel("Recensioni scritte:");
+	    lblRecensioniScritte.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getUserReview(), control.getProfile());
+	    	}
+	    });
 	    lblRecensioniScritte.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    lblRecensioniScritte.setBounds(457, 107, 111, 31);
 	    contentPane.add(lblRecensioniScritte);
