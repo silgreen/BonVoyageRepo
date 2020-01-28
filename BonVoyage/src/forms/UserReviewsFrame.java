@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import classi.Review;
 import controller.Controller;
+import except.NoUserReviewException;
 import panel.UserReviewPanel;
 
 import javax.swing.JScrollPane;
@@ -66,15 +67,23 @@ public class UserReviewsFrame extends JFrame {
 		JButton btnIndietro = new JButton("Indietro");
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				for(int i = 0; i < ListUrp.size(); i++) {
-//					if(!ListUrp.isEmpty()) {
-//						panelFilter.remove(ListUrp.get(i));
-//						panelFilter.setPreferredSize(new Dimension(0,0));
-//					}
-//				}
+				for(int i = 0; i < ListUrp.size(); i++) {
+					if(!ListUrp.isEmpty()) {
+						panelFilter.remove(ListUrp.get(i));
+						panelFilter.setPreferredSize(new Dimension(0,0));
+					}
+				}
+				//control.emptyReview();
+				try {
+					control.toShowUserReview(control.getUser().getIduser());
+				} catch (NoUserReviewException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				ListUrp.clear();
-				validate();
-				repaint();
+
+				setVisible(false);
+				setVisible(true);
 			}
 		});
 		btnIndietro.setBounds(689, 35, 85, 21);

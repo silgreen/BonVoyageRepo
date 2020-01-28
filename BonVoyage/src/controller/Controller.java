@@ -258,6 +258,10 @@ public class Controller {
     public Post getPost(){
     	return post;
     }
+    
+    public void emptyReview(){
+    	user.getWritedReviews().clear();
+    }
     public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
     	Search.getContentPane().getComponent(8).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(9).setVisible(loginAndRegister);
