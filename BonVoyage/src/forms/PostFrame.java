@@ -303,8 +303,10 @@ public class PostFrame extends JFrame {
 	    	    }
 	    	    
 	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser()) {
-	    	    	System.out.println("trovato");
+	    	    	btnScriviRecensione.setVisible(false);
 	    	    }
+	    	    else
+	    	    	btnScriviRecensione.setVisible(true);
 	    	    
 	    	    lblnReviews.setText(p.getNreviews());
 	    	    lblStars.setText(p.getRating_avg());

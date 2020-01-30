@@ -276,7 +276,6 @@ public class SearchFrame extends JFrame {
 					lblCiao.setVisible(true);
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
-<<<<<<< HEAD
 				} 
 	    	    else {
 					lblRegistrati_1.setVisible(true);
@@ -285,16 +284,6 @@ public class SearchFrame extends JFrame {
 					lblCiao.setVisible(false);
 					lblUser.setVisible(false);
 				}
-	    	    
-=======
-				} else {
-						lblRegistrati_1.setVisible(true);
-						lblLogin.setVisible(true);
-						lblSeparatore.setVisible(true);
-						lblCiao.setVisible(false);
-						lblUser.setVisible(false);
-					} //po
->>>>>>> branch 'master' of https://github.com/silgreen/BonVoyageRepo.git
 			}
 		});		
 	}
