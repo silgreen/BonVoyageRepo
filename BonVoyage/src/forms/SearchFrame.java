@@ -171,6 +171,7 @@ public class SearchFrame extends JFrame {
 
 	    			
 	    		
+	    		
 	    	}
 	    });
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -248,7 +249,6 @@ public class SearchFrame extends JFrame {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getSearch());
 	    		control.setStory(control.StoryFrame(control.getSearch()));
 	    		
-
 	    	}
 	    });
 	    lblUser.setVisible(false);
@@ -276,6 +276,7 @@ public class SearchFrame extends JFrame {
 					lblCiao.setVisible(true);
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
+<<<<<<< HEAD
 				} 
 	    	    else {
 					lblRegistrati_1.setVisible(true);
@@ -285,6 +286,15 @@ public class SearchFrame extends JFrame {
 					lblUser.setVisible(false);
 				}
 	    	    
+=======
+				} else {
+						lblRegistrati_1.setVisible(true);
+						lblLogin.setVisible(true);
+						lblSeparatore.setVisible(true);
+						lblCiao.setVisible(false);
+						lblUser.setVisible(false);
+					} //po
+>>>>>>> branch 'master' of https://github.com/silgreen/BonVoyageRepo.git
 			}
 		});		
 	}
