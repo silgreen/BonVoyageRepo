@@ -216,7 +216,9 @@ public class ResultsFrame extends JFrame {
 						panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
 					}
 				}
-				control.emptyPosts();	
+				control.emptyPosts();
+				revalidate();
+				repaint();
 			}
 		});
 		
