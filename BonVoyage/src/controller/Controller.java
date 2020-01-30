@@ -87,6 +87,11 @@ public class Controller {
 	    
 	}
 	
+	public Post toFetchSinglePost(String idpost) {
+		post = PDAO.toFetchSinglePostFromDb(idpost);
+		return post;
+	}
+	
 	public void toDeleteReview(String idpost,String iduser) {
 		REVDAO.toDeleteReviewFromDb(idpost, iduser);
 	}

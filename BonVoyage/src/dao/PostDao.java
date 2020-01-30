@@ -15,6 +15,41 @@ public class PostDao extends Post{
 		con = c;
 	}
 	
+	public Post toFetchSinglePostFromDb(String idpost){
+		ResultSet result;
+		Post p;
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where idpost = ?";
+		int id = Integer.parseInt(idpost);
+		
+		try {
+				PreparedStatement pst = con.prepareStatement(query);
+				pst.setInt(1, id);
+				result = pst.executeQuery();
+				
+				result.next();
+				p = new Post();
+				p.setURLMedia(result.getString("media"));
+				p.setAddress(result.getString("indirizzo"));
+				p.setCategory(result.getString("categoria"));
+				p.setCity(result.getString("citta"));
+				p.setIdpost(result.getString("idpost"));
+				p.setInfo(result.getString("info"));
+				p.setName(result.getString("nome"));
+				p.setNreviews(result.getString("nrecensioni"));
+				p.setRating_avg(result.getString("rating_avg"));
+				p.setRegion(result.getString("regione"));
+				p.setStars(result.getString("stelle"));
+				p.setSub_category(result.getString("tipologia"));
+				p.setTel(result.getString("telefono"));
+				p.setWebsite(result.getString("sito_web"));
+				return p;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 	public ArrayList<Post> toFetchPostFromDb(String city, String category){
 		ResultSet result;
 		Post p;

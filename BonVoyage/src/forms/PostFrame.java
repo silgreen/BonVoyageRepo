@@ -260,7 +260,9 @@ public class PostFrame extends JFrame {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
-	    		p = control.getPost();
+				p = control.toFetchSinglePost(control.getPost().getIdpost());
+	    	    lblnReviews.setText(p.getNreviews());
+	    	    lblStars.setText(p.getRating_avg());
 	    		textPanePostName.setText(p.getName());
 	    		lblPosition.setText(p.getCity() + ","+ p.getRegion());
 	    	    textPaneDescription.setText(p.getInfo());
@@ -304,12 +306,9 @@ public class PostFrame extends JFrame {
 	    	    
 	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser()) {
 	    	    	btnScriviRecensione.setVisible(false);
-	    	    }
-	    	    else
+	    	    } else {
 	    	    	btnScriviRecensione.setVisible(true);
-	    	    
-	    	    lblnReviews.setText(p.getNreviews());
-	    	    lblStars.setText(p.getRating_avg());
+	    	    }
 	    	    control.emptyReviewsList();
 	    	    
 	    	    revalidate();
