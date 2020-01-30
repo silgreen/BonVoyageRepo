@@ -313,7 +313,8 @@ public class PostFrame extends JFrame {
 	    	    revalidate();
 	    	    repaint();
 	    	    
-	    	    //lelle
+	    	    
+	    	    //lelle   
 			}
 		});
 	}

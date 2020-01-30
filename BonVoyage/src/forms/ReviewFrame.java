@@ -152,7 +152,6 @@ public class ReviewFrame extends JFrame {
 	    		control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
 	    		textFieldTitolo.setText(null);
 	    		editorPaneReview.setText(null);
-	    		//lalla
 	    	}
 	    });
 	}
