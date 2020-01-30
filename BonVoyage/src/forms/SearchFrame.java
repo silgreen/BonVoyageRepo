@@ -261,11 +261,6 @@ public class SearchFrame extends JFrame {
 	    	public void componentShown(ComponentEvent e) {
 	    		lblUser.setText(control.getUser().getUsername());
 	        	JOptionPane.showInternalMessageDialog(contentPane, "Accesso Effettuato", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
-	    	    try {
-					control.toShowUserReview(control.getUser().getIduser());
-	    	    } catch(NoUserReviewException e1) {
-	    	    	e1.printStackTrace();
-	    	    }
 	    	}
 	    });
 	    

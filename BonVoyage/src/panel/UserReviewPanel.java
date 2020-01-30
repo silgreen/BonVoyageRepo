@@ -40,6 +40,10 @@ public class UserReviewPanel extends JPanel {
 						e1.printStackTrace();
 					}
 				}
+				setVisible(false);
+				setVisible(true);
+				revalidate();
+				repaint();
 			}
 		});
 		btnElimina.setBounds(524, 207, 85, 21);

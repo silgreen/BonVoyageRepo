@@ -73,7 +73,7 @@ public class UserReviewsFrame extends JFrame {
 						panelFilter.setPreferredSize(new Dimension(0,0));
 					}
 				}
-				//control.emptyReview();
+				control.emptyReview();
 				try {
 					control.toShowUserReview(control.getUser().getIduser());
 				} catch (NoUserReviewException e1) {
@@ -81,9 +81,11 @@ public class UserReviewsFrame extends JFrame {
 					e1.printStackTrace();
 				}
 				ListUrp.clear();
-
+				
 				setVisible(false);
 				setVisible(true);
+				revalidate();
+				repaint();
 			}
 		});
 		btnIndietro.setBounds(689, 35, 85, 21);
