@@ -15,6 +15,7 @@ import javax.swing.event.DocumentListener;
 
 import controller.Controller;
 import except.NoResultsException;
+import except.NoUserReviewException;
 
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
@@ -260,6 +261,11 @@ public class SearchFrame extends JFrame {
 	    	public void componentShown(ComponentEvent e) {
 	    		lblUser.setText(control.getUser().getUsername());
 	        	JOptionPane.showInternalMessageDialog(contentPane, "Accesso Effettuato", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+	    	    try {
+					control.toShowUserReview(control.getUser().getIduser());
+	    	    } catch(NoUserReviewException e1) {
+	    	    	e1.printStackTrace();
+	    	    }
 	    	}
 	    });
 	    
@@ -275,13 +281,15 @@ public class SearchFrame extends JFrame {
 					lblCiao.setVisible(true);
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
-				} else {
-						lblRegistrati_1.setVisible(true);
-						lblLogin.setVisible(true);
-						lblSeparatore.setVisible(true);
-						lblCiao.setVisible(false);
-						lblUser.setVisible(false);
-					}
+				} 
+	    	    else {
+					lblRegistrati_1.setVisible(true);
+					lblLogin.setVisible(true);
+					lblSeparatore.setVisible(true);
+					lblCiao.setVisible(false);
+					lblUser.setVisible(false);
+				}
+	    	    
 			}
 		});		
 	}

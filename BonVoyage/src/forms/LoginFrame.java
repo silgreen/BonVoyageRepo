@@ -91,16 +91,14 @@ public class LoginFrame extends JFrame {
 				try {
 					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
 					if(control.getUser().isLogged()) {
-						control.toShowUserReview(control.getUser().getIduser());
 						control.toOpenAndCloseFrame(control.getSearch(),control.getLogin());
 						control.SetLoginAndRegisterLabelVisible(false, true);
 					}
 				} catch (LoginException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "Nome utente o password errati", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
-				} catch (NoUserReviewException e2) {
+				}
 			}
-		}
-	});
+		});
 		btnLogin.setBounds(337, 427, 108, 43);
 		contentPane.add(btnLogin);
 		

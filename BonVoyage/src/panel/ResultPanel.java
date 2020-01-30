@@ -21,11 +21,19 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.awt.Rectangle;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ResultPanel extends JPanel {
 
 	Controller control;
 	public ResultPanel(Post p, Controller ctrl) {
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				revalidate();
+			}
+		});
 		control = ctrl;
 		addMouseListener(new MouseAdapter() {
 
