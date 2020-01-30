@@ -280,7 +280,7 @@ public class SearchFrame extends JFrame {
 						lblSeparatore.setVisible(true);
 						lblCiao.setVisible(false);
 						lblUser.setVisible(false);
-					}
+					} //po
 			}
 		});		
 	}
