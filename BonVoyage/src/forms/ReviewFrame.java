@@ -148,6 +148,10 @@ public class ReviewFrame extends JFrame {
 	    btnNewPubblicaReview.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.createReview(control.getUser().getIduser(), control.getPost().getIdpost(), textFieldTitolo.getText(), editorPaneReview.getText(), Rating);
+	    		JOptionPane.showInternalMessageDialog(null, "La tua Recensione è stata Pubblicata con Successo!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+	    		control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
+	    		textFieldTitolo.setText(null);
+	    		editorPaneReview.setText(null);
 	    	}
 	    });
 	}

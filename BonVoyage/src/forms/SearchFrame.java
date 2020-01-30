@@ -247,7 +247,6 @@ public class SearchFrame extends JFrame {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getSearch());
 	    		control.setStory(control.StoryFrame(control.getSearch()));
 	    		
-
 	    	}
 	    });
 	    lblUser.setVisible(false);

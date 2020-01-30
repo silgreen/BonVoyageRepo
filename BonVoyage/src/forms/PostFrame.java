@@ -249,7 +249,7 @@ public class PostFrame extends JFrame {
 	    btnScriviRecensione.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    btnScriviRecensione.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		control.getReview().setVisible(true);
+	    		control.toOpenAndCloseFrame(control.getReview(), control.getPostFrame());
 	    	}
 	    });
 	    btnScriviRecensione.setBounds(538, 319, 175, 23);
@@ -264,8 +264,6 @@ public class PostFrame extends JFrame {
 	    		textPanePostName.setText(p.getName());
 	    		lblPosition.setText(p.getCity() + ","+ p.getRegion());
 	    	    textPaneDescription.setText(p.getInfo());
-	    	    lblnReviews.setText(p.getNreviews());
-	    	    lblStars.setText(p.getRating_avg());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
 	    	    
 	    	    if(!control.getUser().isLogged()) {
@@ -308,8 +306,12 @@ public class PostFrame extends JFrame {
 	    	    	System.out.println("trovato");
 	    	    }
 	    	    
-	    	    
+	    	    lblnReviews.setText(p.getNreviews());
+	    	    lblStars.setText(p.getRating_avg());
 	    	    control.emptyReviewsList();
+	    	    
+	    	    revalidate();
+	    	    repaint();
 			}
 		});
 	}
