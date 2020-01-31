@@ -36,6 +36,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ReviewFrame extends JFrame {
 
@@ -48,6 +50,7 @@ public class ReviewFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ReviewFrame(Controller ctrl) {
+
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -148,8 +151,7 @@ public class ReviewFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnStar3);
 	    radioButtonGroup.add(rdbtnStar4);
 	    radioButtonGroup.add(rdbtnStar5);
-	    rdbtnStar1.setSelected(true);
-	    rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+
 	    
 	    rdbtnStar1.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -205,6 +207,18 @@ public class ReviewFrame extends JFrame {
 	    	}
 	    });
 	    
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+			    rdbtnStar1.setSelected(true);
+			    rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+			}
+		});
+		
 	    btnNewPubblicaReview.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 		    	control.createReview(control.getUser().getIduser(), control.getPost().getIdpost(), textFieldTitolo.getText(), editorPaneReview.getText(), Rating);
