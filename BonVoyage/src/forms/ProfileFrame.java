@@ -129,11 +129,15 @@ public class ProfileFrame extends JFrame {
 	    btnIndietro.setBounds(20, 510, 89, 29);
 	    contentPane.add(btnIndietro);
 	    
-	    JButton btnEsci = new JButton("Esci");
+	    JButton btnEsci = new JButton("Logout");
 	    btnEsci.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		int input = JOptionPane.showInternalConfirmDialog(null, "sei sicuro di voler fare il logout", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+	    		
+	    		if(input == 0) {
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
 	    		control.getUser().setLogged(false);
+	    		}
 	    	}
 	    });
 	    btnEsci.setFont(new Font("Tahoma", Font.PLAIN, 14));
