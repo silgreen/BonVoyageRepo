@@ -60,6 +60,14 @@ public class UserReviewsFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getUserReview());
+				if(!UserReviewsPanels.isEmpty()) {
+					for(int i=0; i<UserReviewsPanels.size(); i++) {
+							panelFilter.remove(UserReviewsPanels.get(i));
+							panelFilter.setPreferredSize(new Dimension(0,0));
+					}
+				}
+				control.emptyReview();
+				UserReviewsPanels.clear();
 			}
 		});
 		label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
