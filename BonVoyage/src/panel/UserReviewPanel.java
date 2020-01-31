@@ -102,6 +102,7 @@ public class UserReviewPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				textPaneReview.setEditable(false);
 				control.UpdateUserReview(textPaneReview.getText(), control.getUser().getIduser(), r.getIdpost());
+				JOptionPane.showInternalMessageDialog(null, "Recensione modificata con successo", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
 				btnModifica.setVisible(true);
 				btnSalva.setVisible(false);
 				btnElimina.setVisible(true);

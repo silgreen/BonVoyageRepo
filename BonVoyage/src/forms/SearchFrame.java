@@ -130,8 +130,8 @@ public class SearchFrame extends JFrame {
 	    		try {
 		    		if(!textFieldSearch.getText().isEmpty()) {
 			    		if(rdbtnRistoranti.isSelected()) {
-			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
-			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
+								control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");		
 			    		}
 			    		else if(rdbtnHotel.isSelected()) {
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());

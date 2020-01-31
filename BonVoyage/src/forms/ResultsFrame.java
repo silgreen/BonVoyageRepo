@@ -185,7 +185,7 @@ public class ResultsFrame extends JFrame {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
-
+				
 				if(control.getUser().isLogged()) {
 					lblRegistrati.setVisible(false);
 					lblLogin.setVisible(false);
