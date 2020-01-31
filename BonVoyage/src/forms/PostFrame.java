@@ -268,10 +268,6 @@ public class PostFrame extends JFrame {
 	    	    textPaneDescription.setText(p.getInfo());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
 	    	    
-	    	    if(!control.getUser().isLogged()) {
-	    	    	btnScriviRecensione.setVisible(false);
-	    	    }
-				
 	    	    if(control.getUser().isLogged()) {
 					lblRegistrati.setVisible(false);
 					lblLogin.setVisible(false);
@@ -304,7 +300,7 @@ public class PostFrame extends JFrame {
 	    	    	}
 	    	    }
 	    	    
-	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser()) {
+	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser() || !control.getUser().isLogged()) {
 	    	    	btnScriviRecensione.setVisible(false);
 	    	    } else {
 	    	    	btnScriviRecensione.setVisible(true);
@@ -312,10 +308,7 @@ public class PostFrame extends JFrame {
 	    	    control.emptyReviewsList();
 	    	    
 	    	    revalidate();
-	    	    repaint();
-	    	    
-	    	    
-	    	    //lelle   
+	    	    repaint();  
 			}
 		});
 	}
