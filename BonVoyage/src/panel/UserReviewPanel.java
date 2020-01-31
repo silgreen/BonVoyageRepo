@@ -26,6 +26,12 @@ public class UserReviewPanel extends JPanel {
 		setBounds(new Rectangle(0, 0, 714, 250));
 		setLayout(null);
 		
+		JButton btnSalva = new JButton("Salva");
+		btnSalva.setVisible(false);
+
+		btnSalva.setBounds(619, 207, 85, 21);
+		add(btnSalva);
+		
 		JButton btnElimina = new JButton("Elimina");
 		btnElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,6 +70,8 @@ public class UserReviewPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				textPaneReview.setEditable(true);
 				btnModifica.setVisible(false);
+				btnElimina.setVisible(false);
+				btnSalva.setVisible(true);
 			}
 		});
 		btnModifica.setBounds(619, 207, 85, 21);
@@ -89,5 +97,15 @@ public class UserReviewPanel extends JPanel {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(10, 238, 694, 2);
 		add(separator);
+		
+		btnSalva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textPaneReview.setEditable(false);
+				control.UpdateUserReview(textPaneReview.getText(), control.getUser().getIduser(), r.getIdpost());
+				btnModifica.setVisible(true);
+				btnSalva.setVisible(false);
+				btnElimina.setVisible(true);
+			}
+		});
 	}
 }

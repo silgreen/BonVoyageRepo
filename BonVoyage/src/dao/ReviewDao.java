@@ -17,6 +17,23 @@ public class ReviewDao extends Review {
 		con = c;
 	}
 	
+	public void updateReview(String newReview, String iduser, String idpost) {
+		ResultSet result;
+		int idUser = Integer.parseInt(iduser);
+		int idPost = Integer.parseInt(idpost);
+		String query = "update recensione set testo =? where idutente =? and idpost =?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, newReview);
+			pst.setInt(2, idUser);
+			pst.setInt(3, idPost);
+			result = pst.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public ArrayList<Review> toFetchReviewOfUserFromDb(String iduser){
 		ArrayList<Review> aReview = new ArrayList<Review>();
 		Review r;

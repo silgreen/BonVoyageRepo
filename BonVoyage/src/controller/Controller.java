@@ -86,6 +86,9 @@ public class Controller {
 	    Search.setVisible(true);
 	    
 	}
+	public void UpdateUserReview(String newReview, String iduser, String idpost) {
+		REVDAO.updateReview(newReview, iduser, idpost);
+	}
 	
 	public Post toFetchSinglePost(String idpost) {
 		post = PDAO.toFetchSinglePostFromDb(idpost);
