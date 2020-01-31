@@ -29,16 +29,20 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ReviewFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldTitolo;
 	private Controller control;
-	private int Rating;
+	private int Rating = 0;
 
 	/**
 	 * Create the frame.
@@ -97,61 +101,117 @@ public class ReviewFrame extends JFrame {
 	    btnNewBack.setBounds(46, 526, 85, 27);
 	    contentPane.add(btnNewBack);
 	    
-	    JButton btn1Star = new JButton("1");
-	    btn1Star.addActionListener(new ActionListener() {
+	    ButtonGroup radioButtonGroup = new ButtonGroup();
+	    
+	    JRadioButton rdbtnStar1 = new JRadioButton("");
+
+
+	    rdbtnStar1.setBackground(new Color(255, 250, 240));
+	    rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    rdbtnStar1.setBounds(513, 134, 38, 32);
+	    contentPane.add(rdbtnStar1);
+	    
+	    JRadioButton rdbtnStar2 = new JRadioButton("");
+
+
+	    rdbtnStar2.setBackground(new Color(255, 250, 240));
+	    rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    rdbtnStar2.setBounds(553, 134, 38, 32);
+	    contentPane.add(rdbtnStar2);
+	    
+	    JRadioButton rdbtnStar3 = new JRadioButton("");
+
+
+	    rdbtnStar3.setBackground(new Color(255, 250, 240));
+	    rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    rdbtnStar3.setBounds(593, 134, 38, 32);
+	    contentPane.add(rdbtnStar3);
+	    
+	    JRadioButton rdbtnStar4 = new JRadioButton("");
+
+
+	    rdbtnStar4.setBackground(new Color(255, 250, 240));
+	    rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    rdbtnStar4.setBounds(634, 134, 38, 32);
+	    contentPane.add(rdbtnStar4);
+	    
+	    JRadioButton rdbtnStar5 = new JRadioButton("");
+
+
+	    rdbtnStar5.setBackground(new Color(255, 250, 240));
+	    rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    rdbtnStar5.setBounds(674, 134, 38, 32);
+	    contentPane.add(rdbtnStar5);
+	    
+	    radioButtonGroup.add(rdbtnStar1);
+	    radioButtonGroup.add(rdbtnStar2);
+	    radioButtonGroup.add(rdbtnStar3);
+	    radioButtonGroup.add(rdbtnStar4);
+	    radioButtonGroup.add(rdbtnStar5);
+	    rdbtnStar1.setSelected(true);
+	    rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    
+	    rdbtnStar1.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		Rating = 1;
+    			rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    	}
 	    });
-	    btn1Star.setBounds(560, 134, 25, 25);
-	    contentPane.add(btn1Star);
 	    
-	    JButton btn2Star = new JButton("2");
-	    btn2Star.addActionListener(new ActionListener() {
+	    rdbtnStar2.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		Rating = 2;
 	    	}
 	    });
-	    btn2Star.setBounds(595, 134, 25, 25);
-	    contentPane.add(btn2Star);
 	    
-	    JButton btn3Star = new JButton("3");
-	    btn3Star.addActionListener(new ActionListener() {
+	    rdbtnStar3.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		Rating = 3;
 	    	}
 	    });
-	    btn3Star.setBounds(630, 134, 25, 25);
-	    contentPane.add(btn3Star);
 	    
-	    JButton Btn4Star = new JButton("4");
-	    Btn4Star.addActionListener(new ActionListener() {
+	    rdbtnStar4.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		Rating = 4;
 	    	}
 	    });
-	    Btn4Star.setBounds(665, 134, 25, 25);
-	    contentPane.add(Btn4Star);
 	    
-	    JButton btn5Star = new JButton("5");
-	    btn5Star.addActionListener(new ActionListener() {
+	    rdbtnStar5.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
+	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		Rating = 5;
-	    		System.out.println(control.getUser().getIduser());
-	    		System.out.println(control.getPost().getIdpost());
-
 	    	}
 	    });
-	    btn5Star.setBounds(700, 134, 25, 25);
-	    contentPane.add(btn5Star);
 	    
 	    btnNewPubblicaReview.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		control.createReview(control.getUser().getIduser(), control.getPost().getIdpost(), textFieldTitolo.getText(), editorPaneReview.getText(), Rating);
-	    		JOptionPane.showInternalMessageDialog(null, "La tua Recensione è stata Pubblicata con Successo!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
-	    		control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
-	    		textFieldTitolo.setText(null);
-	    		editorPaneReview.setText(null);
+		    	control.createReview(control.getUser().getIduser(), control.getPost().getIdpost(), textFieldTitolo.getText(), editorPaneReview.getText(), Rating);
+		    	JOptionPane.showInternalMessageDialog(null, "Recensione pubblicata con successo!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+		    	control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
+		    	textFieldTitolo.setText(null);
+		    	editorPaneReview.setText(null);
 	    	}
 	    });
 	}
