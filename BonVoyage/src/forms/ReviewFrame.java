@@ -38,6 +38,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.JTextArea;
 
 public class ReviewFrame extends JFrame {
 
@@ -151,6 +152,11 @@ public class ReviewFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnStar3);
 	    radioButtonGroup.add(rdbtnStar4);
 	    radioButtonGroup.add(rdbtnStar5);
+	    
+	    JLabel lblGiudizio = new JLabel("");
+	    lblGiudizio.setAutoscrolls(true);
+	    lblGiudizio.setBounds(523, 173, 69, 14);
+	    contentPane.add(lblGiudizio);
 
 	    
 	    rdbtnStar1.addActionListener(new ActionListener() {
@@ -165,6 +171,7 @@ public class ReviewFrame extends JFrame {
 	    
 	    rdbtnStar2.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		lblGiudizio.setText("Mediocre");
 	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
@@ -176,6 +183,7 @@ public class ReviewFrame extends JFrame {
 	    
 	    rdbtnStar3.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		lblGiudizio.setText("Buono");
 	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
@@ -187,6 +195,7 @@ public class ReviewFrame extends JFrame {
 	    
 	    rdbtnStar4.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		lblGiudizio.setText("Ottimo");
 	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
@@ -198,6 +207,7 @@ public class ReviewFrame extends JFrame {
 	    
 	    rdbtnStar5.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		lblGiudizio.setText("Eccellente!");
 	    		rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
@@ -211,6 +221,7 @@ public class ReviewFrame extends JFrame {
 			@Override
 			public void componentShown(ComponentEvent e) {
 			    rdbtnStar1.setSelected(true);
+			    lblGiudizio.setText("Pessimo!");
 			    rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
