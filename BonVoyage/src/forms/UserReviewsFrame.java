@@ -10,10 +10,13 @@ import javax.swing.border.EmptyBorder;
 import classi.Review;
 import controller.Controller;
 import except.NoUserReviewException;
+import panel.ResultPanel;
 import panel.UserReviewPanel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -33,7 +36,7 @@ public class UserReviewsFrame extends JFrame {
 
 	private JPanel contentPane;
 	Controller control;
-	ArrayList<UserReviewPanel> ListUrp = new ArrayList<UserReviewPanel>();
+	ArrayList<UserReviewPanel> UserReviewsPanels = new ArrayList<UserReviewPanel>();
 	
 	public UserReviewsFrame(Controller ctrl) {
 		control = ctrl;
@@ -67,52 +70,72 @@ public class UserReviewsFrame extends JFrame {
 		JButton btnIndietro = new JButton("Indietro");
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(int i = 0; i < ListUrp.size(); i++) {
-					if(!ListUrp.isEmpty()) {
-						panelFilter.remove(ListUrp.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,0));
+				control.toOpenAndCloseFrame(control.getProfile(), control.getUserReview());
+				if(!UserReviewsPanels.isEmpty()) {
+					for(int i=0; i<UserReviewsPanels.size(); i++) {
+							panelFilter.remove(UserReviewsPanels.get(i));;
+							panelFilter.setPreferredSize(new Dimension(0,0));
 					}
 				}
 				control.emptyReview();
-				try {
-					control.toShowUserReview(control.getUser().getIduser());
-				} catch (NoUserReviewException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				ListUrp.clear();
-				
-				setVisible(false);
-				setVisible(true);
-				revalidate();
-				repaint();
+				UserReviewsPanels.clear();
 			}
 		});
 		btnIndietro.setBounds(689, 35, 85, 21);
 		panelFilter.add(btnIndietro);
 		
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!UserReviewsPanels.isEmpty()) {
+					for(int i=0; i<UserReviewsPanels.size(); i++) {
+							panelFilter.remove(UserReviewsPanels.get(i));;
+							panelFilter.setPreferredSize(new Dimension(0,0));
+					}
+				}
+				control.emptyReview();
+				UserReviewsPanels.clear();
+				setVisible(false);
+				setVisible(true);
+			}
+		});
+		btnRefresh.setBounds(590, 34, 89, 23);
+		panelFilter.add(btnRefresh);
+		
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
-				ArrayList<Review> ar = control.getUser().getWritedReviews();
 				
-				for (Review review : ar) {
-					UserReviewPanel urp = new UserReviewPanel(control,review);
-					ListUrp.add(urp);
+				UserReviewsPanels.clear();
+				try {
+					control.toShowUserReview(control.getUser().getIduser());
+				} catch (NoUserReviewException e1) {
+					JOptionPane.showInternalMessageDialog(contentPane, "Non hai recensioni attive!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+				}
+				ArrayList<Review> UserReviews = control.getUser().getWritedReviews();
+				
+				for(int i=0; i<UserReviews.size(); i++) {
+					Review r = new Review();
+					r = UserReviews.get(i);
+					UserReviewPanel urp = new UserReviewPanel(control, r);
+					UserReviewsPanels.add(urp);
 				}
 				
-				for(int i = 0; i < ListUrp.size(); i++) {
-					if(i == 0) {
-						ListUrp.get(i).setBounds(20,100,714,250);
-						panelFilter.add(ListUrp.get(i));
+				for(int i=0; i<UserReviewsPanels.size(); i++) {
+					if(i==0) {
+						(UserReviewsPanels.get(i)).setBounds(20,100,714,250);
+						panelFilter.add(UserReviewsPanels.get(i));
 						panelFilter.setPreferredSize(new Dimension(0,350));
-					} else {
-						ListUrp.get(i).setBounds(20,ListUrp.get(i-1).getY()+250,714,250);
-						panelFilter.add(ListUrp.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,100+(250*ListUrp.size())));
 					}
-				} 
-				ListUrp.clear();
+					else {
+						(UserReviewsPanels.get(i)).setBounds(20,UserReviewsPanels.get(i-1).getY()+250,714,250);
+						panelFilter.add(UserReviewsPanels.get(i));
+						panelFilter.setPreferredSize(new Dimension(0,100+(250*UserReviewsPanels.size())));
+					}
+				}
+				control.emptyReview();
+				revalidate();
+				repaint();
 			}
 		});
 	}
