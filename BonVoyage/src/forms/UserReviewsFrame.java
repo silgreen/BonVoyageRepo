@@ -77,7 +77,7 @@ public class UserReviewsFrame extends JFrame {
 							panelFilter.setPreferredSize(new Dimension(0,0));
 					}
 				}
-				control.emptyReview();
+				control.emptyReview(); 
 				UserReviewsPanels.clear();
 			}
 		});
