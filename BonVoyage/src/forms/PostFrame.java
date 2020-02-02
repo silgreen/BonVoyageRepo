@@ -32,6 +32,7 @@ import javax.swing.border.LineBorder;
 import classi.Post;
 import classi.Review;
 import controller.Controller;
+import panel.ResultPanel;
 import panel.ReviewPanel;
 
 import javax.swing.JSeparator;
@@ -218,12 +219,12 @@ public class PostFrame extends JFrame {
 	    
 	    JLabel lblStars = new JLabel();
 	    lblStars.setFont(new Font("Tahoma", Font.BOLD, 27));
-	    lblStars.setBounds(483, 48, 140, 40);
+	    lblStars.setBounds(487, 61, 180, 33);
 	    midPanel.add(lblStars);
 	    
 	    JLabel lblnReviews = new JLabel();
 	    lblnReviews.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	    lblnReviews.setBounds(634, 42, 48, 46);
+	    lblnReviews.setBounds(677, 58, 48, 46);
 	    midPanel.add(lblnReviews);
 	    
 	    JTextPane textPaneDescription = new JTextPane();
@@ -262,11 +263,11 @@ public class PostFrame extends JFrame {
 			public void componentShown(ComponentEvent e) {
 				p = control.toFetchSinglePost(control.getPost().getIdpost());
 	    	    lblnReviews.setText(p.getNreviews());
-	    	    lblStars.setText(p.getRating_avg());
 	    		textPanePostName.setText(p.getName());
 	    		lblPosition.setText(p.getCity() + ","+ p.getRegion());
 	    	    textPaneDescription.setText(p.getInfo());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
+	    	    control.toShowStars(lblStars, Float.parseFloat(p.getRating_avg()));
 	    	    
 	    	    if(control.getUser().isLogged()) {
 					lblRegistrati.setVisible(false);
@@ -299,7 +300,6 @@ public class PostFrame extends JFrame {
 	    	    		panelFilter.setPreferredSize(new Dimension(0,435+(200*reviewsPanels.size())));
 	    	    	}
 	    	    }
-	    	    
 	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser() || !control.getUser().isLogged()) {
 	    	    	btnScriviRecensione.setVisible(false);
 	    	    } else {

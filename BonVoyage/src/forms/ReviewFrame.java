@@ -45,7 +45,7 @@ public class ReviewFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldTitolo;
 	private Controller control;
-	private int Rating = 0;
+	private int Rating = 1;
 
 	/**
 	 * Create the frame.
@@ -161,11 +161,13 @@ public class ReviewFrame extends JFrame {
 	    
 	    rdbtnStar1.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		lblGiudizio.setText("Pessimo!");
     			rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Senza titolo-1.png")));
 	    		rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
 	    		rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
+	    		Rating = 1;
 	    	}
 	    });
 	    

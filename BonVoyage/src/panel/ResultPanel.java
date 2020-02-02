@@ -41,7 +41,6 @@ public class ResultPanel extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				control.LinkPost(p);
 				control.toOpenAndCloseFrame(control.getPostFrame(),control.getResults());
-				System.out.println(p.getURLMedia());
 			}
 		});
 		setBackground(new Color(255, 250, 240));
@@ -61,28 +60,10 @@ public class ResultPanel extends JPanel {
 			e.printStackTrace();
 		}
 		
-		JLabel lblStelle = new JLabel(p.getRating_avg());
+		JLabel lblStelle = new JLabel();
 		lblStelle.setBounds(436, 0, 180, 33);
 		add(lblStelle);
-		
-		if(Float.parseFloat(p.getRating_avg()) >= 1.5 && Float.parseFloat(p.getRating_avg()) < 2)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/1emezza.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 1 && Float.parseFloat(p.getRating_avg()) < 1.5)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/1stella.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 2.5 && Float.parseFloat(p.getRating_avg()) < 3)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/2emezza.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 2 && Float.parseFloat(p.getRating_avg()) < 2.5)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/2stelle.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 3.5 && Float.parseFloat(p.getRating_avg()) < 4)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/3emezza.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 3 && Float.parseFloat(p.getRating_avg()) < 3.5)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/3stelle.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 4.5 && Float.parseFloat(p.getRating_avg()) < 5)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/4emezza.png")));
-		else if (Float.parseFloat(p.getRating_avg()) >= 4 && Float.parseFloat(p.getRating_avg()) < 4.5)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/4stelle.png")));
-		else if (Float.parseFloat(p.getRating_avg()) > 4.5)
-			lblStelle.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/5stelle.png")));
+		control.toShowStars(lblStelle, Float.parseFloat(p.getRating_avg()));
 		
 			
 			

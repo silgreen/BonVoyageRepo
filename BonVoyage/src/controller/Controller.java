@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -85,6 +86,29 @@ public class Controller {
 		
 	    Search.setVisible(true);
 	    
+	}
+	
+	public void toShowStars(JLabel l, float rating) {
+		if(rating == 0)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/stellevuote.png")));
+		else if(rating >= 1.5 && rating < 2)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/1emezza.png")));
+		else if (rating >= 1 && rating < 1.5)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/1stella.png")));
+		else if (rating >= 2.5 && rating < 3)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/2emezza.png")));
+		else if (rating >= 2 && rating < 2.5)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/2stelle.png")));
+		else if (rating >= 3.5 && rating < 4)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/3emezza.png")));
+		else if (rating >= 3 && rating < 3.5)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/3stelle.png")));
+		else if (rating >= 4.5 && rating < 5)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/4emezza.png")));
+		else if (rating >= 4 && rating < 4.5)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/4stelle.png")));
+		else if (rating > 4.5)
+			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/5stelle.png")));
 	}
 	
 	
