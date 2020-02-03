@@ -43,6 +43,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 
 public class ResultsFrame extends JFrame {
 
@@ -183,32 +184,6 @@ public class ResultsFrame extends JFrame {
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
 				}				
-				
-				a1.clear();
-				
-				ArrayList<Post> a = control.getPostsArrayList();
-
-				for(int i=0; i<a.size(); i++) {
-					Post p = new Post();
-					p = a.get(i);
-					ResultPanel rp = new ResultPanel(p,control);
-					a1.add(rp);
-				}
-				
-				for(int i = 0; i<a1.size(); i++) {
-					if(i==0) {
-						(a1.get(i)).setBounds(0, 80, 757, 173);
-						panelFilter.add(a1.get(i));
-					}
-					else if (i>0) {
-						(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
-						panelFilter.add(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
-					}
-				}
-				control.emptyPosts();
-				revalidate();
-				repaint();
 				toShowPanels(panelFilter);
 			}
 		});
@@ -231,8 +206,7 @@ public class ResultsFrame extends JFrame {
 			Post p = new Post();
 			p = a.get(i);
 			ResultPanel rp = new ResultPanel(p,control);
-			a1.add(rp);
-			System.out.println(p.getRating_avg());
+			a1.add(rp);			
 		}
 		
 		for(int i = 0; i<a1.size(); i++) {
