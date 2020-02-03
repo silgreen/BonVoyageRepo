@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 
 import classi.Post;
 import controller.Controller;
+import except.NoResultsException;
 import panel.ResultPanel;
 
 import javax.swing.JLabel;
@@ -50,7 +51,6 @@ public class ResultsFrame extends JFrame {
 	private ResultPanel res;
 	ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
 
-
 	/**
 	 * Create the frame.
 	 */
@@ -85,14 +85,7 @@ public class ResultsFrame extends JFrame {
 	    	public void mouseClicked(MouseEvent e) {
 
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getResults());
-	    		
-				for(int i = 0; i<a1.size(); i++) {
-					if(!a1.isEmpty()) {
-						panelFilter.remove(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0, 0));
-					}
-				}
-				control.emptyPosts();	
+				toRemovePanels(panelFilter);	
 				a1.clear();
 	    	}
 	    });
@@ -136,13 +129,7 @@ public class ResultsFrame extends JFrame {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getLogin(),control.getResults());
-				for(int i = 0; i<a1.size(); i++) {
-					if(!a1.isEmpty()) {
-						panelFilter.remove(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0, 0));
-					}
-				}
-				control.emptyPosts();	
+				toRemovePanels(panelFilter);
 				a1.clear();
 	    	}
 	    });
@@ -186,6 +173,8 @@ public class ResultsFrame extends JFrame {
 			@Override
 			public void componentShown(ComponentEvent e) {
 				
+				toRemovePanels(panelFilter);
+				
 				if(control.getUser().isLogged()) {
 					lblRegistrati.setVisible(false);
 					lblLogin.setVisible(false);
@@ -193,37 +182,57 @@ public class ResultsFrame extends JFrame {
 					lblCiao.setVisible(true);
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
-				}
+				}				
 				
-				a1.clear();
-				
-				ArrayList<Post> a = control.getPostsArrayList();
-
-				for(int i=0; i<a.size(); i++) {
-					Post p = new Post();
-					p = a.get(i);
-					ResultPanel rp = new ResultPanel(p,control);
-					a1.add(rp);
-					System.out.println(p.getRating_avg());
-				}
-				
-				for(int i = 0; i<a1.size(); i++) {
-					if(i==0) {
-						(a1.get(i)).setBounds(0, 80, 757, 173);
-						panelFilter.add(a1.get(i));
-					}
-					else if (i>0) {
-						(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
-						panelFilter.add(a1.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
-					}
-				}
-				control.emptyPosts();
-				revalidate();
-				repaint();
+				toShowPanels(panelFilter);
 			}
 		});
 		
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+	}
+	
+	private void toShowPanels(JPanel panelFilter) {
+		try {
+			control.setPostsArrayList();
+		} catch (NoResultsException e1) {
+			e1.printStackTrace();
+		}
+		
+		a1.clear();
+		
+		ArrayList<Post> a = control.getPostsArrayList();
+
+		for(int i=0; i<a.size(); i++) {
+			Post p = new Post();
+			p = a.get(i);
+			ResultPanel rp = new ResultPanel(p,control);
+			a1.add(rp);
+			System.out.println(p.getRating_avg());
+		}
+		
+		for(int i = 0; i<a1.size(); i++) {
+			if(i==0) {
+				(a1.get(i)).setBounds(0, 80, 757, 173);
+				panelFilter.add(a1.get(i));
+			}
+			else if (i>0) {
+				(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
+				panelFilter.add(a1.get(i));
+				panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
+			}
+		}
+		control.emptyPosts();
+		revalidate();
+		repaint();
+	}
+	
+	private void toRemovePanels(JPanel panelFilter) {
+		if(!a1.isEmpty()) {
+			for(int i=0; i<a1.size(); i++) {
+					panelFilter.remove(a1.get(i));;
+					panelFilter.setPreferredSize(new Dimension(0,0));
+			}
+		}
+		control.emptyPosts();
 	}
 }

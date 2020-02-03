@@ -48,22 +48,23 @@ public class ResultPanel extends JPanel {
 		setBounds(0,0,757,173);
 		
 
-		try {
-			URL url = new URL(p.getURLMedia());
-			BufferedImage image = ImageIO.read(url);
-			
-			JLabel lblFoto = new JLabel(new ImageIcon(image));
-			lblFoto.setBorder(new LineBorder(new Color(0, 0, 0), 3));
-			lblFoto.setBounds(10, 12, 150, 150);
-			add(lblFoto);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			URL url = new URL(p.getURLMedia());
+//			BufferedImage image = ImageIO.read(url);
+//			
+//			JLabel lblFoto = new JLabel(new ImageIcon(image));
+//			lblFoto.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+//			lblFoto.setBounds(10, 12, 150, 150);
+//			add(lblFoto);
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 		JLabel lblStelle = new JLabel();
 		lblStelle.setBounds(436, 0, 180, 33);
 		add(lblStelle);
 		control.toShowStars(lblStelle, Float.parseFloat(p.getRating_avg()));
+
 		
 			
 			
