@@ -204,7 +204,6 @@ public class ResultsFrame extends JFrame {
 					p = a.get(i);
 					ResultPanel rp = new ResultPanel(p,control);
 					a1.add(rp);
-					System.out.println(p.getRating_avg());
 				}
 				
 				for(int i = 0; i<a1.size(); i++) {

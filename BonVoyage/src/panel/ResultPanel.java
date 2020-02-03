@@ -65,10 +65,6 @@ public class ResultPanel extends JPanel {
 		add(lblStelle);
 		control.toShowStars(lblStelle, Float.parseFloat(p.getRating_avg()));
 		
-			
-			
-		
-		
 		JLabel lblNrecensioni = new JLabel(p.getNreviews());
 		lblNrecensioni.setBounds(633, 12, 95, 21);
 		add(lblNrecensioni);
