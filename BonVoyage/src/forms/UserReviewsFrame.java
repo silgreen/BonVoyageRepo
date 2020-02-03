@@ -31,6 +31,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.SwingConstants;
 
 public class UserReviewsFrame extends JFrame {
 
@@ -39,18 +40,19 @@ public class UserReviewsFrame extends JFrame {
 	ArrayList<UserReviewPanel> UserReviewsPanels = new ArrayList<UserReviewPanel>();
 	
 	public UserReviewsFrame(Controller ctrl) {
+		setTitle("BonVoyage!");
 		setResizable(false);
 		setBackground(new Color(255, 250, 240));
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 786, 563);
+		scrollPane.setBounds(0, 0, 1000, 563);
 		contentPane.add(scrollPane);
 		
 		JPanel panelFilter = new JPanel();
@@ -78,7 +80,7 @@ public class UserReviewsFrame extends JFrame {
 		label.setBounds(20, 20, 170, 55);
 		panelFilter.add(label);
 		
-		JButton btnIndietro = new JButton("Indietro");
+		JButton btnIndietro = new JButton("");
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.toOpenAndCloseFrame(control.getProfile(), control.getUserReview());
@@ -95,7 +97,13 @@ public class UserReviewsFrame extends JFrame {
 		btnIndietro.setBounds(689, 35, 85, 21);
 		panelFilter.add(btnIndietro);
 		
-		JButton btnRefresh = new JButton("Refresh");
+		JButton btnRefresh = new JButton("");
+		btnRefresh.setForeground(new Color(255, 250, 240));
+		btnRefresh.setBackground(new Color(255, 250, 240));
+		btnRefresh.setOpaque(false);
+		btnRefresh.setContentAreaFilled(false);
+		btnRefresh.setBorderPainted(false);
+		btnRefresh.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/Very-Basic-Refresh-icon.png")));
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!UserReviewsPanels.isEmpty()) {
@@ -110,7 +118,7 @@ public class UserReviewsFrame extends JFrame {
 				setVisible(true);
 			}
 		});
-		btnRefresh.setBounds(590, 34, 89, 23);
+		btnRefresh.setBounds(645, 20, 44, 41);
 		panelFilter.add(btnRefresh);
 		
 		addComponentListener(new ComponentAdapter() {

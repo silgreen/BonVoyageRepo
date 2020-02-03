@@ -17,6 +17,7 @@ import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.ScrollPaneConstants;
 
 public class UserReviewPanel extends JPanel {
 	Controller control;
@@ -58,6 +59,7 @@ public class UserReviewPanel extends JPanel {
 		add(btnElimina);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 65, 694, 132);
 		add(scrollPane);
 		
