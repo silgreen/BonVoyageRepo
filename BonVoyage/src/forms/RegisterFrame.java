@@ -177,7 +177,7 @@ public class RegisterFrame extends JFrame {
 
 	   comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	   comboBox.addItem("Aosta");
-	   comboBox.addItem("L�Aquila");
+	   comboBox.addItem("L'Aquila");
 	   comboBox.addItem("Potenza");
 	   comboBox.addItem("Catanzaro");
 	   comboBox.addItem("Napoli");
@@ -217,9 +217,9 @@ public class RegisterFrame extends JFrame {
 				} catch (PasswordDismatchException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "La Password non corrisponde!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (UserAlreadyExistException e2) {
-					JOptionPane.showInternalMessageDialog(contentPane, "L'Username non � disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "Username non disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (EmailAlreadyExistException e3) {
-					JOptionPane.showInternalMessageDialog(contentPane, "l'Email è già stata utilizzata!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "Email Esistente!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
 	    		
 	    		JOptionPane.showInternalMessageDialog(contentPane, "Registrazione Effettuata!", "BonVoyage!",JOptionPane.INFORMATION_MESSAGE);
@@ -272,7 +272,7 @@ public class RegisterFrame extends JFrame {
 			@Override
 			public void componentHidden(ComponentEvent e) {
 				comboBox.setSelectedIndex(-1);
-				textFieldRegion.setText(null); //munnezza
+				textFieldRegion.setText(null);
 				textFieldEmail.setText(null);
 				textFieldUserName.setText(null);
 				passwordFieldRegister.setText(null);

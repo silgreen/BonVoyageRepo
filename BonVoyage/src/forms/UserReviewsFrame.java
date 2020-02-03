@@ -39,6 +39,8 @@ public class UserReviewsFrame extends JFrame {
 	ArrayList<UserReviewPanel> UserReviewsPanels = new ArrayList<UserReviewPanel>();
 	
 	public UserReviewsFrame(Controller ctrl) {
+		setResizable(false);
+		setBackground(new Color(255, 250, 240));
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -52,6 +54,7 @@ public class UserReviewsFrame extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JPanel panelFilter = new JPanel();
+		panelFilter.setBackground(new Color(255, 250, 240));
 		scrollPane.setViewportView(panelFilter);
 		panelFilter.setLayout(null);
 		

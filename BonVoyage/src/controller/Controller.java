@@ -53,6 +53,8 @@ public class Controller {
 	ArrayList<Review> ar;
 	User user = new User();
 	Post post = new Post();
+	String[] SearchDatas = new String[2];
+	int SearchType;
 	
 	public static void main(String[] args) {
 		
@@ -111,7 +113,6 @@ public class Controller {
 			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/5stelle.png")));
 	}
 	
-	
 	public void UpdateUserReview(String newReview, String iduser, String idpost) {
 		REVDAO.updateReview(newReview, iduser, idpost);
 	}
@@ -161,6 +162,35 @@ public class Controller {
 	
 	public void createReview(String iduser,String idpost, String title, String review, int rating) {
 		REVDAO.InsertReviewIntoDb(iduser, idpost, title, review, rating);
+	}
+	
+	public void setPostsArrayList() throws NoResultsException {
+		if(SearchType == 1) 
+			toShowResultsByPositionAndCategory(SearchDatas[0], SearchDatas[1]);	
+		else if(SearchType == 2)
+			toShowAllResultsByPosition(SearchDatas[0]);
+		else if(SearchType == 3)
+			toShowResultsByCategory(SearchDatas[0]);
+		else if(SearchType == 4)
+			toShowAllResults();
+	}
+	public void setSearchDatas(String city, String category) {
+		SearchDatas[0] = city;
+		SearchDatas[1] = category;
+	}
+	
+	public void setSearchDataCity(String city) {
+		SearchDatas[0] = city;
+		SearchDatas[1] = null;
+	}
+	
+	public void setSearchDataCategory(String category) {
+		SearchDatas[0] = category;
+		SearchDatas[1] = null;
+	}
+	
+	public String[] getSearchDatas() {
+		return SearchDatas;
 	}
 	
 	public void toShowResultsByCategory(String category) throws NoResultsException{
@@ -296,7 +326,16 @@ public class Controller {
     public void emptyReview(){
     	user.getWritedReviews().clear();
     }
-    public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
+    
+    public int getSearchType() {
+		return SearchType;
+	}
+
+	public void setSearchType(int searchType) {
+		SearchType = searchType;
+	}
+
+	public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
     	Search.getContentPane().getComponent(8).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(9).setVisible(loginAndRegister);
     	Search.getContentPane().getComponent(10).setVisible(loginAndRegister);

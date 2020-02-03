@@ -105,7 +105,7 @@ public class PostFrame extends JFrame {
 	    lblLogin.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-	    		control.toOpenAndCloseFrame(control.getLogin(),control.getSearch());
+	    		control.toOpenAndCloseFrame(control.getLogin(),control.getPostFrame());
 
 	    	}
 	    	@Override
@@ -129,7 +129,7 @@ public class PostFrame extends JFrame {
 	    lblRegistrati.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
-	    		control.toOpenAndCloseFrame(control.getRegister(),control.getSearch());
+	    		control.toOpenAndCloseFrame(control.getRegister(),control.getPostFrame());
 
 	    	}
 	    	@Override
@@ -157,7 +157,7 @@ public class PostFrame extends JFrame {
 	    		control.setStory(control.StoryFrame(control.getPostFrame()));
 	    	}
 	    });
-	    lblUser.setBounds(40, -3, 77, 29);
+	    lblUser.setBounds(40, -5, 77, 29);
 	    panelLogin.add(lblUser);
 	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
 	    

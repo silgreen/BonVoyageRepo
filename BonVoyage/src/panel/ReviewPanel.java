@@ -60,8 +60,8 @@ public class ReviewPanel extends JPanel {
 		
 		JLabel lblRating = new JLabel();
 		lblRating.setFont(new Font("Tahoma", Font.BOLD, 27));
-		lblRating.setBounds(574, 14, 140, 40);
-		lblRating.setText(rating.toString());
+		lblRating.setBounds(524, 14, 180, 33);
+		control.toShowStars(lblRating, Float.parseFloat(rating.toString()));
 		panel.add(lblRating);
 		
 		JSeparator separator = new JSeparator();

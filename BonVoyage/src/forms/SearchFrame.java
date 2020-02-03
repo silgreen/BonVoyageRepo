@@ -131,37 +131,52 @@ public class SearchFrame extends JFrame {
 		    		if(!textFieldSearch.getText().isEmpty()) {
 			    		if(rdbtnRistoranti.isSelected()) {
 								control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
-								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");		
+								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");	
+								control.setSearchDatas(textFieldSearch.getText(), "Ristorante");
+								control.setSearchType(1);
 			    		}
 			    		else if(rdbtnHotel.isSelected()) {
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
+			    			control.setSearchDatas(textFieldSearch.getText(), "Struttura Ricettiva");
+			    			control.setSearchType(1);
 			    		}
 			    		else if(rdbtnAttivita.isSelected()) {
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
+			    			control.setSearchDatas(textFieldSearch.getText(), "Attrazione Turistica");
+			    			control.setSearchType(1);
 			    		}
 			    		else if(rdbtnAll.isSelected()) {
 			    			control.toShowAllResultsByPosition(textFieldSearch.getText());
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.setSearchDataCity(textFieldSearch.getText());
+			    			control.setSearchType(2);
 			    		}
 		    		}
 		    		else if(textFieldSearch.getText().isEmpty()) {
 			    		if(rdbtnAttivita.isSelected()) {
 			    			control.toShowResultsByCategory("Attrazione Turistica");
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.setSearchDataCategory("Attrazione Turistica");
+			    			control.setSearchType(3);
 			    		}
 			    		else if(rdbtnHotel.isSelected()) {
 			    			control.toShowResultsByCategory("Struttura Ricettiva");
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.setSearchDataCategory("Struttura Ricettiva");
+			    			control.setSearchType(3);
 			    		}
 			    		else if(rdbtnRistoranti.isSelected()) {
 			    			control.toShowResultsByCategory("Ristorante");
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.setSearchDataCategory("Ristorante");
+			    			control.setSearchType(3);
 			    		}
 			    		else if(rdbtnAll.isSelected()) {
 			    			control.toShowAllResults();
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+			    			control.setSearchType(4);
 			    		}
 		    		}
 		    		

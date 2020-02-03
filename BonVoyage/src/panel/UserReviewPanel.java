@@ -16,11 +16,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class UserReviewPanel extends JPanel {
 	Controller control;
 
 	public UserReviewPanel(Controller ctrl, Review r) {
+		setBackground(new Color(255, 250, 240));
 		control = ctrl;
 		
 		setBounds(new Rectangle(0, 0, 714, 250));
@@ -60,6 +62,7 @@ public class UserReviewPanel extends JPanel {
 		add(scrollPane);
 		
 		JTextPane textPaneReview = new JTextPane();
+		textPaneReview.setBackground(new Color(255, 250, 240));
 		textPaneReview.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textPaneReview.setEditable(false);
 		textPaneReview.setText(r.getText());
@@ -78,20 +81,23 @@ public class UserReviewPanel extends JPanel {
 		add(btnModifica);
 		
 		JTextPane textPaneTitle = new JTextPane();
-		textPaneTitle.setBounds(10, 10, 219, 45);
+		textPaneTitle.setBackground(new Color(255, 250, 240));
+		textPaneTitle.setFont(new Font("Tahoma", Font.BOLD, 14));
+		textPaneTitle.setBounds(10, 10, 214, 45);
 		textPaneTitle.setText(r.getTitle());
 		add(textPaneTitle);
 		
-		Integer temp = r.getRating();
 		JLabel lblStars = new JLabel("New label");
-		lblStars.setText(temp.toString());
-		lblStars.setBounds(239, 10, 113, 21);
-		
+		lblStars.setBackground(new Color(255, 250, 240));
+		lblStars.setBounds(227, 10, 180, 33);
+		control.toShowStars(lblStars, Float.parseFloat(Integer.valueOf(r.getRating()).toString()));
 		add(lblStars);
 		
 		JTextPane textPaneNomeStruttura = new JTextPane();
-		textPaneNomeStruttura.setBounds(409, 10, 295, 45);
-		textPaneNomeStruttura.setText("ciao");
+		textPaneNomeStruttura.setBackground(new Color(255, 250, 240));
+		textPaneNomeStruttura.setFont(new Font("Tahoma", Font.BOLD, 14));
+		textPaneNomeStruttura.setBounds(417, 10, 287, 45);
+		textPaneNomeStruttura.setText(control.toFetchSinglePost(r.getIdpost()).getName());
 		add(textPaneNomeStruttura);
 		
 		JSeparator separator = new JSeparator();
