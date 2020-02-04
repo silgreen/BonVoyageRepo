@@ -40,6 +40,7 @@ import java.awt.Cursor;
 import javax.swing.JPasswordField;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.SwingConstants;
 
 public class LoginFrame extends JFrame {
 
@@ -52,40 +53,58 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame(Controller ctrl) {
-
+		setResizable(false);
+		Color bg = Color.decode("#4d92c2");
+		Color bginner = Color.decode("#046490");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 250, 240));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textFieldUsername = new JTextField();
 		textFieldUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldUsername.setBounds(258, 230, 264, 27);
+		textFieldUsername.setBounds(363, 322, 264, 27);
 		contentPane.add(textFieldUsername);
 		textFieldUsername.setColumns(10);
 		
 		textFieldPassword = new JPasswordField();
 		textFieldPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textFieldPassword.setColumns(10);
-		textFieldPassword.setBounds(258, 331, 264, 27);
+		textFieldPassword.setBounds(363, 403, 264, 27);
 		contentPane.add(textFieldPassword);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Arial", Font.PLAIN, 18));
-		lblUsername.setBounds(258, 202, 103, 34);
+		lblUsername.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblUsername.setBounds(443, 290, 103, 34);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Arial", Font.PLAIN, 18));
-		lblPassword.setBounds(258, 305, 103, 34);
+		lblPassword.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblPassword.setBounds(443, 371, 103, 34);
 		contentPane.add(lblPassword);
 		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		JButton btnLogin = new JButton("");
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+	    		btnLogin.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/login_btn2.png")));
+
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+	    		btnLogin.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/login_btn1.png")));
+
+			}
+		});
+		btnLogin.setIcon(new ImageIcon(LoginFrame.class.getResource("/images/login_btn1.png")));
+		btnLogin.setFont(new Font("Montserrat", Font.PLAIN, 14));
+	    btnLogin.setOpaque(false);
+	    btnLogin.setContentAreaFilled(false);
+	    btnLogin.setBorderPainted(false);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -99,21 +118,24 @@ public class LoginFrame extends JFrame {
 				}
 			}
 		});
-		btnLogin.setBounds(337, 427, 108, 43);
+		btnLogin.setBounds(419, 486, 157, 34);
 		contentPane.add(btnLogin);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(LoginFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogo.setBackground(Color.WHITE);
+		lblLogo.setIcon(new ImageIcon(LoginFrame.class.getResource("/images/logo_login_frame.png")));
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getLogin());
 			}
 		});
-		lblLogo.setBounds(221, 44, 346, 147);
+		lblLogo.setBounds(353, 61, 289, 220);
 		contentPane.add(lblLogo);
 		
 	    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
+	    lblNonSeiRegistrato.setFont(new Font("Montserrat", Font.PLAIN, 10));
 	    lblNonSeiRegistrato.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -138,9 +160,20 @@ public class LoginFrame extends JFrame {
 		});
 	    
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblNonSeiRegistrato.setBounds(337, 369, 124, 27);
+	    lblNonSeiRegistrato.setBounds(441, 449, 108, 27);
 	    contentPane.add(lblNonSeiRegistrato);
 	    
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    
+	    JPanel topPanel = new JPanel();
+	    topPanel.setBounds(0, 0, 996, 51);
+	    topPanel.setBackground(bg);
+	    contentPane.add(topPanel);
+	    topPanel.setLayout(null);
+	    
+	    JPanel innerPanel = new JPanel();
+	    innerPanel.setBounds(0, 0, 996, 16);
+	    innerPanel.setBackground(bginner);
+	    topPanel.add(innerPanel);
 	}
 }

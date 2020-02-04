@@ -57,21 +57,22 @@ public class ResultsFrame extends JFrame {
 	 */
 	public ResultsFrame(Controller ctrl) {
 
-
+		Color bg = Color.decode("#4d92c2");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
 		JPanel panelFilter = new JPanel();
-		panelFilter.setBackground(new Color(240,240,240));
+		panelFilter.setBackground(bg);
 
 		
 
@@ -99,19 +100,27 @@ public class ResultsFrame extends JFrame {
 	    		control.setStory(control.StoryFrame(control.getResults()));
 	    		
 	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblUser.setForeground(new Color(255, 255, 255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblUser.setForeground(new Color(0, 0, 0));
+	    	}
 	    });
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    lblUser.setBounds(653, 33, 109, 14);
+	    lblUser.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 18));
+	    lblUser.setBounds(55, 20, 109, 20);
 	    panelFilter.add(lblUser);
-	    lblLogo.setBounds(10, 11, 170, 65);
+	    lblLogo.setBounds(794, 10, 170, 65);
 	    panelFilter.add(lblLogo);
 
 	    
 	    JLabel lblCiao = new JLabel("Ciao,");
 	    lblCiao.setVisible(false);
-	    lblCiao.setBounds(613, 30, 79, 20);
+	    lblCiao.setBounds(10, 20, 79, 20);
 	    
 	    
 	    JLabel lblLogin = new JLabel("Login");
@@ -120,12 +129,12 @@ public class ResultsFrame extends JFrame {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
 	    		lblLogin.setText("<HTML><U>Login</U></HTML>");
-	    		lblLogin.setForeground(new Color(30, 144, 255));
+	    		lblLogin.setForeground(new Color(255, 255, 255));
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
 	    		lblLogin.setText("Login");
-	    		lblLogin.setForeground(new Color(0, 0, 205));
+	    		lblLogin.setForeground(new Color(0, 0, 0));
 	    	}
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -134,9 +143,8 @@ public class ResultsFrame extends JFrame {
 				a1.clear();
 	    	}
 	    });
-	    lblLogin.setBounds(629, 26, 39, 20);
-	    lblLogin.setForeground(new Color(0, 0, 205));
-	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblLogin.setBounds(20, 20, 55, 27);
+	    lblLogin.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    panelFilter.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
@@ -144,12 +152,12 @@ public class ResultsFrame extends JFrame {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
 	    		lblRegistrati.setText("<HTML><U>Registrati</U></HTML>");
-	    		lblRegistrati.setForeground(new Color(30,144,255));
+	    		lblRegistrati.setForeground(new Color(255,255,255));
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
 	    		lblRegistrati.setText("Registrati");
-	    		lblRegistrati.setForeground(new Color(0,0,205));	
+	    		lblRegistrati.setForeground(new Color(0,0,0));	
 	    	}
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -158,16 +166,15 @@ public class ResultsFrame extends JFrame {
 	    	}
 	    });
 	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblRegistrati.setBounds(683, 26, 81, 20);
-	    lblRegistrati.setForeground(new Color(0, 0, 205));
-	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblRegistrati.setBounds(80, 24, 92, 20);
+	    lblRegistrati.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    panelFilter.add(lblRegistrati);
 	    
-	    JLabel lblSeparatore = new JLabel("/");
-	    lblSeparatore.setBounds(673, 26, 6, 20);
-	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    JLabel lblSeparatore = new JLabel("|");
+	    lblSeparatore.setBounds(73, 23, 6, 20);
+	    lblSeparatore.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    panelFilter.add(lblSeparatore);
-	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblCiao.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    panelFilter.add(lblCiao);
 		
 		addComponentListener(new ComponentAdapter() {
@@ -211,11 +218,11 @@ public class ResultsFrame extends JFrame {
 		
 		for(int i = 0; i<a1.size(); i++) {
 			if(i==0) {
-				(a1.get(i)).setBounds(0, 80, 757, 173);
+				(a1.get(i)).setBounds(0, 80, 1000, 173);
 				panelFilter.add(a1.get(i));
 			}
 			else if (i>0) {
-				(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 757, 173);
+				(a1.get(i)).setBounds(0, (a1.get(i-1)).getY()+173+20, 1000, 173);
 				panelFilter.add(a1.get(i));
 				panelFilter.setPreferredSize(new Dimension(0,(193*a1.size())+60));
 			}

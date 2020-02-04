@@ -59,7 +59,7 @@ public class SearchFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchFrame(Controller ctrl) {
-		setUndecorated(true);
+		setResizable(false);
 		Color bg = Color.decode("#4d92c2");
 		Color bginner = Color.decode("#046490");
 		setTitle("BonVoyage!");
@@ -95,7 +95,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnHotel.setBorder(null);
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
 	    rdbtnHotel.setFont(new Font("Montserrat", Font.PLAIN, 16));
-	    rdbtnHotel.setBounds(420, 307, 63, 21);
+	    rdbtnHotel.setBounds(408, 307, 75, 21);
 	    contentPane.add(rdbtnHotel);
 	    radioButtonGroup.add(rdbtnHotel);
 	    
@@ -105,7 +105,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnRistoranti.setContentAreaFilled(false);
 	    rdbtnRistoranti.setBackground(new Color(255, 250, 240));
 	    rdbtnRistoranti.setFont(new Font("Montserrat", Font.PLAIN, 16));
-	    rdbtnRistoranti.setBounds(489, 307, 95, 21);
+	    rdbtnRistoranti.setBounds(480, 307, 104, 21);
 	    contentPane.add(rdbtnRistoranti);
 	    radioButtonGroup.add(rdbtnRistoranti);
 	    
@@ -115,7 +115,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnAttivita.setContentAreaFilled(false);
 	    rdbtnAttivita.setBackground(new Color(255, 250, 240));
 	    rdbtnAttivita.setFont(new Font("Montserrat", Font.PLAIN, 16));
-	    rdbtnAttivita.setBounds(594, 307, 77, 21);
+	    rdbtnAttivita.setBounds(583, 307, 83, 21);
 	    contentPane.add(rdbtnAttivita);
 	    radioButtonGroup.add(rdbtnAttivita);
 	    
@@ -133,6 +133,7 @@ public class SearchFrame extends JFrame {
 	    
 	    JButton btnCerca = new JButton("");
 	    btnCerca.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/button_il-tuo-testo-qui_2.png")));
+	    btnCerca.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnCerca.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
@@ -143,7 +144,6 @@ public class SearchFrame extends JFrame {
 	    		btnCerca.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/button_il-tuo-testo-qui_2.png")));
 	    	}
 	    });
-	    btnCerca.setOpaque(false);
 	    btnCerca.setOpaque(false);
 	    btnCerca.setContentAreaFilled(false);
 	    btnCerca.setBorderPainted(false);
@@ -223,35 +223,19 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(lblDoveVuoiAndare);
 	    
 	    JPanel topPanel = new JPanel();
-	    topPanel.setBounds(0, 0, 1000, 80);
+	    topPanel.setBounds(0, 0, 996, 51);
 	    topPanel.setBackground(bg);
 	    contentPane.add(topPanel);
 	    topPanel.setLayout(null);
 	    
 	    JPanel innerPanel = new JPanel();
-	    innerPanel.setBounds(0, 0, 1000, 30);
+	    innerPanel.setBounds(0, 0, 996, 16);
 	    innerPanel.setBackground(bginner);
 	    topPanel.add(innerPanel);
 	    innerPanel.setLayout(null);
 	    
-	    JButton btnIcon = new JButton("Icon");
-	    btnIcon.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/reduce_to_icon.png")));
-	    btnIcon.setOpaque(false);
-	    btnIcon.setContentAreaFilled(false);
-	    btnIcon.setBorderPainted(false);
-	    btnIcon.setBounds(921, 10, 28, 21);
-	    innerPanel.add(btnIcon);
-	    
-	    JButton btnExit = new JButton("Exit");
-	    btnExit.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/x.png")));
-	    btnExit.setOpaque(false);
-	    btnExit.setContentAreaFilled(false);
-	    btnExit.setBorderPainted(false);
-	    btnExit.setBounds(959, 0, 41, 32);
-	    innerPanel.add(btnExit);
-	    
 	    JLabel lblRegistrati_1 = new JLabel("Registrati");
-	    lblRegistrati_1.setBounds(905, 38, 95, 23);
+	    lblRegistrati_1.setBounds(879, 22, 95, 23);
 	    topPanel.add(lblRegistrati_1);
 	    lblRegistrati_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati_1.addMouseListener(new MouseAdapter() {
@@ -274,7 +258,7 @@ public class SearchFrame extends JFrame {
 	    lblRegistrati_1.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    
 	    JLabel lblLogin = new JLabel("Login");
-	    lblLogin.setBounds(837, 36, 58, 27);
+	    lblLogin.setBounds(820, 20, 58, 27);
 	    topPanel.add(lblLogin);
 	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogin.addMouseListener(new MouseAdapter() {
@@ -298,18 +282,18 @@ public class SearchFrame extends JFrame {
 	    lblLogin.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    
 	    JLabel lblSeparatore = new JLabel("|");
-	    lblSeparatore.setBounds(894, 37, 7, 27);
+	    lblSeparatore.setBounds(872, 20, 7, 27);
 	    topPanel.add(lblSeparatore);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
 	    JLabel lblCiao = new JLabel("Ciao,");
-	    lblCiao.setBounds(10, 35, 45, 22);
+	    lblCiao.setBounds(10, 20, 45, 22);
 	    topPanel.add(lblCiao);
 	    lblCiao.setVisible(false);
-	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblCiao.setFont(new Font("Montserrat", Font.PLAIN, 16));
 	    
 	    JLabel lblUser = new JLabel("");
-	    lblUser.setBounds(44, 34, 103, 22);
+	    lblUser.setBounds(51, 20, 138, 22);
 	    topPanel.add(lblUser);
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.addMouseListener(new MouseAdapter() {
@@ -319,25 +303,23 @@ public class SearchFrame extends JFrame {
 	    		control.setStory(control.StoryFrame(control.getSearch()));
 	    		
 	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblUser.setForeground(new Color(255, 255, 255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblUser.setForeground(new Color(0, 0, 0));
+	    	}
 	    });
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
+	    lblUser.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 16));
 	    
 	    lblUser.addComponentListener(new ComponentAdapter() {
 	    	@Override
 	    	public void componentShown(ComponentEvent e) {
 	    		lblUser.setText(control.getUser().getUsername());
 	        	JOptionPane.showInternalMessageDialog(contentPane, "Accesso Effettuato", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
-	    	}
-	    });
-	    btnExit.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		System.exit(0);
-	    	}
-	    });
-	    btnIcon.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		setState(ICONIFIED);
 	    	}
 	    });
 	    

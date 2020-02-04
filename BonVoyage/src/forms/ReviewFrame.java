@@ -2,6 +2,7 @@ package forms;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -52,99 +53,99 @@ public class ReviewFrame extends JFrame {
 	 */
 	public ReviewFrame(Controller ctrl) {
 
+		Color bg = Color.decode("#4d92c2");
+		Color bginner = Color.decode("#046490");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255,250,240));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/logoXSBon.png")));
-		lblLogo.setBounds(20, 20, 170, 55);
-		contentPane.add(lblLogo);
-		
 	    textFieldTitolo = new JTextField();
 	    textFieldTitolo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	    textFieldTitolo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    textFieldTitolo.setBounds(46, 134, 350, 27);
+	    textFieldTitolo.setBounds(318, 134, 350, 27);
 	    contentPane.add(textFieldTitolo);
 	    textFieldTitolo.setColumns(10);
 	    
 	    JEditorPane editorPaneReview = new JEditorPane();
 	    editorPaneReview.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-	    editorPaneReview.setBounds(46, 220, 500, 200);
+	    editorPaneReview.setBounds(243, 244, 500, 200);
 	    contentPane.add(editorPaneReview);
 	    
 	    JLabel lblRecensione = new JLabel("Recensione");
-	    lblRecensione.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    lblRecensione.setBounds(46, 193, 96, 27);
+	    lblRecensione.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblRecensione.setBounds(440, 207, 106, 27);
 	    contentPane.add(lblRecensione);
 	    
 	    JLabel lblTitolo = new JLabel("Titolo");
-	    lblTitolo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    lblTitolo.setBounds(46, 110, 53, 19);
+	    lblTitolo.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblTitolo.setBounds(318, 105, 53, 19);
 	    contentPane.add(lblTitolo);
 	    
-	    JButton btnNewPubblicaReview = new JButton("Pubblica recensione");
-	    btnNewPubblicaReview.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnNewPubblicaReview.setBounds(572, 526, 170, 27);
-	    contentPane.add(btnNewPubblicaReview);
-	    
-	    JButton btnNewBack = new JButton("Indietro");
-	    btnNewBack.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		int input = JOptionPane.showConfirmDialog(null, "sei sicuro di voler tornare indietro? le tue modifiche andranno perdute", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-	    		if (input == 0)
-	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
+	    JButton btnNewPubblicaReview = new JButton("");
+	    btnNewPubblicaReview.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    btnNewPubblicaReview.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnNewPubblicaReview.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/button_pubblica-recensione_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnNewPubblicaReview.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/button_pubblica-recensione.png")));
 	    	}
 	    });
-	    btnNewBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnNewBack.setBounds(46, 526, 85, 27);
-	    contentPane.add(btnNewBack);
+	    btnNewPubblicaReview.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/button_pubblica-recensione.png")));
+	    btnNewPubblicaReview.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    btnNewPubblicaReview.setBounds(359, 468, 267, 49);
+	    btnNewPubblicaReview.setOpaque(false);
+	    btnNewPubblicaReview.setContentAreaFilled(false);
+	    btnNewPubblicaReview.setBorderPainted(false);
+	    contentPane.add(btnNewPubblicaReview);
 	    
 	    ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
 	    JRadioButton rdbtnStar1 = new JRadioButton("");
 
 
-	    rdbtnStar1.setBackground(new Color(255, 250, 240));
+	    rdbtnStar1.setBackground(Color.WHITE);
 	    rdbtnStar1.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
-	    rdbtnStar1.setBounds(513, 134, 38, 32);
+	    rdbtnStar1.setBounds(469, 96, 38, 32);
 	    contentPane.add(rdbtnStar1);
 	    
 	    JRadioButton rdbtnStar2 = new JRadioButton("");
 
 
-	    rdbtnStar2.setBackground(new Color(255, 250, 240));
+	    rdbtnStar2.setBackground(Color.WHITE);
 	    rdbtnStar2.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
-	    rdbtnStar2.setBounds(553, 134, 38, 32);
+	    rdbtnStar2.setBounds(509, 96, 38, 32);
 	    contentPane.add(rdbtnStar2);
 	    
 	    JRadioButton rdbtnStar3 = new JRadioButton("");
 
 
-	    rdbtnStar3.setBackground(new Color(255, 250, 240));
+	    rdbtnStar3.setBackground(Color.WHITE);
 	    rdbtnStar3.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
-	    rdbtnStar3.setBounds(593, 134, 38, 32);
+	    rdbtnStar3.setBounds(549, 96, 38, 32);
 	    contentPane.add(rdbtnStar3);
 	    
 	    JRadioButton rdbtnStar4 = new JRadioButton("");
 
 
-	    rdbtnStar4.setBackground(new Color(255, 250, 240));
+	    rdbtnStar4.setBackground(Color.WHITE);
 	    rdbtnStar4.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
-	    rdbtnStar4.setBounds(634, 134, 38, 32);
+	    rdbtnStar4.setBounds(590, 96, 38, 32);
 	    contentPane.add(rdbtnStar4);
 	    
 	    JRadioButton rdbtnStar5 = new JRadioButton("");
 
 
-	    rdbtnStar5.setBackground(new Color(255, 250, 240));
+	    rdbtnStar5.setBackground(Color.WHITE);
 	    rdbtnStar5.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/Empty star (2).png")));
-	    rdbtnStar5.setBounds(674, 134, 38, 32);
+	    rdbtnStar5.setBounds(630, 96, 38, 32);
 	    contentPane.add(rdbtnStar5);
 	    
 	    radioButtonGroup.add(rdbtnStar1);
@@ -154,9 +155,65 @@ public class ReviewFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnStar5);
 	    
 	    JLabel lblGiudizio = new JLabel("");
+	    lblGiudizio.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblGiudizio.setFont(new Font("Montserrat", Font.PLAIN, 12));
 	    lblGiudizio.setAutoscrolls(true);
-	    lblGiudizio.setBounds(523, 173, 69, 14);
+	    lblGiudizio.setBounds(492, 71, 151, 29);
 	    contentPane.add(lblGiudizio);
+	    
+	    JLabel lblLogo = new JLabel("");
+	    lblLogo.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png.png")));
+	    	}
+	    });
+	    lblLogo.setBounds(900, -2, 65, 55);
+	    contentPane.add(lblLogo);
+	    lblLogo.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/logo_mini_png.png")));
+	    lblLogo.setFont(new Font("Montserrat", Font.PLAIN, 27));
+	    
+	    JPanel topPanel = new JPanel();
+	    topPanel.setBounds(0, 0, 1000, 51);
+	    topPanel.setBackground(bg);
+	    contentPane.add(topPanel);
+	    topPanel.setLayout(null);
+	    
+	    JPanel innerPanel = new JPanel();
+	    innerPanel.setBounds(0, 0, 1000, 16);
+	    innerPanel.setBackground(bginner);
+	    topPanel.add(innerPanel);
+	    
+	    JButton btnNewBack = new JButton("");
+	    btnNewBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    btnNewBack.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnNewBack.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/btn_indietro_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnNewBack.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/btn_indietro.png")));
+	    	}
+	    });
+	    btnNewBack.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/btn_indietro.png")));
+	    btnNewBack.setBounds(20, 17, 100, 32);
+	    topPanel.add(btnNewBack);
+	    btnNewBack.setOpaque(false);
+	    btnNewBack.setContentAreaFilled(false);
+	    btnNewBack.setBorderPainted(false);
+	    btnNewBack.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		int input = JOptionPane.showConfirmDialog(null, "sei sicuro di voler tornare indietro? le tue modifiche andranno perdute", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+	    		if (input == 0)
+	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
+	    	}
+	    });
+	    btnNewBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
 	    
 	    rdbtnStar1.addActionListener(new ActionListener() {

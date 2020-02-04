@@ -28,6 +28,7 @@ public class ResultPanel extends JPanel {
 
 	Controller control;
 	public ResultPanel(Post p, Controller ctrl) {
+		Color bg = Color.decode("#046490");
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
@@ -43,9 +44,9 @@ public class ResultPanel extends JPanel {
 				control.toOpenAndCloseFrame(control.getPostFrame(),control.getResults());
 			}
 		});
-		setBackground(new Color(255, 250, 240));
+		setBackground(new Color(255,255,255));
 		setLayout(null);
-		setBounds(0,0,757,173);
+		setBounds(0,0,1000,173);
 		
 
 		try {
@@ -67,34 +68,41 @@ public class ResultPanel extends JPanel {
 
 		
 		JLabel lblNrecensioni = new JLabel(p.getNreviews());
+		lblNrecensioni.setFont(new Font("Montserrat", Font.PLAIN, 10));
 		lblNrecensioni.setBounds(633, 12, 95, 21);
 		add(lblNrecensioni);
 		
 		JLabel lblPosizione = new JLabel(p.getCity() + "," + p.getRegion());
-		lblPosizione.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblPosizione.setBounds(181, 48, 180, 13);
+		lblPosizione.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		lblPosizione.setBounds(181, 40, 211, 21);
 		add(lblPosizione);
 		
 		JLabel lblTipoCate = new JLabel(p.getCategory() + "," + p.getSub_category());
-		lblTipoCate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTipoCate.setBounds(181, 152, 206, 19);
+		lblTipoCate.setFont(new Font("Montserrat Medium", Font.PLAIN, 14));
+		lblTipoCate.setBounds(181, 152, 211, 19);
 		add(lblTipoCate);
 		
 		JTextPane textPaneInfo = new JTextPane();
-		textPaneInfo.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textPaneInfo.setBorder(null);
+		textPaneInfo.setFont(new Font("Montserrat", Font.PLAIN, 14));
 		textPaneInfo.setText(p.getInfo());
 		textPaneInfo.setEditable(false);
-		textPaneInfo.setBackground(new Color(255, 250, 240));
+		textPaneInfo.setBackground(Color.WHITE);
 		textPaneInfo.setBounds(180, 66, 520, 86);
 		add(textPaneInfo);
 		
 		JTextPane textPaneNomeStruttura = new JTextPane();
-		textPaneNomeStruttura.setFont(new Font("Tahoma", Font.BOLD, 16));
+		textPaneNomeStruttura.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 16));
 		textPaneNomeStruttura.setText(p.getName());
 		textPaneNomeStruttura.setEditable(false);
-		textPaneNomeStruttura.setBackground(new Color(255,250,240));
+		textPaneNomeStruttura.setBackground(bg);
 		textPaneNomeStruttura.setBounds(181, 0, 245, 40);
 		add(textPaneNomeStruttura);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 1000, 40);
+		panel.setBackground(bg);
+		add(panel);
 		
 		
 	}
