@@ -68,8 +68,8 @@ public class ResultPanel extends JPanel {
 
 		
 		JLabel lblNrecensioni = new JLabel(p.getNreviews());
-		lblNrecensioni.setFont(new Font("Montserrat", Font.PLAIN, 10));
-		lblNrecensioni.setBounds(633, 12, 95, 21);
+		lblNrecensioni.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 12));
+		lblNrecensioni.setBounds(633, 12, 73, 21);
 		add(lblNrecensioni);
 		
 		JLabel lblPosizione = new JLabel(p.getCity() + "," + p.getRegion());

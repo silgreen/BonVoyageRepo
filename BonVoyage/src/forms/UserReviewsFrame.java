@@ -40,9 +40,10 @@ public class UserReviewsFrame extends JFrame {
 	ArrayList<UserReviewPanel> UserReviewsPanels = new ArrayList<UserReviewPanel>();
 	
 	public UserReviewsFrame(Controller ctrl) {
+		Color bg = Color.decode("#4d92c2");
 		setTitle("BonVoyage!");
 		setResizable(false);
-		setBackground(new Color(255, 250, 240));
+		setBackground(bg);
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
@@ -52,16 +53,16 @@ public class UserReviewsFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 1000, 563);
+		scrollPane.setBounds(0, 0, 987, 563);
 		contentPane.add(scrollPane);
 		
 		JPanel panelFilter = new JPanel();
-		panelFilter.setBackground(new Color(255, 250, 240));
+		panelFilter.setBackground(bg);
 		scrollPane.setViewportView(panelFilter);
 		panelFilter.setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.addMouseListener(new MouseAdapter() {
+		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getUserReview());
@@ -74,11 +75,19 @@ public class UserReviewsFrame extends JFrame {
 				control.emptyReview();
 				UserReviewsPanels.clear();
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png_light.png")));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png.png")));
+			}
 		});
-		label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		label.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/logoXSBon.png")));
-		label.setBounds(20, 20, 170, 55);
-		panelFilter.add(label);
+		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblLogo.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/logo_mini_png.png")));
+		lblLogo.setBounds(910, 10, 65, 55);
+		panelFilter.add(lblLogo);
 		
 		JButton btnIndietro = new JButton("");
 		btnIndietro.addActionListener(new ActionListener() {
@@ -142,14 +151,14 @@ public class UserReviewsFrame extends JFrame {
 				
 				for(int i=0; i<UserReviewsPanels.size(); i++) {
 					if(i==0) {
-						(UserReviewsPanels.get(i)).setBounds(20,100,714,250);
+						(UserReviewsPanels.get(i)).setBounds(0,100,980,205);
 						panelFilter.add(UserReviewsPanels.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,350));
+						panelFilter.setPreferredSize(new Dimension(0,300));
 					}
 					else {
-						(UserReviewsPanels.get(i)).setBounds(20,UserReviewsPanels.get(i-1).getY()+250,714,250);
+						(UserReviewsPanels.get(i)).setBounds(0,UserReviewsPanels.get(i-1).getY()+205,980,205);
 						panelFilter.add(UserReviewsPanels.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,100+(250*UserReviewsPanels.size())));
+						panelFilter.setPreferredSize(new Dimension(0,100+(205*UserReviewsPanels.size())));
 					}
 				}
 				control.emptyReview();

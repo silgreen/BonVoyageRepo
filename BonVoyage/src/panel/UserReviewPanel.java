@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import classi.Review;
 import controller.Controller;
 import except.NoUserReviewException;
+import forms.SearchFrame;
 
 import javax.swing.JButton;
 import java.awt.Rectangle;
@@ -18,24 +19,56 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.ScrollPaneConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class UserReviewPanel extends JPanel {
 	Controller control;
 
 	public UserReviewPanel(Controller ctrl, Review r) {
-		setBackground(new Color(255, 250, 240));
+		Color bg = Color.decode("#046490");
+		setBackground(Color.WHITE);
 		control = ctrl;
 		
-		setBounds(new Rectangle(0, 0, 714, 250));
+		setBounds(new Rectangle(0, 0, 980, 205));
 		setLayout(null);
 		
-		JButton btnSalva = new JButton("Salva");
+		JButton btnSalva = new JButton("");
+		btnSalva.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_salva.png")));
+		btnSalva.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnSalva.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_salva_light.png")));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnSalva.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_salva.png")));
+			}
+		});
+	    btnSalva.setOpaque(false);
+	    btnSalva.setContentAreaFilled(false);
+	    btnSalva.setBorderPainted(false);
 		btnSalva.setVisible(false);
 
-		btnSalva.setBounds(619, 207, 85, 21);
+		btnSalva.setBounds(734, 74, 156, 35);
 		add(btnSalva);
 		
-		JButton btnElimina = new JButton("Elimina");
+		JButton btnElimina = new JButton("");
+		btnElimina.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_elimina.png")));
+		btnElimina.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnElimina.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_elimina_light.png")));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnElimina.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_elimina.png")));
+			}
+		});
+	    btnElimina.setOpaque(false);
+	    btnElimina.setContentAreaFilled(false);
+	    btnElimina.setBorderPainted(false);
 		btnElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int input = JOptionPane.showInternalConfirmDialog(null, "sei sicuro di voler eliminare recensione?", "BonVoyage!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -55,22 +88,36 @@ public class UserReviewPanel extends JPanel {
 				repaint();
 			}
 		});
-		btnElimina.setBounds(524, 207, 85, 21);
+		btnElimina.setBounds(734, 119, 156, 35);
 		add(btnElimina);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(10, 65, 694, 132);
+		scrollPane.setBounds(30, 63, 694, 132);
 		add(scrollPane);
 		
 		JTextPane textPaneReview = new JTextPane();
-		textPaneReview.setBackground(new Color(255, 250, 240));
-		textPaneReview.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textPaneReview.setBackground(Color.WHITE);
+		textPaneReview.setFont(new Font("Montserrat", Font.PLAIN, 15));
 		textPaneReview.setEditable(false);
 		textPaneReview.setText(r.getText());
 		scrollPane.setViewportView(textPaneReview);
 		
-		JButton btnModifica = new JButton("Modifica");
+		JButton btnModifica = new JButton("");
+		btnModifica.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_modifica.png")));
+		btnModifica.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnModifica.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_modifica_light.png")));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnModifica.setIcon(new ImageIcon(UserReviewPanel.class.getResource("/images/btn_modifica.png")));
+			}
+		});
+	    btnModifica.setOpaque(false);
+	    btnModifica.setContentAreaFilled(false);
+	    btnModifica.setBorderPainted(false);
 		btnModifica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textPaneReview.setEditable(true);
@@ -79,32 +126,33 @@ public class UserReviewPanel extends JPanel {
 				btnSalva.setVisible(true);
 			}
 		});
-		btnModifica.setBounds(619, 207, 85, 21);
+		btnModifica.setBounds(734, 74, 156, 35);
 		add(btnModifica);
 		
 		JTextPane textPaneTitle = new JTextPane();
-		textPaneTitle.setBackground(new Color(255, 250, 240));
-		textPaneTitle.setFont(new Font("Tahoma", Font.BOLD, 14));
-		textPaneTitle.setBounds(10, 10, 214, 45);
+		textPaneTitle.setBackground(bg);
+		textPaneTitle.setFont(new Font("Montserrat", Font.BOLD, 16));
+		textPaneTitle.setBounds(20, 0, 214, 45);
 		textPaneTitle.setText(r.getTitle());
 		add(textPaneTitle);
 		
 		JLabel lblStars = new JLabel("New label");
-		lblStars.setBackground(new Color(255, 250, 240));
-		lblStars.setBounds(227, 10, 180, 33);
+		lblStars.setBackground(bg);
+		lblStars.setBounds(780, 0, 180, 33);
 		control.toShowStars(lblStars, Float.parseFloat(Integer.valueOf(r.getRating()).toString()));
 		add(lblStars);
 		
 		JTextPane textPaneNomeStruttura = new JTextPane();
-		textPaneNomeStruttura.setBackground(new Color(255, 250, 240));
-		textPaneNomeStruttura.setFont(new Font("Tahoma", Font.BOLD, 14));
-		textPaneNomeStruttura.setBounds(417, 10, 287, 45);
+		textPaneNomeStruttura.setBackground(bg);
+		textPaneNomeStruttura.setFont(new Font("Montserrat", Font.BOLD, 16));
+		textPaneNomeStruttura.setBounds(360, 0, 287, 45);
 		textPaneNomeStruttura.setText(control.toFetchSinglePost(r.getIdpost()).getName());
 		add(textPaneNomeStruttura);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 238, 694, 2);
-		add(separator);
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 980, 45);
+		panel.setBackground(bg);
+		add(panel);
 		
 		btnSalva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

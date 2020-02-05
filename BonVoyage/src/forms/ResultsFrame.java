@@ -80,7 +80,7 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.setLayout(null);
 	    
 	    JLabel lblLogo = new JLabel("");
-	    lblLogo.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/logoXSBon.png")));
+	    lblLogo.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/logo_mini_png.png")));
 	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogo.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -89,6 +89,14 @@ public class ResultsFrame extends JFrame {
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getResults());
 				toRemovePanels(panelFilter);	
 				a1.clear();
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    	lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    	lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png.png")));
 	    	}
 	    });
 	    
@@ -114,7 +122,7 @@ public class ResultsFrame extends JFrame {
 	    lblUser.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 18));
 	    lblUser.setBounds(55, 20, 109, 20);
 	    panelFilter.add(lblUser);
-	    lblLogo.setBounds(794, 10, 170, 65);
+	    lblLogo.setBounds(900, -2, 70, 65);
 	    panelFilter.add(lblLogo);
 
 	    

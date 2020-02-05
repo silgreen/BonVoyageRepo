@@ -55,9 +55,10 @@ public class PostFrame extends JFrame {
 	 */
 	public PostFrame(Controller ctrl) {
 
+		Color bg = Color.decode("#4d92c2");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 250, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,7 +74,7 @@ public class PostFrame extends JFrame {
 		panelFilter.setLayout(null);
 		
 		JPanel topPanel = new JPanel();
-		topPanel.setBackground(new Color(255, 250, 240));
+		topPanel.setBackground(bg);
 		topPanel.setBounds(0, 0, 755, 65);
 		panelFilter.add(topPanel);
 		topPanel.setLayout(null);
@@ -186,7 +187,7 @@ public class PostFrame extends JFrame {
 	    
 	    JPanel midPanel = new JPanel();
 	    midPanel.setBackground(new Color(255, 250, 240));
-	    midPanel.setBounds(10, 66, 735, 353);
+	    midPanel.setBounds(0, 66, 1000, 353);
 	    panelFilter.add(midPanel);
 	    midPanel.setLayout(null);
 	    
@@ -201,19 +202,19 @@ public class PostFrame extends JFrame {
 	    midPanel.add(lblCategory);
 	    
 	    JLabel lblSiTrovaA = new JLabel("Si trova a");
-	    lblSiTrovaA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	    lblSiTrovaA.setBounds(248, 26, 70, 14);
+	    lblSiTrovaA.setFont(new Font("Montserrat", Font.PLAIN, 15));
+	    lblSiTrovaA.setBounds(248, 26, 77, 14);
 	    midPanel.add(lblSiTrovaA);
 	    
 	    JLabel lblPosition = new JLabel();
-	    lblPosition.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    lblPosition.setBounds(316, 18, 155, 30);
+	    lblPosition.setFont(new Font("Montserrat", Font.BOLD, 16));
+	    lblPosition.setBounds(316, 18, 180, 30);
 	    midPanel.add(lblPosition);
 	    
 	    JTextPane textPanePostName = new JTextPane();
 	    textPanePostName.setEditable(false);
 	    textPanePostName.setBackground(new Color(255, 250, 240));
-	    textPanePostName.setFont(new Font("Tahoma", Font.BOLD, 20));
+	    textPanePostName.setFont(new Font("Montserrat", Font.BOLD, 20));
 	    textPanePostName.setBounds(259, 58, 224, 46);
 	    midPanel.add(textPanePostName);
 	    
@@ -230,17 +231,17 @@ public class PostFrame extends JFrame {
 	    JTextPane textPaneDescription = new JTextPane();
 	    textPaneDescription.setBackground(new Color(255, 250, 240));
 	    textPaneDescription.setEditable(false);
-	    textPaneDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    textPaneDescription.setFont(new Font("Montserrat", Font.PLAIN, 14));
 	    textPaneDescription.setBounds(269, 104, 456, 122);
 	    midPanel.add(textPaneDescription);
 	    
 	    JLabel lblUlterioriInfo = new JLabel("Ulteriori Info:");
-	    lblUlterioriInfo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	    lblUlterioriInfo.setBounds(22, 230, 91, 14);
+	    lblUlterioriInfo.setFont(new Font("Montserrat", Font.PLAIN, 15));
+	    lblUlterioriInfo.setBounds(22, 230, 107, 14);
 	    midPanel.add(lblUlterioriInfo);
 	    
 	    JTextPane textPaneInfo = new JTextPane();
-	    textPaneInfo.setFont(new Font("Tahoma", Font.PLAIN, 12));
+	    textPaneInfo.setFont(new Font("Montserrat", Font.PLAIN, 12));
 	    textPaneInfo.setText("Orari: \nDal lun alla dom\ndalle 8:30 alle 19:00");
 	    textPaneInfo.setBackground(new Color(255, 250, 240));
 	    textPaneInfo.setBounds(22, 247, 200, 106);

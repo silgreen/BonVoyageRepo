@@ -76,15 +76,15 @@ public class SearchFrame extends JFrame {
 		textFieldSearch.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldSearch.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textFieldSearch.setFont(new Font("Montserrat", Font.PLAIN, 16));
-		textFieldSearch.setBounds(300, 275, 371, 27);
+		textFieldSearch.setBounds(312, 330, 371, 27);
 		contentPane.add(textFieldSearch);
 		textFieldSearch.setColumns(10);
 		
 		lblLogo = new JLabel();
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
+		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_login_frame.png")));
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		lblLogo.setBounds(318, 106, 353, 116);
+		lblLogo.setBounds(365, 61, 266, 222);
 		contentPane.add(lblLogo);
 		
 		ButtonGroup radioButtonGroup = new ButtonGroup();
@@ -95,7 +95,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnHotel.setBorder(null);
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
 	    rdbtnHotel.setFont(new Font("Montserrat", Font.PLAIN, 16));
-	    rdbtnHotel.setBounds(408, 307, 75, 21);
+	    rdbtnHotel.setBounds(408, 362, 75, 21);
 	    contentPane.add(rdbtnHotel);
 	    radioButtonGroup.add(rdbtnHotel);
 	    
@@ -105,7 +105,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnRistoranti.setContentAreaFilled(false);
 	    rdbtnRistoranti.setBackground(new Color(255, 250, 240));
 	    rdbtnRistoranti.setFont(new Font("Montserrat", Font.PLAIN, 16));
-	    rdbtnRistoranti.setBounds(480, 307, 104, 21);
+	    rdbtnRistoranti.setBounds(486, 362, 104, 21);
 	    contentPane.add(rdbtnRistoranti);
 	    radioButtonGroup.add(rdbtnRistoranti);
 	    
@@ -115,7 +115,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnAttivita.setContentAreaFilled(false);
 	    rdbtnAttivita.setBackground(new Color(255, 250, 240));
 	    rdbtnAttivita.setFont(new Font("Montserrat", Font.PLAIN, 16));
-	    rdbtnAttivita.setBounds(583, 307, 83, 21);
+	    rdbtnAttivita.setBounds(600, 362, 83, 21);
 	    contentPane.add(rdbtnAttivita);
 	    radioButtonGroup.add(rdbtnAttivita);
 	    
@@ -126,7 +126,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnAll.setContentAreaFilled(false);
 	    rdbtnAll.setBorder(null);
 	    rdbtnAll.setBackground(new Color(255, 250, 240));
-	    rdbtnAll.setBounds(300, 308, 63, 21);
+	    rdbtnAll.setBounds(311, 362, 63, 21);
 	    contentPane.add(rdbtnAll);
 	    radioButtonGroup.add(rdbtnAll);
 	    rdbtnAll.setSelected(true);
@@ -213,13 +213,13 @@ public class SearchFrame extends JFrame {
 	    	}
 	    });
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    btnCerca.setBounds(408, 399, 157, 40);
+	    btnCerca.setBounds(419, 417, 157, 40);
 	    contentPane.add(btnCerca);
 	    
 	    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
 	    lblDoveVuoiAndare.setHorizontalAlignment(SwingConstants.CENTER);
 	    lblDoveVuoiAndare.setFont(new Font("Montserrat", Font.PLAIN, 18));
-	    lblDoveVuoiAndare.setBounds(395, 238, 197, 27);
+	    lblDoveVuoiAndare.setBounds(399, 293, 197, 27);
 	    contentPane.add(lblDoveVuoiAndare);
 	    
 	    JPanel topPanel = new JPanel();

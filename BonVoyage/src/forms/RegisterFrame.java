@@ -58,6 +58,8 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.Box;
+import javax.swing.SwingConstants;
 
 public class RegisterFrame extends JFrame {
 	
@@ -74,30 +76,31 @@ public class RegisterFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public RegisterFrame(Controller ctrl) {
+		Color bg = Color.decode("#81c1f4");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255,250,240));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textFieldEmail = new JTextField();
 		textFieldEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldEmail.setBounds(261, 163, 264, 26);
+		textFieldEmail.setBounds(656, 129, 264, 26);
 		contentPane.add(textFieldEmail);
 		textFieldEmail.setColumns(10);
 		
 		textFieldUserName = new JTextField();
 		textFieldUserName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldUserName.setBounds(261, 218, 264, 26);
+		textFieldUserName.setBounds(656, 184, 264, 26);
 		contentPane.add(textFieldUserName);
 		textFieldUserName.setColumns(10);
 		
-		JLabel lblSeiGiaRegistrato = new JLabel("Gi� registrato?");
-		lblSeiGiaRegistrato.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSeiGiaRegistrato.setBounds(318, 496, 104, 26);
+		JLabel lblSeiGiaRegistrato = new JLabel("Gi\u00E0 registrato?");
+		lblSeiGiaRegistrato.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		lblSeiGiaRegistrato.setBounds(708, 462, 124, 26);
 		contentPane.add(lblSeiGiaRegistrato);
 		
 		JLabel lblAccess = new JLabel("Accedi");
@@ -116,62 +119,51 @@ public class RegisterFrame extends JFrame {
 			}
 		});
 		lblAccess.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblAccess.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblAccess.setBounds(432, 500, 63, 19);
+		lblAccess.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		lblAccess.setBounds(833, 466, 63, 19);
 		contentPane.add(lblAccess);
 		
 		JLabel lblEmail = new JLabel("E-mail");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblEmail.setBounds(261, 148, 50, 13);
+		lblEmail.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblEmail.setBounds(750, 114, 76, 13);
 		contentPane.add(lblEmail);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblUsername.setBounds(261, 203, 89, 13);
+		lblUsername.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblUsername.setBounds(736, 169, 104, 13);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPassword.setBounds(261, 244, 76, 31);
+		lblPassword.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblPassword.setBounds(736, 210, 104, 31);
 		contentPane.add(lblPassword);
 		
 		passwordFieldRegister = new JPasswordField();
 		passwordFieldRegister.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		passwordFieldRegister.setBounds(261, 272, 264, 26);
+		passwordFieldRegister.setBounds(656, 238, 264, 26);
 		contentPane.add(passwordFieldRegister);
 		
 		JLabel lblConfermaPassword = new JLabel("Conferma password");
-		lblConfermaPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblConfermaPassword.setBounds(261, 308, 151, 19);
+		lblConfermaPassword.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblConfermaPassword.setBounds(694, 274, 188, 19);
 		contentPane.add(lblConfermaPassword);
 		
 		passwordFieldConfirm = new JPasswordField();
 		passwordFieldConfirm.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		passwordFieldConfirm.setBounds(261, 331, 264, 26);
+		passwordFieldConfirm.setBounds(656, 297, 264, 26);
 		contentPane.add(passwordFieldConfirm);
 		
-		JLabel lblCity = new JLabel("Citt�");
-		lblCity.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCity.setBounds(261, 367, 41, 19);
+		JLabel lblCity = new JLabel("Citt\u00E0");
+		lblCity.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblCity.setBounds(758, 333, 49, 19);
 		contentPane.add(lblCity);
 		
 		JLabel lblRegione = new JLabel("Regione");
-		lblRegione.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblRegione.setBounds(261, 422, 63, 21);
+		lblRegione.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblRegione.setBounds(747, 388, 104, 21);
 		contentPane.add(lblRegione);
 		
 		Icon Logo = new ImageIcon("/BonVoyage/Images/LogoBonvoyagesmall.png");
-		JLabel lblLogo = new JLabel();
-		lblLogo.setIcon(new ImageIcon(RegisterFrame.class.getResource("/images/LogoBonvoyagesmall.png")));
-		lblLogo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				control.toOpenAndCloseFrame(control.getSearch(), control.getRegister());
-			}
-		});
-		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblLogo.setBounds(207, 10, 372, 109);
-		contentPane.add(lblLogo);
 	    
 	   JComboBox comboBox = new JComboBox();
 
@@ -197,19 +189,33 @@ public class RegisterFrame extends JFrame {
 	   comboBox.addItem("Perugia");
 	   comboBox.addItem("Venezia");
 	   comboBox.setSelectedItem(null);
-	   comboBox.setBounds(261, 391, 264, 26);
+	   comboBox.setBounds(656, 357, 264, 26);
 	   contentPane.add(comboBox);
 	    
 		textFieldRegion = new JTextField();
 
 		textFieldRegion.setEditable(false);
 		textFieldRegion.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldRegion.setBounds(261, 443, 264, 26);
+		textFieldRegion.setBounds(656, 409, 264, 26);
 		contentPane.add(textFieldRegion);
 		textFieldRegion.setColumns(10);
 		
-	    JButton btnRegister = new JButton("Registrati");
+	    JButton btnRegister = new JButton("");
+	    btnRegister.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnRegister.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/btn_register_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnRegister.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/btn_register.png")));
+	    	}
+	    });
+	    btnRegister.setIcon(new ImageIcon(RegisterFrame.class.getResource("/images/btn_register.png")));
 	    btnRegister.setEnabled(false);
+	    btnRegister.setOpaque(false);
+	    btnRegister.setContentAreaFilled(false);
+	    btnRegister.setBorderPainted(false);
 	    btnRegister.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		try {
@@ -227,8 +233,36 @@ public class RegisterFrame extends JFrame {
 	    	}
 	    });
 	    btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
-	    btnRegister.setBounds(337, 532, 112, 21);
+	    btnRegister.setBounds(714, 498, 160, 43);
 	    contentPane.add(btnRegister);
+	    
+	    JPanel panel = new JPanel();
+	    panel.setBounds(0, 0, 600, 600);
+	    contentPane.add(panel);
+	    panel.setLayout(null);
+	    
+	    JLabel lblEnjoyYourLife = new JLabel("We Stay At Place");
+	    lblEnjoyYourLife.setFont(new Font("Montserrat", Font.ITALIC, 24));
+	    lblEnjoyYourLife.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblEnjoyYourLife.setBounds(147, 333, 286, 44);
+	    panel.add(lblEnjoyYourLife);
+	    JLabel lblLogo = new JLabel();
+	    lblLogo.setBounds(168, 76, 264, 234);
+	    panel.add(lblLogo);
+	    lblLogo.setIcon(new ImageIcon(RegisterFrame.class.getResource("/images/logo_progetto_bonvoyage_nero.png")));
+	    lblLogo.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getSearch(), control.getRegister());
+	    	}
+		});
+		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+	    JLabel lblNewLabel = new JLabel("");
+	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblNewLabel.setIcon(new ImageIcon(RegisterFrame.class.getResource("/images/bg_register_2.png")));
+	    lblNewLabel.setBounds(0, 0, 600, 600);
+	    panel.add(lblNewLabel);
 	    
 	    DocumentListener doclistener = new DocumentListener() {
 			
