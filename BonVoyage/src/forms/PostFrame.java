@@ -54,13 +54,15 @@ public class PostFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public PostFrame(Controller ctrl) {
+		setTitle("BonVoyage!");
 
 		Color bg = Color.decode("#4d92c2");
+		Color inner = Color.decode("#046490");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 250, 240));
+		contentPane.setBackground(bg);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -69,13 +71,13 @@ public class PostFrame extends JFrame {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
 		JPanel panelFilter = new JPanel();
-		panelFilter.setBackground(new Color(255, 250, 240));
+		panelFilter.setBackground(Color.WHITE);
 		scrollPane.setViewportView(panelFilter);
 		panelFilter.setLayout(null);
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(bg);
-		topPanel.setBounds(0, 0, 1000, 51);
+		topPanel.setBounds(0, 0, 987, 51);
 		panelFilter.add(topPanel);
 		topPanel.setLayout(null);
 		
@@ -85,24 +87,28 @@ public class PostFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getPostFrame());
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_light.png")));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_.png")));
+			}
 		});
 		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_png.png")));
-		lblLogo.setBounds(905, 0, 65, 47);
+		lblLogo.setBounds(900, -7, 70, 65);
 		topPanel.add(lblLogo);
-		
-	    JPanel panelLogin = new JPanel();
-	    panelLogin.setBackground(new Color(255, 250, 240));
-	    panelLogin.setBounds(622, 30, 133, 27);
-	    topPanel.add(panelLogin);
-	    panelLogin.setLayout(null);
 	    
 	    JLabel lblCiao = new JLabel("Ciao,");
+	    lblCiao.setBounds(10, 18, 46, 27);
+	    topPanel.add(lblCiao);
 	    lblCiao.setVisible(false);
-	    lblCiao.setBounds(0, 0, 46, 17);
-	    panelLogin.add(lblCiao);
-	    lblCiao.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin.setBounds(10, 20, 46, 27);
+	    topPanel.add(lblLogin);
 	    lblLogin.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -112,20 +118,20 @@ public class PostFrame extends JFrame {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
 	    		lblLogin.setText("<HTML><U>Login</U></HTML>");
-	    		lblLogin.setForeground(new Color(30, 144, 255));
+	    		lblLogin.setForeground(new Color(255, 255, 255));
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
 	    		lblLogin.setText("Login");
-	    		lblLogin.setForeground(new Color(0, 0, 205));
+	    		lblLogin.setForeground(new Color(0, 0, 0));
 	    	}
 	    });
-	    lblLogin.setBounds(-1, 0, 46, 27);
-	    panelLogin.add(lblLogin);
-	    lblLogin.setForeground(new Color(0, 0, 205));
-	    lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblLogin.setForeground(Color.BLACK);
+	    lblLogin.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati.setBounds(61, 22, 89, 23);
+	    topPanel.add(lblRegistrati);
 	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -136,21 +142,22 @@ public class PostFrame extends JFrame {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
 	    		lblRegistrati.setText("<HTML><U>Registrati</U></HTML>");
-	    		lblRegistrati.setForeground(new Color(30,144,255));
+	    		lblRegistrati.setForeground(new Color(255,255,255));
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
 	    		lblRegistrati.setText("Registrati");
-	    		lblRegistrati.setForeground(new Color(0,0,205));
+	    		lblRegistrati.setForeground(new Color(0,0,0));
 	    	}
 	    });
-	    lblRegistrati.setBounds(45, 3, 68, 20);
-	    panelLogin.add(lblRegistrati);
-	    lblRegistrati.setForeground(new Color(0, 0, 205));
-	    lblRegistrati.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblRegistrati.setForeground(Color.BLACK);
+	    lblRegistrati.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    
 	    JLabel lblUser = new JLabel("");
+	    lblUser.setBounds(53, 20, 130, 29);
+	    topPanel.add(lblUser);
 	    lblUser.setVisible(false);
+	    lblUser.setBackground(bg);
 	    lblUser.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -158,16 +165,112 @@ public class PostFrame extends JFrame {
 	    		control.setStory(control.StoryFrame(control.getPostFrame()));
 	    	}
 	    });
-	    lblUser.setBounds(40, -5, 77, 29);
-	    panelLogin.add(lblUser);
-	    lblUser.setFont(new Font("Tahoma", Font.BOLD, 16));
+	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 18));
 	    
-	    JLabel lblSeparatore = new JLabel("/");
-	    lblSeparatore.setBounds(38, 0, 7, 27);
-	    panelLogin.add(lblSeparatore);
+	    JLabel lblSeparatore = new JLabel("|");
+	    lblSeparatore.setBounds(55, 20, 7, 27);
+	    topPanel.add(lblSeparatore);
 	    lblSeparatore.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    
-	    JButton btnback = new JButton("Indietro");
+	    JPanel bgInner = new JPanel();
+	    bgInner.setBounds(0, 0, 987, 16);
+	    bgInner.setBackground(inner);
+	    topPanel.add(bgInner);
+		
+	    
+	    JPanel midPanel = new JPanel();
+	    midPanel.setBackground(Color.WHITE);
+	    midPanel.setBounds(0, 66, 987, 353);
+	    panelFilter.add(midPanel);
+	    midPanel.setLayout(null);
+	    
+	    JLabel lblImmagine = new JLabel("New label");
+	    lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));
+	    lblImmagine.setIcon(new ImageIcon("C:\\Users\\chris\\Desktop\\img-20171230-wa0090-01-240x240.jpg"));
+	    lblImmagine.setBounds(22, 26, 200, 200);
+	    midPanel.add(lblImmagine);
+	    
+	    JLabel lblCategory = new JLabel();
+	    lblCategory.setFont(new Font("Nirmala UI", Font.PLAIN, 14));
+	    lblCategory.setBounds(22, 0, 200, 33);
+	    midPanel.add(lblCategory);
+	    
+	    JLabel lblSiTrovaA = new JLabel("Si trova a");
+	    lblSiTrovaA.setFont(new Font("Nirmala UI", Font.PLAIN, 17));
+	    lblSiTrovaA.setBounds(248, 26, 77, 16);
+	    midPanel.add(lblSiTrovaA);
+	    
+	    JLabel lblPosition = new JLabel();
+	    lblPosition.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+	    lblPosition.setBounds(324, 18, 180, 30);
+	    midPanel.add(lblPosition);
+	    
+	    JTextPane textPanePostName = new JTextPane();
+	    textPanePostName.setEditable(false);
+	    textPanePostName.setBackground(Color.WHITE);
+	    textPanePostName.setFont(new Font("Montserrat", Font.BOLD, 20));
+	    textPanePostName.setBounds(259, 58, 287, 46);
+	    midPanel.add(textPanePostName);
+	    
+	    JLabel lblStars = new JLabel();
+	    lblStars.setFont(new Font("Tahoma", Font.BOLD, 27));
+	    lblStars.setBounds(685, 71, 200, 33);
+	    midPanel.add(lblStars);
+	    
+	    JLabel lblnReviews = new JLabel();
+	    lblnReviews.setFont(new Font("Nirmala UI", Font.BOLD, 13));
+	    lblnReviews.setBounds(895, 58, 48, 46);
+	    midPanel.add(lblnReviews);
+	    
+	    JTextPane textPaneDescription = new JTextPane();
+	    textPaneDescription.setBackground(Color.WHITE);
+	    textPaneDescription.setEditable(false);
+	    textPaneDescription.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    textPaneDescription.setBounds(255, 104, 688, 181);
+	    midPanel.add(textPaneDescription);
+	    
+	    JButton btnScriviRecensione = new JButton("");
+	    btnScriviRecensione.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    btnScriviRecensione.setIcon(new ImageIcon(PostFrame.class.getResource("/images/button_pubblica-recensione.png")));
+	    btnScriviRecensione.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		 btnScriviRecensione.setIcon(new ImageIcon(PostFrame.class.getResource("/images/button_pubblica-recensione_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		 btnScriviRecensione.setIcon(new ImageIcon(PostFrame.class.getResource("/images/button_pubblica-recensione.png")));
+	    	}
+	    });
+	    btnScriviRecensione.setOpaque(false);
+	    btnScriviRecensione.setContentAreaFilled(false);
+	    btnScriviRecensione.setBorderPainted(false);
+	    btnScriviRecensione.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		control.toOpenAndCloseFrame(control.getReview(), control.getPostFrame());
+	    	}
+	    });
+	    btnScriviRecensione.setBounds(673, 295, 270, 45);
+	    midPanel.add(btnScriviRecensione);
+	    
+	    JButton btnback = new JButton("");
+	    btnback.setBounds(54, 295, 111, 45);
+	    midPanel.add(btnback);
+	    btnback.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnback.setIcon(new ImageIcon(PostFrame.class.getResource("/images/btn_indietro_sublined.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnback.setIcon(new ImageIcon(PostFrame.class.getResource("/images/btn_indietro.png")));
+	    	}
+	    });
+	    btnback.setIcon(new ImageIcon(PostFrame.class.getResource("/images/btn_indietro.png")));
+	    btnback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    btnback.setOpaque(false);
+	    btnback.setContentAreaFilled(false);
+	    btnback.setBorderPainted(false);
 	    btnback.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.toOpenAndCloseFrame(control.getResults(), control.getPostFrame());
@@ -181,81 +284,6 @@ public class PostFrame extends JFrame {
 				reviewsPanels.clear();
 	    	}
 	    });
-	    btnback.setBounds(194, 30, 89, 23);
-	    topPanel.add(btnback);
-		
-	    
-	    JPanel midPanel = new JPanel();
-	    midPanel.setBackground(new Color(255, 250, 240));
-	    midPanel.setBounds(0, 66, 1000, 353);
-	    panelFilter.add(midPanel);
-	    midPanel.setLayout(null);
-	    
-	    JLabel lblImmagine = new JLabel("New label");
-	    lblImmagine.setIcon(new ImageIcon("C:\\Users\\chris\\Desktop\\img-20171230-wa0090-01-240x240.jpg"));
-	    lblImmagine.setBounds(22, 26, 200, 200);
-	    midPanel.add(lblImmagine);
-	    
-	    JLabel lblCategory = new JLabel();
-	    lblCategory.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    lblCategory.setBounds(22, 0, 175, 33);
-	    midPanel.add(lblCategory);
-	    
-	    JLabel lblSiTrovaA = new JLabel("Si trova a");
-	    lblSiTrovaA.setFont(new Font("Montserrat", Font.PLAIN, 15));
-	    lblSiTrovaA.setBounds(248, 26, 77, 14);
-	    midPanel.add(lblSiTrovaA);
-	    
-	    JLabel lblPosition = new JLabel();
-	    lblPosition.setFont(new Font("Montserrat", Font.BOLD, 16));
-	    lblPosition.setBounds(316, 18, 180, 30);
-	    midPanel.add(lblPosition);
-	    
-	    JTextPane textPanePostName = new JTextPane();
-	    textPanePostName.setEditable(false);
-	    textPanePostName.setBackground(new Color(255, 250, 240));
-	    textPanePostName.setFont(new Font("Montserrat", Font.BOLD, 20));
-	    textPanePostName.setBounds(259, 58, 224, 46);
-	    midPanel.add(textPanePostName);
-	    
-	    JLabel lblStars = new JLabel();
-	    lblStars.setFont(new Font("Tahoma", Font.BOLD, 27));
-	    lblStars.setBounds(487, 61, 180, 33);
-	    midPanel.add(lblStars);
-	    
-	    JLabel lblnReviews = new JLabel();
-	    lblnReviews.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	    lblnReviews.setBounds(677, 58, 48, 46);
-	    midPanel.add(lblnReviews);
-	    
-	    JTextPane textPaneDescription = new JTextPane();
-	    textPaneDescription.setBackground(new Color(255, 250, 240));
-	    textPaneDescription.setEditable(false);
-	    textPaneDescription.setFont(new Font("Montserrat", Font.PLAIN, 14));
-	    textPaneDescription.setBounds(269, 104, 456, 122);
-	    midPanel.add(textPaneDescription);
-	    
-	    JLabel lblUlterioriInfo = new JLabel("Ulteriori Info:");
-	    lblUlterioriInfo.setFont(new Font("Montserrat", Font.PLAIN, 15));
-	    lblUlterioriInfo.setBounds(22, 230, 107, 14);
-	    midPanel.add(lblUlterioriInfo);
-	    
-	    JTextPane textPaneInfo = new JTextPane();
-	    textPaneInfo.setFont(new Font("Montserrat", Font.PLAIN, 12));
-	    textPaneInfo.setText("Orari: \nDal lun alla dom\ndalle 8:30 alle 19:00");
-	    textPaneInfo.setBackground(new Color(255, 250, 240));
-	    textPaneInfo.setBounds(22, 247, 200, 106);
-	    midPanel.add(textPaneInfo);
-	    
-	    JButton btnScriviRecensione = new JButton("Scrivi una recensione...");
-	    btnScriviRecensione.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnScriviRecensione.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		control.toOpenAndCloseFrame(control.getReview(), control.getPostFrame());
-	    	}
-	    });
-	    btnScriviRecensione.setBounds(538, 319, 175, 23);
-	    midPanel.add(btnScriviRecensione);
 	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
 	    
@@ -292,13 +320,13 @@ public class PostFrame extends JFrame {
 	    	    
 	    	    for (int i = 0; i < reviewsPanels.size(); i++) {
 	    	    	if(i == 0) {
-	    	    		reviewsPanels.get(i).setBounds(20,432,714,200);
+	    	    		reviewsPanels.get(i).setBounds(0,430,960,200);
 	    	    		panelFilter.add(reviewsPanels.get(i));
-	    	    		panelFilter.setPreferredSize(new Dimension(0,435+200));
+	    	    		panelFilter.setPreferredSize(new Dimension(0,430+200));
 	    	    	} else if (i > 0) {
-	    	    		reviewsPanels.get(i).setBounds(20,reviewsPanels.get(i-1).getY() + 200, 714, 200);
+	    	    		reviewsPanels.get(i).setBounds(0,reviewsPanels.get(i-1).getY() + 200, 960, 200);
 	    	    		panelFilter.add(reviewsPanels.get(i));
-	    	    		panelFilter.setPreferredSize(new Dimension(0,435+(200*reviewsPanels.size())));
+	    	    		panelFilter.setPreferredSize(new Dimension(0,430+(200*reviewsPanels.size())));
 	    	    	}
 	    	    }
 	    	    if(control.controlIfExistsReviewInPostWithLoggedIduser() || !control.getUser().isLogged()) {

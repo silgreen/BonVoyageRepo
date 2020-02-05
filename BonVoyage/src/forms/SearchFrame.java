@@ -97,7 +97,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnHotel.setContentAreaFilled(false);
 	    rdbtnHotel.setBorder(null);
 	    rdbtnHotel.setBackground(new Color(255, 250, 240));
-	    rdbtnHotel.setFont(new Font("Montserrat", Font.PLAIN, 16));
+	    rdbtnHotel.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    rdbtnHotel.setBounds(408, 362, 75, 21);
 	    contentPane.add(rdbtnHotel);
 	    radioButtonGroup.add(rdbtnHotel);
@@ -107,7 +107,7 @@ public class SearchFrame extends JFrame {
 	    rdbtnRistoranti.setBorder(null);
 	    rdbtnRistoranti.setContentAreaFilled(false);
 	    rdbtnRistoranti.setBackground(new Color(255, 250, 240));
-	    rdbtnRistoranti.setFont(new Font("Montserrat", Font.PLAIN, 16));
+	    rdbtnRistoranti.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    rdbtnRistoranti.setBounds(486, 362, 104, 21);
 	    contentPane.add(rdbtnRistoranti);
 	    radioButtonGroup.add(rdbtnRistoranti);
@@ -117,14 +117,14 @@ public class SearchFrame extends JFrame {
 	    rdbtnAttivita.setBorder(null);
 	    rdbtnAttivita.setContentAreaFilled(false);
 	    rdbtnAttivita.setBackground(new Color(255, 250, 240));
-	    rdbtnAttivita.setFont(new Font("Montserrat", Font.PLAIN, 16));
+	    rdbtnAttivita.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    rdbtnAttivita.setBounds(600, 362, 83, 21);
 	    contentPane.add(rdbtnAttivita);
 	    radioButtonGroup.add(rdbtnAttivita);
 	    
 	    JRadioButton rdbtnAll = new JRadioButton("Tutto");
 	    rdbtnAll.setSelected(true);
-	    rdbtnAll.setFont(new Font("Montserrat", Font.PLAIN, 16));
+	    rdbtnAll.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    rdbtnAll.setFocusPainted(false);
 	    rdbtnAll.setContentAreaFilled(false);
 	    rdbtnAll.setBorder(null);
@@ -221,8 +221,8 @@ public class SearchFrame extends JFrame {
 	    
 	    JLabel lblDoveVuoiAndare = new JLabel("Dove vuoi andare?");
 	    lblDoveVuoiAndare.setHorizontalAlignment(SwingConstants.CENTER);
-	    lblDoveVuoiAndare.setFont(new Font("Montserrat", Font.PLAIN, 18));
-	    lblDoveVuoiAndare.setBounds(399, 293, 197, 27);
+	    lblDoveVuoiAndare.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
+	    lblDoveVuoiAndare.setBounds(408, 293, 197, 27);
 	    contentPane.add(lblDoveVuoiAndare);
 	    
 	    JPanel topPanel = new JPanel();
@@ -238,7 +238,7 @@ public class SearchFrame extends JFrame {
 	    innerPanel.setLayout(null);
 	    
 	    JLabel lblRegistrati_1 = new JLabel("Registrati");
-	    lblRegistrati_1.setBounds(879, 22, 95, 23);
+	    lblRegistrati_1.setBounds(880, 20, 95, 27);
 	    topPanel.add(lblRegistrati_1);
 	    lblRegistrati_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati_1.addMouseListener(new MouseAdapter() {
@@ -258,7 +258,7 @@ public class SearchFrame extends JFrame {
 	    	}
 	    });
 	    lblRegistrati_1.setForeground(Color.BLACK);
-	    lblRegistrati_1.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblRegistrati_1.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    JLabel lblLogin = new JLabel("Login");
 	    lblLogin.setBounds(820, 20, 58, 27);
@@ -282,7 +282,7 @@ public class SearchFrame extends JFrame {
 	    });
 	    
 	    lblLogin.setForeground(Color.BLACK);
-	    lblLogin.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblLogin.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    JLabel lblSeparatore = new JLabel("|");
 	    lblSeparatore.setBounds(872, 20, 7, 27);
@@ -293,7 +293,7 @@ public class SearchFrame extends JFrame {
 	    lblCiao.setBounds(10, 20, 45, 22);
 	    topPanel.add(lblCiao);
 	    lblCiao.setVisible(false);
-	    lblCiao.setFont(new Font("Montserrat", Font.PLAIN, 16));
+	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    JLabel lblUser = new JLabel("");
 	    lblUser.setBounds(51, 20, 138, 22);
@@ -316,7 +316,7 @@ public class SearchFrame extends JFrame {
 	    	}
 	    });
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 16));
+	    lblUser.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    lblUser.addComponentListener(new ComponentAdapter() {
 	    	@Override

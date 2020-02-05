@@ -13,19 +13,22 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Image;
 
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.awt.Rectangle;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 public class ResultPanel extends JPanel {
-
+	
 	Controller control;
 	public ResultPanel(Post p, Controller ctrl) {
 		Color bg = Color.decode("#046490");
@@ -103,7 +106,5 @@ public class ResultPanel extends JPanel {
 		panel.setBounds(0, 0, 1000, 40);
 		panel.setBackground(bg);
 		add(panel);
-		
-		
 	}
 }
