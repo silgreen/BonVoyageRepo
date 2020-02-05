@@ -11,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 import controller.Controller;
 
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -44,92 +46,83 @@ public class ProfileFrame extends JFrame {
 	 */
 	public ProfileFrame(Controller ctrl) {
 
+		Color bg = Color.decode("#4d92c2");
+		Color bginner = Color.decode("#046490");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 
-		contentPane.setBackground(new Color(255, 250, 240));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogo = new JLabel("New label");
-		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logoXSBon.png")));
-		lblLogo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
-			}
-		});
-		lblLogo.setBounds(20, 20, 170, 55);
-		contentPane.add(lblLogo);
-		
 		JLabel lblUsername = new JLabel("Gianluca Savonarola");
-		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 28));
-		lblUsername.setBounds(20, 100, 291, 35);
+		lblUsername.setFont(new Font("Nirmala UI", Font.BOLD, 28));
+		lblUsername.setBounds(240, 75, 384, 35);
 		contentPane.add(lblUsername);
 		
 		JLabel lblLivello = new JLabel("Livello:");
-		lblLivello.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblLivello.setBounds(358, 114, 48, 14);
+		lblLivello.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+		lblLivello.setBounds(275, 190, 48, 28);
 		contentPane.add(lblLivello); 
 		
 		JLabel lblLevel = new JLabel("1");
-		lblLevel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblLevel.setBounds(408, 114, 33, 14);
+		lblLevel.setFont(new Font("Nirmala UI", Font.BOLD, 14));
+		lblLevel.setBounds(333, 198, 33, 14);
 		contentPane.add(lblLevel);
 		
 		JLabel lblDi = new JLabel("di");
-		lblDi.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDi.setBounds(40, 137, 48, 17);
+		lblDi.setFont(new Font("Nirmala UI", Font.PLAIN, 17));
+		lblDi.setBounds(250, 120, 48, 17);
 		contentPane.add(lblDi);
 		
 		JLabel lblPosition = new JLabel("Napoli");
-		lblPosition.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblPosition.setBounds(61, 136, 271, 17);
+		lblPosition.setFont(new Font("Nirmala UI", Font.BOLD, 20));
+		lblPosition.setBounds(272, 109, 271, 35);
 		contentPane.add(lblPosition);
 		
 		JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
-	    lblemail.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	    lblemail.setBounds(470, 221, 304, 35);
+	    lblemail.setFont(new Font("Nirmala UI", Font.PLAIN, 22));
+	    lblemail.setBounds(240, 145, 384, 35);
 	    contentPane.add(lblemail);
 	    
 	    JLabel lblBiografia = new JLabel("Biografia");
-	    lblBiografia.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    lblBiografia.setBounds(42, 227, 77, 24);
+	    lblBiografia.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
+	    lblBiografia.setBounds(409, 254, 89, 35);
 	    contentPane.add(lblBiografia);
 	    
 	    textPaneBio = new JTextPane();
 	    textPaneBio.setBorder(new LineBorder(new Color(0, 0, 0)));
-	    textPaneBio.setBackground(new Color(255, 250, 240));
+	    textPaneBio.setBackground(Color.WHITE);
 	    textPaneBio.setEditable(false);
 	    textPaneBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	    textPaneBio.setBounds(21, 260, 374, 150);
+	    textPaneBio.setBounds(272, 299, 441, 150);
 	    contentPane.add(textPaneBio);
 	    
-	    JButton btnModifyBio = new JButton("...");
+	    JButton btnModifyBio = new JButton("");
+	    btnModifyBio.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/File-Edit-icon.png")));
+	    btnModifyBio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-	    btnModifyBio.setBounds(362, 231, 33, 23);
+	    btnModifyBio.setBounds(680, 254, 33, 35);
 	    contentPane.add(btnModifyBio);
 	    
-	    JButton btnIndietro = new JButton("Indietro");
-	    btnIndietro.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		if(control.getStory() == 1)
-	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
-	    		if(control.getStory() == 2)
-	    			control.toOpenAndCloseFrame(control.getResults(), control.getProfile());
-	    		if(control.getStory() == 3)
-	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getProfile());
-	    		
+	    JButton btnEsci = new JButton("");
+	    btnEsci.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logout_btn.png")));
+	    btnEsci.setOpaque(false);
+	    btnEsci.setContentAreaFilled(false);
+	    btnEsci.setBorderPainted(false);
+	    btnEsci.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnEsci.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logout_btn_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnEsci.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logout_btn.png")));
 	    	}
 	    });
-	    btnIndietro.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnIndietro.setBounds(20, 510, 89, 29);
-	    contentPane.add(btnIndietro);
-	    
-	    JButton btnEsci = new JButton("Logout");
 	    btnEsci.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		int input = JOptionPane.showInternalConfirmDialog(null, "sei sicuro di voler fare il logout", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
@@ -141,10 +134,24 @@ public class ProfileFrame extends JFrame {
 	    	}
 	    });
 	    btnEsci.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnEsci.setBounds(685, 510, 89, 29);
+	    btnEsci.setBounds(801, 510, 149, 40);
 	    contentPane.add(btnEsci);
 	    
-	    JButton btnEliminaAccount = new JButton("Elimina Account");
+	    JButton btnEliminaAccount = new JButton("");
+	    btnEliminaAccount.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_elimina_account.png")));
+	    btnEliminaAccount.setOpaque(false);
+	    btnEliminaAccount.setContentAreaFilled(false);
+	    btnEliminaAccount.setBorderPainted(false);
+	    btnEliminaAccount.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnEliminaAccount.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/elimina_account_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnEliminaAccount.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_elimina_account.png")));
+	    	}
+	    });
 	    btnEliminaAccount.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		int input = JOptionPane.showConfirmDialog(null, "Sei sicuro di voler elimnare l'Account?", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
@@ -159,7 +166,7 @@ public class ProfileFrame extends JFrame {
 	    	}
 	    });
 	    btnEliminaAccount.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnEliminaAccount.setBounds(542, 510, 133, 29);
+	    btnEliminaAccount.setBounds(30, 510, 186, 45);
 	    contentPane.add(btnEliminaAccount);
 	        
 	    JLabel lblRecensioniScritte = new JLabel("Recensioni scritte:");
@@ -169,20 +176,99 @@ public class ProfileFrame extends JFrame {
 	    		control.toOpenAndCloseFrame(control.getUserReview(), control.getProfile());
 	    	}
 	    });
-	    lblRecensioniScritte.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    lblRecensioniScritte.setBounds(457, 107, 111, 31);
+	    lblRecensioniScritte.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    lblRecensioniScritte.setBounds(361, 190, 128, 28);
 	    contentPane.add(lblRecensioniScritte);
 	    
 	    JLabel lblNreviews = new JLabel("1");
-	    lblNreviews.setFont(new Font("Tahoma", Font.BOLD, 14));
-	    lblNreviews.setBounds(578, 115, 48, 14);
+	    lblNreviews.setFont(new Font("Nirmala UI", Font.BOLD, 14));
+	    lblNreviews.setBounds(495, 198, 48, 14);
 	    contentPane.add(lblNreviews);
 	    
-	    JButton btnSaveChanges = new JButton("Salva modifiche");
+	    JButton btnSaveChanges = new JButton("");
+	    btnSaveChanges.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_salva_modifiche.png")));
+	    btnSaveChanges.setOpaque(false);
+	    btnSaveChanges.setContentAreaFilled(false);
+	    btnSaveChanges.setBorderPainted(false);
+	    btnSaveChanges.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		 btnSaveChanges.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_salva_modifiche_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		 btnSaveChanges.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_salva_modifiche.png")));
+	    	}
+	    });
 	    btnSaveChanges.setVisible(false);
 	    btnSaveChanges.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    btnSaveChanges.setBounds(262, 429, 133, 23);
+	    btnSaveChanges.setBounds(537, 254, 176, 45);
 	    contentPane.add(btnSaveChanges);
+	    
+	    JPanel panel = new JPanel();
+	    panel.setBounds(0, 0, 1000, 51);
+	    panel.setBackground(bg);
+	    contentPane.add(panel);
+	    panel.setLayout(null);
+	    
+	    JLabel lblLogo = new JLabel("");
+	    lblLogo.setBounds(900, 0, 59, 48);
+	    panel.add(lblLogo);
+	    lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini_png.png")));
+	    
+	    JPanel inner = new JPanel();
+	    inner.setBounds(0, 0, 1000, 16);
+	    inner.setBackground(bginner);
+	    panel.add(inner);
+	    
+	    JButton btnIndietro = new JButton("");
+	    btnIndietro.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_indietro.png")));
+	    btnIndietro.setOpaque(false);
+	    btnIndietro.setContentAreaFilled(false);
+	    btnIndietro.setBorderPainted(false);
+	    btnIndietro.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		btnIndietro.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_indietro_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		btnIndietro.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_indietro.png")));
+	    	}
+	    });
+	    btnIndietro.setBounds(20, 17, 100, 32);
+	    panel.add(btnIndietro);
+	    btnIndietro.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		if(control.getStory() == 1)
+	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+	    		if(control.getStory() == 2)
+	    			control.toOpenAndCloseFrame(control.getResults(), control.getProfile());
+	    		if(control.getStory() == 3)
+	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getProfile());
+	    		
+	    	}
+	    });
+	    btnIndietro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    
+	    JLabel label = new JLabel("");
+	    label.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/utente_placeholder.png")));
+	    label.setBounds(30, 55, 200, 200);
+	    contentPane.add(label);
+	    lblLogo.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini_png_light.png")));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini.png")));
+	    	}
+	    });
 	   
 		addComponentListener(new ComponentAdapter() {
 			@Override
@@ -197,6 +283,9 @@ public class ProfileFrame extends JFrame {
 			}
 		});
 		
+	    btnModifyBio.setOpaque(false);
+	    btnModifyBio.setContentAreaFilled(false);
+	    btnModifyBio.setBorderPainted(false);
 	    btnModifyBio.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		btnModifyBio.setVisible(false);
