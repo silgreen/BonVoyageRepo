@@ -75,19 +75,19 @@ public class PostFrame extends JFrame {
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(bg);
-		topPanel.setBounds(0, 0, 755, 65);
+		topPanel.setBounds(0, 0, 1000, 51);
 		panelFilter.add(topPanel);
 		topPanel.setLayout(null);
 		
-		JLabel lblLogo = new JLabel("New label");
+		JLabel lblLogo = new JLabel("");
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getPostFrame());
 			}
 		});
-		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logoXSBon.png")));
-		lblLogo.setBounds(20, 20, 164, 43);
+		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_png.png")));
+		lblLogo.setBounds(905, 0, 65, 47);
 		topPanel.add(lblLogo);
 		
 	    JPanel panelLogin = new JPanel();
