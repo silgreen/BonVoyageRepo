@@ -18,6 +18,9 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 
 import javax.swing.SwingConstants;
@@ -283,19 +286,26 @@ public class PostFrame extends JFrame {
 	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
 	    
+	    JLabel lblImmagine = new JLabel();
+		lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblImmagine.setBounds(22, 26, 200, 200);	
+	    
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
 				
 
-				
+				String URL = "";
 				p = control.toFetchSinglePost(control.getPost().getIdpost());
 	    	    lblnReviews.setText(p.getNreviews());
 	    		textPanePostName.setText(p.getName());
 	    		lblPosition.setText(p.getCity() + ","+ p.getRegion());
 	    	    textPaneDescription.setText(p.getInfo());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
+	    	    URL = control.getPost().getURLMedia();
 	    	    control.toShowStars(lblStars, Float.parseFloat(p.getRating_avg()));
+	    	    
+
 	    	    
 	    	    if(control.getUser().isLogged()) {
 					lblRegistrati.setVisible(false);
@@ -336,20 +346,23 @@ public class PostFrame extends JFrame {
 	    	    control.emptyReviewsList();
 	    	    
 	    	    revalidate();
-	    	    repaint();  
+	    	    repaint();    
 	    	    
-				try {
-					URL url = new URL(p.getURLMedia());
-					BufferedImage image = ImageIO.read(url);
-					
-					JLabel lblImmagine = new JLabel(new ImageIcon(image));
-					lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));
-					lblImmagine.setBounds(22, 26, 200, 200);
-					midPanel.add(lblImmagine);
-				}catch (Exception e1) {
-					e1.printStackTrace();
-				}
+	    		try {	
+	    			URL url = new URL(p.getURLMedia());
+	    			BufferedImage image = ImageIO.read(url);
+	    			ImageIcon icon = new ImageIcon(image);
+	    			lblImmagine.setIcon(icon);
+	    			midPanel.add(lblImmagine);
+	    			icon.getImage().flush();
+	    		}catch (Exception e1) {
+	    			e1.printStackTrace();
+	    		}
 			}
 		});
+		
+
+		
+
 	}
 }
