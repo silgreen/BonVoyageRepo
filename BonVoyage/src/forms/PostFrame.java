@@ -184,11 +184,7 @@ public class PostFrame extends JFrame {
 	    panelFilter.add(midPanel);
 	    midPanel.setLayout(null);
 	    
-	    JLabel lblImmagine = new JLabel("New label");
-	    lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));
-	    lblImmagine.setIcon(new ImageIcon("C:\\Users\\chris\\Desktop\\img-20171230-wa0090-01-240x240.jpg"));
-	    lblImmagine.setBounds(22, 26, 200, 200);
-	    midPanel.add(lblImmagine);
+
 	    
 	    JLabel lblCategory = new JLabel();
 	    lblCategory.setFont(new Font("Nirmala UI", Font.PLAIN, 14));
@@ -290,6 +286,9 @@ public class PostFrame extends JFrame {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
+				
+
+				
 				p = control.toFetchSinglePost(control.getPost().getIdpost());
 	    	    lblnReviews.setText(p.getNreviews());
 	    		textPanePostName.setText(p.getName());
@@ -338,6 +337,18 @@ public class PostFrame extends JFrame {
 	    	    
 	    	    revalidate();
 	    	    repaint();  
+	    	    
+				try {
+					URL url = new URL(p.getURLMedia());
+					BufferedImage image = ImageIO.read(url);
+					
+					JLabel lblImmagine = new JLabel(new ImageIcon(image));
+					lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));
+					lblImmagine.setBounds(22, 26, 200, 200);
+					midPanel.add(lblImmagine);
+				}catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
