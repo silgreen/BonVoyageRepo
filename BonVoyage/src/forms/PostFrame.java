@@ -295,7 +295,7 @@ public class PostFrame extends JFrame {
 	    	}
 	    });
 	    
-	    scrollPane.getVerticalScrollBar().setUnitIncrement(14);
+	    scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 	    
 	    JLabel lblImmagine = new JLabel();
 		lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));

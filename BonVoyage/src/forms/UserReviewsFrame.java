@@ -151,6 +151,8 @@ public class UserReviewsFrame extends JFrame {
 		innerPanel.setBackground(bginner);
 		panelFilter.add(innerPanel);
 		
+		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+		
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {

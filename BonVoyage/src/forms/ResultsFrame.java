@@ -21,6 +21,7 @@ import panel.ResultPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Panel;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -121,7 +122,7 @@ public class ResultsFrame extends JFrame {
 	    });
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 21));
+	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 20));
 	    lblUser.setBounds(55, 26, 150, 20);
 	    panelFilter.add(lblUser);
 	    lblLogo.setBounds(895, -2, 70, 65);
@@ -177,7 +178,7 @@ public class ResultsFrame extends JFrame {
 	    });
 	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRegistrati.setBounds(80, 20, 92, 30);
-	    lblRegistrati.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+	    lblRegistrati.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    panelFilter.add(lblRegistrati);
 	    
 	    JLabel lblSeparatore = new JLabel("|");
@@ -196,6 +197,7 @@ public class ResultsFrame extends JFrame {
 			@Override
 			public void componentShown(ComponentEvent e) {
 				
+
 				toRemovePanels(panelFilter);
 				
 				if(control.getUser().isLogged()) {
@@ -207,10 +209,12 @@ public class ResultsFrame extends JFrame {
 					lblUser.setVisible(true);
 				}				
 				toShowPanels(panelFilter);
+
 			}
 		});
 		
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
 	}
 	
 	private void toShowPanels(JPanel panelFilter) {
