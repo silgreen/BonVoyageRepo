@@ -115,7 +115,7 @@ public class ProfileFrame extends JFrame {
 	    });
 	    btnEsci.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		int input = JOptionPane.showInternalConfirmDialog(null, "sei sicuro di voler fare il logout", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+	    		int input = JOptionPane.showInternalConfirmDialog(contentPane, "sei sicuro di voler fare il logout?", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
 	    		
 	    		if(input == 0) {
 	    		control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
@@ -150,7 +150,7 @@ public class ProfileFrame extends JFrame {
 	    			control.toDeleteUser(control.getUser().getIduser());
 	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
 	    			control.SetLoginAndRegisterLabelVisible(true, false);
-	    			JOptionPane.showConfirmDialog(null, "L'Account � stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+	    			JOptionPane.showConfirmDialog(null, "L'Account e' stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
 	    			
 	    		}
 	    	}
@@ -172,7 +172,7 @@ public class ProfileFrame extends JFrame {
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
-	    		lblRecensioniScritte.setText("Recensioni Scritte:");
+	    		lblRecensioniScritte.setText("Recensioni scritte:");
 	    	}
 	    });
 	    lblRecensioniScritte.setFont(new Font("Nirmala UI", Font.PLAIN, 16));

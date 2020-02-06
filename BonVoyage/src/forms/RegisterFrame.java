@@ -153,14 +153,14 @@ public class RegisterFrame extends JFrame {
 		passwordFieldConfirm.setBounds(656, 297, 264, 26);
 		contentPane.add(passwordFieldConfirm);
 		
-		JLabel lblCity = new JLabel("Citt\u00E0");
-		lblCity.setFont(new Font("Montserrat", Font.PLAIN, 21));
+		JLabel lblCity = new JLabel("Citta'");
+		lblCity.setFont(new Font("Nirmala UI", Font.PLAIN, 22));
 		lblCity.setBounds(758, 333, 57, 19);
 		contentPane.add(lblCity);
 		
 		JLabel lblRegione = new JLabel("Regione");
-		lblRegione.setFont(new Font("Montserrat", Font.PLAIN, 21));
-		lblRegione.setBounds(747, 385, 104, 23);
+		lblRegione.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		lblRegione.setBounds(747, 385, 104, 28);
 		contentPane.add(lblRegione);
 		
 		Icon Logo = new ImageIcon("/BonVoyage/Images/LogoBonvoyagesmall.png");
@@ -196,7 +196,7 @@ public class RegisterFrame extends JFrame {
 
 		textFieldRegion.setEditable(false);
 		textFieldRegion.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldRegion.setBounds(656, 409, 264, 26);
+		textFieldRegion.setBounds(656, 415, 264, 26);
 		contentPane.add(textFieldRegion);
 		textFieldRegion.setColumns(10);
 		
