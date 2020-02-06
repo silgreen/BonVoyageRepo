@@ -56,8 +56,10 @@ public class ResultsFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ResultsFrame(Controller ctrl) {
+		setResizable(false);
 
 		Color bg = Color.decode("#4d92c2");
+		Color inner = Color.decode("#046490");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
@@ -119,10 +121,10 @@ public class ResultsFrame extends JFrame {
 	    });
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
-	    lblUser.setBounds(55, 26, 109, 20);
+	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 21));
+	    lblUser.setBounds(55, 26, 150, 20);
 	    panelFilter.add(lblUser);
-	    lblLogo.setBounds(900, -2, 70, 65);
+	    lblLogo.setBounds(895, -2, 70, 65);
 	    panelFilter.add(lblLogo);
 
 	    
@@ -182,6 +184,11 @@ public class ResultsFrame extends JFrame {
 	    lblSeparatore.setBounds(73, 26, 6, 20);
 	    lblSeparatore.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    panelFilter.add(lblSeparatore);
+	    
+	    JPanel panel = new JPanel();
+	    panel.setBackground(inner);
+	    panel.setBounds(0, 0, 976, 16);
+	    panelFilter.add(panel);
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    panelFilter.add(lblCiao);
 		

@@ -76,6 +76,7 @@ public class RegisterFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public RegisterFrame(Controller ctrl) {
+		setResizable(false);
 		Color bg = Color.decode("#81c1f4");
 		control = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

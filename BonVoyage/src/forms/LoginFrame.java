@@ -89,6 +89,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(lblPassword);
 		
 		JButton btnLogin = new JButton("");
+		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -123,6 +124,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setBackground(Color.WHITE);
 		lblLogo.setIcon(new ImageIcon(LoginFrame.class.getResource("/images/logo_login_frame.png")));
