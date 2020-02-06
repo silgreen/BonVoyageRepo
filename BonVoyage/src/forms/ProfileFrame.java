@@ -45,6 +45,7 @@ public class ProfileFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ProfileFrame(Controller ctrl) {
+		setResizable(false);
 
 		Color bg = Color.decode("#4d92c2");
 		Color bginner = Color.decode("#046490");
@@ -99,6 +100,7 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnModifyBio);
 	    
 	    JButton btnEsci = new JButton("");
+	    btnEsci.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnEsci.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logout_btn.png")));
 	    btnEsci.setOpaque(false);
 	    btnEsci.setContentAreaFilled(false);
@@ -128,6 +130,7 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnEsci);
 	    
 	    JButton btnEliminaAccount = new JButton("");
+	    btnEliminaAccount.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnEliminaAccount.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_elimina_account.png")));
 	    btnEliminaAccount.setOpaque(false);
 	    btnEliminaAccount.setContentAreaFilled(false);
@@ -211,7 +214,8 @@ public class ProfileFrame extends JFrame {
 	    panel.setLayout(null);
 	    
 	    JLabel lblLogo = new JLabel("");
-	    lblLogo.setBounds(900, 0, 59, 48);
+	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblLogo.setBounds(895, 0, 59, 48);
 	    panel.add(lblLogo);
 	    lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini_png.png")));
 	    
@@ -221,6 +225,7 @@ public class ProfileFrame extends JFrame {
 	    panel.add(inner);
 	    
 	    JButton btnIndietro = new JButton("");
+	    btnIndietro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnIndietro.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/btn_indietro.png")));
 	    btnIndietro.setOpaque(false);
 	    btnIndietro.setContentAreaFilled(false);

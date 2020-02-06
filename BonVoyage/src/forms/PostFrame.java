@@ -57,6 +57,7 @@ public class PostFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public PostFrame(Controller ctrl) {
+		setResizable(false);
 		setTitle("BonVoyage!");
 
 		Color bg = Color.decode("#4d92c2");
@@ -85,6 +86,7 @@ public class PostFrame extends JFrame {
 		topPanel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -157,7 +159,8 @@ public class PostFrame extends JFrame {
 	    lblRegistrati.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    
 	    JLabel lblUser = new JLabel("");
-	    lblUser.setBounds(53, 20, 130, 29);
+	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    lblUser.setBounds(53, 15, 209, 29);
 	    topPanel.add(lblUser);
 	    lblUser.setVisible(false);
 	    lblUser.setBackground(bg);
@@ -167,8 +170,16 @@ public class PostFrame extends JFrame {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getPostFrame());
 	    		control.setStory(control.StoryFrame(control.getPostFrame()));
 	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblUser.setForeground(new Color(255,255,255));
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblUser.setForeground(new Color(0,0,0));
+	    	}
 	    });
-	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 18));
+	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 20));
 	    
 	    JLabel lblSeparatore = new JLabel("|");
 	    lblSeparatore.setBounds(55, 20, 7, 27);

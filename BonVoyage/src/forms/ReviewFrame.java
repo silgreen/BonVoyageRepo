@@ -22,6 +22,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import controller.Controller;
+import except.EmptyFieldException;
+import except.LongTitleException;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
@@ -40,6 +42,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class ReviewFrame extends JFrame {
 
@@ -52,6 +56,7 @@ public class ReviewFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ReviewFrame(Controller ctrl) {
+		setResizable(false);
 
 		Color bg = Color.decode("#4d92c2");
 		Color bginner = Color.decode("#046490");
@@ -70,11 +75,6 @@ public class ReviewFrame extends JFrame {
 	    textFieldTitolo.setBounds(318, 134, 350, 27);
 	    contentPane.add(textFieldTitolo);
 	    textFieldTitolo.setColumns(10);
-	    
-	    JEditorPane editorPaneReview = new JEditorPane();
-	    editorPaneReview.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-	    editorPaneReview.setBounds(243, 244, 500, 200);
-	    contentPane.add(editorPaneReview);
 	    
 	    JLabel lblRecensione = new JLabel("Recensione");
 	    lblRecensione.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
@@ -109,6 +109,7 @@ public class ReviewFrame extends JFrame {
 	    ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
 	    JRadioButton rdbtnStar1 = new JRadioButton("");
+	    rdbtnStar1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
 	    rdbtnStar1.setBackground(Color.WHITE);
@@ -117,6 +118,7 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(rdbtnStar1);
 	    
 	    JRadioButton rdbtnStar2 = new JRadioButton("");
+	    rdbtnStar2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
 	    rdbtnStar2.setBackground(Color.WHITE);
@@ -125,6 +127,7 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(rdbtnStar2);
 	    
 	    JRadioButton rdbtnStar3 = new JRadioButton("");
+	    rdbtnStar3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
 	    rdbtnStar3.setBackground(Color.WHITE);
@@ -133,6 +136,7 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(rdbtnStar3);
 	    
 	    JRadioButton rdbtnStar4 = new JRadioButton("");
+	    rdbtnStar4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
 	    rdbtnStar4.setBackground(Color.WHITE);
@@ -141,6 +145,7 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(rdbtnStar4);
 	    
 	    JRadioButton rdbtnStar5 = new JRadioButton("");
+	    rdbtnStar5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
 	    rdbtnStar5.setBackground(Color.WHITE);
@@ -162,6 +167,7 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(lblGiudizio);
 	    
 	    JLabel lblLogo = new JLabel("");
+	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogo.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
@@ -172,7 +178,7 @@ public class ReviewFrame extends JFrame {
 	    		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_mini_png.png")));
 	    	}
 	    });
-	    lblLogo.setBounds(900, -2, 65, 55);
+	    lblLogo.setBounds(895, -2, 65, 55);
 	    contentPane.add(lblLogo);
 	    lblLogo.setIcon(new ImageIcon(ReviewFrame.class.getResource("/images/logo_mini_png.png")));
 	    lblLogo.setFont(new Font("Montserrat", Font.PLAIN, 27));
@@ -208,12 +214,22 @@ public class ReviewFrame extends JFrame {
 	    btnNewBack.setBorderPainted(false);
 	    btnNewBack.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		int input = JOptionPane.showConfirmDialog(null, "sei sicuro di voler tornare indietro? le tue modifiche andranno perdute", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+	    		int input = JOptionPane.showConfirmDialog(contentPane, "sei sicuro di voler tornare indietro? le tue modifiche andranno perdute", "Attenzione!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
 	    		if (input == 0)
 	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
 	    	}
 	    });
 	    btnNewBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    
+	    JScrollPane scrollPane = new JScrollPane();
+	    scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+	    scrollPane.setBounds(243, 244, 500, 200);
+	    contentPane.add(scrollPane);
+	    
+	    JEditorPane editorPaneReview = new JEditorPane();
+	    scrollPane.setViewportView(editorPaneReview);
+	    editorPaneReview.setFont(new Font("Nirmala UI", Font.PLAIN, 15));
+	    editorPaneReview.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 
 	    
 	    rdbtnStar1.addActionListener(new ActionListener() {
@@ -291,11 +307,23 @@ public class ReviewFrame extends JFrame {
 		
 	    btnNewPubblicaReview.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-		    	control.createReview(control.getUser().getIduser(), control.getPost().getIdpost(), textFieldTitolo.getText(), editorPaneReview.getText(), Rating);
-		    	JOptionPane.showInternalMessageDialog(null, "Recensione pubblicata con successo!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
-		    	control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
-		    	textFieldTitolo.setText(null);
-		    	editorPaneReview.setText(null);
+	    		try {
+	    			if(textFieldTitolo.getText().length() > 64)
+	    				throw new LongTitleException();
+	    			else if (editorPaneReview.getText().isEmpty() || textFieldTitolo.getText().isEmpty())
+	    				throw new EmptyFieldException();
+	    			else {
+	    		    	control.createReview(control.getUser().getIduser(), control.getPost().getIdpost(), textFieldTitolo.getText(), editorPaneReview.getText(), Rating);
+	    		    	JOptionPane.showInternalMessageDialog(null, "Recensione pubblicata con successo!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
+	    		    	control.toOpenAndCloseFrame(control.getPostFrame(), control.getReview());
+	    		    	textFieldTitolo.setText(null);
+	    		    	editorPaneReview.setText(null);
+	    			}
+				} catch(LongTitleException e2) {
+					JOptionPane.showMessageDialog(contentPane, "Limite massimo di caratteri del titolo raggiunto", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+				} catch (EmptyFieldException e3) {
+					JOptionPane.showMessageDialog(contentPane, "I campi titolo e recensione non possono essere vuoti!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+				}
 	    	}
 	    });
 	}

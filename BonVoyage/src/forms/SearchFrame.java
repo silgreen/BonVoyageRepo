@@ -296,7 +296,7 @@ public class SearchFrame extends JFrame {
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    JLabel lblUser = new JLabel("");
-	    lblUser.setBounds(56, 20, 138, 22);
+	    lblUser.setBounds(56, 20, 156, 22);
 	    topPanel.add(lblUser);
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.addMouseListener(new MouseAdapter() {
@@ -316,7 +316,7 @@ public class SearchFrame extends JFrame {
 	    	}
 	    });
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
+	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 20));
 	    
 	    lblUser.addComponentListener(new ComponentAdapter() {
 	    	@Override

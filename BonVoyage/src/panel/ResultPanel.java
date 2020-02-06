@@ -78,7 +78,7 @@ public class ResultPanel extends JPanel {
 		add(lblNrecensioni);
 		
 		JLabel lblPosizione = new JLabel(p.getCity() + "," + p.getRegion());
-		lblPosizione.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+		lblPosizione.setFont(new Font("Nirmala UI Semilight", Font.BOLD, 16));
 		lblPosizione.setBounds(181, 40, 211, 21);
 		add(lblPosizione);
 		
@@ -113,7 +113,7 @@ public class ResultPanel extends JPanel {
 			}
 		});
 		textPaneNomeStruttura.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		textPaneNomeStruttura.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		textPaneNomeStruttura.setFont(new Font("Nirmala UI", Font.BOLD, 21));
 		textPaneNomeStruttura.setText(p.getName());
 		textPaneNomeStruttura.setEditable(false);
 		textPaneNomeStruttura.setBackground(bg);
