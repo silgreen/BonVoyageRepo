@@ -99,7 +99,7 @@ public class RegisterFrame extends JFrame {
 		textFieldUserName.setColumns(10);
 		
 		JLabel lblSeiGiaRegistrato = new JLabel("Gi\u00E0 registrato?");
-		lblSeiGiaRegistrato.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		lblSeiGiaRegistrato.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 		lblSeiGiaRegistrato.setBounds(708, 462, 124, 26);
 		contentPane.add(lblSeiGiaRegistrato);
 		
@@ -119,22 +119,22 @@ public class RegisterFrame extends JFrame {
 			}
 		});
 		lblAccess.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblAccess.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		lblAccess.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 		lblAccess.setBounds(833, 466, 63, 19);
 		contentPane.add(lblAccess);
 		
 		JLabel lblEmail = new JLabel("E-mail");
-		lblEmail.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblEmail.setBounds(750, 114, 76, 13);
+		lblEmail.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		lblEmail.setBounds(750, 107, 76, 20);
 		contentPane.add(lblEmail);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblUsername.setBounds(736, 169, 104, 13);
+		lblUsername.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		lblUsername.setBounds(736, 162, 104, 20);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Montserrat", Font.PLAIN, 18));
+		lblPassword.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 		lblPassword.setBounds(736, 210, 104, 31);
 		contentPane.add(lblPassword);
 		
@@ -144,8 +144,8 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(passwordFieldRegister);
 		
 		JLabel lblConfermaPassword = new JLabel("Conferma password");
-		lblConfermaPassword.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblConfermaPassword.setBounds(694, 274, 188, 19);
+		lblConfermaPassword.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		lblConfermaPassword.setBounds(694, 270, 188, 23);
 		contentPane.add(lblConfermaPassword);
 		
 		passwordFieldConfirm = new JPasswordField();
@@ -154,13 +154,13 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(passwordFieldConfirm);
 		
 		JLabel lblCity = new JLabel("Citt\u00E0");
-		lblCity.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblCity.setBounds(758, 333, 49, 19);
+		lblCity.setFont(new Font("Montserrat", Font.PLAIN, 21));
+		lblCity.setBounds(758, 333, 57, 19);
 		contentPane.add(lblCity);
 		
 		JLabel lblRegione = new JLabel("Regione");
-		lblRegione.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblRegione.setBounds(747, 388, 104, 21);
+		lblRegione.setFont(new Font("Montserrat", Font.PLAIN, 21));
+		lblRegione.setBounds(747, 385, 104, 23);
 		contentPane.add(lblRegione);
 		
 		Icon Logo = new ImageIcon("/BonVoyage/Images/LogoBonvoyagesmall.png");

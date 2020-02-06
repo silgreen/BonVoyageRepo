@@ -26,6 +26,7 @@ import java.net.URL;
 import java.awt.Rectangle;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.Cursor;
 
 public class ResultPanel extends JPanel {
 	
@@ -57,6 +58,7 @@ public class ResultPanel extends JPanel {
 			BufferedImage image = ImageIO.read(url);
 			
 			JLabel lblFoto = new JLabel(new ImageIcon(image));
+			lblFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			lblFoto.setBorder(new LineBorder(new Color(0, 0, 0), 3));
 			lblFoto.setBounds(10, 12, 150, 150);
 			add(lblFoto);
@@ -65,41 +67,57 @@ public class ResultPanel extends JPanel {
 		}
 		
 		JLabel lblStelle = new JLabel();
-		lblStelle.setBounds(436, 0, 180, 33);
+		lblStelle.setBounds(700, 0, 180, 33);
 		add(lblStelle);
 		control.toShowStars(lblStelle, Float.parseFloat(p.getRating_avg()));
 
 		
 		JLabel lblNrecensioni = new JLabel(p.getNreviews());
-		lblNrecensioni.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 12));
-		lblNrecensioni.setBounds(633, 12, 73, 21);
+		lblNrecensioni.setFont(new Font("Nirmala UI", Font.PLAIN, 14));
+		lblNrecensioni.setBounds(880, 8, 73, 21);
 		add(lblNrecensioni);
 		
 		JLabel lblPosizione = new JLabel(p.getCity() + "," + p.getRegion());
-		lblPosizione.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		lblPosizione.setFont(new Font("Nirmala UI", Font.BOLD, 16));
 		lblPosizione.setBounds(181, 40, 211, 21);
 		add(lblPosizione);
 		
 		JLabel lblTipoCate = new JLabel(p.getCategory() + "," + p.getSub_category());
-		lblTipoCate.setFont(new Font("Montserrat Medium", Font.PLAIN, 14));
-		lblTipoCate.setBounds(181, 152, 211, 19);
+		lblTipoCate.setFont(new Font("Nirmala UI", Font.PLAIN, 17));
+		lblTipoCate.setBounds(181, 152, 211, 21);
 		add(lblTipoCate);
 		
 		JTextPane textPaneInfo = new JTextPane();
 		textPaneInfo.setBorder(null);
-		textPaneInfo.setFont(new Font("Montserrat", Font.PLAIN, 14));
+		textPaneInfo.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 		textPaneInfo.setText(p.getInfo());
 		textPaneInfo.setEditable(false);
 		textPaneInfo.setBackground(Color.WHITE);
-		textPaneInfo.setBounds(180, 66, 520, 86);
+		textPaneInfo.setBounds(180, 66, 700, 86);
 		add(textPaneInfo);
 		
 		JTextPane textPaneNomeStruttura = new JTextPane();
-		textPaneNomeStruttura.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 16));
+		textPaneNomeStruttura.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				textPaneNomeStruttura.setForeground(new Color(255,255,255));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				textPaneNomeStruttura.setForeground(new Color(0,0,0));
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				control.LinkPost(p);
+				control.toOpenAndCloseFrame(control.getPostFrame(),control.getResults());
+			}
+		});
+		textPaneNomeStruttura.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		textPaneNomeStruttura.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 		textPaneNomeStruttura.setText(p.getName());
 		textPaneNomeStruttura.setEditable(false);
 		textPaneNomeStruttura.setBackground(bg);
-		textPaneNomeStruttura.setBounds(181, 0, 245, 40);
+		textPaneNomeStruttura.setBounds(181, 0, 318, 40);
 		add(textPaneNomeStruttura);
 		
 		JPanel panel = new JPanel();

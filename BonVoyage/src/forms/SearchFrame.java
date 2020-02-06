@@ -78,7 +78,7 @@ public class SearchFrame extends JFrame {
 		textFieldSearch.setBorder(new MatteBorder(1, 1, 1, 1, (Color) UIManager.getColor("RadioButtonMenuItem.selectionBackground")));
 		textFieldSearch.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldSearch.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		textFieldSearch.setFont(new Font("Montserrat", Font.PLAIN, 16));
+		textFieldSearch.setFont(new Font("Nirmala UI", Font.PLAIN, 19));
 		textFieldSearch.setBounds(312, 330, 371, 27);
 		contentPane.add(textFieldSearch);
 		textFieldSearch.setColumns(10);
@@ -296,7 +296,7 @@ public class SearchFrame extends JFrame {
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    JLabel lblUser = new JLabel("");
-	    lblUser.setBounds(51, 20, 138, 22);
+	    lblUser.setBounds(56, 20, 138, 22);
 	    topPanel.add(lblUser);
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.addMouseListener(new MouseAdapter() {

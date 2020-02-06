@@ -41,6 +41,7 @@ public class UserReviewsFrame extends JFrame {
 	
 	public UserReviewsFrame(Controller ctrl) {
 		Color bg = Color.decode("#4d92c2");
+		Color bginner = Color.decode("#046490");
 		setTitle("BonVoyage!");
 		setResizable(false);
 		setBackground(bg);
@@ -86,10 +87,25 @@ public class UserReviewsFrame extends JFrame {
 		});
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/logo_mini_png.png")));
-		lblLogo.setBounds(910, 10, 65, 55);
+		lblLogo.setBounds(910, 0, 65, 55);
 		panelFilter.add(lblLogo);
 		
 		JButton btnIndietro = new JButton("");
+		btnIndietro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnIndietro.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/btn_indietro_light.png")));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnIndietro.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/btn_indietro.png")));
+			}
+		});
+		btnIndietro.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/btn_indietro.png")));
+	    btnIndietro.setOpaque(false);
+	    btnIndietro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    btnIndietro.setContentAreaFilled(false);
+	    btnIndietro.setBorderPainted(false);
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.toOpenAndCloseFrame(control.getProfile(), control.getUserReview());
@@ -103,7 +119,7 @@ public class UserReviewsFrame extends JFrame {
 				UserReviewsPanels.clear();
 			}
 		});
-		btnIndietro.setBounds(689, 35, 85, 21);
+		btnIndietro.setBounds(20, 17, 100, 32);
 		panelFilter.add(btnIndietro);
 		
 		JButton btnRefresh = new JButton("");
@@ -127,8 +143,13 @@ public class UserReviewsFrame extends JFrame {
 				setVisible(true);
 			}
 		});
-		btnRefresh.setBounds(645, 20, 44, 41);
+		btnRefresh.setBounds(863, 7, 44, 41);
 		panelFilter.add(btnRefresh);
+		
+		JPanel innerPanel = new JPanel();
+		innerPanel.setBounds(0, 0, 1000, 16);
+		innerPanel.setBackground(bginner);
+		panelFilter.add(innerPanel);
 		
 		addComponentListener(new ComponentAdapter() {
 			@Override
@@ -151,14 +172,14 @@ public class UserReviewsFrame extends JFrame {
 				
 				for(int i=0; i<UserReviewsPanels.size(); i++) {
 					if(i==0) {
-						(UserReviewsPanels.get(i)).setBounds(0,100,980,205);
+						(UserReviewsPanels.get(i)).setBounds(0,60,980,205);
 						panelFilter.add(UserReviewsPanels.get(i));
 						panelFilter.setPreferredSize(new Dimension(0,300));
 					}
 					else {
-						(UserReviewsPanels.get(i)).setBounds(0,UserReviewsPanels.get(i-1).getY()+205,980,205);
+						(UserReviewsPanels.get(i)).setBounds(0,UserReviewsPanels.get(i-1).getY()+225,980,205);
 						panelFilter.add(UserReviewsPanels.get(i));
-						panelFilter.setPreferredSize(new Dimension(0,100+(205*UserReviewsPanels.size())));
+						panelFilter.setPreferredSize(new Dimension(0,60+(225*UserReviewsPanels.size())));
 					}
 				}
 				control.emptyReview();

@@ -53,6 +53,7 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame(Controller ctrl) {
+		setTitle("BonVoyage!");
 		setResizable(false);
 		Color bg = Color.decode("#4d92c2");
 		Color bginner = Color.decode("#046490");
@@ -78,13 +79,13 @@ public class LoginFrame extends JFrame {
 		contentPane.add(textFieldPassword);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblUsername.setBounds(443, 290, 103, 34);
+		lblUsername.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		lblUsername.setBounds(446, 290, 103, 34);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Montserrat", Font.PLAIN, 18));
-		lblPassword.setBounds(443, 371, 103, 34);
+		lblPassword.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+		lblPassword.setBounds(446, 371, 103, 34);
 		contentPane.add(lblPassword);
 		
 		JButton btnLogin = new JButton("");
@@ -135,7 +136,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(lblLogo);
 		
 	    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
-	    lblNonSeiRegistrato.setFont(new Font("Montserrat", Font.PLAIN, 10));
+	    lblNonSeiRegistrato.setFont(new Font("Nirmala UI", Font.PLAIN, 13));
 	    lblNonSeiRegistrato.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -160,7 +161,7 @@ public class LoginFrame extends JFrame {
 		});
 	    
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblNonSeiRegistrato.setBounds(441, 449, 108, 27);
+	    lblNonSeiRegistrato.setBounds(441, 449, 116, 27);
 	    contentPane.add(lblNonSeiRegistrato);
 	    
 	    lblNonSeiRegistrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

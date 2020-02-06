@@ -90,6 +90,24 @@ public class Controller {
 	    
 	}
 	
+//	public int toSetRank(int r) {
+//		int res = 1;
+//		
+//		if (r >= 10 && r < 20) {
+//			res = 2;
+//			return res;
+//		} else if (r >= 30 && r < 40) {
+//			res = 3;
+//			return res;
+//		} else if(r >= 40 && r < 50) {
+//			res = 4;
+//			return res;
+//		} else if(r == 50) {
+//			res = 5;
+//			return res;
+//		} return res;
+//	}
+	
 	public void toShowStars(JLabel l, float rating) {
 		if(rating == 0)
 			l.setIcon(new ImageIcon(ResultPanel.class.getResource("/images/stellevuote.png")));

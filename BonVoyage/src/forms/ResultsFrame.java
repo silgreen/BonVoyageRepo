@@ -119,8 +119,8 @@ public class ResultsFrame extends JFrame {
 	    });
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setVisible(false);
-	    lblUser.setFont(new Font("Montserrat SemiBold", Font.PLAIN, 18));
-	    lblUser.setBounds(55, 20, 109, 20);
+	    lblUser.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
+	    lblUser.setBounds(55, 26, 109, 20);
 	    panelFilter.add(lblUser);
 	    lblLogo.setBounds(900, -2, 70, 65);
 	    panelFilter.add(lblLogo);
@@ -128,7 +128,7 @@ public class ResultsFrame extends JFrame {
 	    
 	    JLabel lblCiao = new JLabel("Ciao,");
 	    lblCiao.setVisible(false);
-	    lblCiao.setBounds(10, 20, 79, 20);
+	    lblCiao.setBounds(10, 26, 79, 20);
 	    
 	    
 	    JLabel lblLogin = new JLabel("Login");
@@ -151,8 +151,8 @@ public class ResultsFrame extends JFrame {
 				a1.clear();
 	    	}
 	    });
-	    lblLogin.setBounds(20, 20, 55, 27);
-	    lblLogin.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblLogin.setBounds(20, 20, 55, 30);
+	    lblLogin.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    panelFilter.add(lblLogin);
 	    
 	    JLabel lblRegistrati = new JLabel("Registrati");
@@ -174,15 +174,15 @@ public class ResultsFrame extends JFrame {
 	    	}
 	    });
 	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblRegistrati.setBounds(80, 24, 92, 20);
-	    lblRegistrati.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblRegistrati.setBounds(80, 20, 92, 30);
+	    lblRegistrati.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    panelFilter.add(lblRegistrati);
 	    
 	    JLabel lblSeparatore = new JLabel("|");
-	    lblSeparatore.setBounds(73, 23, 6, 20);
+	    lblSeparatore.setBounds(73, 26, 6, 20);
 	    lblSeparatore.setFont(new Font("Montserrat", Font.PLAIN, 18));
 	    panelFilter.add(lblSeparatore);
-	    lblCiao.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    panelFilter.add(lblCiao);
 		
 		addComponentListener(new ComponentAdapter() {

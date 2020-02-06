@@ -77,12 +77,12 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(editorPaneReview);
 	    
 	    JLabel lblRecensione = new JLabel("Recensione");
-	    lblRecensione.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblRecensione.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    lblRecensione.setBounds(440, 207, 106, 27);
 	    contentPane.add(lblRecensione);
 	    
 	    JLabel lblTitolo = new JLabel("Titolo");
-	    lblTitolo.setFont(new Font("Montserrat", Font.PLAIN, 18));
+	    lblTitolo.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    lblTitolo.setBounds(318, 105, 53, 19);
 	    contentPane.add(lblTitolo);
 	    

@@ -89,11 +89,11 @@ public class PostFrame extends JFrame {
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_light.png")));
+				lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_png_light.png")));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_.png")));
+				lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_png.png")));
 			}
 		});
 		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_png.png")));
@@ -208,7 +208,7 @@ public class PostFrame extends JFrame {
 	    JTextPane textPanePostName = new JTextPane();
 	    textPanePostName.setEditable(false);
 	    textPanePostName.setBackground(Color.WHITE);
-	    textPanePostName.setFont(new Font("Montserrat", Font.BOLD, 20));
+	    textPanePostName.setFont(new Font("Nirmala UI", Font.BOLD, 21));
 	    textPanePostName.setBounds(259, 58, 287, 46);
 	    midPanel.add(textPanePostName);
 	    

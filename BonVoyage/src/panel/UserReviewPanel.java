@@ -51,7 +51,7 @@ public class UserReviewPanel extends JPanel {
 	    btnSalva.setBorderPainted(false);
 		btnSalva.setVisible(false);
 
-		btnSalva.setBounds(734, 74, 156, 35);
+		btnSalva.setBounds(804, 110, 156, 35);
 		add(btnSalva);
 		
 		JButton btnElimina = new JButton("");
@@ -88,7 +88,7 @@ public class UserReviewPanel extends JPanel {
 				repaint();
 			}
 		});
-		btnElimina.setBounds(734, 119, 156, 35);
+		btnElimina.setBounds(804, 146, 156, 35);
 		add(btnElimina);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -98,7 +98,7 @@ public class UserReviewPanel extends JPanel {
 		
 		JTextPane textPaneReview = new JTextPane();
 		textPaneReview.setBackground(Color.WHITE);
-		textPaneReview.setFont(new Font("Montserrat", Font.PLAIN, 15));
+		textPaneReview.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 		textPaneReview.setEditable(false);
 		textPaneReview.setText(r.getText());
 		scrollPane.setViewportView(textPaneReview);
@@ -126,26 +126,26 @@ public class UserReviewPanel extends JPanel {
 				btnSalva.setVisible(true);
 			}
 		});
-		btnModifica.setBounds(734, 74, 156, 35);
+		btnModifica.setBounds(804, 74, 156, 35);
 		add(btnModifica);
 		
 		JTextPane textPaneTitle = new JTextPane();
 		textPaneTitle.setBackground(bg);
-		textPaneTitle.setFont(new Font("Montserrat", Font.BOLD, 16));
-		textPaneTitle.setBounds(20, 0, 214, 45);
+		textPaneTitle.setFont(new Font("Nirmala UI", Font.BOLD, 20));
+		textPaneTitle.setBounds(20, 5, 276, 30);
 		textPaneTitle.setText(r.getTitle());
 		add(textPaneTitle);
 		
-		JLabel lblStars = new JLabel("New label");
+		JLabel lblStars = new JLabel("");
 		lblStars.setBackground(bg);
-		lblStars.setBounds(780, 0, 180, 33);
+		lblStars.setBounds(780, 5, 180, 33);
 		control.toShowStars(lblStars, Float.parseFloat(Integer.valueOf(r.getRating()).toString()));
 		add(lblStars);
 		
 		JTextPane textPaneNomeStruttura = new JTextPane();
 		textPaneNomeStruttura.setBackground(bg);
-		textPaneNomeStruttura.setFont(new Font("Montserrat", Font.BOLD, 16));
-		textPaneNomeStruttura.setBounds(360, 0, 287, 45);
+		textPaneNomeStruttura.setFont(new Font("Nirmala UI", Font.BOLD, 20));
+		textPaneNomeStruttura.setBounds(317, 5, 382, 30);
 		textPaneNomeStruttura.setText(control.toFetchSinglePost(r.getIdpost()).getName());
 		add(textPaneNomeStruttura);
 		

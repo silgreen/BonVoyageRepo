@@ -85,7 +85,7 @@ public class ProfileFrame extends JFrame {
 		
 		JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
 	    lblemail.setFont(new Font("Nirmala UI", Font.PLAIN, 22));
-	    lblemail.setBounds(240, 145, 384, 35);
+	    lblemail.setBounds(248, 147, 384, 35);
 	    contentPane.add(lblemail);
 	    
 	    JLabel lblBiografia = new JLabel("Biografia");
@@ -97,7 +97,7 @@ public class ProfileFrame extends JFrame {
 	    textPaneBio.setBorder(new LineBorder(new Color(0, 0, 0)));
 	    textPaneBio.setBackground(Color.WHITE);
 	    textPaneBio.setEditable(false);
-	    textPaneBio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	    textPaneBio.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    textPaneBio.setBounds(272, 299, 441, 150);
 	    contentPane.add(textPaneBio);
 	    
@@ -170,10 +170,19 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(btnEliminaAccount);
 	        
 	    JLabel lblRecensioniScritte = new JLabel("Recensioni scritte:");
+	    lblRecensioniScritte.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblRecensioniScritte.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getUserReview(), control.getProfile());
+	    	}
+	    	@Override
+	    	public void mouseEntered(MouseEvent e) {
+	    		lblRecensioniScritte.setText("<HTML><U>Recensioni scritte:</U></HTML>");
+	    	}
+	    	@Override
+	    	public void mouseExited(MouseEvent e) {
+	    		lblRecensioniScritte.setText("Recensioni Scritte:");
 	    	}
 	    });
 	    lblRecensioniScritte.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
@@ -266,7 +275,7 @@ public class ProfileFrame extends JFrame {
 	    	}
 	    	@Override
 	    	public void mouseExited(MouseEvent e) {
-	    		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini.png")));
+	    		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini_png.png")));
 	    	}
 	    });
 	   
