@@ -98,11 +98,10 @@ public class UserDao extends User {
 				user.setEmail(result.getString(2));
 				user.setUsername(result.getString(3));
 				user.setNreviews(result.getString(5));
-				user.setRank(result.getString(6));
-				user.setBio(result.getString(7));
-				user.setDate(result.getString(8));
-				user.setRegion(result.getString(9));
-				user.setCity(result.getString(10));
+				user.setBio(result.getString(6));
+				user.setDate(result.getString(7));
+				user.setRegion(result.getString(8));
+				user.setCity(result.getString(9));
 			}
 			return user;
 			

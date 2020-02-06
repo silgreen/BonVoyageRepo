@@ -60,18 +60,8 @@ public class ProfileFrame extends JFrame {
 		
 		JLabel lblUsername = new JLabel("Gianluca Savonarola");
 		lblUsername.setFont(new Font("Nirmala UI", Font.BOLD, 28));
-		lblUsername.setBounds(240, 75, 384, 35);
+		lblUsername.setBounds(250, 75, 384, 35);
 		contentPane.add(lblUsername);
-		
-		JLabel lblLivello = new JLabel("Livello:");
-		lblLivello.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
-		lblLivello.setBounds(275, 190, 48, 28);
-		contentPane.add(lblLivello); 
-		
-		JLabel lblLevel = new JLabel("1");
-		lblLevel.setFont(new Font("Nirmala UI", Font.BOLD, 14));
-		lblLevel.setBounds(333, 198, 33, 14);
-		contentPane.add(lblLevel);
 		
 		JLabel lblDi = new JLabel("di");
 		lblDi.setFont(new Font("Nirmala UI", Font.PLAIN, 17));
@@ -85,7 +75,7 @@ public class ProfileFrame extends JFrame {
 		
 		JLabel lblemail = new JLabel("gianlucasavonarola@helle.com");
 	    lblemail.setFont(new Font("Nirmala UI", Font.PLAIN, 22));
-	    lblemail.setBounds(248, 147, 384, 35);
+	    lblemail.setBounds(250, 147, 384, 35);
 	    contentPane.add(lblemail);
 	    
 	    JLabel lblBiografia = new JLabel("Biografia");
@@ -186,12 +176,12 @@ public class ProfileFrame extends JFrame {
 	    	}
 	    });
 	    lblRecensioniScritte.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
-	    lblRecensioniScritte.setBounds(361, 190, 128, 28);
+	    lblRecensioniScritte.setBounds(250, 192, 128, 28);
 	    contentPane.add(lblRecensioniScritte);
 	    
 	    JLabel lblNreviews = new JLabel("1");
 	    lblNreviews.setFont(new Font("Nirmala UI", Font.BOLD, 14));
-	    lblNreviews.setBounds(495, 198, 48, 14);
+	    lblNreviews.setBounds(384, 200, 48, 14);
 	    contentPane.add(lblNreviews);
 	    
 	    JButton btnSaveChanges = new JButton("");
@@ -285,7 +275,6 @@ public class ProfileFrame extends JFrame {
 				lblUsername.setText(control.getUser().getUsername());
 				lblPosition.setText(control.getUser().getCity()+", "+control.getUser().getRegion());
 				lblemail.setText(control.getUser().getEmail());
-				lblLevel.setText(control.getUser().getRank());
 				lblNreviews.setText(control.getUser().getNreviews());
 				textPaneBio.setText(control.getUser().getBio());
 				
