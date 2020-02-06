@@ -9,7 +9,6 @@ public class User {
 	String username;
 	String password;
 	String nreviews;
-	String rank;
 	String bio;
 	String date;
 	String region;
@@ -54,12 +53,6 @@ public class User {
 	}
 	public void setNreviews(String nreviews) {
 		this.nreviews = nreviews;
-	}
-	public String getRank() {
-		return rank;
-	}
-	public void setRank(String rank) {
-		this.rank = rank;
 	}
 	public String getBio() {
 		return bio;
