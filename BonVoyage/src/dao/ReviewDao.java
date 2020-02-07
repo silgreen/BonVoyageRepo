@@ -28,7 +28,7 @@ public class ReviewDao extends Review {
 			pst.setString(1, newReview);
 			pst.setInt(2, idUser);
 			pst.setInt(3, idPost);
-			result = pst.executeQuery();
+			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -130,7 +130,7 @@ public class ReviewDao extends Review {
 			pst.setString(2, title);
 			pst.setString(3, review);
 			pst.setInt(4, rating);
-			result = pst.executeQuery();
+			pst.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
