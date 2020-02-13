@@ -85,28 +85,16 @@ public class Controller {
 	    POSDAO = new PositionDao(con);
 	    PDAO = new PostDao(con);
 	    REVDAO = new ReviewDao(con);
-		
+
 	    Search.setVisible(true);
 	    
 	}
 	
-//	public int toSetRank(int r) {
-//		int res = 1;
-//		
-//		if (r >= 10 && r < 20) {
-//			res = 2;
-//			return res;
-//		} else if (r >= 30 && r < 40) {
-//			res = 3;
-//			return res;
-//		} else if(r >= 40 && r < 50) {
-//			res = 4;
-//			return res;
-//		} else if(r == 50) {
-//			res = 5;
-//			return res;
-//		} return res;
-//	}
+	
+	public void updateUserDatas() {
+		user = UDAO.select_User_Informations_From_DB_By_Username(user.getUsername());
+		user.setLogged(true);
+	}
 	
 	public void toShowStars(JLabel l, float rating) {
 		if(rating == 0)

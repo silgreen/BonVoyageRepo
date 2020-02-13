@@ -14,6 +14,35 @@ public class UserDao extends User {
 		con = c;
 	}
 	
+	public User select_User_Informations_From_DB_By_Username(String username) {
+		ResultSet result;
+		User user;
+		String query = "select * from utente where username = ?";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, username);
+			result = pst.executeQuery();
+			
+			user = new User();
+			while(result.next()) {
+				user.setIduser(result.getString(1));
+				user.setEmail(result.getString(2));
+				user.setUsername(result.getString(3));
+				user.setNreviews(result.getString(5));
+				user.setBio(result.getString(6));
+				user.setDate(result.getString(7));
+				user.setRegion(result.getString(8));
+				user.setCity(result.getString(9));
+			}
+			return user;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public boolean ExistEmailInDB (String email){
 		ResultSet result;
 		String query = "select email from utente where email = ?";

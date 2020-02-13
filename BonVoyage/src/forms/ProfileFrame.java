@@ -277,6 +277,7 @@ public class ProfileFrame extends JFrame {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
+				control.updateUserDatas();
 				lblUsername.setText(control.getUser().getUsername());
 				lblPosition.setText(control.getUser().getCity()+", "+control.getUser().getRegion());
 				lblemail.setText(control.getUser().getEmail());
