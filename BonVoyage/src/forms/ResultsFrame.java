@@ -125,7 +125,7 @@ public class ResultsFrame extends JFrame {
 	    lblUser.setFont(new Font("Nirmala UI", Font.BOLD, 20));
 	    lblUser.setBounds(55, 26, 150, 20);
 	    panelFilter.add(lblUser);
-	    lblLogo.setBounds(895, -2, 70, 65);
+	    lblLogo.setBounds(895, 0, 70, 65);
 	    panelFilter.add(lblLogo);
 
 	    
@@ -188,7 +188,7 @@ public class ResultsFrame extends JFrame {
 	    
 	    JPanel panel = new JPanel();
 	    panel.setBackground(inner);
-	    panel.setBounds(0, 0, 976, 16);
+	    panel.setBounds(0, 0, 982, 16);
 	    panelFilter.add(panel);
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    panelFilter.add(lblCiao);

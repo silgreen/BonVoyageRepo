@@ -84,7 +84,7 @@ public class ResultPanel extends JPanel {
 		
 		JLabel lblTipoCate = new JLabel(p.getCategory() + "," + p.getSub_category());
 		lblTipoCate.setFont(new Font("Nirmala UI", Font.PLAIN, 17));
-		lblTipoCate.setBounds(181, 152, 211, 21);
+		lblTipoCate.setBounds(181, 152, 497, 21);
 		add(lblTipoCate);
 		
 		JTextPane textPaneInfo = new JTextPane();

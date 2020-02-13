@@ -87,7 +87,7 @@ public class UserReviewsFrame extends JFrame {
 		});
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.setIcon(new ImageIcon(UserReviewsFrame.class.getResource("/images/logo_mini_png.png")));
-		lblLogo.setBounds(910, 0, 65, 55);
+		lblLogo.setBounds(895, 0, 65, 55);
 		panelFilter.add(lblLogo);
 		
 		JButton btnIndietro = new JButton("");
@@ -143,7 +143,7 @@ public class UserReviewsFrame extends JFrame {
 				setVisible(true);
 			}
 		});
-		btnRefresh.setBounds(863, 7, 44, 41);
+		btnRefresh.setBounds(849, 8, 44, 41);
 		panelFilter.add(btnRefresh);
 		
 		JPanel innerPanel = new JPanel();

@@ -81,7 +81,7 @@ public class ProfileFrame extends JFrame {
 	    
 	    JLabel lblBiografia = new JLabel("Biografia");
 	    lblBiografia.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
-	    lblBiografia.setBounds(409, 254, 89, 35);
+	    lblBiografia.setBounds(272, 254, 89, 35);
 	    contentPane.add(lblBiografia);
 	    
 	    textPaneBio = new JTextPane();
