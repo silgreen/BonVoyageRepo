@@ -152,24 +152,23 @@ public class SearchFrame extends JFrame {
 	    btnCerca.setBorderPainted(false);
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-
 	    		try {
 		    		if(!textFieldSearch.getText().isEmpty()) {
 			    		if(rdbtnRistoranti.isSelected()) {
+								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
 								control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
-								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");	
 								control.setSearchDatas(textFieldSearch.getText(), "Ristorante");
 								control.setSearchType(1);
 			    		}
 			    		else if(rdbtnHotel.isSelected()) {
-			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 			    			control.setSearchDatas(textFieldSearch.getText(), "Struttura Ricettiva");
 			    			control.setSearchType(1);
 			    		}
 			    		else if(rdbtnAttivita.isSelected()) {
-			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
+			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
 			    			control.setSearchDatas(textFieldSearch.getText(), "Attrazione Turistica");
 			    			control.setSearchType(1);
 			    		}
@@ -179,8 +178,7 @@ public class SearchFrame extends JFrame {
 			    			control.setSearchDataCity(textFieldSearch.getText());
 			    			control.setSearchType(2);
 			    		}
-		    		}
-		    		else if(textFieldSearch.getText().isEmpty()) {
+		    		} else {
 			    		if(rdbtnAttivita.isSelected()) {
 			    			control.toShowResultsByCategory("Attrazione Turistica");
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
@@ -205,14 +203,9 @@ public class SearchFrame extends JFrame {
 			    			control.setSearchType(4);
 			    		}
 		    		}
-		    		
 	    		}catch(NoResultsException f) {
 		        	JOptionPane.showInternalMessageDialog(contentPane, "La ricerca non ha prodotto risultati", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 	    		}
-
-	    			
-	    		
-	    		
 	    	}
 	    });
 	    btnCerca.setFont(new Font("Tahoma", Font.PLAIN, 16));
