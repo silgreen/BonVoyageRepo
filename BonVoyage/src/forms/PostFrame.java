@@ -44,7 +44,6 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
-import java.awt.Toolkit;
 
 public class PostFrame extends JFrame {
 
@@ -73,7 +72,6 @@ public class PostFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public PostFrame(Controller ctrl) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PostFrame.class.getResource("/images/logo_mini_png.png")));
 		setResizable(false);
 		setTitle("BonVoyage!");
 
