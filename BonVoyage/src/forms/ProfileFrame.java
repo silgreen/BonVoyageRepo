@@ -45,6 +45,7 @@ public class ProfileFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ProfileFrame(Controller ctrl) {
+		setTitle("BonVoyage!");
 		setResizable(false);
 
 		Color bg = Color.decode("#4d92c2");
