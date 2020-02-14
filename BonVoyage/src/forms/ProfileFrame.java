@@ -276,7 +276,7 @@ public class ProfileFrame extends JFrame {
 	    
 	    JLabel lblDate = new JLabel("");
 	    lblDate.setFont(new Font("Nirmala UI", Font.BOLD, 16));
-	    lblDate.setBounds(557, 193, 89, 28);
+	    lblDate.setBounds(557, 193, 167, 28);
 	    contentPane.add(lblDate);
 	   
 		addComponentListener(new ComponentAdapter() {

@@ -82,6 +82,7 @@ public class SearchFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		textFieldSearch = new JTextField();
+		textFieldSearch.setInheritsPopupMenu(true);
 		textFieldSearch.setBorder(new MatteBorder(1, 1, 1, 1, (Color) UIManager.getColor("RadioButtonMenuItem.selectionBackground")));
 		textFieldSearch.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldSearch.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -159,6 +160,7 @@ public class SearchFrame extends JFrame {
 	    btnCerca.setBorderPainted(false);
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		firstToCapital(textFieldSearch);
 	    		try {
 		    		if(!textFieldSearch.getText().isEmpty()) {
 			    		if(rdbtnRistoranti.isSelected()) {
@@ -348,6 +350,15 @@ public class SearchFrame extends JFrame {
 				}
 			}
 		});		
+	}
+	
+	private void firstToCapital(JTextField textField) {	
+		Character low = textField.getText().charAt(0);
+		if(low.isLowerCase(low)) {
+		String contentField = textField.getText();
+		textField.setText(null);
+		textField.replaceSelection(contentField.replace(low, low.toUpperCase(low)));
+		}
 	}
 	
 	public JLabel getlblLogin() {
