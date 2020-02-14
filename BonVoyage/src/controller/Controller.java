@@ -137,16 +137,16 @@ public class Controller {
 	}
 
 
-	public int StoryFrame(JFrame p) {
+	public int StoryFrame(JFrame frame) {
 		int search = 1;
 		int results= 2;
 		int pnumber = 3;
 		
-		if (p.equals(Search)) {
+		if (frame.equals(Search)) {
 			return search;
-		} else if (p.equals(Results)) {
+		} else if (frame.equals(Results)) {
 			return results;
-		} else if (p.equals(Post)) {
+		} else if (frame.equals(Post)) {
 			return pnumber;
 		} 
 		return search;

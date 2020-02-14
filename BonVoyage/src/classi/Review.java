@@ -1,12 +1,12 @@
 package classi;
 
 public class Review {
-	String username;
-	String iduser;
-	String idpost;
-	String title;
-	String text;
-	int rating;
+	private String username;
+	private String iduser;
+	private String idpost;
+	private String title;
+	private  String text;
+	private int rating;
 	
 	
 	public String getIduser() {

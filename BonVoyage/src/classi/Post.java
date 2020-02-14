@@ -1,20 +1,19 @@
 package classi;
 
 public class Post {
-	String idpost;
-	String rating_avg;
-	String nreviews;
-	String info;
-	String name;
-	String tel;
-	String website;
-	String region;
-	String city;
-	String address;
-	String category;
-	String sub_category;
-	String stars;
-	String URLMedia;
+	private String idpost;
+	private String rating_avg;
+	private String nreviews;
+	private String info;
+	private String name;
+	private String tel;
+	private String region;
+	private String city;
+	private String address;
+	private String category;
+	private String sub_category;
+	private String stars;
+	private String URLMedia;
 	
 	
 	public String getIdpost() {
@@ -53,12 +52,7 @@ public class Post {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getWebsite() {
-		return website;
-	}
-	public void setWebsite(String website) {
-		this.website = website;
-	}
+	
 	public String getRegion() {
 		return region;
 	}

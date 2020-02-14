@@ -41,7 +41,6 @@ public class PostDao extends Post{
 				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
-				p.setWebsite(result.getString("sito_web"));
 				return p;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -79,7 +78,6 @@ public class PostDao extends Post{
 				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
-				p.setWebsite(result.getString("sito_web"));
 				
 				ap.add(p);
 			}
@@ -118,7 +116,6 @@ public class PostDao extends Post{
 				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
-				p.setWebsite(result.getString("sito_web"));
 				
 				ap.add(p);
 			}
@@ -158,7 +155,6 @@ public class PostDao extends Post{
 				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
-				p.setWebsite(result.getString("sito_web"));
 				
 				ap.add(p);
 			}
@@ -198,7 +194,6 @@ public class PostDao extends Post{
 				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
-				p.setWebsite(result.getString("sito_web"));
 				
 				ap.add(p);
 			}

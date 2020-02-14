@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 
 public class User {
-	String iduser;
-	String email;
-	String username;
-	String password;
-	String nreviews;
-	String bio;
-	String date;
-	String region;
-	String city;
-	boolean Logged;
+	private String iduser;
+	private String email;
+	private String username;
+	private String password;
+	private String nreviews;
+	private String bio;
+	private String date;
+	private String region;
+	private String city;
+	private boolean Logged;
 	ArrayList<Review> WritedReviews;
 
 	

@@ -8,6 +8,8 @@ import except.NoUserReviewException;
 import forms.SearchFrame;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import java.awt.Rectangle;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
@@ -25,7 +27,7 @@ import javax.swing.ImageIcon;
 
 public class UserReviewPanel extends JPanel {
 	Controller control;
-
+	
 	public UserReviewPanel(Controller ctrl, Review r) {
 		Color bg = Color.decode("#046490");
 		setBackground(Color.WHITE);
