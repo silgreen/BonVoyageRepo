@@ -24,6 +24,7 @@ import java.awt.Panel;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -58,6 +59,8 @@ public class ResultsFrame extends JFrame {
 	private JLabel lblUser;
 	private JLabel lblLogin;
 	private JLabel lblRegistrati;
+	private JLabel lblNewLabel;
+	private JLabel lblLoading;
 
 	/**
 	 * Create the frame.
@@ -198,6 +201,12 @@ public class ResultsFrame extends JFrame {
 	    panelFilter.add(panel);
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    panelFilter.add(lblCiao);
+	    
+	    lblLoading = new JLabel("");
+	    lblLoading.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/loading.png")));
+	    lblLoading.setBounds(294, 210, 394, 138);
+	    panelFilter.add(lblLoading);
+	    
 		
 		addComponentListener(new ComponentAdapter() {
 			@Override
@@ -215,6 +224,7 @@ public class ResultsFrame extends JFrame {
 					lblUser.setVisible(true);
 				}				
 				toShowPanels(panelFilter);
+				lblLoading.setVisible(false);
 
 			}
 		});

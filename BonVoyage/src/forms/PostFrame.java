@@ -117,7 +117,7 @@ public class PostFrame extends JFrame {
 			}
 		});
 		lblLogo.setIcon(new ImageIcon(PostFrame.class.getResource("/images/logo_mini_png.png")));
-		lblLogo.setBounds(900, -7, 70, 65);
+		lblLogo.setBounds(895, -7, 70, 65);
 		topPanel.add(lblLogo);
 	    
 	    JLabel lblCiao = new JLabel("Ciao,");
@@ -175,7 +175,7 @@ public class PostFrame extends JFrame {
 	    
 	    lblUser = new JLabel("");
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    lblUser.setBounds(53, 15, 209, 29);
+	    lblUser.setBounds(53, 18, 209, 27);
 	    topPanel.add(lblUser);
 	    lblUser.setVisible(false);
 	    lblUser.setBackground(bg);
@@ -395,6 +395,17 @@ public class PostFrame extends JFrame {
 	    		}catch (Exception e1) {
 	    			e1.printStackTrace();
 	    		}
+			}
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				for(int i = 0; i<reviewsPanels.size(); i++) {
+					if(!reviewsPanels.isEmpty()) {
+						panelFilter.remove(reviewsPanels.get(i));
+						panelFilter.setPreferredSize(new Dimension(0, 0));
+					}
+				}
+				control.emptyReviewsList();;	
+				reviewsPanels.clear();
 			}
 		});
 		
