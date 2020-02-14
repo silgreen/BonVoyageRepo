@@ -78,7 +78,6 @@ public class SearchFrame extends JFrame {
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255,255,255));
-		contentPane.setToolTipText("");
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
