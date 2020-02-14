@@ -51,7 +51,13 @@ public class ResultsFrame extends JFrame {
 	private JPanel contentPane;
 	private Controller control;
 	private ResultPanel res;
-	ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
+	private ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
+	private JScrollPane scrollPane;
+	private JPanel panelFilter;
+	private JLabel lblLogo;
+	private JLabel lblUser;
+	private JLabel lblLogin;
+	private JLabel lblRegistrati;
 
 	/**
 	 * Create the frame.
@@ -69,12 +75,12 @@ public class ResultsFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
-		JPanel panelFilter = new JPanel();
+		panelFilter = new JPanel();
 		panelFilter.setBackground(bg);
 
 		
@@ -82,7 +88,7 @@ public class ResultsFrame extends JFrame {
 		scrollPane.setViewportView(panelFilter);
 	    panelFilter.setLayout(null);
 	    
-	    JLabel lblLogo = new JLabel("");
+	    lblLogo = new JLabel("");
 	    lblLogo.setIcon(new ImageIcon(ResultsFrame.class.getResource("/images/logo_mini_png.png")));
 	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogo.addMouseListener(new MouseAdapter() {
@@ -103,7 +109,7 @@ public class ResultsFrame extends JFrame {
 	    	}
 	    });
 	    
-	    JLabel lblUser = new JLabel();
+	    lblUser = new JLabel();
 	    lblUser.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
@@ -134,7 +140,7 @@ public class ResultsFrame extends JFrame {
 	    lblCiao.setBounds(10, 26, 79, 20);
 	    
 	    
-	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin = new JLabel("Login");
 	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogin.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -158,7 +164,7 @@ public class ResultsFrame extends JFrame {
 	    lblLogin.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    panelFilter.add(lblLogin);
 	    
-	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati = new JLabel("Registrati");
 	    lblRegistrati.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {

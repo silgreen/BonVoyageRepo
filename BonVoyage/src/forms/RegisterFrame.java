@@ -71,7 +71,8 @@ public class RegisterFrame extends JFrame {
 	private JPasswordField passwordFieldRegister;
 	private JPasswordField passwordFieldConfirm;
 	private Controller control;
-
+	private JComboBox comboBox;
+	private JButton btnRegister;
 	/**
 	 * Create the frame.
 	 */
@@ -166,7 +167,7 @@ public class RegisterFrame extends JFrame {
 		
 		Icon Logo = new ImageIcon("/BonVoyage/Images/LogoBonvoyagesmall.png");
 	    
-	   JComboBox comboBox = new JComboBox();
+	   comboBox = new JComboBox();
 
 	   comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	   comboBox.addItem("Aosta");
@@ -201,7 +202,7 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(textFieldRegion);
 		textFieldRegion.setColumns(10);
 		
-	    JButton btnRegister = new JButton("");
+	    btnRegister = new JButton("");
 	    btnRegister.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
@@ -242,11 +243,11 @@ public class RegisterFrame extends JFrame {
 	    contentPane.add(panel);
 	    panel.setLayout(null);
 	    
-	    JLabel lblEnjoyYourLife = new JLabel("We Stay At Place");
-	    lblEnjoyYourLife.setFont(new Font("Montserrat", Font.ITALIC, 24));
-	    lblEnjoyYourLife.setHorizontalAlignment(SwingConstants.CENTER);
-	    lblEnjoyYourLife.setBounds(147, 333, 286, 44);
-	    panel.add(lblEnjoyYourLife);
+	    JLabel lblMotto = new JLabel("We Stay At Place");
+	    lblMotto.setFont(new Font("Montserrat", Font.ITALIC, 24));
+	    lblMotto.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblMotto.setBounds(147, 333, 286, 44);
+	    panel.add(lblMotto);
 	    JLabel lblLogo = new JLabel();
 	    lblLogo.setBounds(168, 76, 264, 234);
 	    panel.add(lblLogo);

@@ -57,6 +57,14 @@ public class SearchFrame extends JFrame {
 	private JLabel lblLogo;
 	private JPanel panel;
 	private JLabel lblRegistrati;
+	private JRadioButton rdbtnHotel;
+	private JRadioButton rdbtnRistoranti;
+	private JRadioButton rdbtnAttivita;
+	private JRadioButton rdbtnAll;
+	private JButton btnCerca;
+	private JLabel lblRegistrati_1;
+	private JLabel lblLogin;
+	private JLabel lblUser;
 
 	/**
 	 * Create the frame.
@@ -92,7 +100,7 @@ public class SearchFrame extends JFrame {
 		
 		ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
-	    JRadioButton rdbtnHotel = new JRadioButton("Hotel");
+	    rdbtnHotel = new JRadioButton("Hotel");
 	    rdbtnHotel.setFocusPainted(false);
 	    rdbtnHotel.setContentAreaFilled(false);
 	    rdbtnHotel.setBorder(null);
@@ -102,7 +110,7 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(rdbtnHotel);
 	    radioButtonGroup.add(rdbtnHotel);
 	    
-	    JRadioButton rdbtnRistoranti = new JRadioButton("Ristoranti");
+	    rdbtnRistoranti = new JRadioButton("Ristoranti");
 	    rdbtnRistoranti.setFocusPainted(false);
 	    rdbtnRistoranti.setBorder(null);
 	    rdbtnRistoranti.setContentAreaFilled(false);
@@ -112,7 +120,7 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(rdbtnRistoranti);
 	    radioButtonGroup.add(rdbtnRistoranti);
 	    
-	    JRadioButton rdbtnAttivita = new JRadioButton("Attivit\u00E0");
+	    rdbtnAttivita = new JRadioButton("Attivit\u00E0");
 	    rdbtnAttivita.setFocusPainted(false);
 	    rdbtnAttivita.setBorder(null);
 	    rdbtnAttivita.setContentAreaFilled(false);
@@ -122,7 +130,7 @@ public class SearchFrame extends JFrame {
 	    contentPane.add(rdbtnAttivita);
 	    radioButtonGroup.add(rdbtnAttivita);
 	    
-	    JRadioButton rdbtnAll = new JRadioButton("Tutto");
+	    rdbtnAll = new JRadioButton("Tutto");
 	    rdbtnAll.setSelected(true);
 	    rdbtnAll.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    rdbtnAll.setFocusPainted(false);
@@ -134,7 +142,7 @@ public class SearchFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnAll);
 	    rdbtnAll.setSelected(true);
 	    
-	    JButton btnCerca = new JButton("");
+	    btnCerca = new JButton("");
 	    btnCerca.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/button_il-tuo-testo-qui_2.png")));
 	    btnCerca.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnCerca.addMouseListener(new MouseAdapter() {
@@ -230,7 +238,7 @@ public class SearchFrame extends JFrame {
 	    topPanel.add(innerPanel);
 	    innerPanel.setLayout(null);
 	    
-	    JLabel lblRegistrati_1 = new JLabel("Registrati");
+	    lblRegistrati_1 = new JLabel("Registrati");
 	    lblRegistrati_1.setBounds(880, 20, 95, 27);
 	    topPanel.add(lblRegistrati_1);
 	    lblRegistrati_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -253,7 +261,7 @@ public class SearchFrame extends JFrame {
 	    lblRegistrati_1.setForeground(Color.BLACK);
 	    lblRegistrati_1.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
-	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin = new JLabel("Login");
 	    lblLogin.setBounds(820, 20, 58, 27);
 	    topPanel.add(lblLogin);
 	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -288,7 +296,7 @@ public class SearchFrame extends JFrame {
 	    lblCiao.setVisible(false);
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
-	    JLabel lblUser = new JLabel("");
+	    lblUser = new JLabel("");
 	    lblUser.setBounds(56, 20, 156, 22);
 	    topPanel.add(lblUser);
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

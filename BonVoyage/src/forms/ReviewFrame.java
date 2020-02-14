@@ -50,6 +50,19 @@ public class ReviewFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldTitolo;
 	private Controller control;
+	private JLabel lblRecensione;
+	private JLabel lblTitolo;
+	private JButton btnNewPubblicaReview;
+	private JRadioButton rdbtnStar1;
+	private JRadioButton rdbtnStar2;
+	private JRadioButton rdbtnStar3;
+	private JRadioButton rdbtnStar4;
+	private JRadioButton rdbtnStar5;
+	private JLabel lblGiudizio;
+	private JLabel lblLogo;
+	private JButton btnNewBack;
+	private JScrollPane scrollPane;
+	private JEditorPane editorPaneReview;
 	private int Rating = 1;
 
 	/**
@@ -76,17 +89,17 @@ public class ReviewFrame extends JFrame {
 	    contentPane.add(textFieldTitolo);
 	    textFieldTitolo.setColumns(10);
 	    
-	    JLabel lblRecensione = new JLabel("Recensione");
+	    lblRecensione = new JLabel("Recensione");
 	    lblRecensione.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    lblRecensione.setBounds(440, 207, 106, 27);
 	    contentPane.add(lblRecensione);
 	    
-	    JLabel lblTitolo = new JLabel("Titolo");
+	    lblTitolo = new JLabel("Titolo");
 	    lblTitolo.setFont(new Font("Nirmala UI", Font.PLAIN, 21));
 	    lblTitolo.setBounds(318, 105, 53, 19);
 	    contentPane.add(lblTitolo);
 	    
-	    JButton btnNewPubblicaReview = new JButton("");
+	    btnNewPubblicaReview = new JButton("");
 	    btnNewPubblicaReview.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnNewPubblicaReview.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -108,7 +121,7 @@ public class ReviewFrame extends JFrame {
 	    
 	    ButtonGroup radioButtonGroup = new ButtonGroup();
 	    
-	    JRadioButton rdbtnStar1 = new JRadioButton("");
+	    rdbtnStar1 = new JRadioButton("");
 	    rdbtnStar1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
@@ -117,7 +130,7 @@ public class ReviewFrame extends JFrame {
 	    rdbtnStar1.setBounds(469, 96, 38, 32);
 	    contentPane.add(rdbtnStar1);
 	    
-	    JRadioButton rdbtnStar2 = new JRadioButton("");
+	    rdbtnStar2 = new JRadioButton("");
 	    rdbtnStar2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
@@ -126,7 +139,7 @@ public class ReviewFrame extends JFrame {
 	    rdbtnStar2.setBounds(509, 96, 38, 32);
 	    contentPane.add(rdbtnStar2);
 	    
-	    JRadioButton rdbtnStar3 = new JRadioButton("");
+	    rdbtnStar3 = new JRadioButton("");
 	    rdbtnStar3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
@@ -135,7 +148,7 @@ public class ReviewFrame extends JFrame {
 	    rdbtnStar3.setBounds(549, 96, 38, 32);
 	    contentPane.add(rdbtnStar3);
 	    
-	    JRadioButton rdbtnStar4 = new JRadioButton("");
+	    rdbtnStar4 = new JRadioButton("");
 	    rdbtnStar4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
@@ -144,7 +157,7 @@ public class ReviewFrame extends JFrame {
 	    rdbtnStar4.setBounds(590, 96, 38, 32);
 	    contentPane.add(rdbtnStar4);
 	    
-	    JRadioButton rdbtnStar5 = new JRadioButton("");
+	    rdbtnStar5 = new JRadioButton("");
 	    rdbtnStar5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
@@ -159,14 +172,14 @@ public class ReviewFrame extends JFrame {
 	    radioButtonGroup.add(rdbtnStar4);
 	    radioButtonGroup.add(rdbtnStar5);
 	    
-	    JLabel lblGiudizio = new JLabel("");
+	    lblGiudizio = new JLabel("");
 	    lblGiudizio.setHorizontalAlignment(SwingConstants.CENTER);
 	    lblGiudizio.setFont(new Font("Montserrat", Font.PLAIN, 12));
 	    lblGiudizio.setAutoscrolls(true);
 	    lblGiudizio.setBounds(492, 71, 151, 29);
 	    contentPane.add(lblGiudizio);
 	    
-	    JLabel lblLogo = new JLabel("");
+	    lblLogo = new JLabel("");
 	    lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogo.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -194,7 +207,7 @@ public class ReviewFrame extends JFrame {
 	    innerPanel.setBackground(bginner);
 	    topPanel.add(innerPanel);
 	    
-	    JButton btnNewBack = new JButton("");
+	    btnNewBack = new JButton("");
 	    btnNewBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnNewBack.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -221,12 +234,12 @@ public class ReviewFrame extends JFrame {
 	    });
 	    btnNewBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	    
-	    JScrollPane scrollPane = new JScrollPane();
+	    scrollPane = new JScrollPane();
 	    scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 	    scrollPane.setBounds(243, 244, 500, 200);
 	    contentPane.add(scrollPane);
 	    
-	    JEditorPane editorPaneReview = new JEditorPane();
+	    editorPaneReview = new JEditorPane();
 	    scrollPane.setViewportView(editorPaneReview);
 	    editorPaneReview.setFont(new Font("Nirmala UI", Font.PLAIN, 15));
 	    editorPaneReview.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));

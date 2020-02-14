@@ -47,10 +47,23 @@ import java.awt.Cursor;
 
 public class PostFrame extends JFrame {
 
-	ArrayList<ReviewPanel> reviewsPanels = new ArrayList<ReviewPanel>();
+	private ArrayList<ReviewPanel> reviewsPanels = new ArrayList<ReviewPanel>();
 	private JPanel contentPane;
 	private Controller control;
 	private Post p;
+	private JLabel lblLogo;
+	private JLabel lblLogin;
+	private JLabel lblRegistrati;
+	private JLabel lblUser;
+	private JPanel midPanel;
+	private JLabel lblCategory;
+	private JLabel lblPosition;
+	private JTextPane textPanePostName;
+	private JLabel lblStars;
+	private JLabel lblnReviews;
+	private JTextPane textPaneDescription;
+	private JButton btnScriviRecensione;
+	private JLabel lblImmagine;
 
 
 	/**
@@ -85,7 +98,7 @@ public class PostFrame extends JFrame {
 		panelFilter.add(topPanel);
 		topPanel.setLayout(null);
 		
-		JLabel lblLogo = new JLabel("");
+		lblLogo = new JLabel("");
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
@@ -111,7 +124,7 @@ public class PostFrame extends JFrame {
 	    lblCiao.setVisible(false);
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
-	    JLabel lblLogin = new JLabel("Login");
+	    lblLogin = new JLabel("Login");
 	    lblLogin.setBounds(10, 20, 46, 27);
 	    topPanel.add(lblLogin);
 	    lblLogin.addMouseListener(new MouseAdapter() {
@@ -134,7 +147,7 @@ public class PostFrame extends JFrame {
 	    lblLogin.setForeground(Color.BLACK);
 	    lblLogin.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    
-	    JLabel lblRegistrati = new JLabel("Registrati");
+	    lblRegistrati = new JLabel("Registrati");
 	    lblRegistrati.setBounds(61, 22, 89, 23);
 	    topPanel.add(lblRegistrati);
 	    lblRegistrati.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -158,7 +171,7 @@ public class PostFrame extends JFrame {
 	    lblRegistrati.setForeground(Color.BLACK);
 	    lblRegistrati.setFont(new Font("Nirmala UI", Font.PLAIN, 18));
 	    
-	    JLabel lblUser = new JLabel("");
+	    lblUser = new JLabel("");
 	    lblUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblUser.setBounds(53, 15, 209, 29);
 	    topPanel.add(lblUser);
@@ -192,7 +205,7 @@ public class PostFrame extends JFrame {
 	    topPanel.add(bgInner);
 		
 	    
-	    JPanel midPanel = new JPanel();
+	    midPanel = new JPanel();
 	    midPanel.setBackground(Color.WHITE);
 	    midPanel.setBounds(0, 66, 987, 353);
 	    panelFilter.add(midPanel);
@@ -200,7 +213,7 @@ public class PostFrame extends JFrame {
 	    
 
 	    
-	    JLabel lblCategory = new JLabel();
+	    lblCategory = new JLabel();
 	    lblCategory.setFont(new Font("Nirmala UI", Font.PLAIN, 14));
 	    lblCategory.setBounds(22, 0, 200, 33);
 	    midPanel.add(lblCategory);
@@ -210,36 +223,36 @@ public class PostFrame extends JFrame {
 	    lblSiTrovaA.setBounds(248, 26, 77, 16);
 	    midPanel.add(lblSiTrovaA);
 	    
-	    JLabel lblPosition = new JLabel();
+	    lblPosition = new JLabel();
 	    lblPosition.setFont(new Font("Nirmala UI", Font.BOLD, 16));
 	    lblPosition.setBounds(324, 18, 180, 30);
 	    midPanel.add(lblPosition);
 	    
-	    JTextPane textPanePostName = new JTextPane();
+	    textPanePostName = new JTextPane();
 	    textPanePostName.setEditable(false);
 	    textPanePostName.setBackground(Color.WHITE);
 	    textPanePostName.setFont(new Font("Nirmala UI", Font.BOLD, 21));
 	    textPanePostName.setBounds(259, 58, 287, 46);
 	    midPanel.add(textPanePostName);
 	    
-	    JLabel lblStars = new JLabel();
+	    lblStars = new JLabel();
 	    lblStars.setFont(new Font("Tahoma", Font.BOLD, 27));
 	    lblStars.setBounds(685, 71, 200, 33);
 	    midPanel.add(lblStars);
 	    
-	    JLabel lblnReviews = new JLabel();
+	    lblnReviews = new JLabel();
 	    lblnReviews.setFont(new Font("Nirmala UI", Font.BOLD, 13));
 	    lblnReviews.setBounds(895, 58, 48, 46);
 	    midPanel.add(lblnReviews);
 	    
-	    JTextPane textPaneDescription = new JTextPane();
+	    textPaneDescription = new JTextPane();
 	    textPaneDescription.setBackground(Color.WHITE);
 	    textPaneDescription.setEditable(false);
 	    textPaneDescription.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
 	    textPaneDescription.setBounds(255, 104, 688, 181);
 	    midPanel.add(textPaneDescription);
 	    
-	    JButton btnScriviRecensione = new JButton("");
+	    btnScriviRecensione = new JButton("");
 	    btnScriviRecensione.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    btnScriviRecensione.setIcon(new ImageIcon(PostFrame.class.getResource("/images/button_pubblica-recensione.png")));
 	    btnScriviRecensione.addMouseListener(new MouseAdapter() {
@@ -297,7 +310,7 @@ public class PostFrame extends JFrame {
 	    
 	    scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 	    
-	    JLabel lblImmagine = new JLabel();
+	    lblImmagine = new JLabel();
 		lblImmagine.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblImmagine.setBounds(22, 26, 200, 200);	
 	    

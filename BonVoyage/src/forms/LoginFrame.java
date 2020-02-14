@@ -48,6 +48,7 @@ public class LoginFrame extends JFrame {
 	private JTextField textFieldUsername;
 	private JPasswordField textFieldPassword;
 	private Controller control;
+	private JLabel lblLogo;
 
 	/**
 	 * Create the frame.
@@ -123,7 +124,7 @@ public class LoginFrame extends JFrame {
 		btnLogin.setBounds(419, 486, 157, 34);
 		contentPane.add(btnLogin);
 		
-		JLabel lblLogo = new JLabel("");
+		lblLogo = new JLabel("");
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setBackground(Color.WHITE);
