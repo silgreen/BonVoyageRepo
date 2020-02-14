@@ -94,7 +94,7 @@ public class SearchFrame extends JFrame {
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setIcon(new ImageIcon(SearchFrame.class.getResource("/images/logo_login_frame.png")));
 		lblLogo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		lblLogo.setBounds(365, 61, 266, 222);
+		lblLogo.setBounds(364, 61, 266, 222);
 		contentPane.add(lblLogo);
 		
 		ButtonGroup radioButtonGroup = new ButtonGroup();

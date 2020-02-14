@@ -134,7 +134,7 @@ public class LoginFrame extends JFrame {
 				control.toOpenAndCloseFrame(control.getSearch(), control.getLogin());
 			}
 		});
-		lblLogo.setBounds(353, 61, 289, 220);
+		lblLogo.setBounds(364, 61, 266, 222);
 		contentPane.add(lblLogo);
 		
 	    JLabel lblNonSeiRegistrato = new JLabel("Non sei Registrato?");
