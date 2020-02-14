@@ -20,6 +20,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import controller.Controller;
 import except.EmptyFieldException;
@@ -244,6 +246,39 @@ public class ReviewFrame extends JFrame {
 	    editorPaneReview.setFont(new Font("Nirmala UI", Font.PLAIN, 15));
 	    editorPaneReview.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 
+	    DocumentListener docListener = new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				changed();
+				
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				changed();
+				
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				changed();
+				
+			}
+			
+			private void changed() {
+				if(textFieldTitolo.getText().length() <= 48) {
+					textFieldTitolo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+					btnNewPubblicaReview.setEnabled(true);
+				}
+				else {
+					textFieldTitolo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.RED));
+					btnNewPubblicaReview.setEnabled(false);
+				}
+			}
+		};
+		
+		textFieldTitolo.getDocument().addDocumentListener(docListener);
 	    
 	    rdbtnStar1.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {

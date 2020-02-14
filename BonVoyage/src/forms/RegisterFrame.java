@@ -60,6 +60,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.Box;
 import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
 
 public class RegisterFrame extends JFrame {
 	
@@ -141,6 +142,7 @@ public class RegisterFrame extends JFrame {
 		contentPane.add(lblPassword);
 		
 		passwordFieldRegister = new JPasswordField();
+		passwordFieldRegister.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		passwordFieldRegister.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		passwordFieldRegister.setBounds(656, 238, 264, 26);
 		contentPane.add(passwordFieldRegister);
@@ -222,16 +224,21 @@ public class RegisterFrame extends JFrame {
 	    	public void actionPerformed(ActionEvent e) {
 	    		try {
 					control.RegisterUser(textFieldEmail.getText(), textFieldUserName.getText(), passwordFieldRegister.getText(), passwordFieldConfirm.getText(), textFieldRegion.getText(), comboBox.getSelectedItem().toString());
+		    		JOptionPane.showInternalMessageDialog(contentPane, "Registrazione Effettuata!", "BonVoyage!",JOptionPane.INFORMATION_MESSAGE);
+		    		control.toOpenAndCloseFrame(control.getLogin(), control.getRegister());
+		    		textFieldEmail.setText("");
+		    		textFieldUserName.setText("");
+		    		passwordFieldRegister.setText("");
+		    		passwordFieldConfirm.setText("");
+		    		textFieldRegion.setText("");
+		    		comboBox.setSelectedItem(null);
 				} catch (PasswordDismatchException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "La Password non corrisponde!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (UserAlreadyExistException e2) {
 					JOptionPane.showInternalMessageDialog(contentPane, "Username non disponibile!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				} catch (EmailAlreadyExistException e3) {
-					JOptionPane.showInternalMessageDialog(contentPane, "Email Esistente!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showInternalMessageDialog(contentPane, "Email già esistente!", "BonVoyage!", JOptionPane.ERROR_MESSAGE);
 				}
-	    		
-	    		JOptionPane.showInternalMessageDialog(contentPane, "Registrazione Effettuata!", "BonVoyage!",JOptionPane.INFORMATION_MESSAGE);
-	    		control.toOpenAndCloseFrame(control.getLogin(), control.getRegister());
 	    	}
 	    });
 	    btnRegister.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -266,6 +273,20 @@ public class RegisterFrame extends JFrame {
 	    lblNewLabel.setBounds(0, 0, 600, 600);
 	    panel.add(lblNewLabel);
 	    
+	    JLabel lblVincoliTextFields = new JLabel("Tutti i campi sono obbligatori");
+	    lblVincoliTextFields.setVisible(false);
+	    lblVincoliTextFields.setForeground(Color.RED);
+	    lblVincoliTextFields.setFont(new Font("Nirmala UI", Font.PLAIN, 11));
+	    lblVincoliTextFields.setBounds(708, 11, 299, 14);
+	    contentPane.add(lblVincoliTextFields);
+	    
+	    JLabel lblVincoliPw = new JLabel("La password deve essere compresa tra 8 e 16 caratteri");
+	    lblVincoliPw.setVisible(false);
+	    lblVincoliPw.setForeground(Color.RED);
+	    lblVincoliPw.setFont(new Font("Nirmala UI", Font.PLAIN, 11));
+	    lblVincoliPw.setBounds(656, 36, 276, 14);
+	    contentPane.add(lblVincoliPw);
+	    
 	    DocumentListener doclistener = new DocumentListener() {
 			
 			@Override
@@ -286,14 +307,39 @@ public class RegisterFrame extends JFrame {
 				
 			}
 			
-			public void changed() {
-				if(passwordFieldRegister.getText().length() < 8 || passwordFieldRegister.getText().length() > 16)
+			private void changed() {
+				if(passwordFieldRegister.getText().length() < 8 || passwordFieldRegister.getText().length() > 16) {
 					btnRegister.setEnabled(false);
-							else btnRegister.setEnabled(true);
+					passwordFieldRegister.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.RED));
+					lblVincoliPw.setVisible(true);
+				}
+				else {
+					btnRegister.setEnabled(true);
+					passwordFieldRegister.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.BLUE));
+					lblVincoliPw.setVisible(false);
+				}
+				
+				if(passwordFieldRegister.getText().isEmpty()) {
+					passwordFieldRegister.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+					lblVincoliPw.setVisible(false);
+				}
+				
+				if(textFieldEmail.getText().isEmpty() || textFieldRegion.getText().isEmpty() || textFieldUserName.getText().isEmpty() || passwordFieldConfirm.getText().isEmpty()) {
+					lblVincoliTextFields.setVisible(true);
+					btnRegister.setEnabled(false);
+				}
+				else {
+					lblVincoliTextFields.setVisible(false);
+					btnRegister.setEnabled(true);
+				}
 			}
 		};
 		
 		passwordFieldRegister.getDocument().addDocumentListener(doclistener);
+		textFieldEmail.getDocument().addDocumentListener(doclistener);
+		textFieldRegion.getDocument().addDocumentListener(doclistener);
+		textFieldUserName.getDocument().addDocumentListener(doclistener);
+		passwordFieldConfirm.getDocument().addDocumentListener(doclistener);
 		
 		comboBox.addItemListener(new ItemListener() {
 			
@@ -301,18 +347,6 @@ public class RegisterFrame extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				textFieldRegion.setText(control.MatchRegion(comboBox.getSelectedItem().toString()));
 				
-			}
-		});
-		
-		addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentHidden(ComponentEvent e) {
-				comboBox.setSelectedIndex(-1);
-				textFieldRegion.setText(null);
-				textFieldEmail.setText(null);
-				textFieldUserName.setText(null);
-				passwordFieldRegister.setText(null);
-				passwordFieldConfirm.setText(null);
 			}
 		});
 	}

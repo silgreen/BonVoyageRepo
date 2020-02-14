@@ -114,7 +114,6 @@ public class LoginFrame extends JFrame {
 					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
 					if(control.getUser().isLogged()) {
 						control.toOpenAndCloseFrame(control.getSearch(),control.getLogin());
-						control.SetLoginAndRegisterLabelVisible(false, true);
 					}
 				} catch (LoginException e1) {
 					JOptionPane.showInternalMessageDialog(contentPane, "Nome utente o password errati", "BonVoyage!", JOptionPane.ERROR_MESSAGE);

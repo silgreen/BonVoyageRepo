@@ -44,6 +44,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
+import java.awt.Toolkit;
 
 public class PostFrame extends JFrame {
 
@@ -64,12 +65,15 @@ public class PostFrame extends JFrame {
 	private JTextPane textPaneDescription;
 	private JButton btnScriviRecensione;
 	private JLabel lblImmagine;
+	private JLabel lblNewLabel;
+	private JLabel lblNumber;
 
 
 	/**
 	 * Create the frame.
 	 */
 	public PostFrame(Controller ctrl) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PostFrame.class.getResource("/images/logo_mini_png.png")));
 		setResizable(false);
 		setTitle("BonVoyage!");
 
@@ -215,7 +219,7 @@ public class PostFrame extends JFrame {
 	    
 	    lblCategory = new JLabel();
 	    lblCategory.setFont(new Font("Nirmala UI", Font.PLAIN, 14));
-	    lblCategory.setBounds(22, 0, 200, 33);
+	    lblCategory.setBounds(22, 0, 216, 33);
 	    midPanel.add(lblCategory);
 	    
 	    JLabel lblSiTrovaA = new JLabel("Si trova a");
@@ -294,6 +298,16 @@ public class PostFrame extends JFrame {
 	    btnback.setOpaque(false);
 	    btnback.setContentAreaFilled(false);
 	    btnback.setBorderPainted(false);
+	    
+	    lblNewLabel = new JLabel("Telefono: ");
+	    lblNewLabel.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    lblNewLabel.setBounds(22, 227, 67, 14);
+	    midPanel.add(lblNewLabel);
+	    
+	    lblNumber = new JLabel("");
+	    lblNumber.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+	    lblNumber.setBounds(86, 227, 93, 14);
+	    midPanel.add(lblNumber);
 	    btnback.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.toOpenAndCloseFrame(control.getResults(), control.getPostFrame());
@@ -326,6 +340,7 @@ public class PostFrame extends JFrame {
 	    		lblPosition.setText(p.getCity() + ","+ p.getRegion());
 	    	    textPaneDescription.setText(p.getInfo());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
+	    	    lblNumber.setText(p.getTel());
 	    	    URL = control.getPost().getURLMedia();
 	    	    control.toShowStars(lblStars, Float.parseFloat(p.getRating_avg()));
 	    	    

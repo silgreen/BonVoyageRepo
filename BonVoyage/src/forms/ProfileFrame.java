@@ -152,7 +152,6 @@ public class ProfileFrame extends JFrame {
 	    		if (input == 0) {
 	    			control.toDeleteUser(control.getUser().getIduser());
 	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
-	    			control.SetLoginAndRegisterLabelVisible(true, false);
 	    			JOptionPane.showConfirmDialog(null, "L'Account e' stato eliminato con successo!", null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
 	    			
 	    		}
@@ -183,8 +182,8 @@ public class ProfileFrame extends JFrame {
 	    contentPane.add(lblRecensioniScritte);
 	    
 	    JLabel lblNreviews = new JLabel("1");
-	    lblNreviews.setFont(new Font("Nirmala UI", Font.BOLD, 14));
-	    lblNreviews.setBounds(384, 200, 48, 14);
+	    lblNreviews.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+	    lblNreviews.setBounds(380, 193, 48, 28);
 	    contentPane.add(lblNreviews);
 	    
 	    JButton btnSaveChanges = new JButton("");
@@ -273,6 +272,11 @@ public class ProfileFrame extends JFrame {
 	    		lblLogo.setIcon(new ImageIcon(ProfileFrame.class.getResource("/images/logo_mini_png.png")));
 	    	}
 	    });
+	    
+	    JLabel lblDate = new JLabel("");
+	    lblDate.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+	    lblDate.setBounds(557, 193, 89, 28);
+	    contentPane.add(lblDate);
 	   
 		addComponentListener(new ComponentAdapter() {
 			@Override
@@ -282,6 +286,7 @@ public class ProfileFrame extends JFrame {
 				lblPosition.setText(control.getUser().getCity()+", "+control.getUser().getRegion());
 				lblemail.setText(control.getUser().getEmail());
 				lblNreviews.setText(control.getUser().getNreviews());
+				lblDate.setText(control.getUser().getDate());
 				textPaneBio.setText(control.getUser().getBio());
 				
 			}
@@ -290,6 +295,12 @@ public class ProfileFrame extends JFrame {
 	    btnModifyBio.setOpaque(false);
 	    btnModifyBio.setContentAreaFilled(false);
 	    btnModifyBio.setBorderPainted(false);
+	    
+	    JLabel lblRegistratoDal = new JLabel("Registrato dal:");
+	    lblRegistratoDal.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    lblRegistratoDal.setBounds(453, 192, 128, 28);
+	    contentPane.add(lblRegistratoDal);
+	    
 	    btnModifyBio.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		btnModifyBio.setVisible(false);

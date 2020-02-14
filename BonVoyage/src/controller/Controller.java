@@ -247,10 +247,16 @@ public class Controller {
 	
 	public void RegisterUser(String email,String username,String password, String confirmpassword, String region, String city) throws PasswordDismatchException,EmailAlreadyExistException,UserAlreadyExistException {
 		
-		if(password.equals(confirmpassword))
+		if(!password.equals(confirmpassword))
+			throw new PasswordDismatchException();
+		else if(UDAO.ExistUserInDB(username))
+			throw new UserAlreadyExistException();
+		else if(UDAO.ExistEmailInDB(email))
+			throw new EmailAlreadyExistException();
+		else
 			UDAO.insertUserInDb(email, username, password, region, city);
 		
-		else throw new PasswordDismatchException();
+
 	}
 	
 	public void toOpenAndCloseFrame(JFrame open, JFrame close) {
@@ -340,13 +346,4 @@ public class Controller {
 	public void setSearchType(int searchType) {
 		SearchType = searchType;
 	}
-
-	public void SetLoginAndRegisterLabelVisible(boolean loginAndRegister, boolean User) {
-    	Search.getContentPane().getComponent(11).setVisible(loginAndRegister);
-    	Search.getContentPane().getComponent(12).setVisible(loginAndRegister);
-    	Search.getContentPane().getComponent(13).setVisible(loginAndRegister);
-    	Search.getContentPane().getComponent(14).setVisible(User);
-    	Search.getContentPane().getComponent(15).setVisible(User);
-
-    }
 }

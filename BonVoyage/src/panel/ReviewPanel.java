@@ -14,6 +14,8 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ReviewPanel extends JPanel {
 	Controller control;
@@ -42,12 +44,20 @@ public class ReviewPanel extends JPanel {
 		panel.add(scrollPane);
 		
 		JTextPane textPaneReview = new JTextPane();
+		textPaneReview.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				revalidate();
+				repaint();
+			}
+		});
 		textPaneReview.setFont(new Font("Nirmala UI", Font.PLAIN, 15));
 		textPaneReview.setText(r.getText());
 		textPaneReview.setEditable(false);
 		scrollPane.setViewportView(textPaneReview);
 		
 		JTextPane textPaneTitle = new JTextPane();
+		textPaneTitle.setEditable(false);
 		textPaneTitle.setText(r.getTitle());
 		textPaneTitle.setFont(new Font("Nirmala UI", Font.BOLD, 18));
 		textPaneTitle.setBackground(bg);

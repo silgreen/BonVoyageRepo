@@ -350,4 +350,8 @@ public class SearchFrame extends JFrame {
 			}
 		});		
 	}
+	
+	public JLabel getlblLogin() {
+		return lblLogin;
+	}
 }

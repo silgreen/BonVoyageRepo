@@ -52,15 +52,16 @@ public class UserDao extends User {
 			pst.setString(1, email);
 			result = pst.executeQuery();
 			
-			if(result.equals(email)) {
-				return true;
+			while(result.next()) {
+				if(result.getString(1).equals(email)) 
+					return true;
 			}
-		} catch (SQLException e) {
-		}
+		} catch (SQLException e) {}
 		return false;
 	}
 	
 	public boolean ExistUserInDB (String username){
+		String res = null;
 		ResultSet result;
 		String query = "select username from utente where username = ?";
 		
@@ -69,10 +70,12 @@ public class UserDao extends User {
 			pst.setString(1, username);
 			result = pst.executeQuery();
 			
-			if(result.equals(username))
-				return true;
-			
+			while(result.next()) {
+				if(result.getString(1).equals(username)) 
+					return true;
+			}
 		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -103,7 +106,7 @@ public class UserDao extends User {
 			pst.setString(4,region);
 			pst.setString(5,city);
 			
-			result = pst.executeQuery();
+			pst.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
