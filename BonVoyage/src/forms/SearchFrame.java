@@ -160,9 +160,9 @@ public class SearchFrame extends JFrame {
 	    btnCerca.setBorderPainted(false);
 	    btnCerca.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		firstToCapital(textFieldSearch);
 	    		try {
 		    		if(!textFieldSearch.getText().isEmpty()) {
+			    		firstToCapital(textFieldSearch);
 			    		if(rdbtnRistoranti.isSelected()) {
 								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
 								control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
