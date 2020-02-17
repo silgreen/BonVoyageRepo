@@ -64,8 +64,9 @@ public class PostFrame extends JFrame {
 	private JTextPane textPaneDescription;
 	private JButton btnScriviRecensione;
 	private JLabel lblImmagine;
-	private JLabel lblNewLabel;
+	private JLabel lblTelefono;
 	private JLabel lblNumber;
+	private JLabel lblAddress;
 
 
 	/**
@@ -298,15 +299,25 @@ public class PostFrame extends JFrame {
 	    btnback.setContentAreaFilled(false);
 	    btnback.setBorderPainted(false);
 	    
-	    lblNewLabel = new JLabel("Telefono: ");
-	    lblNewLabel.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
-	    lblNewLabel.setBounds(22, 227, 67, 14);
-	    midPanel.add(lblNewLabel);
+	    lblTelefono = new JLabel("Telefono: ");
+	    lblTelefono.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    lblTelefono.setBounds(22, 227, 77, 14);
+	    midPanel.add(lblTelefono);
 	    
 	    lblNumber = new JLabel("");
 	    lblNumber.setFont(new Font("Nirmala UI", Font.BOLD, 16));
-	    lblNumber.setBounds(86, 227, 93, 14);
+	    lblNumber.setBounds(88, 227, 111, 14);
 	    midPanel.add(lblNumber);
+	    
+	    JLabel lblNewLabel = new JLabel("Indirizzo:");
+	    lblNewLabel.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    lblNewLabel.setBounds(22, 245, 77, 14);
+	    midPanel.add(lblNewLabel);
+	    
+	    lblAddress = new JLabel("");
+	    lblAddress.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
+	    lblAddress.setBounds(88, 245, 264, 14);
+	    midPanel.add(lblAddress);
 	    btnback.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		control.toOpenAndCloseFrame(control.getResults(), control.getPostFrame());
@@ -340,6 +351,7 @@ public class PostFrame extends JFrame {
 	    	    textPaneDescription.setText(p.getInfo());
 	    	    lblCategory.setText(p.getCategory() + "," + p.getSub_category());
 	    	    lblNumber.setText(p.getTel());
+	    	    lblAddress.setText(p.getAddress());
 	    	    URL = control.getPost().getURLMedia();
 	    	    control.toShowStars(lblStars, Float.parseFloat(p.getRating_avg()));
 	    	    
