@@ -127,6 +127,7 @@ public class PostFrame extends JFrame {
 	    lblCiao.setFont(new Font("Nirmala UI", Font.PLAIN, 20));
 	    
 	    lblLogin = new JLabel("Login");
+	    lblLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    lblLogin.setBounds(10, 20, 46, 27);
 	    topPanel.add(lblLogin);
 	    lblLogin.addMouseListener(new MouseAdapter() {
