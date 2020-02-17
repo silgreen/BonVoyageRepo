@@ -81,21 +81,19 @@ public class UserDao extends User {
 	}
 	
 	public void toDeleteUserFromDb(String userid) {
-		ResultSet result;
 		String query = "delete from utente where idutente = ?";
 		int i = Integer.parseInt(userid);
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1,i);
-			result = pst.executeQuery();
+			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void insertUserInDb(String email, String username, String password, String region, String city) {
-		ResultSet result;
 		String query = "insert into utente(email,username,password,regione,citta) values(?,?,?,?,?)";
 		
 		try {
@@ -144,7 +142,6 @@ public class UserDao extends User {
 	}
 	
 	public void modify_Bio_From_DB (String biografia, String username) {
-		ResultSet result;
 		String newBio;
 		String query = "update utente set biografia = ? where username = ?";
 		
@@ -153,7 +150,7 @@ public class UserDao extends User {
 			pst.setString(1, biografia);
 			pst.setString(2, username);
 			
-			result = pst.executeQuery();
+			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
