@@ -316,7 +316,7 @@ public class PostFrame extends JFrame {
 	    
 	    lblAddress = new JLabel("");
 	    lblAddress.setFont(new Font("Nirmala UI", Font.PLAIN, 16));
-	    lblAddress.setBounds(88, 245, 264, 14);
+	    lblAddress.setBounds(88, 241, 264, 23);
 	    midPanel.add(lblAddress);
 	    btnback.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
