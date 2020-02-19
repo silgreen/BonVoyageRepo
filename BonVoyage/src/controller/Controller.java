@@ -220,6 +220,7 @@ public class Controller {
 	}
 	
 	public void toDeleteUser(String iduser) {
+		user.setLogged(false);
 		UDAO.toDeleteUserFromDb(iduser);
 	}
 

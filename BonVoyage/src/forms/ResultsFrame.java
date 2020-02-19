@@ -222,6 +222,12 @@ public class ResultsFrame extends JFrame {
 					lblCiao.setVisible(true);
 					lblUser.setText(control.getUser().getUsername());
 					lblUser.setVisible(true);
+				} else {
+					lblRegistrati.setVisible(true);
+					lblLogin.setVisible(true);
+					lblSeparatore.setVisible(true);
+					lblCiao.setVisible(false);
+					lblUser.setVisible(false);
 				}				
 				toShowPanels(panelFilter);
 				lblLoading.setVisible(false);
