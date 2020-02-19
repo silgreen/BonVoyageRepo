@@ -148,7 +148,7 @@ public class UserReviewsFrame extends JFrame {
 	private void toShowPanels(JPanel panelFilter) {
 		UserReviewsPanels.clear();
 		try {
-			control.toShowUserReview(control.getUser().getIduser());
+			control.toShowUserReviews(control.getUser().getIduser());
 		} catch (NoUserReviewException e1) {
 			JOptionPane.showInternalMessageDialog(contentPane, "Non hai recensioni attive!", "BonVoyage!", JOptionPane.INFORMATION_MESSAGE);
 		}
@@ -173,7 +173,7 @@ public class UserReviewsFrame extends JFrame {
 				panelFilter.setPreferredSize(new Dimension(0,60+(225*UserReviewsPanels.size())));
 			}
 		}
-		control.emptyReview();
+		control.emptyUserReviews();
 		revalidate();
 		repaint();
 	}
@@ -185,7 +185,7 @@ public class UserReviewsFrame extends JFrame {
 					panelFilter.setPreferredSize(new Dimension(0,0));
 			}
 		}
-		control.emptyReview();
+		control.emptyUserReviews();
 		UserReviewsPanels.clear();
 	}
 }

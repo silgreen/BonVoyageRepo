@@ -244,11 +244,11 @@ public class ProfileFrame extends JFrame {
 	    panel.add(btnIndietro);
 	    btnIndietro.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		if(control.getStory() == 1)
+	    		if(control.getPreviousOpenedFrame() == 1)
 	    			control.toOpenAndCloseFrame(control.getSearch(), control.getProfile());
-	    		if(control.getStory() == 2)
+	    		if(control.getPreviousOpenedFrame() == 2)
 	    			control.toOpenAndCloseFrame(control.getResults(), control.getProfile());
-	    		if(control.getStory() == 3)
+	    		if(control.getPreviousOpenedFrame() == 3)
 	    			control.toOpenAndCloseFrame(control.getPostFrame(), control.getProfile());
 	    		
 	    	}

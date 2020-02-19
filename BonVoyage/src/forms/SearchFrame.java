@@ -164,21 +164,21 @@ public class SearchFrame extends JFrame {
 		    		if(!textFieldSearch.getText().isEmpty()) {
 			    		firstToCapital(textFieldSearch);
 			    		if(rdbtnRistoranti.isSelected()) {
-								control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
-								control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
-								control.setSearchDatas(textFieldSearch.getText(), "Ristorante");
-								control.setSearchType(1);
+							control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Ristorante");
+							control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
+							control.setSearchParameters(textFieldSearch.getText(), "Ristorante");
+							control.setSearchType(1);
 			    		}
 			    		else if(rdbtnHotel.isSelected()) {
 			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Struttura Ricettiva");
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
-			    			control.setSearchDatas(textFieldSearch.getText(), "Struttura Ricettiva");
+			    			control.setSearchParameters(textFieldSearch.getText(), "Struttura Ricettiva");
 			    			control.setSearchType(1);
 			    		}
 			    		else if(rdbtnAttivita.isSelected()) {
 			    			control.toShowResultsByPositionAndCategory(textFieldSearch.getText(), "Attrazione Turistica");
 			    			control.toOpenAndCloseFrame(control.getResults(), control.getSearch());
-			    			control.setSearchDatas(textFieldSearch.getText(), "Attrazione Turistica");
+			    			control.setSearchParameters(textFieldSearch.getText(), "Attrazione Turistica");
 			    			control.setSearchType(1);
 			    		}
 			    		else if(rdbtnAll.isSelected()) {
@@ -305,7 +305,7 @@ public class SearchFrame extends JFrame {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getSearch());
-	    		control.setStory(control.StoryFrame(control.getSearch()));
+	    		control.setPreviousOpenedFrame(control.StoryFrame(control.getSearch()));
 	    		
 	    	}
 	    	@Override

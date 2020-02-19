@@ -79,7 +79,7 @@ public class UserReviewPanel extends JPanel {
 					control.toDeleteReview(r.getIdpost(),r.getIduser());
 					control.getUser().getWritedReviews().clear();
 					try {
-						control.toShowUserReview(r.getIduser());
+						control.toShowUserReviews(r.getIduser());
 					} catch (NoUserReviewException e1) {
 						e1.printStackTrace();
 					}

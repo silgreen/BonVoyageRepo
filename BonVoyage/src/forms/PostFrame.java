@@ -185,7 +185,7 @@ public class PostFrame extends JFrame {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		control.toOpenAndCloseFrame(control.getProfile(), control.getPostFrame());
-	    		control.setStory(control.StoryFrame(control.getPostFrame()));
+	    		control.setPreviousOpenedFrame(control.StoryFrame(control.getPostFrame()));
 	    	}
 	    	@Override
 	    	public void mouseEntered(MouseEvent e) {
@@ -366,7 +366,7 @@ public class PostFrame extends JFrame {
 					lblUser.setVisible(true);
 				}
 	    	    
-	    	    control.toShowReview(control.getPost().getIdpost());
+	    	    control.toFetchReviews(control.getPost().getIdpost());
 	    	    reviewsPanels.clear();
 	    	    ArrayList<Review> ar = control.getReviewList();
 	    	    

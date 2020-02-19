@@ -111,7 +111,7 @@ public class LoginFrame extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					control.Login_User(textFieldUsername.getText(), textFieldPassword.getText());
+					control.LoginUser(textFieldUsername.getText(), textFieldPassword.getText());
 					if(control.getUser().isLogged()) {
 						control.toOpenAndCloseFrame(control.getSearch(),control.getLogin());
 					}

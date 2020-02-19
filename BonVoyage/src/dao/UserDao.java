@@ -14,7 +14,7 @@ public class UserDao extends User {
 		con = c;
 	}
 	
-	public User select_User_Informations_From_DB_By_Username(String username) {
+	public User selectUserInformationsFromDBByUsername(String username) {
 		ResultSet result;
 		User user;
 		String query = "select * from utente where username = ?";
@@ -43,7 +43,7 @@ public class UserDao extends User {
 		}
 	}
 	
-	public boolean ExistEmailInDB (String email){
+	public boolean AlreadyExistEmailInDB (String email){
 		ResultSet result;
 		String query = "select email from utente where email = ?";
 		
@@ -60,7 +60,7 @@ public class UserDao extends User {
 		return false;
 	}
 	
-	public boolean ExistUserInDB (String username){
+	public boolean AlreadyExistUserInDB (String username){
 		String res = null;
 		ResultSet result;
 		String query = "select username from utente where username = ?";
@@ -111,7 +111,7 @@ public class UserDao extends User {
 		}
 	}
 	
-	public User select_User_Informations_From_DB(String username, String password) {
+	public User selectUserInformationsFromDB(String username, String password) {
 		ResultSet result;
 		User user;
 		String query = "select * from utente where username = ? and password = ?";
@@ -141,7 +141,7 @@ public class UserDao extends User {
 		}
 	}
 	
-	public void modify_Bio_From_DB (String biografia, String username) {
+	public void modifyBioFromDB (String biografia, String username) {
 		String newBio;
 		String query = "update utente set biografia = ? where username = ?";
 		

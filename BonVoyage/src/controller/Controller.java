@@ -36,7 +36,7 @@ import panel.ResultPanel;
 import classi.Post;
 public class Controller {
 
-	int story;
+	int PreviousOpenedFrame;
 	UserReviewsFrame UserReview;
 	SearchFrame Search;
 	LoginFrame Login;
@@ -49,11 +49,11 @@ public class Controller {
 	PostDao PDAO;
 	PositionDao POSDAO;
 	ReviewDao REVDAO;
-	ArrayList<Post> ap;
-	ArrayList<Review> ar;
+	ArrayList<Post> ResultsList;
+	ArrayList<Review> ReviewList;
 	User user = new User();
 	Post post = new Post();
-	String[] SearchDatas = new String[2];
+	String[] SearchParameters = new String[2];
 	int SearchType;
 	
 	public static void main(String[] args) {
@@ -92,7 +92,7 @@ public class Controller {
 	
 	
 	public void updateUserDatas() {
-		user = UDAO.select_User_Informations_From_DB_By_Username(user.getUsername());
+		user = UDAO.selectUserInformationsFromDBByUsername(user.getUsername());
 		user.setLogged(true);
 	}
 	
@@ -132,8 +132,8 @@ public class Controller {
 		REVDAO.toDeleteReviewFromDb(idpost, iduser);
 	}
 	
-	public  void toShowReview(String idpost) {
-		ar = REVDAO.toFetchReviewsFromDb(idpost);
+	public  void toFetchReviews(String idpost) {
+		ReviewList = REVDAO.toFetchReviewsFromDb(idpost);
 	}
 
 
@@ -153,14 +153,14 @@ public class Controller {
 	}
 	
 	public boolean controlIfExistsReviewInPostWithLoggedIduser() {
-	    for(int i=0; i<ar.size(); i++) {
-	    	if(ar.get(i).getIduser().equals(user.getIduser()))
+	    for(int i=0; i<ReviewList.size(); i++) {
+	    	if(ReviewList.get(i).getIduser().equals(user.getIduser()))
 	    		return true;
 	    }
 		return false;
 	}
 	
-	public void toShowUserReview(String iduser) throws NoUserReviewException{
+	public void toShowUserReviews(String iduser) throws NoUserReviewException{
 		user.setWritedReviews(REVDAO.toFetchReviewOfUserFromDb(iduser));
 		if(REVDAO.toFetchReviewOfUserFromDb(iduser).isEmpty())
 			throw new NoUserReviewException();
@@ -170,56 +170,52 @@ public class Controller {
 		REVDAO.InsertReviewIntoDb(iduser, idpost, title, review, rating);
 	}
 	
-	public void setPostsArrayList() throws NoResultsException {
+	public void setResultsList() throws NoResultsException {
 		if(SearchType == 1) 
-			toShowResultsByPositionAndCategory(SearchDatas[0], SearchDatas[1]);	
+			toShowResultsByPositionAndCategory(SearchParameters[0], SearchParameters[1]);	
 		else if(SearchType == 2)
-			toShowAllResultsByPosition(SearchDatas[0]);
+			toShowAllResultsByPosition(SearchParameters[0]);
 		else if(SearchType == 3)
-			toShowResultsByCategory(SearchDatas[0]);
+			toShowResultsByCategory(SearchParameters[0]);
 		else if(SearchType == 4)
 			toShowAllResults();
 	}
-	public void setSearchDatas(String city, String category) {
-		SearchDatas[0] = city;
-		SearchDatas[1] = category;
+	public void setSearchParameters(String city, String category) {
+		SearchParameters[0] = city;
+		SearchParameters[1] = category;
 	}
 	
 	public void setSearchDataCity(String city) {
-		SearchDatas[0] = city;
-		SearchDatas[1] = null;
+		SearchParameters[0] = city;
+		SearchParameters[1] = null;
 	}
 	
 	public void setSearchDataCategory(String category) {
-		SearchDatas[0] = category;
-		SearchDatas[1] = null;
-	}
-	
-	public String[] getSearchDatas() {
-		return SearchDatas;
+		SearchParameters[0] = category;
+		SearchParameters[1] = null;
 	}
 	
 	public void toShowResultsByCategory(String category) throws NoResultsException{
-		ap = PDAO.toFetchPostFromDbByCategory(category);
-		if(ap.isEmpty())
+		ResultsList = PDAO.toFetchPostFromDbByCategory(category);
+		if(ResultsList.isEmpty())
 			throw new NoResultsException();
 	}
 	
 	public void toShowAllResults() throws NoResultsException{
-		ap = PDAO.toFetchPostFromDb();
-		if(ap.isEmpty())
+		ResultsList = PDAO.toFetchPostFromDb();
+		if(ResultsList.isEmpty())
 			throw new NoResultsException();
 	}
 	
 	public void toShowResultsByPositionAndCategory(String city, String category) throws NoResultsException{
-		ap = PDAO.toFetchPostFromDb(city, category);
-		if(ap.isEmpty())
+		ResultsList = PDAO.toFetchPostFromDb(city, category);
+		if(ResultsList.isEmpty())
 			throw new NoResultsException();
 	}
 	
 	public void toShowAllResultsByPosition(String city) throws NoResultsException{
-		ap = PDAO.toFetchPostFromDb(city);
-		if(ap.isEmpty())
+		ResultsList = PDAO.toFetchPostFromDb(city);
+		if(ResultsList.isEmpty())
 			throw new NoResultsException();
 	}
 	
@@ -228,7 +224,7 @@ public class Controller {
 	}
 
 	public void ModifyBio (String biografia, String username) {
-		UDAO.modify_Bio_From_DB(biografia, username);
+		UDAO.modifyBioFromDB(biografia, username);
 	}
 	
 	public String MatchRegion(String city) {
@@ -236,11 +232,10 @@ public class Controller {
 		return s;
 	}
 	
-	public User Login_User(String username, String password) throws LoginException{
-			user = UDAO.select_User_Informations_From_DB(username, password);
+	public void LoginUser(String username, String password) throws LoginException{
+			user = UDAO.selectUserInformationsFromDB(username, password);
 			if(user.getIduser() != null) {
 				user.setLogged(true);
-				return user;
 			}
 			else throw new LoginException();
 	}
@@ -249,9 +244,9 @@ public class Controller {
 		
 		if(!password.equals(confirmpassword))
 			throw new PasswordDismatchException();
-		else if(UDAO.ExistUserInDB(username))
+		else if(UDAO.AlreadyExistUserInDB(username))
 			throw new UserAlreadyExistException();
-		else if(UDAO.ExistEmailInDB(email))
+		else if(UDAO.AlreadyExistEmailInDB(email))
 			throw new EmailAlreadyExistException();
 		else
 			UDAO.insertUserInDb(email, username, password, region, city);
@@ -297,45 +292,48 @@ public class Controller {
 		return user;
 	}
     
+	public String[] getSearchParameters() {
+		return SearchParameters;
+	}
 	
 	public UserReviewsFrame getUserReview() {
 		return UserReview;
 	}
 
 	public ArrayList<Review> getReviewList() {
-		return ar;
+		return ReviewList;
 	}
     
 	public void emptyReviewsList() {
-		ar.clear();
+		ReviewList.clear();
 	}
 	
-    public ArrayList<Post> getPostsArrayList() {
-    	return ap;
+    public ArrayList<Post> getResultsList() {
+    	return ResultsList;
     }
     
-    public ArrayList<Post> emptyPosts(){
-    	ap.clear();
-    	return ap;
+    public ArrayList<Post> emptyResultsList(){
+    	ResultsList.clear();
+    	return ResultsList;
     }
 
     public void LinkPost(Post p) {
     	post = p;
     }
     
-	public int getStory() {
-		return story;
+	public int getPreviousOpenedFrame() {
+		return PreviousOpenedFrame;
 	}
 
-	public void setStory(int story) {
-		this.story = story;
+	public void setPreviousOpenedFrame(int PreviousOpenedFrame) {
+		this.PreviousOpenedFrame = PreviousOpenedFrame;
 	}
     
     public Post getPost(){
     	return post;
     }
     
-    public void emptyReview(){
+    public void emptyUserReviews(){
     	user.getWritedReviews().clear();
     }
     
