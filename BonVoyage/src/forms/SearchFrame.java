@@ -356,8 +356,9 @@ public class SearchFrame extends JFrame {
 		Character low = textField.getText().charAt(0);
 		if(low.isLowerCase(low)) {
 		String contentField = textField.getText();
+		contentField = textField.getText().substring(0,1).toUpperCase() + textField.getText().substring(1);
 		textField.setText(null);
-		textField.replaceSelection(contentField.replace(low, low.toUpperCase(low)));
+		textField.replaceSelection(contentField);
 		}
 	}
 	

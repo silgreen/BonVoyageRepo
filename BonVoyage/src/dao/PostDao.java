@@ -49,17 +49,17 @@ public class PostDao extends Post{
 		
 	}
 	
-	public ArrayList<Post> toFetchPostFromDb(String city, String category){
+	public ArrayList<Post> toFetchPostFromDb(String find, String category){
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta=? or regione=? "
-						+ "and categoria =?";
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta like ? or "
+						+ "regione like ? and categoria =?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
-			pst.setString(1, city);
-			pst.setString(2,city);
+			pst.setString(1, "%"+find+"%");
+			pst.setString(2,"%"+find+"%");
 			pst.setString(3, category);
 			
 			result = pst.executeQuery();
@@ -129,16 +129,16 @@ public class PostDao extends Post{
 		
 	}
 	
-	public ArrayList<Post> toFetchPostFromDb(String city){
+	public ArrayList<Post> toFetchPostFromDb(String find){
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta=? or regione=?";
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta like ? or regione like ?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
-			pst.setString(1, city);
-			pst.setString(2, city);
+			pst.setString(1, "%"+find+"%");
+			pst.setString(2, "%"+find+"%");
 			
 			result = pst.executeQuery();
 			
