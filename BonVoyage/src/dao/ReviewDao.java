@@ -110,7 +110,7 @@ public class ReviewDao extends Review {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, Idpost);
 			pst.setInt(2, Iduser);
-			result = pst.executeQuery();
+			pst.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
