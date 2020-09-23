@@ -68,7 +68,7 @@ public class Controller {
 		try {
 			
 			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection("jdbc:postgresql://vps-zap476015-2.zap-srv.com:5432/postgres", "postgres","ciccio");
+			con = DriverManager.getConnection("jdbc:postgresql://185.223.29.134:5432/postgres", "postgres","ciccio");
 			
 			
 		} catch (SQLException | ClassNotFoundException e){e.printStackTrace();}

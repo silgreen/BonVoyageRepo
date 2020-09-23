@@ -53,14 +53,15 @@ public class PostDao extends Post{
 		ResultSet result;
 		Post p;
 		ArrayList<Post> ap = new ArrayList<Post>();
-		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta like ? or "
+		String query = "select * from post inner join struttura on post.strutturaid = struttura.idstruttura where citta like ? and categoria =? or "
 						+ "regione like ? and categoria =?";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, "%"+find+"%");
-			pst.setString(2,"%"+find+"%");
-			pst.setString(3, category);
+			pst.setString(2, category);
+			pst.setString(3,"%"+find+"%");
+			pst.setString(4, category);
 			
 			result = pst.executeQuery();
 			
