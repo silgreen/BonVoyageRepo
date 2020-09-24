@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import classi.Review;
 
 public class ReviewDao extends Review {
@@ -18,7 +17,6 @@ public class ReviewDao extends Review {
 	}
 	
 	public void updateReview(String newReview, String iduser, String idpost) {
-		ResultSet result;
 		int idUser = Integer.parseInt(iduser);
 		int idPost = Integer.parseInt(idpost);
 		String query = "update recensione set testo =? where idutente =? and idpost =?";
@@ -101,7 +99,7 @@ public class ReviewDao extends Review {
 	}
 	
 	public void toDeleteReviewFromDb(String idpost, String iduser) {
-		ResultSet result;
+		
 		String query = "delete from recensione where idpost = ? and idutente = ?";
 		int Iduser = Integer.parseInt(iduser);
 		int Idpost = Integer.parseInt(idpost);
@@ -118,7 +116,6 @@ public class ReviewDao extends Review {
 	}
 	
 	public void InsertReviewIntoDb(String iduser, String idpost, String title, String review, int rating) {
-		ResultSet result;
 		String query = "insert into recensione values (?, ? ,? ,? ,?)";
 		int Iduser = Integer.parseInt(iduser);
 		int Idpost = Integer.parseInt(idpost);

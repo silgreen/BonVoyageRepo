@@ -1,23 +1,15 @@
 package forms;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import classi.Review;
 import controller.Controller;
 import except.NoUserReviewException;
-import panel.ResultPanel;
 import panel.UserReviewPanel;
-
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.Cursor;
@@ -25,13 +17,11 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import javax.swing.SwingConstants;
 
 public class UserReviewsFrame extends JFrame {
 

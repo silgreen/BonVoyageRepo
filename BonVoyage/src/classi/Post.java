@@ -12,7 +12,6 @@ public class Post {
 	private String address;
 	private String category;
 	private String sub_category;
-	private String stars;
 	private String URLMedia;
 	
 	
@@ -82,12 +81,6 @@ public class Post {
 	}
 	public void setSub_category(String sub_category) {
 		this.sub_category = sub_category;
-	}
-	public String getStars() {
-		return stars;
-	}
-	public void setStars(String stars) {
-		this.stars = stars;
 	}
 	public String getURLMedia() {
 		return URLMedia;

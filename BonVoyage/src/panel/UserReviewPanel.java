@@ -1,22 +1,16 @@
 package panel;
 
 import javax.swing.JPanel;
-
 import classi.Review;
 import controller.Controller;
 import except.NoUserReviewException;
-import forms.SearchFrame;
-
 import javax.swing.JButton;
-import javax.swing.JFrame;
-
 import java.awt.Rectangle;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;

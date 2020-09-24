@@ -1,14 +1,7 @@
 package forms;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.EventQueue;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,23 +11,14 @@ import javax.swing.JTextField;
 import javax.swing.JEditorPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.border.SoftBevelBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
 import controller.Controller;
 import except.EmptyFieldException;
 import except.LongTitleException;
-
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -43,7 +27,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
@@ -66,10 +49,7 @@ public class ReviewFrame extends JFrame {
 	private JScrollPane scrollPane;
 	private JEditorPane editorPaneReview;
 	private int Rating = 1;
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public ReviewFrame(Controller ctrl) {
 		setResizable(false);
 

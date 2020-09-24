@@ -4,16 +4,12 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
-
 import classi.Review;
 import controller.Controller;
-
 import java.awt.Dimension;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JSeparator;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 

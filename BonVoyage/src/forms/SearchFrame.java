@@ -1,52 +1,27 @@
 package forms;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
+ import javax.swing.JFrame;
+ import javax.swing.JPanel;
 import controller.Controller;
 import except.NoResultsException;
-import except.NoUserReviewException;
-
 import javax.swing.JTextField;
-import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
 import javax.swing.UIManager;
 
 public class SearchFrame extends JFrame { 
@@ -55,8 +30,6 @@ public class SearchFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldSearch;
 	private JLabel lblLogo;
-	private JPanel panel;
-	private JLabel lblRegistrati;
 	private JRadioButton rdbtnHotel;
 	private JRadioButton rdbtnRistoranti;
 	private JRadioButton rdbtnAttivita;
@@ -66,9 +39,6 @@ public class SearchFrame extends JFrame {
 	private JLabel lblLogin;
 	private JLabel lblUser;
 
-	/**
-	 * Create the frame.
-	 */
 	public SearchFrame(Controller ctrl) {
 		setResizable(false);
 		Color bg = Color.decode("#4d92c2");

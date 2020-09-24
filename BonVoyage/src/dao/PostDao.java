@@ -1,11 +1,9 @@
 package dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import classi.Post;
 
 public class PostDao extends Post{
@@ -38,7 +36,6 @@ public class PostDao extends Post{
 				p.setNreviews(result.getString("nrecensioni"));
 				p.setRating_avg(result.getString("rating_avg"));
 				p.setRegion(result.getString("regione"));
-				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
 				return p;
@@ -77,7 +74,6 @@ public class PostDao extends Post{
 				p.setNreviews(result.getString("nrecensioni"));
 				p.setRating_avg(result.getString("rating_avg"));
 				p.setRegion(result.getString("regione"));
-				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
 				
@@ -115,7 +111,6 @@ public class PostDao extends Post{
 				p.setNreviews(result.getString("nrecensioni"));
 				p.setRating_avg(result.getString("rating_avg"));
 				p.setRegion(result.getString("regione"));
-				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
 				
@@ -155,7 +150,6 @@ public class PostDao extends Post{
 				p.setNreviews(result.getString("nrecensioni"));
 				p.setRating_avg(result.getString("rating_avg"));
 				p.setRegion(result.getString("regione"));
-				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
 				
@@ -194,7 +188,6 @@ public class PostDao extends Post{
 				p.setNreviews(result.getString("nrecensioni"));
 				p.setRating_avg(result.getString("rating_avg"));
 				p.setRegion(result.getString("regione"));
-				p.setStars(result.getString("stelle"));
 				p.setSub_category(result.getString("tipologia"));
 				p.setTel(result.getString("telefono"));
 				

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import classi.User;
 
 public class UserDao extends User {
@@ -61,7 +60,6 @@ public class UserDao extends User {
 	}
 	
 	public boolean AlreadyExistUserInDB (String username){
-		String res = null;
 		ResultSet result;
 		String query = "select username from utente where username = ?";
 		
@@ -142,7 +140,6 @@ public class UserDao extends User {
 	}
 	
 	public void modifyBioFromDB (String biografia, String username) {
-		String newBio;
 		String query = "update utente set biografia = ? where username = ?";
 		
 		try {

@@ -1,18 +1,18 @@
 package controller;
-
-import java.lang.reflect.Array;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import classi.Review;
-import classi.Position;
 import dao.PositionDao;
 import dao.PostDao;
 import dao.ReviewDao;
@@ -55,6 +55,9 @@ public class Controller {
 	Post post = new Post();
 	String[] SearchParameters = new String[2];
 	int SearchType;
+	String serverUser;
+	String serverPassword;
+	String serverHost;
 	
 	public static void main(String[] args) {
 		
@@ -64,11 +67,27 @@ public class Controller {
 	public Controller() {
 		
 		Connection con = null;
+		File config = new File("BonVoyage\\bin\\connection.config");
+
+
+		try {
+			FileReader reader = new FileReader(config);
+			Properties props = new Properties();
+			props.load(reader);
+			serverHost = props.getProperty("host");
+			serverUser = props.getProperty("user");
+			serverPassword = props.getProperty("password");
+			reader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 
 		try {
 			
 			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection("jdbc:postgresql://185.223.29.134:5432/postgres", "postgres","ciccio");
+			con = DriverManager.getConnection("jdbc:postgresql://"+serverHost+":5432/postgres", serverUser,serverPassword);
 			
 			
 		} catch (SQLException | ClassNotFoundException e){e.printStackTrace();}

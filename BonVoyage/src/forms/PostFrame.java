@@ -1,12 +1,9 @@
 package forms;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,31 +11,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Point;
-
-import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
-import java.awt.Scrollbar;
 import javax.swing.border.LineBorder;
-
 import classi.Post;
 import classi.Review;
 import controller.Controller;
-import panel.ResultPanel;
 import panel.ReviewPanel;
-
-import javax.swing.JSeparator;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;

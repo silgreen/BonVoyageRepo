@@ -55,7 +55,7 @@ ALTER TABLE struttura ADD CONSTRAINT struttura_luogo_regione_citta_fk FOREIGN KE
 
 ALTER TABLE recensione ADD CONSTRAINT idutente_fk FOREIGN KEY(idutente) REFERENCES utente(idutente) ON DELETE CASCADE;
 ALTER TABLE recensione ADD CONSTRAINT idpost_fk FOREIGN KEY(idpost) REFERENCES post(idpost) ON DELETE CASCADE;
-ALTER TABLE recensione ADD CONSTRAINT rating_utente CHECK ((rating_utente <= 1) AND (rating_utente <= 5));
+ALTER TABLE recensione ADD CONSTRAINT rating_utente CHECK ((rating_utente >= 1) AND (rating_utente <= 5));
 
 ALTER TABLE post ADD CONSTRAINT struttura_fk FOREIGN KEY(strutturaid) REFERENCES struttura(idstruttura) ON DELETE CASCADE;
 

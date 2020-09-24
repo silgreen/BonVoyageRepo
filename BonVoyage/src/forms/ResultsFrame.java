@@ -1,8 +1,5 @@
 package forms;
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,9 +7,6 @@ import javax.swing.JScrollPane;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
-
-import javax.swing.border.LineBorder;
-
 import classi.Post;
 import controller.Controller;
 import except.NoResultsException;
@@ -20,38 +14,18 @@ import panel.ResultPanel;
 
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Panel;
-import java.awt.Point;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-
-import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.SpringLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JProgressBar;
 
 public class ResultsFrame extends JFrame {
 
 	private JPanel contentPane;
 	private Controller control;
-	private ResultPanel res;
 	private ArrayList<ResultPanel> a1 = new ArrayList<ResultPanel>();
 	private JScrollPane scrollPane;
 	private JPanel panelFilter;
@@ -59,12 +33,8 @@ public class ResultsFrame extends JFrame {
 	private JLabel lblUser;
 	private JLabel lblLogin;
 	private JLabel lblRegistrati;
-	private JLabel lblNewLabel;
 	private JLabel lblLoading;
 
-	/**
-	 * Create the frame.
-	 */
 	public ResultsFrame(Controller ctrl) {
 		setResizable(false);
 
