@@ -67,7 +67,7 @@ public class Controller {
 	public Controller() {
 		
 		Connection con = null;
-		File config = new File("BonVoyage\\bin\\connection.config");
+		File config = new File("BonVoyage\\src\\connection.config");
 
 
 		try {
