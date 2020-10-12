@@ -58,7 +58,8 @@ public class Controller {
 	String serverUser;
 	String serverPassword;
 	String serverHost;
-	
+	String dbName;
+
 	public static void main(String[] args) {
 		
 		Controller control = new Controller();
@@ -77,6 +78,7 @@ public class Controller {
 			serverHost = props.getProperty("host");
 			serverUser = props.getProperty("user");
 			serverPassword = props.getProperty("password");
+			dbName = props.getProperty("dbName");
 			reader.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -87,7 +89,7 @@ public class Controller {
 		try {
 			
 			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection("jdbc:postgresql://"+serverHost+":5432/postgres", serverUser,serverPassword);
+			con = DriverManager.getConnection("jdbc:postgresql://"+serverHost+":5432/"+ dbName, serverUser,serverPassword);
 			
 			
 		} catch (SQLException | ClassNotFoundException e){e.printStackTrace();}
